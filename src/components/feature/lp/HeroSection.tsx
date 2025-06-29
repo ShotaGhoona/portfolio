@@ -261,8 +261,8 @@ export function HeroSection() {
               backgroundImage: "url('/profile.jpg')",
               filter: `grayscale(30%) brightness(${
                 document.documentElement.getAttribute('data-theme') === 'dark' 
-                  ? '0.3' 
-                  : '0.7'
+                  ? '0.4' 
+                  : '1.2'
               })`
             }}
           />
@@ -274,15 +274,15 @@ export function HeroSection() {
               background: document.documentElement.getAttribute('data-theme') === 'dark' 
                 ? `linear-gradient(
                     135deg, 
-                    rgba(var(--color-bg-primary-rgb), 0.85) 0%, 
-                    rgba(var(--color-bg-primary-rgb), 0.75) 50%,
-                    rgba(var(--color-bg-primary-rgb), 0.9) 100%
+                    rgba(0, 0, 0, 0.6) 0%, 
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(0, 0, 0, 0.7) 100%
                   )`
                 : `linear-gradient(
                     135deg, 
-                    rgba(255, 255, 255, 0.85) 0%, 
-                    rgba(255, 255, 255, 0.75) 50%,
-                    rgba(255, 255, 255, 0.9) 100%
+                    rgba(255, 255, 255, 0.6) 0%, 
+                    rgba(255, 255, 255, 0.5) 50%,
+                    rgba(255, 255, 255, 0.7) 100%
                   )`
             }}
           />
@@ -375,7 +375,7 @@ export function HeroSection() {
                         delay={3800}
                       />
                       <TypewriterText 
-                        text="'AI Business'"
+                        text="'AI Business Modeling'"
                         speed={60}
                         delay={4000}
                         style={{ color: 'var(--color-text-secondary)' }}
