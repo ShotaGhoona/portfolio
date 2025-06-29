@@ -259,7 +259,11 @@ export function HeroSection() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: "url('/profile.jpg')",
-              filter: 'grayscale(30%) brightness(0.3)'
+              filter: `grayscale(30%) brightness(${
+                document.documentElement.getAttribute('data-theme') === 'dark' 
+                  ? '0.3' 
+                  : '0.7'
+              })`
             }}
           />
           
@@ -267,12 +271,19 @@ export function HeroSection() {
           <div 
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(
-                135deg, 
-                rgba(var(--color-bg-primary-rgb), 0.85) 0%, 
-                rgba(var(--color-bg-primary-rgb), 0.75) 50%,
-                rgba(var(--color-bg-primary-rgb), 0.9) 100%
-              )`
+              background: document.documentElement.getAttribute('data-theme') === 'dark' 
+                ? `linear-gradient(
+                    135deg, 
+                    rgba(var(--color-bg-primary-rgb), 0.85) 0%, 
+                    rgba(var(--color-bg-primary-rgb), 0.75) 50%,
+                    rgba(var(--color-bg-primary-rgb), 0.9) 100%
+                  )`
+                : `linear-gradient(
+                    135deg, 
+                    rgba(255, 255, 255, 0.85) 0%, 
+                    rgba(255, 255, 255, 0.75) 50%,
+                    rgba(255, 255, 255, 0.9) 100%
+                  )`
             }}
           />
           
@@ -295,18 +306,9 @@ export function HeroSection() {
                 }}
               >
                 <div className="flex items-center gap-1">
-                  <div 
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: 'var(--color-status-error)' }}
-                  ></div>
-                  <div 
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: 'var(--color-status-warning)' }}
-                  ></div>
-                  <div 
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: 'var(--color-status-success)' }}
-                  ></div>
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
                 </div>
                 <div 
                   className="font-mono text-xs"
