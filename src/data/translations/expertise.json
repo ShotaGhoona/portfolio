@@ -1,0 +1,153 @@
+{
+  "en": {
+    "sectionTitle": "TECHNICAL_EXPERTISE",
+    "subtitle": {
+      "line1": "Core competencies and",
+      "line2": "specialized knowledge areas"
+    },
+    "skillCategories": [
+      {
+        "id": "frontend",
+        "title": "frontend.skills",
+        "skills": [
+          { "name": "React", "level": 60 },
+          { "name": "Next.js", "level": 80 },
+          { "name": "TypeScript", "level": 80 },
+          { "name": "shadcn/ui", "level": 95 },
+          { "name": "Framer Motion", "level": 50 },
+          { "name": "three.js", "level": 50 }
+        ]
+      },
+      {
+        "id": "backend",
+        "title": "backend.skills",
+        "skills": [
+          { "name": "FastAPI", "level": 70 },
+          { "name": "Next.js API Routes", "level": 70 },
+          { "name": "Node.js", "level": 50 },
+          { "name": "PyTorch", "level": 50 }
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "tools.stack",
+        "skills": [
+          { "name": "Git / GitHub", "level": 90 },
+          { "name": "Docker", "level": 60 },
+          { "name": "Supabase", "level": 80 },
+          { "name": "Vercel", "level": 80 },
+          { "name": "Railway / Render", "level": 80 },
+          { "name": "AI live coding", "level": 100 }
+        ]
+      },
+      {
+        "id": "design",
+        "title": "design.systems",
+        "skills": [
+          { "name": "UX design", "level": 80 },
+          { "name": "UI design", "level": 95 },
+          { "name": "Figma", "level": 85 },
+          { "name": "Adobe Illustrator", "level": 90 },
+          { "name": "Adobe XD", "level": 85 }
+        ]
+      }
+    ],
+    "experiences": {
+      "title": "notable.experiences[]",
+      "items": [
+        "Lived in India for 1 year",
+        "Founded Ghoona Inc. during university",
+        "Building full-stack AI products"
+      ]
+    },
+    "education": {
+      "title": "education.background[]",
+      "items": [
+        {
+          "degree": "B.A. in Architecture",
+          "institution": "Kyoto University • 2020–2026"
+        },
+        {
+          "degree": "Exchange Program (ICT & Development)",
+          "institution": "India • 2023-2024"
+        }
+      ]
+    }
+
+  },
+  "ja": {
+    "sectionTitle": "技術的専門性",
+    "subtitle": {
+      "line1": "コア・コンピテンシーと",
+      "line2": "専門知識領域"
+    },
+    "skillCategories": [
+      {
+        "id": "frontend",
+        "title": "frontend.skills",
+        "skills": [
+          { "name": "React", "level": 60 },
+          { "name": "Next.js", "level": 80 },
+          { "name": "TypeScript", "level": 80 },
+          { "name": "shadcn/ui", "level": 95 },
+          { "name": "Framer Motion", "level": 50 },
+          { "name": "three.js", "level": 50 }
+        ]
+      },
+      {
+        "id": "backend",
+        "title": "backend.skills",
+        "skills": [
+          { "name": "FastAPI", "level": 70 },
+          { "name": "Next.js API Routes", "level": 70 },
+          { "name": "Node.js", "level": 50 },
+          { "name": "PyTorch", "level": 50 }
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "tools.stack",
+        "skills": [
+          { "name": "Git / GitHub", "level": 90 },
+          { "name": "Docker", "level": 60 },
+          { "name": "Supabase", "level": 80 },
+          { "name": "Vercel", "level": 80 },
+          { "name": "Railway / Render", "level": 80 },
+          { "name": "AI live coding", "level": 100 }
+        ]
+      },
+      {
+        "id": "design",
+        "title": "design.systems",
+        "skills": [
+          { "name": "UXデザイン", "level": 80 },
+          { "name": "UIデザイン", "level": 95 },
+          { "name": "Figma", "level": 85 },
+          { "name": "Adobe Illustrator", "level": 90 },
+          { "name": "Adobe XD", "level": 85 }
+        ]
+      }
+    ],
+    "experiences": {
+      "title": "notable.experiences[]",
+      "items": [
+        "1年間インド留学を経験",
+        "大学在学中にGhoona Inc.を設立",
+        "AIプロダクトをフルスタックで開発中"
+      ]
+    },
+    "education": {
+      "title": "education.background[]",
+      "items": [
+        {
+          "degree": "建築学部",
+          "institution": "京都大学 • 2020–2026"
+        },
+        {
+          "degree": "インド留学（ICT & Development）",
+          "institution": "インド • 2023-2024"
+        }
+      ]
+    }
+  }
+}

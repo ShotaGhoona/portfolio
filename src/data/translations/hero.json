@@ -1,0 +1,74 @@
+{
+  "en": {
+    "meta": {
+      "role": "Entrepreneur & Full-Stack AI Engineer",
+      "specialization": "Specializing in AI",
+      "location": "Japan / Kyoto / Remote",
+      "timezone": "JST / Work async"
+    },
+    "biography": "From Kyoto to India to the world of AI, my journey has been shaped by curiosity and conviction. I founded Ghoona Inc. to push the limits of what AI and entrepreneurship can achieve together. Full-stack, full-speed — I believe execution is the best form of expression.",
+    "focusAreas": {
+      "title": "Current focus areas:",
+      "items": {
+        "startupCreation": "AI-driven Startup Creation",
+        "agentArchitectures": "Agent-based Architectures",
+        "fullstackPrototyping": "Full-stack Prototyping with Next.js & Python"
+      }
+    },
+    "terminal": {
+      "whoami": "Full-Stack AI Engineer",
+      "location": "Global (Based in Japan)",
+      "timezone": "JST / Work async",
+      "status": "Currently focused on Ghoona Inc."
+    },
+    "techStack": {
+      "backend": "Next.js, Node.js, Python",
+      "frontend": "Next.js, React, TypeScript",
+      "database": "PostgreSQL, Notion API",
+      "ai": "OpenAI, Anthropic, Claude, Gemini",
+      "tools": "Git, Supabase, Vercel, Railway"
+    },
+    "metrics": {
+      "projectsLaunched": "Projects launched",
+      "yearsExperience": "Years Experience",
+      "notionPages": "Notion Pages Created",
+      "redBull": "Red Bull per day"
+    }
+  },
+  "ja": {
+    "meta": {
+      "role": "起業家・フルスタックAIエンジニア",
+      "specialization": "AI専門",
+      "location": "日本 / 京都 / リモート",
+      "timezone": "JST / 非同期対応"
+    },
+    "biography": "京都、インド、そしてAIの世界へ。私の旅はいつも、好奇心と信念に突き動かされてきました。AIと起業がともに切り拓ける可能性の限界に挑むため、Ghoona Inc.を立ち上げました。フルスタックで、フルスピードで。私にとって、行動こそが最高の表現手段です。",
+    "focusAreas": {
+      "title": "現在の重点領域:",
+      "items": {
+        "startupCreation": "AI駆動のスタートアップ創造",
+        "agentArchitectures": "エージェントベースアーキテクチャ",
+        "fullstackPrototyping": "Next.js & Pythonによるフルスタックプロトタイピング"
+      }
+    },
+    "terminal": {
+      "whoami": "フルスタックAIエンジニア",
+      "location": "グローバル（日本ベース）",
+      "timezone": "JST / 非同期対応",
+      "status": "現在Ghoona Inc.に集中"
+    },
+    "techStack": {
+      "backend": "Next.js, Node.js, Python",
+      "frontend": "Next.js, React, TypeScript",
+      "database": "PostgreSQL, Notion API",
+      "ai": "OpenAI, Anthropic, Claude, Gemini",
+      "tools": "Git, Supabase, Vercel, Railway"
+    },
+    "metrics": {
+      "projectsLaunched": "ローンチしたプロジェクト",
+      "yearsExperience": "経験年数",
+      "notionPages": "作成したNotionページ",
+      "redBull": "1日あたりのRed Bull"
+    }
+  }
+}

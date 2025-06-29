@@ -1,0 +1,52 @@
+{
+  "en": {
+    "sectionTitle": "CONNECT()",
+    "subtitle": {
+      "line1": "Open to collaboration",
+      "line2": "and new opportunities"
+    },
+    "description": "Currently available for senior engineering roles, technical consulting, and system architecture projects. Particularly interested in distributed systems, performance optimization, and team leadership opportunities.",
+    "availability": {
+      "startDate": "2-4 weeks notice",
+      "location": "Japan / Kyoto / Remote",
+      "roleType": "Full-time / Part-time"
+    },
+    "form": {
+      "nameLabel": "your.name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "your.email", 
+      "emailPlaceholder": "your.email@company.com",
+      "messageTypeLabel": "message.type",
+      "messageTypePlaceholder": "Select message type",
+      "messageBodyLabel": "message.body",
+      "messageBodyPlaceholder": "// Describe your project or opportunity",
+      "submitButton": "SEND_MESSAGE()",
+      "responseTime": "// Response time: usually within 24 hours"
+    }
+  },
+  "ja": {
+    "sectionTitle": "コンタクト()",
+    "subtitle": {
+      "line1": "コラボレーションと",
+      "line2": "新しい機会を求めて"
+    },
+    "description": "現在、シニアエンジニアリング職、技術コンサルティング、システムアーキテクチャプロジェクトを募集中。特に分散システム、パフォーマンス最適化、チームリーダーシップの機会に興味があります。",
+    "availability": {
+      "startDate": "2-4週間前通知", 
+      "location": "日本 / 京都 / リモート",
+      "roleType": "フルタイム / パートタイム"
+    },
+    "form": {
+      "nameLabel": "お名前",
+      "namePlaceholder": "お名前を入力してください",
+      "emailLabel": "メールアドレス",
+      "emailPlaceholder": "your.email@company.com",
+      "messageTypeLabel": "メッセージタイプ",
+      "messageTypePlaceholder": "メッセージタイプを選択",
+      "messageBodyLabel": "メッセージ本文",
+      "messageBodyPlaceholder": "// プロジェクトや機会について説明してください",
+      "submitButton": "メッセージを送信()",
+      "responseTime": "// 返信時間：通常24時間以内"
+    }
+  }
+}

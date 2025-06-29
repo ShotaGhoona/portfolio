@@ -1,16 +1,29 @@
-import Image from "next/image";
-import AboutSection from "@/components/featuture/lp/aboutSection";
-import ProblemSection from "@/components/featuture/lp/problemSectio";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";  
+'use client'
+import { Header } from "@/components/common/Header";
+import { HeroSection } from "@/components/feature/lp/HeroSection";
+import { PhilosophySection } from "@/components/feature/lp/PhilosophySection";
+import { ProjectsSection } from "@/components/feature/lp/ProjectsSection";
+import { ExpertiseSection } from "@/components/feature/lp/ExpertiseSection";
+import { TimelineSection } from "@/components/feature/lp/TimelineSection";
+import { NewsSection } from "@/components/feature/lp/NewsSection";
+import { ContactSection } from "@/components/feature/lp/ContactSection";
+import { Footer } from "@/components/common/Footer";
 
-export default function Home() {
+export default function MinimalismPage02() {
   return (
-    <div>
+    <div 
+      className="min-h-screen font-mono transition-colors duration-200"
+      style={{ backgroundColor: 'var(--color-bg-primary)' }}
+    >
       <Header />
       <main>
-      <AboutSection />
-      <ProblemSection />
+        <HeroSection />
+        <PhilosophySection />
+        <ProjectsSection />
+        <ExpertiseSection />
+        <TimelineSection />
+        <NewsSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

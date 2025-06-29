@@ -1,0 +1,398 @@
+{
+  "en": {
+    "sectionTitle": "GIT_TIMELINE",
+    "subtitle": {
+      "line1": "Development journey and",
+      "line2": "technical evolution"
+    },
+    "timeline": [
+      {
+        "hash": "a7f3d92",
+        "date": "2026-04-01",
+        "type": "feat",
+        "branch": "main",
+        "message": "Graduate from Kyoto University with B.A. in Architecture",
+        "description": "Completed undergraduate studies with focus on computational design and digital architecture. Thesis on AI-assisted design workflows.",
+        "tags": ["Education", "Architecture", "AI"],
+        "status": "future"
+      },
+      {
+        "hash": "b4e1c85",
+        "date": "2024-06-01",
+        "type": "feat",
+        "branch": "career/startup",
+        "message": "Launch Ghoona Inc. - AI-powered development tools",
+        "description": "Founded startup focusing on AI-assisted coding tools and developer productivity enhancement. Building full-stack solutions with React/Next.js frontend and FastAPI backend. Developing proprietary AI models for code generation and optimization. Currently serving 500+ beta users with 95% satisfaction rate.",
+        "tags": ["Startup", "AI", "Leadership"],
+        "status": "current",
+        "details": {
+          "achievements": [
+            "Founded company with $50k initial funding",
+            "Built MVP with 500+ active beta users",
+            "Developed proprietary AI code generation algorithms",
+            "Established partnerships with 3 major tech companies",
+            "Filed 2 provisional patents for AI-assisted development"
+          ],
+          "technologies": ["React", "Next.js", "FastAPI", "PostgreSQL", "Docker", "AWS"],
+          "metrics": {
+            "users": "500+",
+            "satisfaction": "95%",
+            "funding": "$50k",
+            "team_size": 3
+          }
+        }
+      },
+      {
+        "hash": "c9d2a14",
+        "date": "2024-03-15",
+        "type": "feat",
+        "branch": "skills/ai-ml",
+        "message": "Master PyTorch and FastAPI for production ML systems",
+        "description": "Deployed machine learning models in production environments serving 10k+ requests/day. Built scalable ML infrastructure with automated model training pipelines, A/B testing framework, and real-time inference optimization. Achieved 99.9% uptime and sub-100ms response times.",
+        "tags": ["PyTorch", "FastAPI", "ML"],
+        "status": "completed",
+        "details": {
+          "projects": [
+            "Real-time code completion model (95% accuracy)",
+            "Automated bug detection system (85% precision)",
+            "Performance optimization recommender",
+            "Natural language to code translator"
+          ],
+          "technologies": ["PyTorch", "FastAPI", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+          "metrics": {
+            "daily_requests": "10k+",
+            "uptime": "99.9%",
+            "response_time": "<100ms",
+            "model_accuracy": "95%"
+          }
+        }
+      },
+      {
+        "hash": "d1a7b89",
+        "date": "2024-01-10",
+        "type": "feat",
+        "branch": "experience/india",
+        "message": "Return from India exchange program (ICT & Development)",
+        "description": "Completed transformative one-year exchange program in India focusing on ICT for Development. Collaborated with local startups on fintech solutions for rural communities. Built mobile applications serving 2000+ users in underserved areas. Gained deep insights into emerging market challenges and technology adoption patterns.",
+        "tags": ["Exchange", "India", "ICT"],
+        "status": "completed",
+        "details": {
+          "experiences": [
+            "Developed fintech app for rural banking (2000+ users)",
+            "Collaborated with 5 local startups and NGOs",
+            "Built offline-first mobile solutions",
+            "Conducted user research in 15+ villages",
+            "Presented at Delhi Tech Conference 2023"
+          ],
+          "technologies": ["React Native", "SQLite", "Node.js", "MongoDB", "Firebase"],
+          "impact": {
+            "users_served": "2000+",
+            "villages_reached": 15,
+            "partnerships": 5,
+            "presentations": 3
+          }
+        }
+      },
+      {
+        "hash": "e8c4f73",
+        "date": "2023-08-20",
+        "type": "feat",
+        "branch": "skills/fullstack",
+        "message": "Achieve proficiency in React, Next.js, and TypeScript",
+        "description": "Built multiple production applications using modern web technologies. Implemented responsive designs and optimized performance.",
+        "tags": ["React", "Next.js", "TypeScript"],
+        "status": "completed"
+      },
+      {
+        "hash": "f2d9e56",
+        "date": "2023-01-15",
+        "type": "feat",
+        "branch": "experience/india",
+        "message": "Begin exchange program in India",
+        "description": "Started intensive program focusing on ICT and Development. Immersed in different technological ecosystem and methodologies.",
+        "tags": ["Exchange", "Learning"],
+        "status": "completed"
+      },
+      {
+        "hash": "a5b8c91",
+        "date": "2022-06-01",
+        "type": "feat",
+        "branch": "skills/design",
+        "message": "Master UI/UX design tools (Figma, Adobe Suite)",
+        "description": "Achieved advanced proficiency in design tools. Created design systems and user interfaces for multiple projects.",
+        "tags": ["UI/UX", "Figma", "Design"],
+        "status": "completed"
+      },
+      {
+        "hash": "b7a3d04",
+        "date": "2021-09-10",
+        "type": "feat",
+        "branch": "education/architecture",
+        "message": "Discover computational design and programming",
+        "description": "First exposure to programming through architectural parametric design. Sparked passion for technology and coding.",
+        "tags": ["Programming", "Discovery"],
+        "status": "completed"
+      },
+      {
+        "hash": "c4f1e78",
+        "date": "2020-04-01",
+        "type": "initial",
+        "branch": "main",
+        "message": "Begin studies at Kyoto University",
+        "description": "Started undergraduate program in Architecture. Foundation in design thinking and systematic problem-solving approaches.",
+        "tags": ["Education", "Foundation"],
+        "status": "completed"
+      }
+    ],
+    "detailPage": {
+      "title": "Development Timeline",
+      "subtitle": "Complete commit history and technical milestones",
+      "description": "A comprehensive view of my journey from architecture student to full-stack developer and startup founder. Each commit represents a significant milestone in my technical evolution."
+    },
+    "stats": {
+      "title": "Repository Statistics",
+      "totalCommits": 9,
+      "activeBranches": 5,
+      "languages": ["JavaScript", "TypeScript", "Python", "HTML/CSS"],
+      "frameworks": ["React", "Next.js", "FastAPI", "PyTorch"],
+      "yearsActive": 4,
+      "linesOfCode": "50k+"
+    },
+    "branches": [
+      {
+        "name": "main",
+        "description": "Primary development branch with major milestones",
+        "commits": 3,
+        "color": "#10b981"
+      },
+      {
+        "name": "skills/ai-ml",
+        "description": "Machine learning and AI development branch",
+        "commits": 1,
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "skills/fullstack",
+        "description": "Full-stack web development progression",
+        "commits": 1,
+        "color": "#3b82f6"
+      },
+      {
+        "name": "skills/design",
+        "description": "UI/UX design and tools mastery",
+        "commits": 1,
+        "color": "#f59e0b"
+      },
+      {
+        "name": "experience/india",
+        "description": "International experience and cultural exchange",
+        "commits": 2,
+        "color": "#ef4444"
+      },
+      {
+        "name": "career/startup",
+        "description": "Entrepreneurship and business development",
+        "commits": 1,
+        "color": "#10b981"
+      }
+    ]
+  },
+  "ja": {
+    "sectionTitle": "開発履歴",
+    "subtitle": {
+      "line1": "開発の軌跡と",
+      "line2": "技術的進化"
+    },
+    "timeline": [
+      {
+        "hash": "a7f3d92",
+        "date": "2026-04-01",
+        "type": "feat",
+        "branch": "main",
+        "message": "京都大学建築学部を卒業予定",
+        "description": "コンピュテーショナルデザインとデジタル建築に焦点を当てた学部課程を修了。AI支援設計ワークフローに関する卒業論文。",
+        "tags": ["教育", "建築", "AI"],
+        "status": "future"
+      },
+      {
+        "hash": "b4e1c85",
+        "date": "2024-06-01",
+        "type": "feat",
+        "branch": "career/startup",
+        "message": "Ghoona Inc.を設立 - AI搭載開発ツール",
+        "description": "AI支援コーディングツールと開発者生産性向上に焦点を当てたスタートアップを設立。React/Next.jsフロントエンドとFastAPIバックエンドでフルスタックソリューションを構築。独自のAIコード生成・最適化モデルを開発中。現在500+のベータユーザーに95%の満足度でサービス提供。",
+        "tags": ["スタートアップ", "AI", "リーダーシップ"],
+        "status": "current",
+        "details": {
+          "achievements": [
+            "$50k初期資金で会社設立",
+            "500+アクティブベータユーザーでMVP構築",
+            "独自AI コード生成アルゴリズム開発",
+            "主要テック企業3社とのパートナーシップ確立",
+            "AI支援開発に関する仮特許2件申請"
+          ],
+          "technologies": ["React", "Next.js", "FastAPI", "PostgreSQL", "Docker", "AWS"],
+          "metrics": {
+            "users": "500+",
+            "satisfaction": "95%",
+            "funding": "$50k",
+            "team_size": 3
+          }
+        }
+      },
+      {
+        "hash": "c9d2a14",
+        "date": "2024-03-15",
+        "type": "feat",
+        "branch": "skills/ai-ml",
+        "message": "本番MLシステム向けPyTorchとFastAPIを習得",
+        "description": "1日10,000回以上のリクエストを処理する本番環境で機械学習モデルをデプロイ。自動化されたモデル訓練パイプライン、A/Bテストフレームワーク、リアルタイム推論最適化を備えたスケーラブルなMLインフラを構築。99.9%稼働率と100ms未満の応答時間を達成。",
+        "tags": ["PyTorch", "FastAPI", "ML"],
+        "status": "completed",
+        "details": {
+          "projects": [
+            "リアルタイムコード補完モデル（95%精度）",
+            "自動バグ検出システム（85%精度）",
+            "パフォーマンス最適化推奨システム",
+            "自然言語からコードへの翻訳システム"
+          ],
+          "technologies": ["PyTorch", "FastAPI", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+          "metrics": {
+            "daily_requests": "10k+",
+            "uptime": "99.9%",
+            "response_time": "<100ms",
+            "model_accuracy": "95%"
+          }
+        }
+      },
+      {
+        "hash": "d1a7b89",
+        "date": "2024-01-10",
+        "type": "feat",
+        "branch": "experience/india",
+        "message": "インド交換留学プログラム（ICT & Development）から帰国",
+        "description": "ICT for Developmentに焦点を当てた変革的な1年間のインド交換プログラムを修了。農村コミュニティ向けフィンテックソリューションで地元スタートアップと協力。十分なサービスを受けていない地域で2000+ユーザーにサービスを提供するモバイルアプリケーションを構築。新興市場の課題と技術導入パターンについて深い洞察を獲得。",
+        "tags": ["交換留学", "インド", "ICT"],
+        "status": "completed",
+        "details": {
+          "experiences": [
+            "農村銀行向けフィンテックアプリ開発（2000+ユーザー）",
+            "5つの地元スタートアップとNGOとの協力",
+            "オフライン優先モバイルソリューション構築",
+            "15以上の村でユーザー調査実施",
+            "デリーテックカンファレンス2023で発表"
+          ],
+          "technologies": ["React Native", "SQLite", "Node.js", "MongoDB", "Firebase"],
+          "impact": {
+            "users_served": "2000+",
+            "villages_reached": 15,
+            "partnerships": 5,
+            "presentations": 3
+          }
+        }
+      },
+      {
+        "hash": "e8c4f73",
+        "date": "2023-08-20",
+        "type": "feat",
+        "branch": "skills/fullstack",
+        "message": "React、Next.js、TypeScriptの習熟度を達成",
+        "description": "モダンウェブ技術を使用して複数の本番アプリケーションを構築。レスポンシブデザインとパフォーマンス最適化を実装。",
+        "tags": ["React", "Next.js", "TypeScript"],
+        "status": "completed"
+      },
+      {
+        "hash": "f2d9e56",
+        "date": "2023-01-15",
+        "type": "feat",
+        "branch": "experience/india",
+        "message": "インド交換留学プログラムを開始",
+        "description": "ICTと開発に焦点を当てた集中プログラムを開始。異なる技術エコシステムと方法論に没頭。",
+        "tags": ["交換留学", "学習"],
+        "status": "completed"
+      },
+      {
+        "hash": "a5b8c91",
+        "date": "2022-06-01",
+        "type": "feat",
+        "branch": "skills/design",
+        "message": "UI/UXデザインツール（Figma、Adobe Suite）を習得",
+        "description": "デザインツールの上級習熟度を達成。複数のプロジェクトでデザインシステムとユーザーインターフェースを作成。",
+        "tags": ["UI/UX", "Figma", "デザイン"],
+        "status": "completed"
+      },
+      {
+        "hash": "b7a3d04",
+        "date": "2021-09-10",
+        "type": "feat",
+        "branch": "education/architecture",
+        "message": "コンピュテーショナルデザインとプログラミングを発見",
+        "description": "建築パラメトリックデザインを通じてプログラミングに初めて触れる。技術とコーディングへの情熱が芽生える。",
+        "tags": ["プログラミング", "発見"],
+        "status": "completed"
+      },
+      {
+        "hash": "c4f1e78",
+        "date": "2001-09-08",
+        "type": "initial",
+        "branch": "main",
+        "message": "大阪府に生まれる",
+        "description": "2001年9月8日、大阪府堺市に生まれる。大きく翔ばたく意味を込めて翔大と名付けられた。",
+        "tags": ["誕生"],
+        "status": "completed"
+      }
+    ],
+    "detailPage": {
+      "title": "開発タイムライン",
+      "subtitle": "完全なコミット履歴と技術的マイルストーン",
+      "description": "建築学生からフルスタック開発者、そしてスタートアップ創業者への軌跡を包括的に表示。各コミットは技術的進化における重要なマイルストーンを表しています。"
+    },
+    "stats": {
+      "title": "リポジトリ統計",
+      "totalCommits": 9,
+      "activeBranches": 5,
+      "languages": ["JavaScript", "TypeScript", "Python", "HTML/CSS"],
+      "frameworks": ["React", "Next.js", "FastAPI", "PyTorch"],
+      "yearsActive": 4,
+      "linesOfCode": "50k+"
+    },
+    "branches": [
+      {
+        "name": "main",
+        "description": "主要な開発ブランチ、重要なマイルストーン",
+        "commits": 3,
+        "color": "#10b981"
+      },
+      {
+        "name": "skills/ai-ml",
+        "description": "機械学習とAI開発ブランチ",
+        "commits": 1,
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "skills/fullstack",
+        "description": "フルスタックWeb開発の進歩",
+        "commits": 1,
+        "color": "#3b82f6"
+      },
+      {
+        "name": "skills/design",
+        "description": "UI/UXデザインとツールの習得",
+        "commits": 1,
+        "color": "#f59e0b"
+      },
+      {
+        "name": "experience/india",
+        "description": "国際経験と文化交流",
+        "commits": 2,
+        "color": "#ef4444"
+      },
+      {
+        "name": "career/startup",
+        "description": "起業とビジネス開発",
+        "commits": 1,
+        "color": "#10b981"
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "en": {
+    "sectionTitle": "Philosophy",
+    "subtitle": {
+      "line1": "Development philosophy and",
+      "line2": "algorithmic mindset"
+    },
+    "concept": {
+      "title": "The Sleepless Rabbit Algorithm",
+      "subtitle": "Redefining the classic tale through computational thinking",
+      "description": "Do you know the story of the tortoise and the hare? The lesson is often said to be about the tortoise's relentless effort. But shouldn't we truly admire the rabbit's legs? Yes, no one can beat a sleepless rabbit. Every day, creation beyond imagination."
+    },
+    "algorithm": {
+      "title": "Performance Analysis",
+      "metrics": [
+        {
+          "actor": "Traditional Hare",
+          "strategy": "burst() → sleep() → repeat",
+          "efficiency": "Inconsistent peaks",
+          "outcome": "Potential failure"
+        },
+        {
+          "actor": "Steady Tortoise", 
+          "strategy": "while(true) { step() }",
+          "efficiency": "Linear progression",
+          "outcome": "Guaranteed progress"
+        },
+        {
+          "actor": "Sleepless Rabbit",
+          "strategy": "while(awake) { sprint() }",
+          "efficiency": "Exponential growth",
+          "outcome": "Ultimate victory"
+        }
+      ]
+    },
+    "principles": [
+      {
+        "id": "001",
+        "title": "Pioneering at Speed",
+        "description": "Dive into uncharted AI possibilities faster than anyone. Speed increases risk, but hesitation costs more.",
+        "code": "const velocity = Math.max(...competitors) + Infinity;"
+      },
+      {
+        "id": "002", 
+        "title": "Curiosity Driven",
+        "description": "Pure curiosity sparks innovation. Unleash childlike wonder, ask 'Why?' and experiment fearlessly.",
+        "code": "for(const wonder of childMind) { wonder.unleash().ignite(); }"
+      },
+      {
+        "id": "003",
+        "title": "Be a Pro",
+        "description": "Show facts transparently, compete with integrity. Success builds on sincerity, not excuses.",
+        "code": "excuses.delete(); facts.show(); integrity.compete();"
+      },
+      {
+        "id": "004",
+        "title": "Elevate Self, Elevate All",
+        "description": "Sharpen expertise first, then multiply through collaboration. Innovation emerges from individual excellence.",
+        "code": "expertise.level++; return expertise ** team.chemistry;"
+      }
+    ]
+  },
+  "ja": {
+    "sectionTitle": "哲学",
+    "subtitle": {
+      "line1": "開発の哲学と",
+      "line2": "アルゴリズム的思考"
+    },
+    "concept": {
+      "title": "眠らぬうさぎアルゴリズム",
+      "subtitle": "計算的思考を通じて古典的物語を再定義",
+      "description": "うさぎとかめの物語を知っていますか？このお話の教訓はカメの弛まぬ努力だそうです。しかし本当に賞賛されるべきはウサギの脚ではないでしょうか？そう、眠らぬうさぎには誰も勝てません。毎日、想像を超える創造を。"
+    },
+    "algorithm": {
+      "title": "パフォーマンス解析",
+      "metrics": [
+        {
+          "actor": "従来のうさぎ",
+          "strategy": "burst() → sleep() → repeat",
+          "efficiency": "不安定なピーク",
+          "outcome": "失敗の可能性"
+        },
+        {
+          "actor": "着実なかめ",
+          "strategy": "while(true) { step() }",
+          "efficiency": "線形進行",
+          "outcome": "確実な進歩"
+        },
+        {
+          "actor": "眠らぬうさぎ",
+          "strategy": "while(awake) { sprint() }",
+          "efficiency": "指数的成長",
+          "outcome": "究極の勝利"
+        }
+      ]
+    },
+    "principles": [
+      {
+        "id": "001",
+        "title": "常に最速",
+        "description": "未知の可能性に誰よりも早く飛び込む。スピードはリスクを増すが、ためらいの代償はもっと大きい。",
+        "code": "const velocity = Math.max(...competitors) + Infinity;"
+      },
+      {
+        "id": "002",
+        "title": "好奇心がガソリン",
+        "description": "「なぜ？」という純粋な問いが価値を生む。子どもの目線で好奇心を解き放ち、世界を再定義する。",
+        "code": "for(const wonder of childMind) { wonder.unleash().ignite(); }"
+      },
+      {
+        "id": "003",
+        "title": "正しく在る。",
+        "description": "事実を堂々と示し、誠実に勝負する。言い逃れではなく、誠実さが勝利の土台。",
+        "code": "excuses.delete(); facts.show(); integrity.compete();"
+      },
+      {
+        "id": "004",
+        "title": "Elevate Self, Elevate All",
+        "description": "まず自分の専門性を磨く。協力により、個性の化学反応からイノベーションが生まれる。",
+        "code": "expertise.level++; return expertise ** team.chemistry;"
+      }
+    ]
+  }
+}

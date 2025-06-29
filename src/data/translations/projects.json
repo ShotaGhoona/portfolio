@@ -1,0 +1,296 @@
+{
+  "en": {
+    "sectionTitle": "SELECTED_PROJECTS",
+    "subtitle": {
+      "line1": "Showcasing technical depth",
+      "line2": "and problem-solving approach"
+    },
+    "projects": [
+      {
+        "id": "001",
+        "slug": "distributed-cache",
+        "name": "DistributedCache",
+        "type": "System Architecture",
+        "year": "2024",
+        "description": "High-performance distributed caching system built with Redis Cluster and Go. Handles 1M+ requests/second with sub-millisecond latency.",
+        "tech": ["Go", "Redis", "Docker", "Kubernetes"],
+        "metrics": ["99.99% uptime", "0.3ms avg latency", "1M+ req/sec"],
+        "status": "Production",
+        "technicalDetails": {
+          "architecture": "Redis Cluster with consistent hashing and automatic failover",
+          "performance": "Sub-millisecond latency with 99.99% uptime SLA",
+          "scalability": "Horizontal scaling across multiple data centers",
+          "monitoring": "Real-time metrics with Prometheus and Grafana dashboards"
+        },
+        "performanceMetrics": {
+          "requests_per_second": "1M+",
+          "average_latency": "0.3ms",
+          "uptime": "99.99%"
+        },
+        "links": [
+          {
+            "title": "GitHub Repository",
+            "url": "#"
+          },
+          {
+            "title": "Technical Documentation",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "002",
+        "slug": "data-pipeline",
+        "name": "DataPipeline",
+        "type": "Backend Infrastructure",
+        "year": "2023",
+        "description": "Real-time data processing pipeline for financial transactions. Processes 50TB+ daily with automatic scaling and error recovery.",
+        "tech": ["Python", "Apache Kafka", "PostgreSQL", "AWS"],
+        "metrics": ["50TB+ daily", "Auto-scaling", "Zero data loss"],
+        "status": "Production",
+        "technicalDetails": {
+          "pipeline": "Apache Kafka for real-time streaming with PostgreSQL for persistence",
+          "processing": "Event-driven architecture with automatic dead letter queues",
+          "scalability": "Auto-scaling based on queue depth and processing latency",
+          "reliability": "Zero data loss with at-least-once delivery guarantees"
+        },
+        "performanceMetrics": {
+          "daily_volume": "50TB+",
+          "processing_speed": "100K events/sec",
+          "data_loss": "0%"
+        },
+        "links": [
+          {
+            "title": "Architecture Overview",
+            "url": "#"
+          },
+          {
+            "title": "Monitoring Dashboard",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "003",
+        "slug": "devops-tools",
+        "name": "DevOpsTools",
+        "type": "Developer Tooling",
+        "year": "2023",
+        "description": "Internal developer platform for CI/CD automation. Reduced deployment time from 45min to 3min across 200+ microservices.",
+        "tech": ["TypeScript", "React", "Jenkins", "Terraform"],
+        "metrics": ["45min → 3min", "200+ services", "95% adoption"],
+        "status": "Internal",
+        "technicalDetails": {
+          "frontend": "React with TypeScript for type-safe development",
+          "backend": "Node.js API with Jenkins integration for CI/CD automation",
+          "infrastructure": "Terraform for infrastructure as code with multi-environment support",
+          "adoption": "95% developer adoption across 200+ microservices"
+        },
+        "performanceMetrics": {
+          "deployment_time": "3min",
+          "services_managed": "200+",
+          "adoption_rate": "95%"
+        },
+        "links": [
+          {
+            "title": "Internal Documentation",
+            "url": "#"
+          },
+          {
+            "title": "Usage Analytics",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "004",
+        "slug": "ml-inference",
+        "name": "MLInference",
+        "type": "Machine Learning",
+        "year": "2022",
+        "description": "GPU-accelerated inference engine for real-time recommendations. Serves 10M+ predictions daily with dynamic model updates.",
+        "tech": ["Python", "TensorFlow", "CUDA", "gRPC"],
+        "metrics": ["10M+ predictions", "GPU-accelerated", "Real-time"],
+        "status": "Production",
+        "technicalDetails": {
+          "ml_framework": "TensorFlow with CUDA acceleration for GPU inference",
+          "serving": "gRPC API with load balancing and circuit breaker patterns",
+          "model_updates": "Dynamic model loading with A/B testing capabilities",
+          "monitoring": "Real-time inference metrics and model drift detection"
+        },
+        "performanceMetrics": {
+          "daily_predictions": "10M+",
+          "inference_latency": "<10ms",
+          "gpu_utilization": "85%"
+        },
+        "links": [
+          {
+            "title": "Model Documentation",
+            "url": "#"
+          },
+          {
+            "title": "Performance Benchmarks",
+            "url": "#"
+          }
+        ]
+      }
+    ],
+    "buttons": {
+      "technicalDetails": "npm install TECHNICAL_DETAILS()",
+      "viewAll": "VIEW_ALL_PROJECTS()"
+    },
+    "viewAllSubtitle": "See complete project archive and open source contributions",
+    "detailPage": {
+      "title": "Project Archive",
+      "subtitle": "Technical showcase and code repositories",
+      "description": "Comprehensive view of technical projects, system architectures, and development achievements. Each project demonstrates problem-solving approach and technical depth."
+    }
+  },
+  "ja": {
+    "sectionTitle": "プロジェクト",
+    "subtitle": {
+      "line1": "技術的深度と",
+      "line2": "問題解決アプローチを紹介"
+    },
+    "projects": [
+      {
+        "id": "001",
+        "slug": "distributed-cache",
+        "name": "分散キャッシュシステム",
+        "type": "System Architecture",
+        "year": "2024",
+        "description": "Redis ClusterとGoで構築された高性能分散キャッシュシステム。毎秒100万リクエスト以上をサブミリ秒レイテンシで処理。",
+        "tech": ["Go", "Redis", "Docker", "Kubernetes"],
+        "metrics": ["99.99% uptime", "0.3ms avg latency", "1M+ req/sec"],
+        "status": "Production",
+        "technicalDetails": {
+          "architecture": "一貫性ハッシュと自動フェイルオーバーを備えたRedis Cluster",
+          "performance": "99.99%稼働率SLAでサブミリ秒レイテンシ",
+          "scalability": "複数のデータセンターにわたる水平スケーリング",
+          "monitoring": "PrometheusとGrafanaダッシュボードによるリアルタイムメトリクス"
+        },
+        "performanceMetrics": {
+          "requests_per_second": "1M+",
+          "average_latency": "0.3ms",
+          "uptime": "99.99%"
+        },
+        "links": [
+          {
+            "title": "GitHubリポジトリ",
+            "url": "#"
+          },
+          {
+            "title": "技術ドキュメント",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "002",
+        "slug": "data-pipeline",
+        "name": "データパイプライン",
+        "type": "Backend Infrastructure",
+        "year": "2023",
+        "description": "金融取引のリアルタイムデータ処理パイプライン。日次50TB以上を自動スケーリングとエラー回復機能で処理。",
+        "tech": ["Python", "Apache Kafka", "PostgreSQL", "AWS"],
+        "metrics": ["50TB+ daily", "Auto-scaling", "Zero data loss"],
+        "status": "Production",
+        "technicalDetails": {
+          "pipeline": "永続化のためのPostgreSQLとリアルタイムストリーミングのためのApache Kafka",
+          "processing": "自動デッドレターキューを備えたイベント駆動アーキテクチャ",
+          "scalability": "キュー深度と処理レイテンシに基づく自動スケーリング",
+          "reliability": "最低1回配信保証によるゼロデータロス"
+        },
+        "performanceMetrics": {
+          "daily_volume": "50TB+",
+          "processing_speed": "100K events/sec",
+          "data_loss": "0%"
+        },
+        "links": [
+          {
+            "title": "アーキテクチャ概要",
+            "url": "#"
+          },
+          {
+            "title": "監視ダッシュボード",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "003",
+        "slug": "devops-tools",
+        "name": "DevOpsツール",
+        "type": "Developer Tooling",
+        "year": "2023",
+        "description": "CI/CD自動化のための内部開発者プラットフォーム。200以上のマイクロサービスでデプロイ時間を45分から3分に短縮。",
+        "tech": ["TypeScript", "React", "Jenkins", "Terraform"],
+        "metrics": ["45min → 3min", "200+ services", "95% adoption"],
+        "status": "Internal",
+        "technicalDetails": {
+          "frontend": "型安全な開発のためのTypeScriptとReact",
+          "backend": "CI/CD自動化のためのJenkins統合を備えたNode.js API",
+          "infrastructure": "マルチ環境サポートを備えたインフラストラクチャとしてのコードのためのTerraform",
+          "adoption": "200以上のマイクロサービスで95%の開発者採用率"
+        },
+        "performanceMetrics": {
+          "deployment_time": "3min",
+          "services_managed": "200+",
+          "adoption_rate": "95%"
+        },
+        "links": [
+          {
+            "title": "内部ドキュメント",
+            "url": "#"
+          },
+          {
+            "title": "使用分析",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "id": "004",
+        "slug": "ml-inference",
+        "name": "ML推論エンジン",
+        "type": "Machine Learning",
+        "year": "2022",
+        "description": "リアルタイム推薦のためのGPU加速推論エンジン。動的モデル更新により日次1000万件以上の予測を提供。",
+        "tech": ["Python", "TensorFlow", "CUDA", "gRPC"],
+        "metrics": ["10M+ predictions", "GPU-accelerated", "Real-time"],
+        "status": "Production",
+        "technicalDetails": {
+          "ml_framework": "GPU推論のためのCUDA加速を備えたTensorFlow",
+          "serving": "ロードバランシングとサーキットブレーカーパターンを備えたgRPC API",
+          "model_updates": "A/Bテスト機能を備えた動的モデルローディング",
+          "monitoring": "リアルタイム推論メトリクスとモデルドリフト検出"
+        },
+        "performanceMetrics": {
+          "daily_predictions": "10M+",
+          "inference_latency": "<10ms",
+          "gpu_utilization": "85%"
+        },
+        "links": [
+          {
+            "title": "モデルドキュメント",
+            "url": "#"
+          },
+          {
+            "title": "パフォーマンスベンチマーク",
+            "url": "#"
+          }
+        ]
+      }
+    ],
+    "buttons": {
+      "technicalDetails": "npm install TECHNICAL_DETAILS()",
+      "viewAll": "全プロジェクト表示()"
+    },
+    "viewAllSubtitle": "完全なプロジェクト・アーカイブとオープンソース貢献を確認",
+    "detailPage": {
+      "title": "プロジェクト・アーカイブ",
+      "subtitle": "技術的ショーケースとコードリポジトリ",
+      "description": "技術プロジェクト、システムアーキテクチャ、開発成果の包括的なビュー。各プロジェクトは問題解決アプローチと技術的深度を実証します。"
+    }
+  }
+}
