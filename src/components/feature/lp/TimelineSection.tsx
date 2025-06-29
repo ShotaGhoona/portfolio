@@ -89,8 +89,8 @@ export function TimelineSection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {timelineData.subtitle.line1}</div>
-                <div>// {timelineData.subtitle.line2}</div>
+                <div>{`// ${timelineData.subtitle.line1}`}</div>
+                <div>{`// ${timelineData.subtitle.line2}`}</div>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export function TimelineSection() {
               ></div>
               
               <div className="space-y-8">
-                {timelineData.timeline.slice(0, 3).map((commit, index) => (
+                {timelineData.timeline.slice(0, 3).map((commit) => (
                   <div key={commit.hash} className="relative">
                     {/* Branch indicator */}
                     <div 
@@ -232,7 +232,7 @@ export function TimelineSection() {
                   className="font-mono text-xs mt-2"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
-                  // View complete development timeline ({timelineData.timeline.length - 3} more commits)
+                  {`// View complete development timeline (${timelineData.timeline.length - 3} more commits)`}
                 </div>
               </div>
             </div>

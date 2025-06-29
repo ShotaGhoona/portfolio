@@ -1,6 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import projectsTranslations from '@/data/translations/projects.json';
+import Link from 'next/link';
 
 export function ProjectsSection() {
   const { language } = useLanguage();
@@ -42,8 +43,8 @@ export function ProjectsSection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {projectsTranslations[language]?.subtitle.line1 || projectsTranslations.en.subtitle.line1}</div>
-                <div>// {projectsTranslations[language]?.subtitle.line2 || projectsTranslations.en.subtitle.line2}</div>
+                <div>{`// ${projectsTranslations[language]?.subtitle.line1 || projectsTranslations.en.subtitle.line1}`}</div>
+                <div>{`// ${projectsTranslations[language]?.subtitle.line2 || projectsTranslations.en.subtitle.line2}`}</div>
               </div>
             </div>
           </div>
@@ -132,7 +133,7 @@ export function ProjectsSection() {
                           className="font-mono text-xs mb-2"
                           style={{ color: 'var(--color-text-tertiary)' }}
                         >
-                          // Tech Stack
+                          {`// Tech Stack`}
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech, techIndex) => (
@@ -156,7 +157,7 @@ export function ProjectsSection() {
                           className="font-mono text-xs mb-2"
                           style={{ color: 'var(--color-text-tertiary)' }}
                         >
-                          // Key Metrics
+                          {`// Key Metrics`}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           {project.metrics.map((metric, metricIndex) => (
@@ -172,13 +173,13 @@ export function ProjectsSection() {
                       
                       {/* Actions */}
                       <div className="flex items-center space-x-4 pt-2">
-                        <a 
+                        <Link 
                           href="/projects"
                           className="font-mono text-xs transition-colors duration-200 hover:opacity-80"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >
                           {projectsTranslations[language]?.buttons.technicalDetails || projectsTranslations.en.buttons.technicalDetails} →
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -190,7 +191,7 @@ export function ProjectsSection() {
                 className="pt-8 transition-colors duration-200"
                 style={{ borderTop: `1px solid var(--color-border-primary)` }}
               >
-                <a 
+                <Link 
                   href="/projects"
                   className="font-mono font-bold text-sm px-6 md:px-8 py-3 transition-all duration-200 inline-block"
                   style={{ 
@@ -208,12 +209,12 @@ export function ProjectsSection() {
                   }}
                 >
                   {projectsTranslations[language]?.buttons.viewAll || projectsTranslations.en.buttons.viewAll}
-                </a>
+                </Link>
                 <div 
                   className="font-mono text-xs mt-2"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
-                  // {projectsTranslations[language]?.viewAllSubtitle || projectsTranslations.en.viewAllSubtitle}
+                  {`// ${projectsTranslations[language]?.viewAllSubtitle || projectsTranslations.en.viewAllSubtitle}`}
                 </div>
               </div>
             </div>

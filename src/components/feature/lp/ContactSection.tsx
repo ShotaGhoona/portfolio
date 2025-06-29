@@ -42,8 +42,8 @@ export function ContactSection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {contactData.subtitle.line1}</div>
-                <div>// {contactData.subtitle.line2}</div>
+                <div>{`// ${contactData.subtitle.line1}`}</div>
+                <div>{`// ${contactData.subtitle.line2}`}</div>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function ContactSection() {
                     className="font-mono text-lg font-bold mb-6"
                     style={{ color: 'var(--color-text-primary)' }}
                   >
-                    Let's build something amazing together.
+                    Let&apos;s build something amazing together.
                   </div>
                   <p 
                     className="font-mono text-sm leading-relaxed"

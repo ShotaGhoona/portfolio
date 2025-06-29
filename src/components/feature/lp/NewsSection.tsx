@@ -66,8 +66,8 @@ export function NewsSection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {newsData.subtitle.line1}</div>
-                <div>// {newsData.subtitle.line2}</div>
+                <div>{`// ${newsData.subtitle.line1}`}</div>
+                <div>{`// ${newsData.subtitle.line2}`}</div>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ export function NewsSection() {
           {/* News content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
             <div className="space-y-6">
-              {newsData.news.map((item, index) => (
+              {newsData.news.map((item) => (
                 <div 
                   key={item.id} 
                   className="border transition-all duration-200 hover:shadow-lg"
@@ -203,7 +203,7 @@ export function NewsSection() {
                   className="font-mono text-xs mt-2"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
-                  // Fetch additional system logs and updates
+                  {`// Fetch additional system logs and updates`}
                 </div>
               </div>
             </div>

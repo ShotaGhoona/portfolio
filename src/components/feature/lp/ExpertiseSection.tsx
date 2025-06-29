@@ -7,7 +7,7 @@ import {
   SiFastapi, SiNodedotjs, SiPytorch, SiFigma, SiAdobeillustrator, SiAdobexd
 } from 'react-icons/si';
 import { 
-  FaCode, FaPaintBrush, FaRobot, FaServer, FaTools
+  FaCode, FaPaintBrush, FaRobot
 } from 'react-icons/fa';
 import { 
   HiCpuChip
@@ -93,8 +93,8 @@ export function ExpertiseSection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {expertiseData.subtitle.line1}</div>
-                <div>// {expertiseData.subtitle.line2}</div>
+                <div>{`// ${expertiseData.subtitle.line1}`}</div>
+                <div>{`// ${expertiseData.subtitle.line2}`}</div>
               </div>
             </div>
           </div>

@@ -43,8 +43,8 @@ export function PhilosophySection() {
                 className="font-mono text-xs mb-6 md:mb-0"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {philosophyData.subtitle.line1}</div>
-                <div>// {philosophyData.subtitle.line2}</div>
+                <div>{`// ${philosophyData.subtitle.line1}`}</div>
+                <div>{`// ${philosophyData.subtitle.line2}`}</div>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export function PhilosophySection() {
                       {/* Animation code */}
                       <div className="p-3 font-mono text-xs leading-relaxed">
                         <div style={{ color: 'var(--color-text-secondary)' }}>
-                          <div style={{ color: '#666' }}>// {metric.actor}</div>
+                          <div style={{ color: '#666' }}>{`// ${metric.actor}`}</div>
                           <div style={{ color: '#8b5cf6' }}>function</div> <span style={{ color: 'var(--color-text-primary)' }}>animate</span>() {'{'}
                         </div>
                         <div className="ml-2 space-y-1" style={{ color: 'var(--color-text-secondary)' }}>
@@ -143,7 +143,7 @@ export function PhilosophySection() {
                                 <div><span style={{ color: '#f59e0b' }}>move</span>(speed);</div>
                               </div>
                               <div>{'}'}</div>
-                              <div><span style={{ color: '#ef4444' }}>sleep</span>(<span style={{ color: '#10b981' }}>infinity</span>); <span style={{ color: '#666' }}>// 停止</span></div>
+                              <div><span style={{ color: '#ef4444' }}>sleep</span>(<span style={{ color: '#10b981' }}>infinity</span>); <span style={{ color: '#666' }}>{`// 停止`}</span></div>
                             </>
                           )}
                           {index === 1 && ( // Steady Tortoise
@@ -163,7 +163,7 @@ export function PhilosophySection() {
                               <div className="ml-2">
                                 <div>speed = <span style={{ color: '#10b981' }}>100</span>;</div>
                                 <div><span style={{ color: 'var(--color-accent-green)' }}>sprint</span>(speed);</div>
-                                <div>sleep = <span style={{ color: '#ef4444' }}>false</span>; <span style={{ color: '#666' }}>// 眠らない</span></div>
+                                <div>sleep = <span style={{ color: '#ef4444' }}>false</span>; <span style={{ color: '#666' }}>{`// 眠らない`}</span></div>
                               </div>
                               <div>{'}'}</div>
                             </>
@@ -322,7 +322,7 @@ export function PhilosophySection() {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {philosophyData.principles.map((principle, index) => (
+                  {philosophyData.principles.map((principle) => (
                     <div 
                       key={principle.id}
                       className="border transition-all duration-200 hover:shadow-lg"

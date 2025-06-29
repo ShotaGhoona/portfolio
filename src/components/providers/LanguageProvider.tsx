@@ -13,7 +13,7 @@ export interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations: Record<string, any> = {};
+const translations: Record<string, unknown> = {};
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');
@@ -45,7 +45,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     try {
       const translation = await import(`@/data/translations/${section}.json`);
       translations[cacheKey] = translation.default;
-    } catch (error) {
+    } catch {
       console.warn(`Translation file not found: ${section}.json`);
       translations[cacheKey] = {};
     }

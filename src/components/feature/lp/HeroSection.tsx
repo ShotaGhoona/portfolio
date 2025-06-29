@@ -29,10 +29,10 @@ export function HeroSection() {
                 className="font-mono text-sm"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>// {t('hero', 'meta.role')}</div>
-                <div>// {t('hero', 'meta.specialization')}</div>
-                <div>// {t('hero', 'meta.location')}</div>
-                <div>// {t('hero', 'meta.timezone')}</div>
+                <div>{`// ${t('hero', 'meta.role')}`}</div>
+                <div>{`// ${t('hero', 'meta.specialization')}`}</div>
+                <div>{`// ${t('hero', 'meta.location')}`}</div>
+                <div>{`// ${t('hero', 'meta.timezone')}`}</div>
               </div>
               
               {/* Main heading */}
@@ -125,10 +125,10 @@ export function HeroSection() {
                   className="font-mono text-sm"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
-                  <div>// {t('hero', 'focusAreas.title')}</div>
-                  <div>// - {t('hero', 'focusAreas.items.startupCreation')}</div>
-                  <div>// - {t('hero', 'focusAreas.items.agentArchitectures')}</div>
-                  <div>// - {t('hero', 'focusAreas.items.fullstackPrototyping')}</div>
+                  <div>{`// ${t('hero', 'focusAreas.title')}`}</div>
+                  <div>{`// - ${t('hero', 'focusAreas.items.startupCreation')}`}</div>
+                  <div>{`// - ${t('hero', 'focusAreas.items.agentArchitectures')}`}</div>
+                  <div>{`// - ${t('hero', 'focusAreas.items.fullstackPrototyping')}`}</div>
                 </div>
               </div>
               
