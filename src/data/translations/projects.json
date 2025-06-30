@@ -8,99 +8,57 @@
     "projects": [
       {
         "id": "001",
-        "slug": "distributed-cache",
-        "name": "DistributedCache",
-        "type": "System Architecture",
-        "year": "2024",
-        "description": "High-performance distributed caching system built with Redis Cluster and Go. Handles 1M+ requests/second with sub-millisecond latency.",
-        "tech": ["Go", "Redis", "Docker", "Kubernetes"],
-        "metrics": ["99.99% uptime", "0.3ms avg latency", "1M+ req/sec"],
+        "slug": "portfolio-site",
+        "name": "PortfolioSite",
+        "type": "Frontend Architecture",
+        "year": "2025",
+        "description": "Modern portfolio landing page built with Next.js 15 and TypeScript. Features dark/light theme switching, Japanese/English localization, and developer-friendly design patterns.",
+        "detailedDescription": "What happens when you give a designer the keys to a codebase? This portfolio site is the answer – a beautiful collision between pixel-perfect design sensibilities and robust engineering practices. Built like a git repository that doubles as a visual experience, every element follows a commit-driven design philosophy.\n\nThe entire interface is structured like a developer's workspace: terminal windows, code comments as navigation, and version control metaphors everywhere. But here's the twist – it's not just aesthetic. The site actually behaves like a well-architected codebase, with Next.js 15 App Router powering lightning-fast static generation and TypeScript ensuring every design decision is type-safe.\n\nThe crown jewel? A theming system that doesn't just switch colors – it transforms the entire personality of the site. Light mode feels like a clean IDE at 2 PM, while dark mode channels that 2 AM coding session energy. All powered by CSS Variables and localStorage persistence, because even user preferences deserve version control.\n\nInternationalization isn't an afterthought here; it's architected like a modular component system. Japanese and English content loads dynamically, proving that good design scales across languages just like good code scales across features. The component architecture follows the same principle – every React hook and custom component is crafted with the precision of a designer who actually understands the code underneath.\n\nThis isn't just a portfolio; it's a manifesto. It proves that the future belongs to design-engineers who can `git commit` both beautiful interfaces and bulletproof architecture. When your Lighthouse scores are as polished as your color palette, you know you're doing something right.",
+        "tech": ["Next.js 15", "TypeScript", "Tailwind CSS v4", "React"],
+        "metrics": ["Multi-theme support", "i18n ready", "100% TypeScript"],
         "status": "Production",
         "technicalDetails": {
-          "architecture": "Redis Cluster with consistent hashing and automatic failover",
-          "performance": "Sub-millisecond latency with 99.99% uptime SLA",
-          "scalability": "Horizontal scaling across multiple data centers",
-          "monitoring": "Real-time metrics with Prometheus and Grafana dashboards"
-        },
-        "performanceMetrics": {
-          "requests_per_second": "1M+",
-          "average_latency": "0.3ms",
-          "uptime": "99.99%"
-        },
-        "links": [
-          {
-            "title": "GitHub Repository",
-            "url": "#"
-          },
-          {
-            "title": "Technical Documentation",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js App Router with static generation and CSS Variables theming",
+          "performance": "Optimized for Core Web Vitals with component-based architecture",
+          "scalability": "Modular translation system with dynamic loading",
+          "monitoring": "Built-in theme persistence and language detection"
+        }
       },
       {
         "id": "002",
-        "slug": "data-pipeline",
-        "name": "DataPipeline",
-        "type": "Backend Infrastructure",
-        "year": "2023",
-        "description": "Real-time data processing pipeline for financial transactions. Processes 50TB+ daily with automatic scaling and error recovery.",
-        "tech": ["Python", "Apache Kafka", "PostgreSQL", "AWS"],
-        "metrics": ["50TB+ daily", "Auto-scaling", "Zero data loss"],
+        "slug": "ghoona-goods",
+        "name": "GhoonaGoods Corporate Website",
+        "type": "Corporate Web Platform",
+        "year": "2024",
+        "description": "Modern corporate website for original goods manufacturing company built with Next.js 15 and Tailwind CSS v4. Features advanced theme system foundation, rich custom animations, and comprehensive SEO optimization.",
+        "detailedDescription": "Engineering precision meets design sensibility in this corporate platform that elevates mechanical parts manufacturing expertise to the web. The enterprise philosophy of \"small-lot production starting from 1 piece\" is expressed through a UI/UX meticulously crafted from literally every single pixel.\n\nThe frontend architecture embodies manufacturing industry quality control philosophy—Next.js 15 App Router for static generation optimization, React 19's latest features, and TypeScript for type-safe development processes. Everything is designed with the rigor of ISO quality standards. What differentiates this project is the cutting-edge nature of its technical choices. We adopted Tailwind CSS v4, the latest release, building a complete CSS Variables-based theme system foundation—ready for both dark and light mode support, yet intentionally not implementing the UI toggle feature. This is the aesthetics of minimalism.\n\nMost impressive is the custom animation library. `float-slow`, `gradient-shift`, `morph`, `pulse-glow`—these keyframe animations aren't mere decoration, but an attempt to recreate \"the texture of precisely manufactured goods\" in digital space. The 8-second slow floating animation expresses the subtle movements of an actual pin badge dancing in your palm.\n\nSEO implementation showcases manufacturing industry-like comprehensiveness. OpenGraph, Twitter Card, structured data, metadata—providing perfect information to search engines like \"quality inspection systems\" with the precision of product specifications. The sitemap.xml and robots.txt are probably designed with the same precision as technical drawings.\n\nComponent architecture follows enterprise-grade composition with shadcn/ui + Radix UI. Each component adheres to single responsibility principles, being reusable, testable, and above all, \"beautiful.\" Feature-based directory structure achieves efficient information flow like a factory production line.\n\nThis website proves that \"digital transformation in manufacturing\" isn't just IT adoption, but the elevation of quality philosophy cultivated in the physical world into digital experiences. It demonstrates at the code level that the technical capability to perfectly craft one pin badge is essentially the same as the technical capability to perfectly craft one website.",
+        "tech": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Radix UI", "shadcn/ui", "Lucide React", "Turbopack"],
+        "metrics": ["App Router optimization", "CSS Variables theme foundation", "Custom animations", "Full SEO compliance"],
         "status": "Production",
         "technicalDetails": {
-          "pipeline": "Apache Kafka for real-time streaming with PostgreSQL for persistence",
-          "processing": "Event-driven architecture with automatic dead letter queues",
-          "scalability": "Auto-scaling based on queue depth and processing latency",
-          "reliability": "Zero data loss with at-least-once delivery guarantees"
-        },
-        "performanceMetrics": {
-          "daily_volume": "50TB+",
-          "processing_speed": "100K events/sec",
-          "data_loss": "0%"
-        },
-        "links": [
-          {
-            "title": "Architecture Overview",
-            "url": "#"
-          },
-          {
-            "title": "Monitoring Dashboard",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js 15 App Router + CSS Variables-based theme system for static generation optimization",
+          "performance": "Turbopack + React 19 latest features for Core Web Vitals optimization, custom CSS animation integration",
+          "scalability": "Feature-based component design, enterprise-grade architecture with shadcn/ui + Radix UI",
+          "monitoring": "Comprehensive SEO implementation (OGP, Twitter Card, structured data), manufacturing quality standard-level metadata management"
+        }
       },
       {
         "id": "003",
-        "slug": "devops-tools",
-        "name": "DevOpsTools",
-        "type": "Developer Tooling",
-        "year": "2023",
-        "description": "Internal developer platform for CI/CD automation. Reduced deployment time from 45min to 3min across 200+ microservices.",
-        "tech": ["TypeScript", "React", "Jenkins", "Terraform"],
-        "metrics": ["45min → 3min", "200+ services", "95% adoption"],
-        "status": "Internal",
+        "slug": "ghoona-camp",
+        "name": "Ghoona Camp - Morning Activity Community Platform",
+        "type": "Full-Stack Web Application",
+        "year": "2024",
+        "description": "Morning activity community platform built with Next.js 15 + FastAPI + PostgreSQL. Features AI-driven life vision planning, tier system, Discord integration, and real-time data visualization.",
+        "detailedDescription": "Solving the challenge of maintaining morning activity habits through technology—Ghoona Camp isn't just another morning routine app. It's a full-stack platform that technically realizes life visions.\n\nThe architectural core lies in the perfect fusion of modern frontend (Next.js 15 App Router) and scalable backend (FastAPI + PostgreSQL). Authentication achieves enterprise-level security with Clerk, while Discord OAuth2 integration seamlessly connects with existing community ecosystems.\n\nThe most innovative feature is the vision planning system through OpenAI GPT dialogue. Users can select conversation mode or suggestion mode, where AI generates four specific vision proposals and optimizes them based on user feedback. This feature involves sophisticated state management and real-time chat functionality, representing a highly advanced technical implementation.\n\nGamification elements are also technically refined. The tier system performs dynamic progress calculations and achievement status visualization, while the ranking system achieves data aggregation and efficient display across multiple axes (monthly, overall, consecutive attendance). The rival comparison feature particularly enables attendance status comparison in calendar format with switchable weekly/monthly analysis views.\n\nData visualization provides statistical dashboards with Chart.js + react-chartjs-2, intuitive calendar UI with react-day-picker, and accessible operation experiences through @radix-ui components. The monthly analysis feature particularly achieves comprehensive data analysis integrating attendance statistics, event hosting/participation data, and calendar views.\n\nBackend design ensures type-safe ORM with SQLAlchemy 2.0, database migrations with Alembic, and data integrity through soft delete patterns. External API integrations (Discord Bot, Supabase Storage, OpenAI) are properly abstracted with resilient design against service failures.\n\nThis platform integrates every technical element to support users' continuous growth. From maintaining morning activity habits to realizing life visions, it's a practical solution for technology to maximize human potential.",
+        "tech": ["Next.js 15", "TypeScript", "FastAPI", "PostgreSQL", "Tailwind CSS", "Radix UI", "Clerk Auth", "Discord API", "OpenAI GPT", "Supabase", "Chart.js", "SQLAlchemy", "Alembic"],
+        "metrics": ["15+ page structure", "10+ API endpoints", "Discord OAuth2 integration", "AI dialogue system", "Real-time data visualization"],
+        "status": "Production",
         "technicalDetails": {
-          "frontend": "React with TypeScript for type-safe development",
-          "backend": "Node.js API with Jenkins integration for CI/CD automation",
-          "infrastructure": "Terraform for infrastructure as code with multi-environment support",
-          "adoption": "95% developer adoption across 200+ microservices"
-        },
-        "performanceMetrics": {
-          "deployment_time": "3min",
-          "services_managed": "200+",
-          "adoption_rate": "95%"
-        },
-        "links": [
-          {
-            "title": "Internal Documentation",
-            "url": "#"
-          },
-          {
-            "title": "Usage Analytics",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js 15 App Router + FastAPI microservices architecture. Vercel + Railway + Supabase cloud-native configuration",
+          "performance": "Chart.js data visualization, react-day-picker calendar UI, @radix-ui accessible components, TypeScript type safety",
+          "scalability": "PostgreSQL + SQLAlchemy 2.0 ORM, soft delete patterns, proper abstraction of external API integrations (Discord/OpenAI)",
+          "monitoring": "Clerk authentication security, Discord Bot integration, Supabase Storage, OpenAI GPT dialogue system integration"
+        }
       },
       {
         "id": "004",
@@ -109,6 +67,7 @@
         "type": "Machine Learning",
         "year": "2022",
         "description": "GPU-accelerated inference engine for real-time recommendations. Serves 10M+ predictions daily with dynamic model updates.",
+        "detailedDescription": "A high-performance machine learning inference system designed to deliver real-time recommendations at massive scale. This production-grade platform serves over 10 million predictions daily with sub-10ms latency, powering personalized user experiences across multiple product verticals.\n\nThe system leverages TensorFlow with CUDA acceleration to maximize GPU utilization, achieving 85% GPU efficiency while maintaining consistent performance under varying load conditions. The inference engine supports multiple model formats and versions simultaneously, enabling seamless A/B testing and gradual model rollouts without service interruption.\n\nA sophisticated model management system handles dynamic loading and unloading of machine learning models based on traffic patterns and resource availability. Hot-swapping capabilities allow for real-time model updates, enabling rapid iteration and deployment of improved algorithms. The platform includes comprehensive monitoring for model drift detection, prediction quality metrics, and performance benchmarking.\n\nThe gRPC API provides high-throughput, low-latency communication with client applications, supporting both synchronous and asynchronous prediction requests. Load balancing and circuit breaker patterns ensure system resilience, while intelligent caching strategies reduce computational overhead for frequently requested predictions. The system integrates with existing MLOps pipelines for automated model training, validation, and deployment workflows.",
         "tech": ["Python", "TensorFlow", "CUDA", "gRPC"],
         "metrics": ["10M+ predictions", "GPU-accelerated", "Real-time"],
         "status": "Production",
@@ -117,22 +76,7 @@
           "serving": "gRPC API with load balancing and circuit breaker patterns",
           "model_updates": "Dynamic model loading with A/B testing capabilities",
           "monitoring": "Real-time inference metrics and model drift detection"
-        },
-        "performanceMetrics": {
-          "daily_predictions": "10M+",
-          "inference_latency": "<10ms",
-          "gpu_utilization": "85%"
-        },
-        "links": [
-          {
-            "title": "Model Documentation",
-            "url": "#"
-          },
-          {
-            "title": "Performance Benchmarks",
-            "url": "#"
-          }
-        ]
+        }
       }
     ],
     "buttons": {
@@ -155,99 +99,57 @@
     "projects": [
       {
         "id": "001",
-        "slug": "distributed-cache",
-        "name": "分散キャッシュシステム",
-        "type": "System Architecture",
-        "year": "2024",
-        "description": "Redis ClusterとGoで構築された高性能分散キャッシュシステム。毎秒100万リクエスト以上をサブミリ秒レイテンシで処理。",
-        "tech": ["Go", "Redis", "Docker", "Kubernetes"],
-        "metrics": ["99.99% uptime", "0.3ms avg latency", "1M+ req/sec"],
+        "slug": "portfolio-site",
+        "name": "ポートフォリオサイト",
+        "type": "Frontend Architecture",
+        "year": "2025",
+        "description": "Next.js 15とTypeScriptで構築されたモダンなポートフォリオLP。ダーク/ライトテーマ切り替え、日英多言語対応、開発者フレンドリーなデザインパターンを実装。",
+        "detailedDescription": "デザイナーにコードベースの鍵を渡すとどうなるか？このポートフォリオサイトがその答えです──ピクセルパーフェクトなデザイン感性と堅実なエンジニアリング実践の美しい衝突。gitリポジトリでありながらビジュアル体験としても機能するよう構築され、すべての要素がコミット駆動デザイン哲学に従っています。\n\nインターフェース全体は開発者のワークスペースのように構造化されています：ターミナルウィンドウ、ナビゲーションとしてのコードコメント、そしてあらゆる場所にバージョン管理のメタファー。しかし、ここにひねりがあります──これは単なる美的要素ではありません。サイトは実際によく設計されたコードベースのように動作し、Next.js 15 App Routerが超高速な静的生成を支え、TypeScriptがすべてのデザイン決定を型安全に保証します。\n\n最高傑作？単に色を切り替えるだけでなく、サイト全体の個性を変換するテーマシステム。ライトモードは午後2時のクリーンなIDEのように感じられ、ダークモードは深夜2時のコーディングセッションのエネルギーを伝えます。すべてCSS VariablesとlocalStorage永続化によって動力を得ています──ユーザー設定でさえバージョン管理に値するからです。\n\n国際化はここでは後付けではありません；モジュラーコンポーネントシステムのようにアーキテクトされています。日本語と英語のコンテンツは動的にロードされ、良いデザインが言語を越えてスケールすることを証明しています──良いコードが機能を越えてスケールするように。コンポーネントアーキテクチャも同じ原則に従っています──すべてのReactフックとカスタムコンポーネントは、下層のコードを実際に理解するデザイナーの精密さで作られています。\n\nこれは単なるポートフォリオではありません；宣言書です。美しいインターフェースと防弾アーキテクチャの両方を`git commit`できるデザインエンジニアに未来が属することを証明しています。Lighthouseスコアがカラーパレットと同じくらい洗練されているとき、あなたは正しいことをしていると分かります。",
+        "tech": ["Next.js 15", "TypeScript", "Tailwind CSS v4", "React"],
+        "metrics": ["マルチテーマ対応", "多言語対応", "100% TypeScript"],
         "status": "Production",
         "technicalDetails": {
-          "architecture": "一貫性ハッシュと自動フェイルオーバーを備えたRedis Cluster",
-          "performance": "99.99%稼働率SLAでサブミリ秒レイテンシ",
-          "scalability": "複数のデータセンターにわたる水平スケーリング",
-          "monitoring": "PrometheusとGrafanaダッシュボードによるリアルタイムメトリクス"
-        },
-        "performanceMetrics": {
-          "requests_per_second": "1M+",
-          "average_latency": "0.3ms",
-          "uptime": "99.99%"
-        },
-        "links": [
-          {
-            "title": "GitHubリポジトリ",
-            "url": "#"
-          },
-          {
-            "title": "技術ドキュメント",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js App RouterとCSS Variables テーマシステムによる静的生成",
+          "performance": "コンポーネントベースアーキテクチャでCore Web Vitals最適化",
+          "scalability": "動的ローディング対応のモジュラー翻訳システム",
+          "monitoring": "テーマ永続化と言語自動検出機能内蔵"
+        } 
       },
       {
         "id": "002",
-        "slug": "data-pipeline",
-        "name": "データパイプライン",
-        "type": "Backend Infrastructure",
-        "year": "2023",
-        "description": "金融取引のリアルタイムデータ処理パイプライン。日次50TB以上を自動スケーリングとエラー回復機能で処理。",
-        "tech": ["Python", "Apache Kafka", "PostgreSQL", "AWS"],
-        "metrics": ["50TB+ daily", "Auto-scaling", "Zero data loss"],
+        "slug": "ghoona-goods",
+        "name": "GhoonaGoods コーポレートサイト",
+        "type": "Corporate Web Platform",
+        "year": "2024",
+        "description": "Next.js 15とTailwind CSS v4で構築されたモダンなオリジナルグッズ製作企業のコーポレートサイト。高度なテーマシステム基盤、豊富なカスタムアニメーション、包括的なSEO最適化を実装。",
+        "detailedDescription": "機構部品メーカーの技術力を Web に昇華させた、エンジニアリング精度とデザイン感性が美しく融合したコーポレートプラットフォーム。「1個から対応する小ロット生産」という企業理念を、文字通り1ピクセルから丁寧に構築された UI/UX で表現しています。\n\nフロントエンドアーキテクチャは製造業の品質管理思想そのもの──Next.js 15 App Router による静的生成最適化、React 19 の最新機能活用、TypeScript による型安全な開発プロセス。全てがISO品質基準のような厳格さで設計されています。しかし、ここで差別化されるのは技術選択の先進性です。Tailwind CSS v4 という最新リリースを採用し、CSS Variables ベースの完全なテーマシステム基盤を構築──ダーク・ライト両モード対応の準備が整っているのに、UI切り替え機能は意図的に実装していません。これはミニマリズムの美学です。\n\n最も印象的なのは、カスタムアニメーションライブラリです。`float-slow`、`gradient-shift`、`morph`、`pulse-glow`──これらのキーフレームアニメーションは、単なる装飾ではなく「精密加工されたグッズが持つ質感」をデジタル空間で再現する試みです。8秒間のスロー浮遊アニメーションは、実際の缶バッジが手のひらで踊るような微細な動きを表現しています。\n\nSEO実装も製造業らしい網羅性を誇ります。OpenGraph、Twitter Card、構造化データ、メタデータ──検索エンジンという「品質検査システム」に対して、製品仕様書のような完璧な情報を提供します。sitemap.xml や robots.txt も、部品図面のような精密さで設計されているでしょう。\n\nコンポーネントアーキテクチャは shadcn/ui + Radix UI による enterprise-grade な構成。各コンポーネントは単一責任原則に従い、再利用可能でテスト可能、そして何より「美しい」。feature-based なディレクトリ構造は、工場の生産ラインのような効率的な情報フローを実現しています。\n\nこのサイトが証明するのは、「製造業のデジタル変革」は単なる IT 導入ではなく、物理世界で培った品質思想をデジタル体験に昇華させることだということです。1つの缶バッジを完璧に作り上げる技術力が、1つの Web サイトを完璧に作り上げる技術力と本質的に同じであることを、コードレベルで実証しています。",
+        "tech": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Radix UI", "shadcn/ui", "Lucide React", "Turbopack"],
+        "metrics": ["App Router最適化", "CSS Variables テーマ基盤", "カスタムアニメーション", "完全SEO対応"],
         "status": "Production",
         "technicalDetails": {
-          "pipeline": "永続化のためのPostgreSQLとリアルタイムストリーミングのためのApache Kafka",
-          "processing": "自動デッドレターキューを備えたイベント駆動アーキテクチャ",
-          "scalability": "キュー深度と処理レイテンシに基づく自動スケーリング",
-          "reliability": "最低1回配信保証によるゼロデータロス"
-        },
-        "performanceMetrics": {
-          "daily_volume": "50TB+",
-          "processing_speed": "100K events/sec",
-          "data_loss": "0%"
-        },
-        "links": [
-          {
-            "title": "アーキテクチャ概要",
-            "url": "#"
-          },
-          {
-            "title": "監視ダッシュボード",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js 15 App Router + CSS Variables ベーステーマシステムによる静的生成最適化",
+          "performance": "Turbopack + React 19 最新機能でCore Web Vitals最適化、カスタムCSSアニメーション統合",
+          "scalability": "Feature-based コンポーネント設計、shadcn/ui + Radix UI による enterprise-grade アーキテクチャ",
+          "monitoring": "包括的SEO実装（OGP、Twitter Card、構造化データ）、製造業品質基準レベルのメタデータ管理"
+        }
       },
       {
         "id": "003",
-        "slug": "devops-tools",
-        "name": "DevOpsツール",
-        "type": "Developer Tooling",
-        "year": "2023",
-        "description": "CI/CD自動化のための内部開発者プラットフォーム。200以上のマイクロサービスでデプロイ時間を45分から3分に短縮。",
-        "tech": ["TypeScript", "React", "Jenkins", "Terraform"],
-        "metrics": ["45min → 3min", "200+ services", "95% adoption"],
-        "status": "Internal",
+        "slug": "ghoona-camp",
+        "name": "Ghoona Camp - 朝活コミュニティプラットフォーム",
+        "type": "Full-Stack Web Application",
+        "year": "2024",
+        "description": "Next.js 15 + FastAPI + PostgreSQLで構築された朝活コミュニティプラットフォーム。AI対話による人生ビジョン策定、ティアシステム、Discord連携、リアルタイムデータ可視化を実装。",
+        "detailedDescription": "朝活習慣を継続する難しさを技術で解決する──Ghoona Campは単なる朝活アプリではない。それは人生のビジョンを技術的に実現するフルスタックプラットフォームだ。\n\nアーキテクチャの核心は、モダンなフロントエンド（Next.js 15 App Router）とスケーラブルなバックエンド（FastAPI + PostgreSQL）の完璧な融合にある。認証にはClerでエンタープライズレベルのセキュリティを実現し、Discord OAuth2統合により既存のコミュニティエコシステムとシームレスに連携する。\n\n最も革新的な機能は、OpenAI GPTとの対話によるビジョン策定システムだ。ユーザーは会話モードまたは提案モードを選択でき、AIが4つの具体的なビジョン案を生成し、ユーザーのフィードバックを基に最適化する。この機能は複雑な状態管理とリアルタイムチャット機能を伴う高度な技術実装となっている。\n\nゲーミフィケーション要素も技術的に洗練されている。ティアシステムは動的なプログレス計算と達成状況の可視化を行い、ランキングシステムは複数軸（月間、総合、連続出席）でのデータ集約と効率的な表示を実現している。特にライバル比較機能では、カレンダー形式での出席状況比較と週次/月次分析ビューの切り替えが可能だ。\n\nデータ可視化では、Chart.js + react-chartjs-2による統計ダッシュボード、react-day-pickerによる直感的なカレンダーUI、そして@radix-ui コンポーネントによるアクセシブルな操作体験を提供している。特に月間分析機能では、出席統計、イベント開催/参加データ、カレンダービューを統合した包括的なデータ分析を実現している。\n\nバックエンド設計では、SQLAlchemy 2.0による型安全なORM、Alembicによるデータベースマイグレーション、そして論理削除パターンによるデータ整合性を保証している。外部API統合（Discord Bot、Supabase Storage、OpenAI）も適切に抽象化され、各サービスの障害に対する耐性を持つ設計となっている。\n\nこのプラットフォームは、ユーザーの継続的成長を支援するためのあらゆる技術要素を統合している。朝活習慣の継続から始まり、人生ビジョンの実現まで、テクノロジーが人間の潜在能力を最大化するための実践的なソリューションである。",
+        "tech": ["Next.js 15", "TypeScript", "FastAPI", "PostgreSQL", "Tailwind CSS", "Radix UI", "Clerk Auth", "Discord API", "OpenAI GPT", "Supabase", "Chart.js", "SQLAlchemy", "Alembic"],
+        "metrics": ["15+ ページ構成", "10+ APIエンドポイント", "Discord OAuth2連携", "AI対話システム", "リアルタイムデータ可視化"],
+        "status": "Production",
         "technicalDetails": {
-          "frontend": "型安全な開発のためのTypeScriptとReact",
-          "backend": "CI/CD自動化のためのJenkins統合を備えたNode.js API",
-          "infrastructure": "マルチ環境サポートを備えたインフラストラクチャとしてのコードのためのTerraform",
-          "adoption": "200以上のマイクロサービスで95%の開発者採用率"
-        },
-        "performanceMetrics": {
-          "deployment_time": "3min",
-          "services_managed": "200+",
-          "adoption_rate": "95%"
-        },
-        "links": [
-          {
-            "title": "内部ドキュメント",
-            "url": "#"
-          },
-          {
-            "title": "使用分析",
-            "url": "#"
-          }
-        ]
+          "architecture": "Next.js 15 App Router + FastAPI マイクロサービス アーキテクチャ。Vercel + Railway + Supabase クラウドネイティブ構成",
+          "performance": "Chart.js データ可視化、react-day-picker カレンダーUI、@radix-ui アクセシブルコンポーネント、TypeScript型安全性",
+          "scalability": "PostgreSQL + SQLAlchemy 2.0 ORM、論理削除パターン、外部API統合（Discord/OpenAI）の適切な抽象化",
+          "monitoring": "Clerk認証セキュリティ、Discord Bot統合、Supabase Storage、OpenAI GPT対話システム統合"
+        }
       },
       {
         "id": "004",
@@ -256,6 +158,7 @@
         "type": "Machine Learning",
         "year": "2022",
         "description": "リアルタイム推薦のためのGPU加速推論エンジン。動的モデル更新により日次1000万件以上の予測を提供。",
+        "detailedDescription": "大規模でリアルタイム推薦を提供するように設計された高性能機械学習推論システムです。このプロダクショングレードプラットフォームは、10ms未満のレイテンシで日次1000万件以上の予測を提供し、複数の製品バーティカル全体でパーソナライズされたユーザー体験を支えています。\n\nシステムはCUDA加速を備えたTensorFlowを活用してGPU使用率を最大化し、さまざまな負荷条件下で一貫したパフォーマンスを維持しながら85%のGPU効率を達成しています。推論エンジンは複数のモデル形式とバージョンを同時にサポートし、サービス中断なしでシームレスなA/Bテストと段階的モデル展開を可能にします。\n\n洗練されたモデル管理システムは、トラフィックパターンとリソース可用性に基づいて機械学習モデルの動的ロード・アンロードを処理します。ホットスワップ機能により、リアルタイムモデル更新が可能になり、改善されたアルゴリズムの迅速な反復とデプロイメントを実現します。プラットフォームには、モデルドリフト検出、予測品質メトリクス、パフォーマンスベンチマークのための包括的な監視が含まれています。\n\ngRPC APIは、同期および非同期予測リクエストの両方をサポートして、クライアントアプリケーションとの高スループット、低レイテンシ通信を提供します。ロードバランシングとサーキットブレーカーパターンがシステムの回復力を確保し、インテリジェントキャッシング戦略が頻繁にリクエストされる予測の計算オーバーヘッドを削減します。システムは、自動化されたモデルトレーニング、検証、デプロイメントワークフローのために既存のMLOpsパイプラインと統合されています。",
         "tech": ["Python", "TensorFlow", "CUDA", "gRPC"],
         "metrics": ["10M+ predictions", "GPU-accelerated", "Real-time"],
         "status": "Production",
@@ -264,22 +167,7 @@
           "serving": "ロードバランシングとサーキットブレーカーパターンを備えたgRPC API",
           "model_updates": "A/Bテスト機能を備えた動的モデルローディング",
           "monitoring": "リアルタイム推論メトリクスとモデルドリフト検出"
-        },
-        "performanceMetrics": {
-          "daily_predictions": "10M+",
-          "inference_latency": "<10ms",
-          "gpu_utilization": "85%"
-        },
-        "links": [
-          {
-            "title": "モデルドキュメント",
-            "url": "#"
-          },
-          {
-            "title": "パフォーマンスベンチマーク",
-            "url": "#"
-          }
-        ]
+        } 
       }
     ],
     "buttons": {

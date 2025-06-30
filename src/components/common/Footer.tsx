@@ -37,7 +37,7 @@ export function Footer() {
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 <div>Portfolio Version: v2.1.0</div>
-                <div>Build Date: 2024.06.29</div>
+                <div>Build Date: 2025.06.29</div>
                 <div>Last Updated: {new Date().toISOString().split('T')[0]}</div>
                 <div>Environment: Production</div>
               </div>
@@ -140,8 +140,8 @@ export function Footer() {
                 className="font-mono text-xs"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                <span>&copy; 2024 Shota Yamashita.</span>
-                <span className="ml-4">All rights reserved.</span>
+                <span>&copy; 2025 Shota Yamashita.</span>
+                <span className="ml-4">All rights reserved.</span><br />
                 <span className="ml-4">Built with passion for clean code and elegant solutions.</span>
               </div>
             </div>

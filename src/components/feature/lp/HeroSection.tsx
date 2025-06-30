@@ -1,13 +1,34 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { TypewriterText } from '@/components/ui/TypewriterText';
 
 export function HeroSection() {
   const { t, loadTranslations } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const images = ['/profile/1.jpg', '/profile/2.jpg'];
 
   useEffect(() => {
     loadTranslations('hero');
   }, [loadTranslations]);
+
+  // Profile image cycling effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      
+      // Create multiple phases for a more dramatic effect
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      }, 100);
+      
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 300);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <section 
@@ -73,7 +94,7 @@ export function HeroSection() {
                       delay={4600}
                     />
                     <TypewriterText 
-                      text="'CEO'"
+                      text="'AI Engineer'"
                       speed={80}
                       delay={5200}
                       style={{ color: 'var(--color-text-secondary)' }}
@@ -189,8 +210,39 @@ export function HeroSection() {
                     picture.current
                   </div>
                 </div>
-                <div className="p-4 space-y-2">
-                  <img src="/profile.jpg" alt="Shota Yamashita" className="w-full h-auto rounded-lg" />
+                <div className="p-4 space-y-2 relative overflow-hidden">
+                  <div className="relative">
+                    <img 
+                      src={images[currentImageIndex]} 
+                      alt="Shota Yamashita" 
+                      className={`w-full h-auto rounded-lg transition-all duration-300 ${
+                        isTransitioning 
+                          ? 'scale-110 blur-sm opacity-70 saturate-200 contrast-150 brightness-110' 
+                          : 'scale-100 blur-0 opacity-100 saturate-100 contrast-100 brightness-100'
+                      }`}
+                      style={{
+                        filter: isTransitioning 
+                          ? 'brightness(1.3) hue-rotate(15deg) sepia(20%)' 
+                          : 'brightness(1) hue-rotate(0deg) sepia(0%)',
+                        transform: isTransitioning 
+                          ? 'translateX(2px) skew(1deg)' 
+                          : 'translateX(0px) skew(0deg)'
+                      }}
+                    />
+                    {isTransitioning && (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20 animate-pulse rounded-lg"></div>
+                        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-green-400 to-transparent opacity-15 animate-ping rounded-lg"></div>
+                        <div 
+                          className="absolute inset-0 opacity-30 rounded-lg"
+                          style={{
+                            background: 'linear-gradient(45deg, transparent 40%, rgba(0, 255, 255, 0.1) 50%, transparent 60%)',
+                            animation: 'glitch-sweep 0.3s ease-out'
+                          }}
+                        ></div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
               {/* Quick stats */}
@@ -256,16 +308,21 @@ export function HeroSection() {
         <div className="relative h-screen flex items-center justify-center">
           {/* Background Image */}
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-200 ${
+              isTransitioning ? 'scale-105 blur-sm' : 'scale-100 blur-0'
+            }`}
             style={{
-              backgroundImage: "url('/profile.jpg')",
+              backgroundImage: `url('${images[currentImageIndex]}')`,
               filter: `grayscale(30%) brightness(${
                 document.documentElement.getAttribute('data-theme') === 'dark' 
                   ? '0.4' 
                   : '1.2'
-              })`
+              }) ${isTransitioning ? 'saturate(150%) contrast(125%)' : 'saturate(100%) contrast(100%)'}`
             }}
           />
+          {isTransitioning && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 animate-pulse"></div>
+          )}
           
           {/* Overlay gradient */}
           <div 
@@ -440,6 +497,19 @@ export function HeroSection() {
         {/* CTA Buttons */}
 
       </div>
+
+      {/* CSS Keyframes for glitch effect */}
+      <style jsx>{`
+        @keyframes glitch-sweep {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        
+        @keyframes flicker {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; }
+        }
+      `}</style>
     </section>
   );
 }

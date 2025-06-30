@@ -93,7 +93,7 @@ export function ProjectsSection() {
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
                           <img 
-                            src={`https://picsum.photos/800/500?random=${index * 2 + 1}`}
+                            src={`/projects/${project.slug}/1.png`}
                             alt={`${project.name} interface screenshot`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -104,7 +104,7 @@ export function ProjectsSection() {
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
                           <img 
-                            src={`https://picsum.photos/800/500?random=${index * 2 + 2}`}
+                            src={`/projects/${project.slug}/2.png`}
                             alt={`${project.name} dashboard view`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -174,7 +174,7 @@ export function ProjectsSection() {
                       {/* Actions */}
                       <div className="flex items-center space-x-4 pt-2">
                         <Link 
-                          href="/projects"
+                          href={`/projects/${project.slug}`}
                           className="font-mono text-xs transition-colors duration-200 hover:opacity-80"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >

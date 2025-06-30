@@ -176,7 +176,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 style={{ borderColor: 'var(--color-border-primary)' }}
               >
                 <img 
-                  src={`https://picsum.photos/800/500?random=${project.id}1`}
+                  src={`/projects/${project.slug}/1.png`}
                   alt={`${project?.name} - Main Interface`}
                   className="w-full h-auto"
                   style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -187,7 +187,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 style={{ borderColor: 'var(--color-border-primary)' }}
               >
                 <img 
-                  src={`https://picsum.photos/800/500?random=${project.id}2`}
+                  src={`/projects/${project.slug}/2.png`}
                   alt={`${project?.name} - Architecture Diagram`}
                   className="w-full h-auto"
                   style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -196,6 +196,42 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             </div>
           </div>
         </div>
+
+        {/* Detailed Description */}
+        {project?.detailedDescription && (
+          <div 
+            className="border mb-8 transition-colors duration-200"
+            style={{ 
+              borderColor: 'var(--color-border-primary)',
+              backgroundColor: 'var(--color-bg-secondary)'
+            }}
+          >
+            <div 
+              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+              style={{ 
+                backgroundColor: 'var(--color-bg-primary)',
+                borderColor: 'var(--color-border-primary)'
+              }}
+            >
+              <span style={{ color: 'var(--color-text-secondary)' }}>
+                // Project overview and detailed analysis
+              </span>
+            </div>
+            
+            <div className="p-6">
+              <div 
+                className="font-mono text-sm leading-relaxed"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {project.detailedDescription.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="mb-4 last:mb-0">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Technical Details */}
         {project?.technicalDetails && (
@@ -235,143 +271,6 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                       {String(value)}
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Performance Metrics */}
-        {project?.performanceMetrics && (
-          <div 
-            className="border mb-8 transition-colors duration-200"
-            style={{ 
-              borderColor: 'var(--color-border-primary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
-          >
-            <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-              style={{ 
-                backgroundColor: 'var(--color-bg-primary)',
-                borderColor: 'var(--color-border-primary)'
-              }}
-            >
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                // Performance benchmarks and system metrics
-              </span>
-            </div>
-            
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {Object.entries(project?.performanceMetrics || {}).map(([key, value]) => (
-                  <div 
-                    key={key}
-                    className="border p-4 transition-colors duration-200"
-                    style={{ 
-                      borderColor: 'var(--color-border-primary)',
-                      backgroundColor: 'var(--color-bg-primary)'
-                    }}
-                  >
-                    <div 
-                      className="font-mono text-xs mb-1"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    >
-                      {key.replace(/_/g, ' ').toUpperCase()}
-                    </div>
-                    <div 
-                      className="font-mono font-bold text-lg"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >
-                      {String(value)}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Links */}
-        {project?.links && project.links.length > 0 && (
-          <div 
-            className="border mb-8 transition-colors duration-200"
-            style={{ 
-              borderColor: 'var(--color-border-primary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
-          >
-            <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-              style={{ 
-                backgroundColor: 'var(--color-bg-primary)',
-                borderColor: 'var(--color-border-primary)'
-              }}
-            >
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                // Repository links and documentation
-              </span>
-            </div>
-            
-            <div className="p-6">
-              <div className="space-y-3">
-                {project?.links?.map((link, index) => (
-                  <a 
-                    key={index}
-                    href={link?.url || '#'}
-                    className="block font-mono text-sm transition-colors duration-200 hover:opacity-80"
-                    style={{ color: 'var(--color-accent-green)' }}
-                  >
-                    → {link?.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Related projects */}
-        {relatedProjects.length > 0 && (
-          <div 
-            className="border transition-colors duration-200"
-            style={{ 
-              borderColor: 'var(--color-border-primary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
-          >
-            <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-              style={{ 
-                backgroundColor: 'var(--color-bg-primary)',
-                borderColor: 'var(--color-border-primary)'
-              }}
-            >
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                // Related repositories with similar tech stack
-              </span>
-            </div>
-            
-            <div className="p-6">
-              <div className="space-y-4">
-                {relatedProjects.map((relatedProject, index) => (
-                  <Link 
-                    key={index}
-                    href={`/projects/${relatedProject?.slug}`}
-                    className="block font-mono text-sm transition-colors duration-200 hover:opacity-80"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span style={{ color: 'var(--color-accent-green)' }}>→</span>
-                      <span style={{ color: 'var(--color-text-primary)' }}>
-                        {relatedProject?.name}
-                      </span>
-                      <span 
-                        className="text-xs"
-                        style={{ color: 'var(--color-text-tertiary)' }}
-                      >
-                        ({relatedProject?.type} - {relatedProject?.year})
-                      </span>
-                    </div>
-                  </Link>
                 ))}
               </div>
             </div>

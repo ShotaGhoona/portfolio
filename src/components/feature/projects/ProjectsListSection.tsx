@@ -185,7 +185,7 @@ export function ProjectsListSection() {
                     style={{ borderColor: 'var(--color-border-primary)' }}
                   >
                     <img 
-                      src={`https://picsum.photos/400/250?random=${index * 2 + 1}`}
+                      src={`/projects/${project.slug}/1.png`}
                       alt={`${project.name} interface`}
                       className="w-full h-full object-cover"
                       style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -196,7 +196,7 @@ export function ProjectsListSection() {
                     style={{ borderColor: 'var(--color-border-primary)' }}
                   >
                     <img 
-                      src={`https://picsum.photos/400/250?random=${index * 2 + 2}`}
+                      src={`/projects/${project.slug}/2.png`}
                       alt={`${project.name} dashboard`}
                       className="w-full h-full object-cover"
                       style={{ filter: 'grayscale(20%) contrast(1.1)' }}
