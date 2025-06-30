@@ -2,6 +2,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import projectsTranslations from '@/data/translations/projects.json';
 import Link from 'next/link';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 interface ProjectsDetailSectionProps {
   slug: string;
@@ -44,7 +45,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
 
   return (
     <div 
-      className="w-full py-16 md:py-24 transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
@@ -277,6 +278,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
           </div>
         )}
       </div>
+      <GridOverlay/>
     </div>
   );
 }

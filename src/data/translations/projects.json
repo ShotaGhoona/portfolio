@@ -29,7 +29,7 @@
         "slug": "ghoona-goods",
         "name": "GhoonaGoods Corporate Website",
         "type": "Corporate Web Platform",
-        "year": "2024",
+        "year": "2025",
         "description": "Modern corporate website for original goods manufacturing company built with Next.js 15 and Tailwind CSS v4. Features advanced theme system foundation, rich custom animations, and comprehensive SEO optimization.",
         "detailedDescription": "Engineering precision meets design sensibility in this corporate platform that elevates mechanical parts manufacturing expertise to the web. The enterprise philosophy of \"small-lot production starting from 1 piece\" is expressed through a UI/UX meticulously crafted from literally every single pixel.\n\nThe frontend architecture embodies manufacturing industry quality control philosophy—Next.js 15 App Router for static generation optimization, React 19's latest features, and TypeScript for type-safe development processes. Everything is designed with the rigor of ISO quality standards. What differentiates this project is the cutting-edge nature of its technical choices. We adopted Tailwind CSS v4, the latest release, building a complete CSS Variables-based theme system foundation—ready for both dark and light mode support, yet intentionally not implementing the UI toggle feature. This is the aesthetics of minimalism.\n\nMost impressive is the custom animation library. `float-slow`, `gradient-shift`, `morph`, `pulse-glow`—these keyframe animations aren't mere decoration, but an attempt to recreate \"the texture of precisely manufactured goods\" in digital space. The 8-second slow floating animation expresses the subtle movements of an actual pin badge dancing in your palm.\n\nSEO implementation showcases manufacturing industry-like comprehensiveness. OpenGraph, Twitter Card, structured data, metadata—providing perfect information to search engines like \"quality inspection systems\" with the precision of product specifications. The sitemap.xml and robots.txt are probably designed with the same precision as technical drawings.\n\nComponent architecture follows enterprise-grade composition with shadcn/ui + Radix UI. Each component adheres to single responsibility principles, being reusable, testable, and above all, \"beautiful.\" Feature-based directory structure achieves efficient information flow like a factory production line.\n\nThis website proves that \"digital transformation in manufacturing\" isn't just IT adoption, but the elevation of quality philosophy cultivated in the physical world into digital experiences. It demonstrates at the code level that the technical capability to perfectly craft one pin badge is essentially the same as the technical capability to perfectly craft one website.",
         "tech": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Radix UI", "shadcn/ui", "Lucide React", "Turbopack"],
@@ -47,7 +47,7 @@
         "slug": "ghoona-camp",
         "name": "Ghoona Camp - Morning Activity Community Platform",
         "type": "Full-Stack Web Application",
-        "year": "2024",
+        "year": "2025",
         "description": "Morning activity community platform built with Next.js 15 + FastAPI + PostgreSQL. Features AI-driven life vision planning, tier system, Discord integration, and real-time data visualization.",
         "detailedDescription": "Solving the challenge of maintaining morning activity habits through technology—Ghoona Camp isn't just another morning routine app. It's a full-stack platform that technically realizes life visions.\n\nThe architectural core lies in the perfect fusion of modern frontend (Next.js 15 App Router) and scalable backend (FastAPI + PostgreSQL). Authentication achieves enterprise-level security with Clerk, while Discord OAuth2 integration seamlessly connects with existing community ecosystems.\n\nThe most innovative feature is the vision planning system through OpenAI GPT dialogue. Users can select conversation mode or suggestion mode, where AI generates four specific vision proposals and optimizes them based on user feedback. This feature involves sophisticated state management and real-time chat functionality, representing a highly advanced technical implementation.\n\nGamification elements are also technically refined. The tier system performs dynamic progress calculations and achievement status visualization, while the ranking system achieves data aggregation and efficient display across multiple axes (monthly, overall, consecutive attendance). The rival comparison feature particularly enables attendance status comparison in calendar format with switchable weekly/monthly analysis views.\n\nData visualization provides statistical dashboards with Chart.js + react-chartjs-2, intuitive calendar UI with react-day-picker, and accessible operation experiences through @radix-ui components. The monthly analysis feature particularly achieves comprehensive data analysis integrating attendance statistics, event hosting/participation data, and calendar views.\n\nBackend design ensures type-safe ORM with SQLAlchemy 2.0, database migrations with Alembic, and data integrity through soft delete patterns. External API integrations (Discord Bot, Supabase Storage, OpenAI) are properly abstracted with resilient design against service failures.\n\nThis platform integrates every technical element to support users' continuous growth. From maintaining morning activity habits to realizing life visions, it's a practical solution for technology to maximize human potential.",
         "tech": ["Next.js 15", "TypeScript", "FastAPI", "PostgreSQL", "Tailwind CSS", "Radix UI", "Clerk Auth", "Discord API", "OpenAI GPT", "Supabase", "Chart.js", "SQLAlchemy", "Alembic"],
@@ -58,24 +58,6 @@
           "performance": "Chart.js data visualization, react-day-picker calendar UI, @radix-ui accessible components, TypeScript type safety",
           "scalability": "PostgreSQL + SQLAlchemy 2.0 ORM, soft delete patterns, proper abstraction of external API integrations (Discord/OpenAI)",
           "monitoring": "Clerk authentication security, Discord Bot integration, Supabase Storage, OpenAI GPT dialogue system integration"
-        }
-      },
-      {
-        "id": "004",
-        "slug": "ml-inference",
-        "name": "MLInference",
-        "type": "Machine Learning",
-        "year": "2022",
-        "description": "GPU-accelerated inference engine for real-time recommendations. Serves 10M+ predictions daily with dynamic model updates.",
-        "detailedDescription": "A high-performance machine learning inference system designed to deliver real-time recommendations at massive scale. This production-grade platform serves over 10 million predictions daily with sub-10ms latency, powering personalized user experiences across multiple product verticals.\n\nThe system leverages TensorFlow with CUDA acceleration to maximize GPU utilization, achieving 85% GPU efficiency while maintaining consistent performance under varying load conditions. The inference engine supports multiple model formats and versions simultaneously, enabling seamless A/B testing and gradual model rollouts without service interruption.\n\nA sophisticated model management system handles dynamic loading and unloading of machine learning models based on traffic patterns and resource availability. Hot-swapping capabilities allow for real-time model updates, enabling rapid iteration and deployment of improved algorithms. The platform includes comprehensive monitoring for model drift detection, prediction quality metrics, and performance benchmarking.\n\nThe gRPC API provides high-throughput, low-latency communication with client applications, supporting both synchronous and asynchronous prediction requests. Load balancing and circuit breaker patterns ensure system resilience, while intelligent caching strategies reduce computational overhead for frequently requested predictions. The system integrates with existing MLOps pipelines for automated model training, validation, and deployment workflows.",
-        "tech": ["Python", "TensorFlow", "CUDA", "gRPC"],
-        "metrics": ["10M+ predictions", "GPU-accelerated", "Real-time"],
-        "status": "Production",
-        "technicalDetails": {
-          "ml_framework": "TensorFlow with CUDA acceleration for GPU inference",
-          "serving": "gRPC API with load balancing and circuit breaker patterns",
-          "model_updates": "Dynamic model loading with A/B testing capabilities",
-          "monitoring": "Real-time inference metrics and model drift detection"
         }
       }
     ],
@@ -120,7 +102,7 @@
         "slug": "ghoona-goods",
         "name": "GhoonaGoods コーポレートサイト",
         "type": "Corporate Web Platform",
-        "year": "2024",
+        "year": "2025",
         "description": "Next.js 15とTailwind CSS v4で構築されたモダンなオリジナルグッズ製作企業のコーポレートサイト。高度なテーマシステム基盤、豊富なカスタムアニメーション、包括的なSEO最適化を実装。",
         "detailedDescription": "機構部品メーカーの技術力を Web に昇華させた、エンジニアリング精度とデザイン感性が美しく融合したコーポレートプラットフォーム。「1個から対応する小ロット生産」という企業理念を、文字通り1ピクセルから丁寧に構築された UI/UX で表現しています。\n\nフロントエンドアーキテクチャは製造業の品質管理思想そのもの──Next.js 15 App Router による静的生成最適化、React 19 の最新機能活用、TypeScript による型安全な開発プロセス。全てがISO品質基準のような厳格さで設計されています。しかし、ここで差別化されるのは技術選択の先進性です。Tailwind CSS v4 という最新リリースを採用し、CSS Variables ベースの完全なテーマシステム基盤を構築──ダーク・ライト両モード対応の準備が整っているのに、UI切り替え機能は意図的に実装していません。これはミニマリズムの美学です。\n\n最も印象的なのは、カスタムアニメーションライブラリです。`float-slow`、`gradient-shift`、`morph`、`pulse-glow`──これらのキーフレームアニメーションは、単なる装飾ではなく「精密加工されたグッズが持つ質感」をデジタル空間で再現する試みです。8秒間のスロー浮遊アニメーションは、実際の缶バッジが手のひらで踊るような微細な動きを表現しています。\n\nSEO実装も製造業らしい網羅性を誇ります。OpenGraph、Twitter Card、構造化データ、メタデータ──検索エンジンという「品質検査システム」に対して、製品仕様書のような完璧な情報を提供します。sitemap.xml や robots.txt も、部品図面のような精密さで設計されているでしょう。\n\nコンポーネントアーキテクチャは shadcn/ui + Radix UI による enterprise-grade な構成。各コンポーネントは単一責任原則に従い、再利用可能でテスト可能、そして何より「美しい」。feature-based なディレクトリ構造は、工場の生産ラインのような効率的な情報フローを実現しています。\n\nこのサイトが証明するのは、「製造業のデジタル変革」は単なる IT 導入ではなく、物理世界で培った品質思想をデジタル体験に昇華させることだということです。1つの缶バッジを完璧に作り上げる技術力が、1つの Web サイトを完璧に作り上げる技術力と本質的に同じであることを、コードレベルで実証しています。",
         "tech": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Radix UI", "shadcn/ui", "Lucide React", "Turbopack"],
@@ -138,7 +120,7 @@
         "slug": "ghoona-camp",
         "name": "Ghoona Camp - 朝活コミュニティプラットフォーム",
         "type": "Full-Stack Web Application",
-        "year": "2024",
+        "year": "2025",
         "description": "Next.js 15 + FastAPI + PostgreSQLで構築された朝活コミュニティプラットフォーム。AI対話による人生ビジョン策定、ティアシステム、Discord連携、リアルタイムデータ可視化を実装。",
         "detailedDescription": "朝活習慣を継続する難しさを技術で解決する──Ghoona Campは単なる朝活アプリではない。それは人生のビジョンを技術的に実現するフルスタックプラットフォームだ。\n\nアーキテクチャの核心は、モダンなフロントエンド（Next.js 15 App Router）とスケーラブルなバックエンド（FastAPI + PostgreSQL）の完璧な融合にある。認証にはClerでエンタープライズレベルのセキュリティを実現し、Discord OAuth2統合により既存のコミュニティエコシステムとシームレスに連携する。\n\n最も革新的な機能は、OpenAI GPTとの対話によるビジョン策定システムだ。ユーザーは会話モードまたは提案モードを選択でき、AIが4つの具体的なビジョン案を生成し、ユーザーのフィードバックを基に最適化する。この機能は複雑な状態管理とリアルタイムチャット機能を伴う高度な技術実装となっている。\n\nゲーミフィケーション要素も技術的に洗練されている。ティアシステムは動的なプログレス計算と達成状況の可視化を行い、ランキングシステムは複数軸（月間、総合、連続出席）でのデータ集約と効率的な表示を実現している。特にライバル比較機能では、カレンダー形式での出席状況比較と週次/月次分析ビューの切り替えが可能だ。\n\nデータ可視化では、Chart.js + react-chartjs-2による統計ダッシュボード、react-day-pickerによる直感的なカレンダーUI、そして@radix-ui コンポーネントによるアクセシブルな操作体験を提供している。特に月間分析機能では、出席統計、イベント開催/参加データ、カレンダービューを統合した包括的なデータ分析を実現している。\n\nバックエンド設計では、SQLAlchemy 2.0による型安全なORM、Alembicによるデータベースマイグレーション、そして論理削除パターンによるデータ整合性を保証している。外部API統合（Discord Bot、Supabase Storage、OpenAI）も適切に抽象化され、各サービスの障害に対する耐性を持つ設計となっている。\n\nこのプラットフォームは、ユーザーの継続的成長を支援するためのあらゆる技術要素を統合している。朝活習慣の継続から始まり、人生ビジョンの実現まで、テクノロジーが人間の潜在能力を最大化するための実践的なソリューションである。",
         "tech": ["Next.js 15", "TypeScript", "FastAPI", "PostgreSQL", "Tailwind CSS", "Radix UI", "Clerk Auth", "Discord API", "OpenAI GPT", "Supabase", "Chart.js", "SQLAlchemy", "Alembic"],
@@ -158,7 +140,7 @@
     },
     "viewAllSubtitle": "完全なプロジェクト・アーカイブとオープンソース貢献を確認",
     "detailPage": {
-      "title": "プロジェクト・アーカイブ",
+      "title": "プロジェクト",
       "subtitle": "技術的ショーケースとコードリポジトリ",
       "description": "技術プロジェクト、システムアーキテクチャ、開発成果の包括的なビュー。各プロジェクトは問題解決アプローチと技術的深度を実証します。"
     }

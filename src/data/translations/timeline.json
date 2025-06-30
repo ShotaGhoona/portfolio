@@ -276,7 +276,7 @@
             "content": "Update Our World. Democratize AI to evolve life by one level."
           },
           {
-            "title": "Products",
+            "title": "Services",
             "type": "list",
             "items": [
               "Ghoona Tech: Corporate DX support, AI implementation, LP/HP creation - comprehensive support",
@@ -447,7 +447,7 @@
         "type": "event",
         "branch": "feature/experience",
         "message": "わかものフェスティバル2023 in 関西",
-        "description": "猫のような大学生40人を束ねて1,200人のフェスを開催。睡眠時間2時間、コーヒー1日7杯、そして奇跡的に成功。リーダーシップって何だろうと真剣に考えた1年間。",
+        "description": "大学生40人を束ねて1,200人のフェスを開催。睡眠時間4時間、エナドリ漬け、そして大成功。リーダーシップって何だろうと真剣に考えた1年間。",
         "tags": ["イベント", "リーダーシップ", "コミュニティ"],
         "status": "completed",
         "sections": [
@@ -484,6 +484,11 @@
               "眠らぬうさぎには誰も勝てない",
               "イシューから始めよ"
             ]
+          },
+          {
+            "title": "当時の写真",
+            "type": "picture",
+            "count": 3
           }
         ]
       },
@@ -517,6 +522,11 @@
               "列車旅": 23,
               "人生の学び": "∞"
             }
+          },
+          {
+            "title": "バックパックの様子",
+            "type": "picture",
+            "count": 3
           }
         ]
       },
@@ -602,7 +612,7 @@
             "content": "Update Our World。AIの民主化で世界を生活を1段階進化させる。"
           },
           {
-            "title": "プロダクト",
+            "title": "事業",
             "type": "list",
             "items": [
               "Ghoona Tech: 企業のDX支援やAI導入支援、LP制作HP制作など幅広くサポート",

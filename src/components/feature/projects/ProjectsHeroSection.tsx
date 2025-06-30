@@ -1,6 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import projectsTranslations from '@/data/translations/projects.json';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function ProjectsHeroSection() {
   const { language } = useLanguage();
@@ -70,6 +71,7 @@ export function ProjectsHeroSection() {
           </div>
         </div>
       </div>
+      <GridOverlay/>
 
       <style jsx>{`
         @keyframes blink {

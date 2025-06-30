@@ -40,10 +40,7 @@ export function HeroSection() {
       <div className="max-w-6xl mx-auto hidden md:block h-screen py-32">
         <div className="grid grid-cols-12 gap-0 h-full">
           {/* Left content area */}
-          <div 
-            className="col-span-8 px-8 h-full"
-            style={{ borderRight: `1px solid var(--color-border-secondary)` }}
-          >
+          <div className="col-span-8 px-8 h-full">
             <div className="flex flex-col justify-between h-full">
               {/* Meta info */}
               <div 
@@ -414,7 +411,7 @@ export function HeroSection() {
                         delay={2900}
                       />
                       <TypewriterText 
-                        text="'CEO'"
+                        text="'AI Engeneer'"
                         speed={60}
                         delay={3200}
                         style={{ color: 'var(--color-text-secondary)' }}

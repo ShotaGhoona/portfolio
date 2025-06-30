@@ -1,6 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import timelineTranslations from '@/data/translations/timeline.json';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function TimelineHeroSection() {
   const { language } = useLanguage();
@@ -12,7 +13,7 @@ export function TimelineHeroSection() {
 
   return (
     <section 
-      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
@@ -70,6 +71,7 @@ export function TimelineHeroSection() {
           </div>
         </div>
       </div>
+      <GridOverlay/>
 
       <style jsx>{`
         @keyframes blink {

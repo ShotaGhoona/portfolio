@@ -2,6 +2,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import newsTranslations from '@/data/translations/news.json';
 import Link from 'next/link';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function NewsListSection() {
   const { language } = useLanguage();
@@ -48,7 +49,7 @@ export function NewsListSection() {
 
   return (
     <section 
-      className="w-full py-16 md:py-24 relative transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
@@ -277,6 +278,7 @@ export function NewsListSection() {
           </div>
         </div>
       </div>
+      <GridOverlay/>
     </section>
   );
 }

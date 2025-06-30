@@ -2,6 +2,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import projectsTranslations from '@/data/translations/projects.json';
 import Link from 'next/link';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function ProjectsListSection() {
   const { language } = useLanguage();
@@ -35,7 +36,7 @@ export function ProjectsListSection() {
 
   return (
     <section 
-      className="w-full py-16 md:py-24 relative transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
@@ -286,6 +287,7 @@ export function ProjectsListSection() {
           </div>
         </div>
       </div>
+      <GridOverlay/>    
     </section>
   );
 }

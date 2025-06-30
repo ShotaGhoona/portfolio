@@ -1,6 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import timelineTranslations from '@/data/translations/timeline.json';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function BranchesSection() {
   const { language } = useLanguage();
@@ -172,6 +173,7 @@ export function BranchesSection() {
         </div>
 
       </div>
+      <GridOverlay/>
     </section>
   );
 }

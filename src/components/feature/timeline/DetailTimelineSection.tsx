@@ -1,15 +1,17 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import timelineTranslations from '@/data/translations/timeline.json';
+import { GridOverlay } from '@/components/ui/GridOverlay';
 
 interface TimelineSection {
   title: string;
-  type: 'list' | 'badges' | 'metrics' | 'text' | 'comparison';
+  type: 'list' | 'badges' | 'metrics' | 'text' | 'comparison' | 'picture';
   items?: string[];
   data?: { [key: string]: string | number };
   content?: string;
   before?: string;
   after?: string;
+  count?: number;
 }
 
 interface TimelineEntry {
@@ -79,7 +81,7 @@ export function DetailTimelineSection() {
     });
   };
 
-  const renderSection = (section: TimelineSection, index: number) => {
+  const renderSection = (section: TimelineSection, index: number, commitHash: string) => {
     const baseClasses = "space-y-3";
     
     return (
@@ -213,13 +215,33 @@ export function DetailTimelineSection() {
             </div>
           </div>
         )}
+        {section.type === 'picture' && section.count && (
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${section.count} gap-4`}>
+            {Array.from({ length: section.count }).map((_, index) => (
+              <div 
+                key={index} 
+                className="p-3 aspect-video transition-colors duration-200"
+                style={{ 
+                  borderColor: 'var(--color-border-secondary)',
+                  backgroundColor: 'var(--color-bg-secondary)'
+                }}
+              >
+                <img 
+                  src={`/timeline/${commitHash}/${index + 1}.jpg`} 
+                  alt={`${index + 1}`} 
+                  className="w-full h-full object-cover"
+                />
+              </div>  
+            ))}
+          </div>
+        )}
       </div>
     );
   };
 
   return (
     <section 
-      className="w-full py-16 md:py-24 relative transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
@@ -316,7 +338,7 @@ export function DetailTimelineSection() {
                       <div className="p-4 sm:p-6">
                         <div className="space-y-6">
                           {commit.sections.map((section, sectionIndex) => 
-                            renderSection(section, sectionIndex)
+                            renderSection(section, sectionIndex, commit.hash)
                           )}
                         </div>
                       </div>
@@ -348,6 +370,7 @@ export function DetailTimelineSection() {
           </div>
         </div>
       </div>
+      <GridOverlay/>
     </section>
   );
 }
