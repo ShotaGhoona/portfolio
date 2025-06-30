@@ -215,7 +215,7 @@ export function HeroSection() {
                     <img 
                       src={images[currentImageIndex]} 
                       alt="Shota Yamashita" 
-                      className={`w-full h-auto rounded-lg transition-all duration-300 ${
+                      className={`w-full h-auto transition-all duration-300 ${
                         isTransitioning 
                           ? 'scale-110 blur-sm opacity-70 saturate-200 contrast-150 brightness-110' 
                           : 'scale-100 blur-0 opacity-100 saturate-100 contrast-100 brightness-100'
@@ -315,7 +315,7 @@ export function HeroSection() {
               backgroundImage: `url('${images[currentImageIndex]}')`,
               filter: `grayscale(30%) brightness(${
                 document.documentElement.getAttribute('data-theme') === 'dark' 
-                  ? '0.4' 
+                  ? '0.8' 
                   : '1.2'
               }) ${isTransitioning ? 'saturate(150%) contrast(125%)' : 'saturate(100%) contrast(100%)'}`
             }}
@@ -452,7 +452,7 @@ export function HeroSection() {
             <div className="space-y-4 text-left">
               <p 
                 className="font-mono text-sm leading-relaxed"
-                style={{ color: 'var(--color-text-secondary)' }}
+                style={{ color: 'var(--color-text-primary)' }}
               >
                 {t('hero', 'biography')}
               </p>

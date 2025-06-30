@@ -12,6 +12,8 @@ import {
 import { 
   HiCpuChip
 } from 'react-icons/hi2';
+import { GridOverlay } from '@/components/ui/GridOverlay';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 // Icon mapping function
 const getSkillIcon = (skillName: string) => {
@@ -71,34 +73,13 @@ export function ExpertiseSection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-          {/* Section header */}
-          <div 
-            className="col-span-1 md:col-span-3 px-4 md:px-8 pb-8 md:pb-0 md:border-r"
-            style={{ borderColor: 'var(--color-border-secondary)' }}
-          >
-            <div className="md:sticky md:top-40">
-              <div 
-                className="font-mono font-black text-xl md:text-2xl mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                03.
-              </div>
-              <h2 
-                className="font-mono font-black text-lg md:text-xl mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {expertiseData.sectionTitle}
-              </h2>
-              <div 
-                className="font-mono text-xs mb-6 md:mb-0"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                <div>{`// ${expertiseData.subtitle.line1}`}</div>
-                <div>{`// ${expertiseData.subtitle.line2}`}</div>
-              </div>
-            </div>
-          </div>
-          
+          <SectionTitle
+            sectionNumber="03."
+            sectionTitle={expertiseData.sectionTitle}
+            line1={expertiseData.subtitle.line1}
+            line2={expertiseData.subtitle.line2}
+          />
+
           {/* Expertise content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
@@ -270,22 +251,7 @@ export function ExpertiseSection() {
             </div>
           </div>
         </div>
-        
-        {/* Grid overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="max-w-6xl mx-auto h-full grid grid-cols-12 gap-0">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div 
-                key={index} 
-                className="h-full"
-                style={{ 
-                  borderRight: index < 11 ? `1px solid var(--color-border-primary)` : 'none',
-                  opacity: 0.3
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <GridOverlay />
       </div>
     </section>
   );

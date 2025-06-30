@@ -129,7 +129,7 @@ export function DetailTimelineSection() {
         )}
         
         {section.type === 'metrics' && section.data && (
-          <div className="flex gap-3">
+          <div className="grid grid-cols-2 sm:flex gap-3">
             {Object.entries(section.data).map(([key, value]) => (
               <div 
                 key={key}

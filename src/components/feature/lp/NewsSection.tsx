@@ -1,7 +1,9 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import newsTranslations from '@/data/translations/news.json';
-import Link from 'next/link';
+import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
+import { GridOverlay } from '@/components/ui/GridOverlay';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export function NewsSection() {
   const { language } = useLanguage();
@@ -44,33 +46,12 @@ export function NewsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-          {/* Section header */}
-          <div 
-            className="col-span-1 md:col-span-3 px-4 md:px-8 pb-8 md:pb-0 md:border-r"
-            style={{ borderColor: 'var(--color-border-secondary)' }}
-          >
-            <div className="md:sticky md:top-40">
-              <div 
-                className="font-mono font-black text-xl md:text-2xl mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                05.
-              </div>
-              <h2 
-                className="font-mono font-black text-lg md:text-xl mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {newsData.sectionTitle}
-              </h2>
-              <div 
-                className="font-mono text-xs mb-6 md:mb-0"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                <div>{`// ${newsData.subtitle.line1}`}</div>
-                <div>{`// ${newsData.subtitle.line2}`}</div>
-              </div>
-            </div>
-          </div>
+          <SectionTitle
+            sectionNumber="05."
+            sectionTitle={newsData.sectionTitle}
+            line1={newsData.subtitle.line1}
+            line2={newsData.subtitle.line2}
+          />
           
           {/* News content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
@@ -174,57 +155,14 @@ export function NewsSection() {
                   </div>
                 </div>
               ))}
-              
-              {/* Load more button */}
-              <div 
-                className="pt-6 transition-colors duration-200"
-                style={{ borderTop: `1px solid var(--color-border-primary)` }}
-              >
-                <Link href="/news" 
-                  className="font-mono inline-block font-bold text-sm px-6 py-3 transition-all duration-200 flex items-center gap-2"
-                  style={{ 
-                    color: 'var(--color-text-primary)',
-                    border: `1px solid var(--color-text-primary)`,
-                    backgroundColor: 'transparent'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--color-text-primary)';
-                    e.currentTarget.style.color = 'var(--color-bg-primary)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'var(--color-text-primary)';
-                  }}
-                >
-                  <span>LOAD_MORE_LOGS()</span>
-                  <span style={{ color: 'var(--color-accent-green)' }}>▶</span>
-                </Link>
-                <div 
-                  className="font-mono text-xs mt-2"
-                  style={{ color: 'var(--color-text-tertiary)' }}
-                >
-                  {`// Fetch additional system logs and updates`}
-                </div>
-              </div>
+              <ReadMoreButton 
+                href="/news" 
+                comment={`// View complete news (${newsData.news.length - 3} more news)`} 
+              />
             </div>
           </div>
         </div>
-        
-        {/* Grid overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="max-w-6xl mx-auto h-full grid grid-cols-12 gap-0">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div 
-                key={index} 
-                className="h-full"
-                style={{ 
-                  borderRight: index < 11 ? `1px solid var(--color-border-primary)` : 'none',
-                  opacity: 0.3
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <GridOverlay />
       </div>
     </section>
   );

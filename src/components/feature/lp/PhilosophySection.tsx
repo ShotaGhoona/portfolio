@@ -1,6 +1,8 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState } from 'react';
 import philosophyTranslations from '@/data/translations/philosophy.json';
+import { GridOverlay } from '@/components/ui/GridOverlay';
+import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export function PhilosophySection() {
   const { language } = useLanguage();
@@ -15,39 +17,18 @@ export function PhilosophySection() {
       id="philosophy"
       className="w-full py-24 relative transition-colors duration-200"
       style={{ 
-        backgroundColor: 'var(--color-bg-primary)',
+        backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-          {/* Section header */}
-          <div 
-            className="col-span-1 md:col-span-3 px-4 md:px-8 pb-8 md:pb-0 md:border-r"
-            style={{ borderColor: 'var(--color-border-secondary)' }}
-          >
-            <div className="md:sticky md:top-40">
-              <div 
-                className="font-mono font-black text-xl md:text-2xl mb-2"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                01.
-              </div>
-              <h2 
-                className="font-mono font-black text-lg md:text-xl mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {philosophyData.sectionTitle}
-              </h2>
-              <div 
-                className="font-mono text-xs mb-6 md:mb-0"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                <div>{`// ${philosophyData.subtitle.line1}`}</div>
-                <div>{`// ${philosophyData.subtitle.line2}`}</div>
-              </div>
-            </div>
-          </div>
+          <SectionTitle
+            sectionNumber="01."
+            sectionTitle={philosophyData.sectionTitle}
+            line1={philosophyData.subtitle.line1}
+            line2={philosophyData.subtitle.line2}
+          />
           
           {/* Philosophy content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
@@ -387,22 +368,7 @@ export function PhilosophySection() {
             </div>
           </div>
         </div>
-        
-        {/* Grid overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="max-w-6xl mx-auto h-full grid grid-cols-12 gap-0">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <div 
-                key={index} 
-                className="h-full"
-                style={{ 
-                  borderRight: index < 11 ? `1px solid var(--color-border-primary)` : 'none',
-                  opacity: 0.3
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <GridOverlay />
       </div>
     </section>
   );

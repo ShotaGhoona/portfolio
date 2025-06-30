@@ -19,185 +19,67 @@ export function TimelineHeroSection() {
       }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
-          {/* Main content */}
-          <div className="lg:col-span-8">
-            <div className="mb-8">
+        <div className="space-y-8">
+          <div>
+            <div 
+              className="font-mono text-sm mb-4 flex items-center gap-2"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              <span style={{ color: 'var(--color-accent-green)' }}>➜</span>
+              ~/portfolio/timeline $
+              <span className="animate-blink">|</span>
+            </div>
+            
+            <h1 className="space-y-2 mb-8">
               <div 
-                className="font-mono text-sm mb-4"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                ~/portfolio/timeline $
-              </div>
-              <h1 
-                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
+                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                {timelineData.detailPage.title}
-              </h1>
-              <p 
-                className="font-mono text-sm sm:text-base md:text-lg mb-6 md:mb-8"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {timelineData.detailPage.subtitle}
-              </p>
-              <p 
-                className="font-mono text-xs sm:text-sm leading-relaxed max-w-3xl"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {timelineData.detailPage.description}
-              </p>
-            </div>
-
-            {/* Git command simulation */}
-            <div 
-              className="border transition-colors duration-200"
-              style={{ 
-                borderColor: 'var(--color-border-primary)',
-                backgroundColor: 'var(--color-bg-secondary)'
-              }}
-            >
+                <span style={{ color: 'var(--color-accent-green)' }}>const</span> timeline = {'{'}
+              </div>
               <div 
-                className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center gap-2 sm:gap-3 transition-colors duration-200"
-                style={{ 
-                  backgroundColor: 'var(--color-bg-primary)',
-                  borderColor: 'var(--color-border-primary)'
-                }}
+                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
+                style={{ color: 'var(--color-text-primary)' }}
               >
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                </div>
-                <span style={{ color: 'var(--color-text-secondary)' }} className="hidden sm:inline">
-                  Terminal — git log --all --graph --decorate
-                </span>
-                <span style={{ color: 'var(--color-text-secondary)' }} className="sm:hidden">
-                  git log
-                </span>
+                title: "<span style={{ color: 'var(--color-accent-green)' }}>{timelineData.detailPage.title}</span>",
               </div>
-              
-              <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm space-y-1 sm:space-y-2 overflow-x-auto">
-                <div style={{ color: 'var(--color-text-primary)' }}>
-                  <span style={{ color: 'var(--color-accent-green)' }}>$ git log --all --graph --decorate --oneline</span>
-                </div>
-                <div style={{ color: 'var(--color-text-secondary)' }}>
-                  <span style={{ color: 'var(--color-accent-green)' }}>*</span> b4e1c85 (HEAD -&gt; career/startup) Launch Ghoona Inc.
-                </div>
-                <div style={{ color: 'var(--color-text-secondary)' }}>
-                  <span style={{ color: 'var(--color-accent-green)' }}>*</span> c9d2a14 (skills/ai-ml) Master PyTorch and FastAPI
-                </div>
-                <div style={{ color: 'var(--color-text-secondary)' }}>
-                  <span style={{ color: 'var(--color-accent-green)' }}>*</span> d1a7b89 (experience/india) Return from India exchange
-                </div>
-                <div style={{ color: 'var(--color-text-tertiary)' }}>
-                  ... {timelineData.stats.totalCommits - 3} more commits
-                </div>
+              <div 
+                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
+                {'}'};
               </div>
-            </div>
+            </h1>
           </div>
 
-          {/* Stats sidebar */}
-          <div className="lg:col-span-4 mt-8 lg:mt-0">
-            <div 
-              className="border transition-colors duration-200"
-              style={{ 
-                borderColor: 'var(--color-border-primary)',
-                backgroundColor: 'var(--color-bg-secondary)'
-              }}
+          <div className="space-y-4">
+            <p 
+              className="font-mono text-sm md:text-base leading-relaxed"
+              style={{ color: 'var(--color-text-secondary)' }}
             >
-              <div 
-                className="px-4 py-3 border-b transition-colors duration-200"
-                style={{ 
-                  backgroundColor: 'var(--color-bg-primary)',
-                  borderColor: 'var(--color-border-primary)'
-                }}
-              >
-                <div 
-                  className="font-mono text-sm font-bold"
-                  style={{ color: 'var(--color-text-primary)' }}
-                >
-                  {timelineData.stats.title}
-                </div>
-              </div>
-              
-              <div className="p-3 sm:p-4 space-y-3 sm:space-y-4">
-                {/* Commit stats */}
-                <div className="space-y-3">
-                  <div className="flex justify-between font-mono text-xs">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Total Commits:</span>
-                    <span style={{ color: 'var(--color-text-primary)' }}>{timelineData.stats.totalCommits}</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Active Branches:</span>
-                    <span style={{ color: 'var(--color-text-primary)' }}>{timelineData.stats.activeBranches}</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Years Active:</span>
-                    <span style={{ color: 'var(--color-text-primary)' }}>{timelineData.stats.yearsActive}</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <span style={{ color: 'var(--color-text-secondary)' }}>Lines of Code:</span>
-                    <span style={{ color: 'var(--color-text-primary)' }}>{timelineData.stats.linesOfCode}</span>
-                  </div>
-                </div>
-
-                {/* Languages */}
-                <div 
-                  className="pt-4 border-t transition-colors duration-200"
-                  style={{ borderColor: 'var(--color-border-secondary)' }}
-                >
-                  <div 
-                    className="font-mono text-xs mb-3"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    Primary Languages:
-                  </div>
-                  <div className="space-y-2">
-                    {timelineData.stats.languages.map((lang, index) => (
-                      <div key={index} className="flex items-center gap-2 font-mono text-xs">
-                        <div 
-                          className="w-2 h-2 rounded-full"
-                          style={{ backgroundColor: 'var(--color-accent-green)' }}
-                        ></div>
-                        <span style={{ color: 'var(--color-text-primary)' }}>{lang}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Frameworks */}
-                <div 
-                  className="pt-4 border-t transition-colors duration-200"
-                  style={{ borderColor: 'var(--color-border-secondary)' }}
-                >
-                  <div 
-                    className="font-mono text-xs mb-3"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    Key Frameworks:
-                  </div>
-                  <div className="flex flex-wrap gap-1 sm:gap-2">
-                    {timelineData.stats.frameworks.map((framework, index) => (
-                      <span 
-                        key={index}
-                        className="px-2 py-1 font-mono text-xs transition-colors duration-200"
-                        style={{ 
-                          backgroundColor: 'var(--color-bg-primary)',
-                          color: 'var(--color-text-primary)',
-                          border: `1px solid var(--color-border-secondary)`
-                        }}
-                      >
-                        {framework}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+              <span style={{ color: 'var(--color-accent-green)' }}>// </span>
+              {timelineData.detailPage.subtitle}
+            </p>
+            <p 
+              className="font-mono text-sm md:text-base leading-relaxed opacity-80"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              <span style={{ color: 'var(--color-accent-green)' }}>// </span>
+              {timelineData.detailPage.description}
+            </p>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes blink {
+          0%, 50% { opacity: 1; }
+          51%, 100% { opacity: 0; }
+        }
+        .animate-blink {
+          animation: blink 1s infinite;
+        }
+      `}</style>
     </section>
   );
 }
