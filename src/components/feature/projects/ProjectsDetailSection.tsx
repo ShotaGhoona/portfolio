@@ -19,8 +19,8 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
 
   if (!project) {
     return (
-      <div className="w-full py-24 text-center">
-        <div className="font-mono text-lg" style={{ color: 'var(--color-text-primary)' }}>
+      <div className="w-full py-16 md:py-24 text-center">
+        <div className="font-mono text-base sm:text-lg" style={{ color: 'var(--color-text-primary)' }}>
           Repository not found
         </div>
       </div>
@@ -44,15 +44,15 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
 
   return (
     <div 
-      className="w-full py-24 transition-colors duration-200"
+      className="w-full py-16 md:py-24 transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
-      <div className="max-w-4xl mx-auto px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Back navigation */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <Link 
             href="/projects"
-            className="font-mono text-sm flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
+            className="font-mono text-xs sm:text-sm flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             <span style={{ color: 'var(--color-accent-green)' }}>←</span>
@@ -62,20 +62,20 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
 
         {/* Project header */}
         <div 
-          className="border mb-8 transition-colors duration-200"
+          className="border mb-6 md:mb-8 transition-colors duration-200"
           style={{ 
             borderColor: 'var(--color-border-primary)',
             backgroundColor: 'var(--color-bg-secondary)'
           }}
         >
           <div 
-            className="px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+            className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
             style={{ 
               backgroundColor: 'var(--color-bg-primary)',
               borderColor: 'var(--color-border-primary)'
             }}
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-red-500"></div>
                 <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -85,7 +85,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 git clone project_{project?.id}.git
               </span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <span 
                 className="px-2 py-1"
                 style={{ 
@@ -101,7 +101,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             </div>
           </div>
           
-          <div className="p-6">
+          <div className="p-4 sm:p-5 md:p-6">
             <div className="mb-4">
               <div 
                 className="font-mono text-sm mb-2"
@@ -110,13 +110,13 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 {project?.type}
               </div>
               <h1 
-                className="font-mono font-bold text-3xl mb-4"
+                className="font-mono font-bold text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {project?.name}
               </h1>
               <p 
-                className="font-mono text-lg"
+                className="font-mono text-sm sm:text-base md:text-lg"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {project?.description}
@@ -124,7 +124,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             </div>
 
             {/* Tech stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
               {project?.tech?.map((tech, index) => (
                 <span 
                   key={index}
@@ -141,7 +141,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             </div>
 
             {/* Key metrics */}
-            <div className="flex items-center gap-6 font-mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 font-mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
               {project?.metrics?.map((metric, index) => (
                 <span key={index}>{metric}</span>
               ))}
@@ -151,7 +151,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
 
         {/* Project Images */}
         <div 
-          className="border mb-8 transition-colors duration-200"
+          className="border mb-6 md:mb-8 transition-colors duration-200"
           style={{ 
             borderColor: 'var(--color-border-primary)',
             backgroundColor: 'var(--color-bg-secondary)'
@@ -169,7 +169,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             </span>
           </div>
           
-          <div className="p-6">
+          <div className="p-4 sm:p-5 md:p-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div 
                 className="border transition-colors duration-200"
@@ -200,7 +200,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
         {/* Detailed Description */}
         {project?.detailedDescription && (
           <div 
-            className="border mb-8 transition-colors duration-200"
+            className="border mb-6 md:mb-8 transition-colors duration-200"
             style={{ 
               borderColor: 'var(--color-border-primary)',
               backgroundColor: 'var(--color-bg-secondary)'
@@ -218,7 +218,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
+            <div className="p-4 sm:p-5 md:p-6">
               <div 
                 className="font-mono text-sm leading-relaxed"
                 style={{ color: 'var(--color-text-secondary)' }}
@@ -236,7 +236,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
         {/* Technical Details */}
         {project?.technicalDetails && (
           <div 
-            className="border mb-8 transition-colors duration-200"
+            className="border mb-6 md:mb-8 transition-colors duration-200"
             style={{ 
               borderColor: 'var(--color-border-primary)',
               backgroundColor: 'var(--color-bg-secondary)'
@@ -254,7 +254,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
+            <div className="p-4 sm:p-5 md:p-6">
               <div className="space-y-4">
                 {Object.entries(project?.technicalDetails || {}).map(([key, value]) => (
                   <div key={key} className="flex items-start gap-4">

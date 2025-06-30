@@ -19,8 +19,8 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
 
   if (!article) {
     return (
-      <div className="w-full py-24 text-center">
-        <div className="font-mono text-lg" style={{ color: 'var(--color-text-primary)' }}>
+      <div className="w-full py-16 md:py-24 text-center">
+        <div className="font-mono text-base sm:text-lg" style={{ color: 'var(--color-text-primary)' }}>
           Log entry not found
         </div>
       </div>
@@ -57,15 +57,15 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
 
   return (
     <div 
-      className="w-full py-24 transition-colors duration-200"
+      className="w-full py-16 md:py-24 transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
-      <div className="max-w-4xl mx-auto px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Back navigation */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <Link 
             href="/news"
-            className="font-mono text-sm flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
+            className="font-mono text-xs sm:text-sm flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             <span style={{ color: 'var(--color-accent-green)' }}>←</span>
@@ -75,14 +75,14 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
 
         {/* Article header */}
         <div 
-          className="border mb-8 transition-colors duration-200"
+          className="border mb-6 md:mb-8 transition-colors duration-200"
           style={{ 
             borderColor: 'var(--color-border-primary)',
             backgroundColor: 'var(--color-bg-secondary)'
           }}
         >
           <div 
-            className="px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+            className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
             style={{ 
               backgroundColor: 'var(--color-bg-primary)',
               borderColor: 'var(--color-border-primary)'
@@ -114,7 +114,7 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
             </div>
           </div>
           
-          <div className="p-6">
+          <div className="p-4 sm:p-5 md:p-6">
             <div className="mb-4">
               <div 
                 className="font-mono text-sm mb-2"
@@ -123,13 +123,13 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
                 {article?.type}
               </div>
               <h1 
-                className="font-mono font-bold text-3xl mb-4"
+                className="font-mono font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl mb-3 sm:mb-4"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {article?.title}
               </h1>
               <p 
-                className="font-mono text-lg"
+                className="font-mono text-sm sm:text-base md:text-lg"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {article?.summary}
@@ -137,7 +137,7 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
             </div>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
               {article?.tags?.map((tag, index) => (
                 <span 
                   key={index}
@@ -154,7 +154,7 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
             </div>
 
             {/* Meta info */}
-            <div className="flex items-center gap-6 font-mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 font-mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
               <span>Reading time: {article?.readTime}</span>
               <span>Status: {article?.status}</span>
             </div>
@@ -163,14 +163,14 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
 
         {/* Article content */}
         <div 
-          className="border mb-8 transition-colors duration-200"
+          className="border mb-6 md:mb-8 transition-colors duration-200"
           style={{ 
             borderColor: 'var(--color-border-primary)',
             backgroundColor: 'var(--color-bg-secondary)'
           }}
         >
           <div 
-            className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+            className="px-3 md:px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
             style={{ 
               backgroundColor: 'var(--color-bg-primary)',
               borderColor: 'var(--color-border-primary)'
@@ -181,9 +181,9 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
             </span>
           </div>
           
-          <div className="p-6">
+          <div className="p-4 sm:p-5 md:p-6">
             <div 
-              className="font-mono text-sm leading-relaxed whitespace-pre-line"
+              className="font-mono text-xs sm:text-sm leading-relaxed whitespace-pre-line"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               {article?.fullContent}
@@ -194,14 +194,14 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
         {/* Technical details */}
         {article?.technicalDetails && (
           <div 
-            className="border mb-8 transition-colors duration-200"
+            className="border mb-6 md:mb-8 transition-colors duration-200"
             style={{ 
               borderColor: 'var(--color-border-primary)',
               backgroundColor: 'var(--color-bg-secondary)'
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+              className="px-3 md:px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-primary)',
                 borderColor: 'var(--color-border-primary)'
@@ -212,18 +212,18 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
-              <div className="space-y-4">
+            <div className="p-4 sm:p-5 md:p-6">
+              <div className="space-y-3 sm:space-y-4">
                 {Object.entries(article?.technicalDetails || {}).map(([key, value]) => (
-                  <div key={key} className="flex items-start gap-4">
+                  <div key={key} className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 md:gap-4">
                     <div 
-                      className="font-mono text-sm font-bold min-w-[140px]"
+                      className="font-mono text-xs sm:text-sm font-bold sm:min-w-[140px]"
                       style={{ color: 'var(--color-text-primary)' }}
                     >
                       {key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:
                     </div>
                     <div 
-                      className="font-mono text-sm"
+                      className="font-mono text-xs sm:text-sm"
                       style={{ color: 'var(--color-text-secondary)' }}
                     >
                       {value}
@@ -238,14 +238,14 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
         {/* Images */}
         {article?.images && article.images.length > 0 && (
           <div 
-            className="border mb-8 transition-colors duration-200"
+            className="border mb-6 md:mb-8 transition-colors duration-200"
             style={{ 
               borderColor: 'var(--color-border-primary)',
               backgroundColor: 'var(--color-bg-secondary)'
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+              className="px-3 md:px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-primary)',
                 borderColor: 'var(--color-border-primary)'
@@ -256,8 +256,8 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="p-4 sm:p-5 md:p-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                 {article?.images?.map((image, index) => (
                   <div 
                     key={index}
@@ -280,14 +280,14 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
         {/* Related links */}
         {article?.relatedLinks && article.relatedLinks.length > 0 && (
           <div 
-            className="border mb-8 transition-colors duration-200"
+            className="border mb-6 md:mb-8 transition-colors duration-200"
             style={{ 
               borderColor: 'var(--color-border-primary)',
               backgroundColor: 'var(--color-bg-secondary)'
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+              className="px-3 md:px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-primary)',
                 borderColor: 'var(--color-border-primary)'
@@ -298,13 +298,13 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
+            <div className="p-4 sm:p-5 md:p-6">
               <div className="space-y-3">
                 {article?.relatedLinks?.map((link, index) => (
                   <a 
                     key={index}
                     href={link.url}
-                    className="block font-mono text-sm transition-colors duration-200 hover:opacity-80"
+                    className="block font-mono text-xs sm:text-sm transition-colors duration-200 hover:opacity-80"
                     style={{ color: 'var(--color-accent-green)' }}
                   >
                     → {link.title}
@@ -325,7 +325,7 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
+              className="px-3 md:px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-primary)',
                 borderColor: 'var(--color-border-primary)'
@@ -336,13 +336,13 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
               </span>
             </div>
             
-            <div className="p-6">
-              <div className="space-y-4">
+            <div className="p-4 sm:p-5 md:p-6">
+              <div className="space-y-3 sm:space-y-4">
                 {relatedArticles.map((relatedArticle, index) => (
                   <Link 
                     key={index}
                     href={`/news/${relatedArticle.slug}`}
-                    className="block font-mono text-sm transition-colors duration-200 hover:opacity-80"
+                    className="block font-mono text-xs sm:text-sm transition-colors duration-200 hover:opacity-80"
                   >
                     <div className="flex items-center gap-2">
                       <span style={{ color: 'var(--color-accent-green)' }}>→</span>

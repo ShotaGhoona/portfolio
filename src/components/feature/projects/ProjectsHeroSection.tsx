@@ -12,16 +12,16 @@ export function ProjectsHeroSection() {
 
   return (
     <section 
-      className="w-full py-32 relative transition-colors duration-200"
+      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto px-8">
-        <div className="grid grid-cols-12 gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
           {/* Main content */}
-          <div className="col-span-8">
+          <div className="lg:col-span-8">
             <div className="mb-8">
               <div 
                 className="font-mono text-sm mb-4"
@@ -30,19 +30,19 @@ export function ProjectsHeroSection() {
                 ~/portfolio/projects $ ls -la --recursive
               </div>
               <h1 
-                className="font-mono font-black text-5xl mb-6"
+                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {projectsData.detailPage?.title || 'Project Archive'}
               </h1>
               <p 
-                className="font-mono text-lg mb-8"
+                className="font-mono text-sm sm:text-base md:text-lg mb-6 md:mb-8"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {projectsData.detailPage?.subtitle || 'Technical showcase and code repositories'}
               </p>
               <p 
-                className="font-mono text-sm leading-relaxed max-w-3xl"
+                className="font-mono text-xs sm:text-sm leading-relaxed max-w-3xl"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {projectsData.detailPage?.description || 'Comprehensive view of technical projects, system architectures, and development achievements.'}
@@ -58,7 +58,7 @@ export function ProjectsHeroSection() {
               }}
             >
               <div 
-                className="px-4 py-2 border-b font-mono text-xs flex items-center gap-3 transition-colors duration-200"
+                className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center gap-2 sm:gap-3 transition-colors duration-200"
                 style={{ 
                   backgroundColor: 'var(--color-bg-primary)',
                   borderColor: 'var(--color-border-primary)'
@@ -69,8 +69,11 @@ export function ProjectsHeroSection() {
                   <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
                   <div className="w-2 h-2 rounded-full bg-green-500"></div>
                 </div>
-                <span style={{ color: 'var(--color-text-secondary)' }}>
+                <span style={{ color: 'var(--color-text-secondary)' }} className="hidden sm:inline">
                   Project Repository — Production deployments
+                </span>
+                <span style={{ color: 'var(--color-text-secondary)' }} className="sm:hidden">
+                  Projects
                 </span>
                 <div className="ml-auto flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -78,7 +81,7 @@ export function ProjectsHeroSection() {
                 </div>
               </div>
               
-              <div className="p-4 font-mono text-sm space-y-1">
+              <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm space-y-1 sm:space-y-2 overflow-x-auto">
                 <div style={{ color: 'var(--color-text-primary)' }}>
                   <span style={{ color: 'var(--color-accent-green)' }}>$ find . -name "*.prod" -type f</span>
                 </div>
@@ -104,7 +107,7 @@ export function ProjectsHeroSection() {
           </div>
 
           {/* Project stats sidebar */}
-          <div className="col-span-4">
+          <div className="lg:col-span-4 mt-8 lg:mt-0">
             <div 
               className="border transition-colors duration-200"
               style={{ 
@@ -127,9 +130,9 @@ export function ProjectsHeroSection() {
                 </div>
               </div>
               
-              <div className="p-4 space-y-4">
+              <div className="p-3 sm:p-4 space-y-3 sm:space-y-4">
                 {/* Project counts by type */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <div className="flex justify-between font-mono text-xs">
                     <span style={{ color: 'var(--color-text-secondary)' }}>Total Projects:</span>
                     <span style={{ color: 'var(--color-text-primary)' }}>{projectsData.projects.length}</span>
@@ -165,7 +168,7 @@ export function ProjectsHeroSection() {
                   >
                     Deployment Status:
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1 sm:space-y-2">
                     {['Production', 'Internal', 'Development'].map((status) => {
                       const count = projectsData.projects.filter(project => project.status === status).length;
                       const color = status === 'Production' ? 'var(--color-accent-green)' :
@@ -196,7 +199,7 @@ export function ProjectsHeroSection() {
                   >
                     Tech Stack:
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1 sm:space-y-2">
                     {/* Get unique tech from all projects */}
                     {Array.from(new Set(projectsData.projects.flatMap(p => p.tech))).slice(0, 6).map((tech) => (
                       <div key={tech} className="flex items-center gap-2 font-mono text-xs">

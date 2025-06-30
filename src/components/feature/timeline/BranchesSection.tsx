@@ -12,16 +12,16 @@ export function BranchesSection() {
 
   return (
     <section 
-      className="w-full py-24 relative transition-colors duration-200"
+      className="w-full py-16 md:py-24 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="mb-12">
           <h2 
-            className="font-mono font-black text-3xl mb-4"
+            className="font-mono font-black text-xl sm:text-2xl md:text-3xl mb-4"
             style={{ color: 'var(--color-text-primary)' }}
           >
             Git Branches Overview
@@ -84,7 +84,7 @@ export function BranchesSection() {
         </div>
 
         {/* Branch details */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {timelineData.branches.map((branch, index) => (
             <div 
               key={index}

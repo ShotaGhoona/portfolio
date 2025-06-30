@@ -25,18 +25,18 @@
           { "name": "FastAPI", "level": 70 },
           { "name": "Next.js API Routes", "level": 70 },
           { "name": "Node.js", "level": 50 },
-          { "name": "PyTorch", "level": 50 }
+          { "name": "PyTorch", "level": 40 }
         ]
       },
       {
         "id": "tools",
         "title": "tools.stack",
         "skills": [
-          { "name": "Git / GitHub", "level": 90 },
-          { "name": "Docker", "level": 60 },
-          { "name": "Supabase", "level": 80 },
-          { "name": "Vercel", "level": 80 },
-          { "name": "Railway / Render", "level": 80 },
+          { "name": "Git / GitHub", "level": 64 },
+          { "name": "Docker", "level": 50 },
+          { "name": "Supabase", "level": 70 },
+          { "name": "Vercel", "level": 78 },
+          { "name": "Railway / Render", "level": 63 },
           { "name": "AI live coding", "level": 100 }
         ]
       },
@@ -47,8 +47,8 @@
           { "name": "UX design", "level": 80 },
           { "name": "UI design", "level": 95 },
           { "name": "Figma", "level": 85 },
-          { "name": "Adobe Illustrator", "level": 90 },
-          { "name": "Adobe XD", "level": 85 }
+          { "name": "Adobe Illustrator", "level": 70 },
+          { "name": "Adobe XD", "level": 68 }
         ]
       }
     ],
@@ -63,14 +63,8 @@
     "education": {
       "title": "education.background[]",
       "items": [
-        {
-          "degree": "B.A. in Architecture",
-          "institution": "Kyoto University • 2020–2026"
-        },
-        {
-          "degree": "Exchange Program (ICT & Development)",
-          "institution": "India • 2023-2024"
-        }
+        "B.A. in Architecture • Kyoto University • 2020–2026",
+        "Exchange Program (ICT & Development) • India • 2023-2024"
       ]
     }
 
@@ -82,28 +76,6 @@
       "line2": "専門知識領域"
     },
     "skillCategories": [
-      {
-        "id": "frontend",
-        "title": "frontend.skills",
-        "skills": [
-          { "name": "React", "level": 60 },
-          { "name": "Next.js", "level": 80 },
-          { "name": "TypeScript", "level": 80 },
-          { "name": "shadcn/ui", "level": 95 },
-          { "name": "Framer Motion", "level": 50 },
-          { "name": "three.js", "level": 50 }
-        ]
-      },
-      {
-        "id": "backend",
-        "title": "backend.skills",
-        "skills": [
-          { "name": "FastAPI", "level": 70 },
-          { "name": "Next.js API Routes", "level": 70 },
-          { "name": "Node.js", "level": 50 },
-          { "name": "PyTorch", "level": 50 }
-        ]
-      },
       {
         "id": "tools",
         "title": "tools.stack",
@@ -117,6 +89,18 @@
         ]
       },
       {
+        "id": "frontend",
+        "title": "frontend.skills",
+        "skills": [
+          { "name": "React", "level": 60 },
+          { "name": "Next.js", "level": 80 },
+          { "name": "TypeScript", "level": 80 },
+          { "name": "shadcn/ui", "level": 95 },
+          { "name": "Framer Motion", "level": 50 },
+          { "name": "three.js", "level": 50 }
+        ]
+      },
+      {
         "id": "design",
         "title": "design.systems",
         "skills": [
@@ -125,6 +109,16 @@
           { "name": "Figma", "level": 85 },
           { "name": "Adobe Illustrator", "level": 90 },
           { "name": "Adobe XD", "level": 85 }
+        ]
+      },
+      {
+        "id": "backend",
+        "title": "backend.skills",
+        "skills": [
+          { "name": "FastAPI", "level": 70 },
+          { "name": "Next.js API Routes", "level": 70 },
+          { "name": "Node.js", "level": 50 },
+          { "name": "PyTorch", "level": 50 }
         ]
       }
     ],
@@ -139,14 +133,8 @@
     "education": {
       "title": "education.background[]",
       "items": [
-        {
-          "degree": "建築学部",
-          "institution": "京都大学 • 2020–2026"
-        },
-        {
-          "degree": "インド留学（ICT & Development）",
-          "institution": "インド • 2023-2024"
-        }
+        "京都大学建築学部 • 2020–2026",
+        "インド留学（ICT & Development） • 2023-2024"
       ]
     }
   }

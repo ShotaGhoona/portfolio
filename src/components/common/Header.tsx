@@ -109,7 +109,7 @@ export function Header() {
 
       {/* Mobile Header */}
       <div className="md:hidden">
-        <div className="flex items-center justify-between px-4 py-4">
+        <div className="flex items-center justify-between px-4 py-1">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div 

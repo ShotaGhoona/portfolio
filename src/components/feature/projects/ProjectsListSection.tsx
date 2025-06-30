@@ -35,15 +35,15 @@ export function ProjectsListSection() {
 
   return (
     <section 
-      className="w-full py-24 relative transition-colors duration-200"
+      className="w-full py-16 md:py-24 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Filter controls */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <div 
             className="border transition-colors duration-200"
             style={{ 
@@ -52,7 +52,7 @@ export function ProjectsListSection() {
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs flex items-center gap-3 transition-colors duration-200"
+              className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center gap-2 sm:gap-3 transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-secondary)',
                 borderColor: 'var(--color-border-primary)'
@@ -68,9 +68,9 @@ export function ProjectsListSection() {
               </span>
             </div>
             
-            <div className="p-4 flex items-center gap-6">
+            <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               {/* Type filter */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
@@ -95,7 +95,7 @@ export function ProjectsListSection() {
               </div>
 
               {/* Status filter */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
@@ -120,7 +120,7 @@ export function ProjectsListSection() {
               </div>
 
               <div 
-                className="font-mono text-xs ml-auto"
+                className="font-mono text-xs sm:ml-auto mt-2 sm:mt-0"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
                 {filteredProjects.length} projects found
@@ -130,7 +130,7 @@ export function ProjectsListSection() {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {filteredProjects.map((project, index) => (
             <Link 
               key={project.id}
@@ -146,13 +146,13 @@ export function ProjectsListSection() {
               >
                 {/* Project header */}
                 <div 
-                  className="px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+                  className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 transition-colors duration-200"
                   style={{ 
                     backgroundColor: 'var(--color-bg-secondary)',
                     borderColor: 'var(--color-border-primary)'
                   }}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <div className="flex items-center gap-1">
                       <div className="w-2 h-2 rounded-full bg-red-500"></div>
                       <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
@@ -162,7 +162,7 @@ export function ProjectsListSection() {
                       project_{project.id}.repo
                     </span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4">
                     <span 
                       className="px-2 py-1"
                       style={{ 
@@ -179,7 +179,7 @@ export function ProjectsListSection() {
                 </div>
                 
                 {/* Project images */}
-                <div className="grid grid-cols-2 gap-4 p-4 pb-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-3 sm:p-4 pb-0">
                   <div 
                     className="aspect-[16/10] overflow-hidden border transition-all duration-200"
                     style={{ borderColor: 'var(--color-border-primary)' }}
@@ -205,19 +205,19 @@ export function ProjectsListSection() {
                 </div>
 
                 {/* Project content */}
-                <div className="p-6">
+                <div className="p-4 sm:p-5 md:p-6">
                   <div className="flex-1">
                     <div className="flex items-start gap-2 mb-3">
                       <span style={{ color: 'var(--color-accent-green)' }}>$</span>
                       <div className="flex-1">
                         <div 
-                          className="font-mono font-bold text-lg mb-2"
+                          className="font-mono font-bold text-base sm:text-lg mb-2"
                           style={{ color: 'var(--color-text-primary)' }}
                         >
                           {project.type} &gt; {project.name}
                         </div>
                         <p 
-                          className="font-mono text-sm leading-relaxed mb-4"
+                          className="font-mono text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >
                           {project.description}
@@ -226,8 +226,8 @@ export function ProjectsListSection() {
                     </div>
                     
                     {/* Tech stack and metrics */}
-                    <div className="space-y-3">
-                      <div className="flex flex-wrap gap-2">
+                    <div className="space-y-2 sm:space-y-3">
+                      <div className="flex flex-wrap gap-1 sm:gap-2">
                         {project.tech.map((tech, techIndex) => (
                           <span 
                             key={techIndex}
@@ -242,8 +242,8 @@ export function ProjectsListSection() {
                           </span>
                         ))}
                       </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex flex-wrap gap-2 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+                        <div className="flex flex-wrap gap-1 sm:gap-2 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
                           {project.metrics.map((metric, metricIndex) => (
                             <span key={metricIndex}>
                               {metric}
@@ -261,7 +261,7 @@ export function ProjectsListSection() {
         </div>
 
         {/* Archive footer */}
-        <div className="mt-12">
+        <div className="mt-8 md:mt-12">
           <div 
             className="border transition-colors duration-200"
             style={{ 
@@ -269,7 +269,7 @@ export function ProjectsListSection() {
               backgroundColor: 'var(--color-bg-primary)'
             }}
           >
-            <div className="p-4 text-center">
+            <div className="p-3 sm:p-4 text-center">
               <div 
                 className="font-mono text-sm"
                 style={{ color: 'var(--color-text-secondary)' }}

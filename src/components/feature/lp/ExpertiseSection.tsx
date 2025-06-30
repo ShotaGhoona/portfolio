@@ -261,11 +261,7 @@ export function ExpertiseSection() {
                         className="font-mono text-xs"
                         style={{ color: 'var(--color-text-secondary)' }}
                       >
-                        <div 
-                          className="font-bold"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        >{item.degree}</div>
-                        <div>{item.institution}</div>
+                        <span style={{ color: 'var(--color-accent-green)' }}>✓</span> {item}
                       </div>
                     ))}
                   </div>

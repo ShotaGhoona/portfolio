@@ -12,16 +12,16 @@ export function NewsHeroSection() {
 
   return (
     <section 
-      className="w-full py-32 relative transition-colors duration-200"
+      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto px-8">
-        <div className="grid grid-cols-12 gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
           {/* Main content */}
-          <div className="col-span-8">
+          <div className="lg:col-span-8">
             <div className="mb-8">
               <div 
                 className="font-mono text-sm mb-4"
@@ -30,19 +30,19 @@ export function NewsHeroSection() {
                 ~/portfolio/logs $ tail -f system.log
               </div>
               <h1 
-                className="font-mono font-black text-5xl mb-6"
+                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-6"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {newsData.detailPage?.title || 'System Logs'}
               </h1>
               <p 
-                className="font-mono text-lg mb-8"
+                className="font-mono text-sm sm:text-base md:text-lg mb-6 md:mb-8"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {newsData.detailPage?.subtitle || 'Development updates and technical insights'}
               </p>
               <p 
-                className="font-mono text-sm leading-relaxed max-w-3xl"
+                className="font-mono text-xs sm:text-sm leading-relaxed max-w-3xl"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {newsData.detailPage?.description || 'Comprehensive view of our latest developments, system updates, and technical achievements.'}
@@ -78,7 +78,7 @@ export function NewsHeroSection() {
                 </div>
               </div>
               
-              <div className="p-4 font-mono text-sm space-y-1">
+              <div className="p-3 md:p-4 font-mono text-xs sm:text-sm space-y-1">
                 <div style={{ color: 'var(--color-text-primary)' }}>
                   <span style={{ color: 'var(--color-accent-green)' }}>$ tail -f /var/log/system.log</span>
                 </div>
@@ -104,7 +104,7 @@ export function NewsHeroSection() {
           </div>
 
           {/* Log stats sidebar */}
-          <div className="col-span-4">
+          <div className="lg:col-span-4 mt-8 lg:mt-0">
             <div 
               className="border transition-colors duration-200"
               style={{ 
@@ -127,9 +127,9 @@ export function NewsHeroSection() {
                 </div>
               </div>
               
-              <div className="p-4 space-y-4">
+              <div className="p-3 md:p-4 space-y-3 md:space-y-4">
                 {/* Entry counts by type */}
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   <div className="flex justify-between font-mono text-xs">
                     <span style={{ color: 'var(--color-text-secondary)' }}>Total Entries:</span>
                     <span style={{ color: 'var(--color-text-primary)' }}>{newsData.news.length}</span>
@@ -165,7 +165,7 @@ export function NewsHeroSection() {
                   >
                     Severity Levels:
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1 md:space-y-2">
                     {['SUCCESS', 'INFO', 'WARN', 'ERROR'].map((severity) => {
                       const count = newsData.news.filter(item => item.severity === severity).length;
                       const color = severity === 'SUCCESS' ? 'var(--color-accent-green)' :

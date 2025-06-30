@@ -5,394 +5,649 @@
       "line1": "Development journey and",
       "line2": "technical evolution"
     },
+
     "timeline": [
       {
-        "hash": "a7f3d92",
-        "date": "2026-04-01",
-        "type": "feat",
-        "branch": "main",
-        "message": "Graduate from Kyoto University with B.A. in Architecture",
-        "description": "Completed undergraduate studies with focus on computational design and digital architecture. Thesis on AI-assisted design workflows.",
-        "tags": ["Education", "Architecture", "AI"],
-        "status": "future"
-      },
-      {
-        "hash": "b4e1c85",
-        "date": "2024-06-01",
-        "type": "feat",
-        "branch": "career/startup",
-        "message": "Launch Ghoona Inc. - AI-powered development tools",
-        "description": "Founded startup focusing on AI-assisted coding tools and developer productivity enhancement. Building full-stack solutions with React/Next.js frontend and FastAPI backend. Developing proprietary AI models for code generation and optimization. Currently serving 500+ beta users with 95% satisfaction rate.",
-        "tags": ["Startup", "AI", "Leadership"],
-        "status": "current",
-        "details": {
-          "achievements": [
-            "Founded company with $50k initial funding",
-            "Built MVP with 500+ active beta users",
-            "Developed proprietary AI code generation algorithms",
-            "Established partnerships with 3 major tech companies",
-            "Filed 2 provisional patents for AI-assisted development"
-          ],
-          "technologies": ["React", "Next.js", "FastAPI", "PostgreSQL", "Docker", "AWS"],
-          "metrics": {
-            "users": "500+",
-            "satisfaction": "95%",
-            "funding": "$50k",
-            "team_size": 3
-          }
-        }
-      },
-      {
-        "hash": "c9d2a14",
-        "date": "2024-03-15",
-        "type": "feat",
-        "branch": "skills/ai-ml",
-        "message": "Master PyTorch and FastAPI for production ML systems",
-        "description": "Deployed machine learning models in production environments serving 10k+ requests/day. Built scalable ML infrastructure with automated model training pipelines, A/B testing framework, and real-time inference optimization. Achieved 99.9% uptime and sub-100ms response times.",
-        "tags": ["PyTorch", "FastAPI", "ML"],
-        "status": "completed",
-        "details": {
-          "projects": [
-            "Real-time code completion model (95% accuracy)",
-            "Automated bug detection system (85% precision)",
-            "Performance optimization recommender",
-            "Natural language to code translator"
-          ],
-          "technologies": ["PyTorch", "FastAPI", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
-          "metrics": {
-            "daily_requests": "10k+",
-            "uptime": "99.9%",
-            "response_time": "<100ms",
-            "model_accuracy": "95%"
-          }
-        }
-      },
-      {
-        "hash": "d1a7b89",
-        "date": "2024-01-10",
-        "type": "feat",
-        "branch": "experience/india",
-        "message": "Return from India exchange program (ICT & Development)",
-        "description": "Completed transformative one-year exchange program in India focusing on ICT for Development. Collaborated with local startups on fintech solutions for rural communities. Built mobile applications serving 2000+ users in underserved areas. Gained deep insights into emerging market challenges and technology adoption patterns.",
-        "tags": ["Exchange", "India", "ICT"],
-        "status": "completed",
-        "details": {
-          "experiences": [
-            "Developed fintech app for rural banking (2000+ users)",
-            "Collaborated with 5 local startups and NGOs",
-            "Built offline-first mobile solutions",
-            "Conducted user research in 15+ villages",
-            "Presented at Delhi Tech Conference 2023"
-          ],
-          "technologies": ["React Native", "SQLite", "Node.js", "MongoDB", "Firebase"],
-          "impact": {
-            "users_served": "2000+",
-            "villages_reached": 15,
-            "partnerships": 5,
-            "presentations": 3
-          }
-        }
-      },
-      {
-        "hash": "e8c4f73",
-        "date": "2023-08-20",
-        "type": "feat",
-        "branch": "skills/fullstack",
-        "message": "Achieve proficiency in React, Next.js, and TypeScript",
-        "description": "Built multiple production applications using modern web technologies. Implemented responsive designs and optimized performance.",
-        "tags": ["React", "Next.js", "TypeScript"],
-        "status": "completed"
-      },
-      {
-        "hash": "f2d9e56",
-        "date": "2023-01-15",
-        "type": "feat",
-        "branch": "experience/india",
-        "message": "Begin exchange program in India",
-        "description": "Started intensive program focusing on ICT and Development. Immersed in different technological ecosystem and methodologies.",
-        "tags": ["Exchange", "Learning"],
-        "status": "completed"
-      },
-      {
-        "hash": "a5b8c91",
-        "date": "2022-06-01",
-        "type": "feat",
-        "branch": "skills/design",
-        "message": "Master UI/UX design tools (Figma, Adobe Suite)",
-        "description": "Achieved advanced proficiency in design tools. Created design systems and user interfaces for multiple projects.",
-        "tags": ["UI/UX", "Figma", "Design"],
-        "status": "completed"
-      },
-      {
-        "hash": "b7a3d04",
-        "date": "2021-09-10",
-        "type": "feat",
-        "branch": "education/architecture",
-        "message": "Discover computational design and programming",
-        "description": "First exposure to programming through architectural parametric design. Sparked passion for technology and coding.",
-        "tags": ["Programming", "Discovery"],
-        "status": "completed"
-      },
-      {
-        "hash": "c4f1e78",
-        "date": "2020-04-01",
+        "hash": "g7b4c2d",
+        "date": "2001-09-08",
         "type": "initial",
-        "branch": "main",
-        "message": "Begin studies at Kyoto University",
-        "description": "Started undergraduate program in Architecture. Foundation in design thinking and systematic problem-solving approaches.",
-        "tags": ["Education", "Foundation"],
+        "branch": "life",
+        "message": "Born in Sakai, Osaka Prefecture",
+        "description": "The first commit to existence. Named Shota, which literally means 'soaring big'—destiny clearly had a sense of humor about future ambitions.",
+        "tags": ["Birth", "Osaka", "Origin"],
         "status": "completed"
+      },
+      {
+        "hash": "h2a5e1b",
+        "date": "2020-04-01",
+        "type": "education",
+        "branch": "life",
+        "message": "Enroll in Kyoto University, Faculty of Engineering",
+        "description": "Enrolled to study architecture, thinking I'd design buildings. Plot twist: ended up architecting software instead. Sometimes the best paths are the unexpected ones.",
+        "tags": ["Education", "KyotoUniversity", "Can't use CAD"],
+        "status": "current"
+      },
+      {
+        "hash": "d3f7a21",
+        "date": "2020-04-15",
+        "type": "skill",
+        "branch": "feature/skills",
+        "message": "Master UI/UX tools (Figma & Adobe Suite)",
+        "description": "Fell down the Figma rabbit hole and never looked back. Designed everything from mobile apps to festival posters—because why limit creativity to one medium?",
+        "tags": ["UI/UX", "Figma", "Design"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Projects Built",
+            "type": "list",
+            "items": [
+              "Built design systems for 3 startup projects",
+              "Created 50+ UI components in Figma",
+              "Designed posters for university events (500+ prints)"
+            ]
+          },
+          {
+            "title": "Tools Mastered",
+            "type": "badges",
+            "items": ["Figma", "Adobe Illustrator", "Adobe XD", "Photoshop"]
+          },
+          {
+            "title": "Impact Metrics",
+            "type": "metrics",
+            "data": {
+              "logos_created": 14,
+              "posters_designed": 23,
+              "websites_built": 14
+            }
+          }
+        ]
+      },
+      {
+        "hash": "e1b4c8f",
+        "date": "2023-06-05",
+        "type": "pivot",
+        "branch": "life",
+        "message": "The Great Pivot: ChatGPT changes everything",
+        "description": "Tried ChatGPT for the first time and had an existential crisis (in a good way). Realized the future wasn't just digital—it was intelligent. Time to learn how to build it.",
+        "tags": ["Decision", "AI", "Career"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "What Triggered This",
+            "type": "list",
+            "items": [
+              "First ChatGPT conversation lasted 3 hours",
+              "Built first Python script within a week",
+              "Read 'Attention Is All You Need' paper 5 times"
+            ]
+          },
+          {
+            "title": "Mindset Shift",
+            "type": "comparison",
+            "before": "I design interfaces",
+            "after": "I architect intelligent experiences"
+          }
+        ]
+      },
+      {
+        "hash": "f9c2d67",
+        "date": "2023-07-01",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "TECH company design intern",
+        "description": "First startup experience. Started playing with Figma and suddenly I was building webpages. The summer I realized 'design is actually fun.' Felt the importance of company culture firsthand.",
+        "tags": ["Internship", "Design"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Key Responsibilities",
+            "type": "list",
+            "items": [
+              "Designed & coded PR webpages",
+              "Created social media thumbnails",
+              "Initial Notion setup"
+            ]
+          },
+          {
+            "title": "Technologies",
+            "type": "badges",
+            "items": ["Illustrator", "Photoshop", "After Effects", "Notion", "HTML/CSS"]
+          }
+        ]
+      },
+      {
+        "hash": "a6e8b4d",
+        "date": "2024-02-25",
+        "type": "event",
+        "branch": "feature/experience",
+        "message": "Wakamono Festival 2023 in Kansai",
+        "description": "Wrangled 40 cat-like university students to host a 1,200-person festival. 2 hours of sleep, 7 cups of coffee daily, and miraculously succeeded. A full year of seriously pondering what leadership really means.",
+        "tags": ["Event", "Leadership", "Community"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Key Achievements",
+            "type": "list",
+            "items": [
+              "Created PR website",
+              "Made festival opening movie with After Effects",
+              "Designed festival poster with Illustrator"
+            ]
+          },
+          {
+            "title": "Tools Used",
+            "type": "badges",
+            "items": ["Illustrator", "After Effects", "Photoshop", "Notion", "HTML/CSS"]
+          },
+          {
+            "title": "Event Metrics",
+            "type": "metrics",
+            "data": {
+              "attendees": "1,200",
+              "student_participants": "300",
+              "committee_members": "40",
+              "budget": "¥8M",
+              "planning_months": "12"
+            }
+          },
+          {
+            "title": "Lessons Learned",
+            "type": "list",
+            "items": [
+              "Always have a Plan B (and C)",
+              "The sleepless rabbit beats everyone",
+              "Start with the issue"
+            ]
+          }
+        ]
+      },
+      {
+        "hash": "b2d1a9e",
+        "date": "2024-04-04",
+        "type": "travel",
+        "branch": "feature/experience",
+        "message": "Begin exchange program in India (Pune)",
+        "description": "Packed a laptop and curiosity, landed in Pune planning to study CS. Ended up backpacking 9,000km across the subcontinent. Best classroom ever: chai stalls, overnight trains, and conversations with strangers.",
+        "tags": ["Exchange", "India"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Adventures",
+            "type": "list",
+            "items": [
+              "Backpacked 9,000km across 12 states",
+              "Survived 47°C in Rajasthan desert",
+              "Taught math to kids in Varanasi",
+              "Ganges river bathing at Maha Kumbh Mela"
+            ]
+          },
+          {
+            "title": "Cultural Impact",
+            "type": "metrics",
+            "data": {
+              "states_visited": 12,
+              "languages_attempted": 4,
+              "street_food": "∞",
+              "train_journeys": 23,
+              "life_lessons": "∞"
+            }
+          }
+        ]
+      },
+      {
+        "hash": "c5f8e30",
+        "date": "2024-09-01",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "SNS marketing company AI agent development intern",
+        "description": "Drawn by the allure of 'AI agents,' I dove in to find reality was data pipeline plumbing. But the joy when it finally worked was extraordinary. The summer I learned 'AI isn't magic.'",
+        "tags": ["Internship", "AI"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Focus Areas",
+            "type": "list",
+            "items": [
+              "Led requirements definition to UI/UX design",
+              "Multi-agent system architecture design using OpenAI Agent SDK",
+              "Language fine-tuning for construction and renovation industries"
+            ]
+          },
+          {
+            "title": "Technologies",
+            "type": "badges",
+            "items": ["Python", "LangChain", "OpenAI Agent SDK", "FastAPI", "PostgreSQL", "Docker", "Next.js"]
+          }
+        ]
+      },
+      {
+        "hash": "d4b1f6a",
+        "date": "2024-11-10",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "START UP SaaS development PdM",
+        "description": "Infiltrated the deep world of manufacturing. Battled the seemingly mundane but super important problem of 'predicting when screws are needed.' User interviews taught me factory realities and the essence of DX this autumn.",
+        "tags": ["Internship", "SaaS"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "Key Projects",
+            "type": "list",
+            "items": [
+              "Major telecom company warehouse system development",
+              "Manufacturing SaaS CRM backlog requirements definition"
+            ]
+          },
+          {
+            "title": "Product Skills Acquired",
+            "type": "list",
+            "items": [
+              "User story mapping",
+              "Agile/Scrum methodology",
+              "A/B testing design",
+              "SQL analysis",
+              "Stakeholder management"
+            ]
+          },
+          {
+            "title": "Fun Episodes",
+            "type": "list",
+            "items": [
+              "Learned manufacturing terms I never knew existed",
+              "Visited 2 Osaka factories (helmet required)",
+              "Can now explain supply chain to anyone at parties"
+            ]
+          }
+        ]
+      },
+      {
+        "hash": "e7c3a42",
+        "date": "2025-01-15",
+        "type": "launch",
+        "branch": "feature/experience",
+        "message": "Launch Ghoona Inc. — Where AI meets human creativity",
+        "description": "The plot twist nobody saw coming: started a company. Building AI tools that amplify human creativity instead of replacing it. Current status: caffeinated, optimistic, and slightly terrified.",
+        "tags": ["Startup", "AI"],
+        "status": "current",
+        "sections": [
+          {
+            "title": "Vision",
+            "type": "text",
+            "content": "Update Our World. Democratize AI to evolve life by one level."
+          },
+          {
+            "title": "Products",
+            "type": "list",
+            "items": [
+              "Ghoona Tech: Corporate DX support, AI implementation, LP/HP creation - comprehensive support",
+              "Ghoona Goods: Original design badge EC site from mechanical parts manufacturer",
+              "Ghoona Camp: Morning activity community platform supporting self-realization and growth through early rising"
+            ]
+          },
+          {
+            "title": "Tech Stack",
+            "type": "badges",
+            "items": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "LangChain", "AWS", "Supabase", "Stripe", "Figma", "Illustrator", "Photoshop", "After Effects"]
+          },
+          {
+            "title": "Startup Life Reality",
+            "type": "list",
+            "items": [
+              "Sleep schedule: what's that?",
+              "Monster Energy consumption: classified information",
+              "Imposter syndrome level: healthy amount"
+            ]
+          }
+        ]
       }
     ],
+
     "detailPage": {
       "title": "Development Timeline",
       "subtitle": "Complete commit history and technical milestones",
-      "description": "A comprehensive view of my journey from architecture student to full-stack developer and startup founder. Each commit represents a significant milestone in my technical evolution."
+      "description": "From architecture student to AI entrepreneur—tracking every pivot, breakthrough, and caffeinated all-nighter that shaped this journey."
     },
+
     "stats": {
       "title": "Repository Statistics",
-      "totalCommits": 9,
-      "activeBranches": 5,
+      "totalCommits": 13,
+      "activeBranches": 3,
       "languages": ["JavaScript", "TypeScript", "Python", "HTML/CSS"],
       "frameworks": ["React", "Next.js", "FastAPI", "PyTorch"],
       "yearsActive": 4,
       "linesOfCode": "50k+"
     },
+
     "branches": [
-      {
-        "name": "main",
-        "description": "Primary development branch with major milestones",
-        "commits": 3,
-        "color": "#10b981"
-      },
-      {
-        "name": "skills/ai-ml",
-        "description": "Machine learning and AI development branch",
-        "commits": 1,
-        "color": "#8b5cf6"
-      },
-      {
-        "name": "skills/fullstack",
-        "description": "Full-stack web development progression",
-        "commits": 1,
-        "color": "#3b82f6"
-      },
-      {
-        "name": "skills/design",
-        "description": "UI/UX design and tools mastery",
-        "commits": 1,
-        "color": "#f59e0b"
-      },
-      {
-        "name": "experience/india",
-        "description": "International experience and cultural exchange",
-        "commits": 2,
-        "color": "#ef4444"
-      },
-      {
-        "name": "career/startup",
-        "description": "Entrepreneurship and business development",
-        "commits": 1,
-        "color": "#10b981"
-      }
+      { "name": "life",               "description": "Major life events & pivotal decisions",     "commits": 4, "color": "#9ca3af" },
+      { "name": "feature/skills",     "description": "Technical skills & creative capabilities",  "commits": 3, "color": "#fbbf24" },
+      { "name": "feature/experience", "description": "Professional experience & project work",    "commits": 6, "color": "#3b82f6" }
     ]
   },
+
   "ja": {
     "sectionTitle": "人生履歴",
     "subtitle": {
       "line1": "人生の軌跡と",
       "line2": "技術的進化"
     },
+
     "timeline": [
       {
-        "hash": "a7f3d92",
-        "date": "2026-04-01",
-        "type": "feat",
-        "branch": "main",
-        "message": "京都大学建築学部を卒業予定",
-        "description": "コンピュテーショナルデザインとデジタル建築に焦点を当てた学部課程を修了。AI支援設計ワークフローに関する卒業論文。",
-        "tags": ["教育", "建築", "AI"],
-        "status": "future"
-      },
-      {
-        "hash": "b4e1c85",
-        "date": "2024-06-01",
-        "type": "feat",
-        "branch": "career/startup",
-        "message": "Ghoona Inc.を設立 - AI搭載開発ツール",
-        "description": "AI支援コーディングツールと開発者生産性向上に焦点を当てたスタートアップを設立。React/Next.jsフロントエンドとFastAPIバックエンドでフルスタックソリューションを構築。独自のAIコード生成・最適化モデルを開発中。現在500+のベータユーザーに95%の満足度でサービス提供。",
-        "tags": ["スタートアップ", "AI", "リーダーシップ"],
-        "status": "current",
-        "details": {
-          "achievements": [
-            "$50k初期資金で会社設立",
-            "500+アクティブベータユーザーでMVP構築",
-            "独自AI コード生成アルゴリズム開発",
-            "主要テック企業3社とのパートナーシップ確立",
-            "AI支援開発に関する仮特許2件申請"
-          ],
-          "technologies": ["React", "Next.js", "FastAPI", "PostgreSQL", "Docker", "AWS"],
-          "metrics": {
-            "users": "500+",
-            "satisfaction": "95%",
-            "funding": "$50k",
-            "team_size": 3
-          }
-        }
-      },
-      {
-        "hash": "c9d2a14",
-        "date": "2024-03-15",
-        "type": "feat",
-        "branch": "skills/ai-ml",
-        "message": "本番MLシステム向けPyTorchとFastAPIを習得",
-        "description": "1日10,000回以上のリクエストを処理する本番環境で機械学習モデルをデプロイ。自動化されたモデル訓練パイプライン、A/Bテストフレームワーク、リアルタイム推論最適化を備えたスケーラブルなMLインフラを構築。99.9%稼働率と100ms未満の応答時間を達成。",
-        "tags": ["PyTorch", "FastAPI", "ML"],
-        "status": "completed",
-        "details": {
-          "projects": [
-            "リアルタイムコード補完モデル（95%精度）",
-            "自動バグ検出システム（85%精度）",
-            "パフォーマンス最適化推奨システム",
-            "自然言語からコードへの翻訳システム"
-          ],
-          "technologies": ["PyTorch", "FastAPI", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
-          "metrics": {
-            "daily_requests": "10k+",
-            "uptime": "99.9%",
-            "response_time": "<100ms",
-            "model_accuracy": "95%"
-          }
-        }
-      },
-      {
-        "hash": "d1a7b89",
-        "date": "2024-01-10",
-        "type": "feat",
-        "branch": "experience/india",
-        "message": "インド交換留学プログラム（ICT & Development）から帰国",
-        "description": "ICT for Developmentに焦点を当てた変革的な1年間のインド交換プログラムを修了。農村コミュニティ向けフィンテックソリューションで地元スタートアップと協力。十分なサービスを受けていない地域で2000+ユーザーにサービスを提供するモバイルアプリケーションを構築。新興市場の課題と技術導入パターンについて深い洞察を獲得。",
-        "tags": ["交換留学", "インド", "ICT"],
-        "status": "completed",
-        "details": {
-          "experiences": [
-            "農村銀行向けフィンテックアプリ開発（2000+ユーザー）",
-            "5つの地元スタートアップとNGOとの協力",
-            "オフライン優先モバイルソリューション構築",
-            "15以上の村でユーザー調査実施",
-            "デリーテックカンファレンス2023で発表"
-          ],
-          "technologies": ["React Native", "SQLite", "Node.js", "MongoDB", "Firebase"],
-          "impact": {
-            "users_served": "2000+",
-            "villages_reached": 15,
-            "partnerships": 5,
-            "presentations": 3
-          }
-        }
-      },
-      {
-        "hash": "e8c4f73",
-        "date": "2023-08-20",
-        "type": "feat",
-        "branch": "skills/fullstack",
-        "message": "React、Next.js、TypeScriptの習熟度を達成",
-        "description": "モダンウェブ技術を使用して複数の本番アプリケーションを構築。レスポンシブデザインとパフォーマンス最適化を実装。",
-        "tags": ["React", "Next.js", "TypeScript"],
-        "status": "completed"
-      },
-      {
-        "hash": "f2d9e56",
-        "date": "2023-01-15",
-        "type": "feat",
-        "branch": "experience/india",
-        "message": "インド交換留学プログラムを開始",
-        "description": "ICTと開発に焦点を当てた集中プログラムを開始。異なる技術エコシステムと方法論に没頭。",
-        "tags": ["交換留学", "学習"],
-        "status": "completed"
-      },
-      {
-        "hash": "a5b8c91",
-        "date": "2022-06-01",
-        "type": "feat",
-        "branch": "skills/design",
-        "message": "UI/UXデザインツール（Figma、Adobe Suite）を習得",
-        "description": "デザインツールの上級習熟度を達成。複数のプロジェクトでデザインシステムとユーザーインターフェースを作成。",
-        "tags": ["UI/UX", "Figma", "デザイン"],
-        "status": "completed"
-      },
-      {
-        "hash": "b7a3d04",
-        "date": "2021-09-10",
-        "type": "feat",
-        "branch": "education/architecture",
-        "message": "コンピュテーショナルデザインとプログラミングを発見",
-        "description": "建築パラメトリックデザインを通じてプログラミングに初めて触れる。技術とコーディングへの情熱が芽生える。",
-        "tags": ["プログラミング", "発見"],
-        "status": "completed"
-      },
-      {
-        "hash": "c4f1e78",
+        "hash": "g7b4c2d",
         "date": "2001-09-08",
         "type": "initial",
-        "branch": "main",
-        "message": "大阪府に生まれる",
-        "description": "2001年9月8日、大阪府堺市に生まれる。大きく翔ばたく意味を込めて翔大と名付けられた。",
-        "tags": ["誕生"],
+        "branch": "life",
+        "message": "大阪府堺市に生まれる",
+        "description": "人生への最初のコミット。「翔大」という名前は「大きく翔ばたく」という意味",
+        "tags": ["誕生", "大阪", "ルーツ"],
         "status": "completed"
+      },
+      {
+        "hash": "h2a5e1b",
+        "date": "2020-04-01",
+        "type": "education",
+        "branch": "life",
+        "message": "京都大学工学部に入学",
+        "description": "建築を学ぶつもりで入学したのに、気づけばソフトウェアを設計していた。時には予想外の道が最良の選択だったりする。",
+        "tags": ["教育", "京都大学", "CAD使えん"],
+        "status": "current"
+      },
+      {
+        "hash": "d3f7a21",
+        "date": "2020-04-15",
+        "type": "skill",
+        "branch": "feature/skills",
+        "message": "Figma・AdobeでUI/UXデザインを習得",
+        "description": "Figmaの世界に落ちて、二度と浮上しなかった。モバイルアプリからイベントポスターまで何でもデザイン—創造性に境界なんてない。",
+        "tags": ["UI/UX", "Figma", "デザイン"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "制作プロジェクト",
+            "type": "list",
+            "items": [
+              "3つのスタートアップでデザインシステム構築",
+              "Figmaで50以上のUIコンポーネント作成",
+              "大学イベント用ポスターデザイン（500枚印刷）"
+            ]
+          },
+          {
+            "title": "習得ツール",
+            "type": "badges",
+            "items": ["Figma", "Adobe Illustrator", "Adobe XD", "Photoshop"]
+          },
+          {
+            "title": "インパクト指標",
+            "type": "metrics",
+            "data": {
+              "ロゴ作成実績": 14,
+              "ポスター作成実績": 23,
+              "Webサイト作成実績": 14
+            }
+          }
+        ]
+      },
+      {
+        "hash": "e1b4c8f",
+        "date": "2023-06-05",
+        "type": "pivot",
+        "branch": "life",
+        "message": "大転換：ChatGPTがすべてを変えた",
+        "description": "初めてChatGPTを使って実存的危機に陥った。未来はデジタルじゃない、インテリジェントなんだ。それを作る方法を学ぶ時が来た。",
+        "tags": ["決断", "AI"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "きっかけ",
+            "type": "list",
+            "items": [
+              "勢いでPlus Planを購入",
+              "1時間でPythonスクリプト作成",
+              "『Attention Is All You Need』論文を読破"
+            ]
+          },
+          {
+            "title": "マインドセットの変化",
+            "type": "comparison",
+            "before": "インターフェースをデザインする",
+            "after": "インテリジェントな体験を設計する"
+          }
+        ]
+      },
+      {
+        "hash": "f9c2d67",
+        "date": "2023-07-01",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "TECH企業でデザイナーインターン",
+        "description": "初スタートアップ体験。Figmaで遊んでたらいつの間にかWebページ作ってた。「デザインって楽しいじゃん」と気づいた夏。カルチャーの大切さを肌で感じる。",
+        "tags": ["インターン", "デザイン"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "主な責任",
+            "type": "list",
+            "items": [
+              "広報用Webページのデザイン&コーディング",
+              "ソーシャルメディアのサムネイル作成",
+              "Notion初期構築"
+            ]
+          },
+          {
+            "title": "使用技術",
+            "type": "badges",
+            "items": ["Illustrator", "Photoshop", "After Effects", "Notion", "HTML/CSS"]
+          }
+        ]
+      },
+      {
+        "hash": "a6e8b4d",
+        "date": "2024-02-25",
+        "type": "event",
+        "branch": "feature/experience",
+        "message": "わかものフェスティバル2023 in 関西",
+        "description": "猫のような大学生40人を束ねて1,200人のフェスを開催。睡眠時間2時間、コーヒー1日7杯、そして奇跡的に成功。リーダーシップって何だろうと真剣に考えた1年間。",
+        "tags": ["イベント", "リーダーシップ", "コミュニティ"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "主な成果",
+            "type": "list",
+            "items": [
+              "広報用のWebページを作成",
+              "After Effectsでフェスティバルのオープニングムービーを作成",
+              "Illustratorでフェスティバルのポスターを作成"
+            ]
+          },
+          {
+            "title": "使用ツール",
+            "type": "badges",
+            "items": ["Illustrator", "After Effects", "Photoshop", "Notion", "HTML/CSS"]
+          },
+          {
+            "title": "イベント指標",
+            "type": "metrics",
+            "data": {
+              "参加者数": "1,200",
+              "学生参加者": "300",
+              "実行委員": "40",
+              "予算": "800万円",
+              "企画期間": "12ヶ月"
+            }
+          },
+          {
+            "title": "学んだ教訓",
+            "type": "list",
+            "items": [
+              "常にプランB（とC）を用意せよ",
+              "眠らぬうさぎには誰も勝てない",
+              "イシューから始めよ"
+            ]
+          }
+        ]
+      },
+      {
+        "hash": "b2d1a9e",
+        "date": "2024-04-04",
+        "type": "travel",
+        "branch": "feature/experience",
+        "message": "インド留学を開始（Pune）",
+        "description": "ノートPCと好奇心を詰め込んでプネに着陸、CSを学ぶ予定だった。結果的に9,000km亜大陸をバックパック。最高の教室：チャイ屋台、夜行列車、見知らぬ人との会話。",
+        "tags": ["交換留学", "インド"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "冒険の数々",
+            "type": "list",
+            "items": [
+              "12州9,000kmをバックパック旅行",
+              "ラジャスタン砂漠の47°Cをサバイバル",
+              "バラナシの子供たちに数学を教える",
+              "マハクンブメーラでガンジス川沐浴"
+            ]
+          },
+          {
+            "title": "文化的インパクト",
+            "type": "metrics",
+            "data": {
+              "訪問州数": 12,
+              "挑戦言語数": 4,
+              "屋台グルメ": "∞",
+              "列車旅": 23,
+              "人生の学び": "∞"
+            }
+          }
+        ]
+      },
+      {
+        "hash": "c5f8e30",
+        "date": "2024-09-01",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "SNSマーケ会社でマーケティングAIエージェント開発インターン",
+        "description": "AIエージェントという響きに魅力を感じて飛び込んだら、現実はデータパイプラインという名の配管工事。でも動いた時の感動は格別。「AIって魔法じゃないんだ」と理解した夏。",
+        "tags": ["インターン", "AI"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "専門領域",
+            "type": "list",
+            "items": [
+              "要件定義からUI/UX設計まで牽引",
+              "OpenAI Agent SDKを用いたマルチエージェントシステムアーキテクチャ設計",
+              "建築業界リフォーム業界むけ言語ファインチューニング"
+            ]
+          },
+          {
+            "title": "使用技術",
+            "type": "badges",
+            "items": ["Python", "LangChain", "OpenAI Agent SDK", "FastAPI", "PostgreSQL", "Docker", "Next.js"]
+          }
+        ]
+      },
+      {
+        "hash": "d4b1f6a",
+        "date": "2024-11-10",
+        "type": "internship",
+        "branch": "feature/experience",
+        "message": "START UPでSaaS開発のPdM",
+        "description": "製造業の奥深き世界に潜入。「ネジがいつ必要になるか予測する」という地味だけど超重要な問題と格闘。ユーザーインタビューで工場の現実を知り、DXの本質を学んだ秋。",
+        "tags": ["インターン", "SaaS"],
+        "status": "completed",
+        "sections": [
+          {
+            "title": "主要プロジェクト",
+            "type": "list",
+            "items": [
+              "大手通信会社の倉庫システムの開発",
+              "製造業むけSaaSのCRMバックログの要件定義"
+            ]
+          },
+          {
+            "title": "習得プロダクトスキル",
+            "type": "list",
+            "items": [
+              "ユーザーストーリーマッピング",
+              "アジャイル/スクラム手法",
+              "A/Bテスト設計",
+              "SQL分析",
+              "ステークホルダー管理"
+            ]
+          },
+          {
+            "title": "面白エピソード",
+            "type": "list",
+            "items": [
+              "存在すら知らなかった製造用語を習得",
+              "大阪の工場2箇所見学（ヘルメット着用）",
+              "パーティーで誰にでもサプライチェーンを説明できるように"
+            ]
+          }
+        ]
+      },
+      {
+        "hash": "e7c3a42",
+        "date": "2025-01-15",
+        "type": "launch",
+        "branch": "feature/experience",
+        "message": "Ghoona Inc.を創業 — AIと人間の創造性が出会う場所",
+        "description": "誰も予想しなかった展開：会社を始めた。人間の創造性を置き換えるのではなく、増幅するAIツールを構築中。現在の状況：カフェイン摂取済み、楽観的、そして少し恐怖。",
+        "tags": ["スタートアップ", "AI"],
+        "status": "current",
+        "sections": [
+          {
+            "title": "ビジョン",
+            "type": "text",
+            "content": "Update Our World。AIの民主化で世界を生活を1段階進化させる。"
+          },
+          {
+            "title": "プロダクト",
+            "type": "list",
+            "items": [
+              "Ghoona Tech: 企業のDX支援やAI導入支援、LP制作HP制作など幅広くサポート",
+              "Ghoona Goods: 機構部品メーカーが送るオリジナルデザインの缶バッチECサイト",
+              "Ghoona Camp: 早起きを通じた自己実現と成長を支援する朝活コミュニティプラットフォーム"
+            ]
+          },
+          {
+            "title": "技術スタック",
+            "type": "badges",
+            "items": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "LangChain", "AWS", "Supabase", "Stripe", "Figma", "Illustrator", "Photoshop", "After Effects"]
+          },
+          {
+            "title": "スタートアップ生活の現実",
+            "type": "list",
+            "items": [
+              "睡眠スケジュール：何それ？",
+              "モンスターエナジー消費量：機密情報",
+              "インポスター症候群レベル：健全な量"
+            ]
+          }
+        ]
       }
     ],
+
     "detailPage": {
-      "title": "開発タイムライン",
+      "title": "人生タイムライン",
       "subtitle": "完全なコミット履歴と技術的マイルストーン",
-      "description": "建築学生からフルスタック開発者、そしてスタートアップ創業者への軌跡を包括的に表示。各コミットは技術的進化における重要なマイルストーンを表しています。"
+      "description": "建築学生からAI起業家へ—この道のりを形作ったすべてのピボット、ブレイクスルー、そしてエナドリ漬けの徹夜を追跡。"
     },
+
     "stats": {
       "title": "リポジトリ統計",
-      "totalCommits": 9,
-      "activeBranches": 5,
+      "totalCommits": 13,
+      "activeBranches": 3,
       "languages": ["JavaScript", "TypeScript", "Python", "HTML/CSS"],
       "frameworks": ["React", "Next.js", "FastAPI", "PyTorch"],
       "yearsActive": 4,
       "linesOfCode": "50k+"
     },
+
     "branches": [
-      {
-        "name": "main",
-        "description": "主要な開発ブランチ、重要なマイルストーン",
-        "commits": 3,
-        "color": "#10b981"
-      },
-      {
-        "name": "skills/ai-ml",
-        "description": "機械学習とAI開発ブランチ",
-        "commits": 1,
-        "color": "#8b5cf6"
-      },
-      {
-        "name": "skills/fullstack",
-        "description": "フルスタックWeb開発の進歩",
-        "commits": 1,
-        "color": "#3b82f6"
-      },
-      {
-        "name": "skills/design",
-        "description": "UI/UXデザインとツールの習得",
-        "commits": 1,
-        "color": "#f59e0b"
-      },
-      {
-        "name": "experience/india",
-        "description": "国際経験と文化交流",
-        "commits": 2,
-        "color": "#ef4444"
-      },
-      {
-        "name": "career/startup",
-        "description": "起業とビジネス開発",
-        "commits": 1,
-        "color": "#10b981"
-      }
+      { "name": "life",               "description": "人生の重要な出来事と重要な決断",      "commits": 4, "color": "#9ca3af" },
+      { "name": "feature/skills",     "description": "技術スキルとクリエイティブ能力",    "commits": 1, "color": "#fbbf24" },
+      { "name": "feature/experience", "description": "実務経験とプロジェクト作業",        "commits": 6, "color": "#3b82f6" }
     ]
   }
 }
