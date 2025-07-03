@@ -1,11 +1,11 @@
 export function Footer() {
   const quickLinks = [
-    { name: 'philosophy()', href: '#philosophy' },
-    { name: 'projects()', href: '#projects' },
-    { name: 'expertise()', href: '#expertise' },
-    { name: 'timeline()', href: '#timeline' },
-    { name: 'news()', href: '#news' },
-    { name: 'contact()', href: '#contact' }
+    { name: 'philosophy()', href: 'philosophy' },
+    { name: 'projects()', href: 'projects' },
+    { name: 'expertise()', href: 'expertise' },
+    { name: 'timeline()', href: 'timeline' },
+    { name: 'news()', href: 'news' },
+    { name: 'contact()', href: 'contact' }
   ];
 
   return (
@@ -67,14 +67,19 @@ export function Footer() {
               
               <div className="space-y-2">
                 {quickLinks.map((link, index) => (
-                  <a
+                  <div
                     key={index}
-                    href={link.href}
-                    className="font-mono text-xs transition-colors duration-200 block hover:opacity-80"
+                    className="font-mono text-xs transition-colors duration-200 block hover:opacity-80 cursor-pointer"
                     style={{ color: 'var(--color-text-secondary)' }}
+                    onClick={() => {
+                      window.scrollTo({
+                        top: document.getElementById(link.href)?.offsetTop || 0,
+                        behavior: 'smooth'
+                      });
+                    }}
                   >
                     {link.name}
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>

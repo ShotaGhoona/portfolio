@@ -61,10 +61,15 @@ export function Header() {
           >
             <nav className="grid grid-cols-3 items-center">
               {navigationItems.map((item, index) => (
-                <a
+                <div
                   key={index}
-                  href={`#${item.name}`}
                   className="font-mono text-sm transition-colors duration-200 hover:opacity-80"
+                  onClick={() => {
+                    window.scrollTo({
+                      top: document.getElementById(item.name)?.offsetTop || 0,
+                      behavior: 'smooth'
+                    });
+                  }}
                   style={{ 
                     color: item.active 
                       ? 'var(--color-text-primary)' 
@@ -76,7 +81,7 @@ export function Header() {
                     {item.label}
                   </span>
                   <span className="ml-2">{item.name}</span>
-                </a>
+                </div>
               ))}
             </nav>
           </div>

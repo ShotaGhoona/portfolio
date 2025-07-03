@@ -152,19 +152,23 @@ export function HeroSection() {
               
               {/* CTA */}
               <div className="flex items-center space-x-6 pt-8">
-                <a 
-                  href="#projects"
-                  className="font-mono font-bold text-sm px-8 py-4 transition-all duration-200 hover:opacity-90"
+                <button
+                  className="font-mono font-bold text-sm px-8 py-4 transition-all duration-200 hover:opacity-90 cursor-pointer"
                   style={{ 
                     backgroundColor: 'var(--color-text-primary)',
                     color: 'var(--color-bg-primary)'
                   }}
+                  onClick={() => {
+                    window.scrollTo({
+                      top: document.getElementById('projects')?.offsetTop || 0,
+                      behavior: 'smooth'
+                    });
+                  }}
                 >
                   VIEW_PROJECTS()
-                </a>
-                <a
-                  href="#contact"
-                  className="font-mono font-bold text-sm px-8 py-4 transition-all duration-200 hover:opacity-90"
+                </button>
+                <button
+                  className="font-mono font-bold text-sm px-8 py-4 transition-all duration-200 hover:opacity-90 cursor-pointer"
                   style={{ 
                     border: `1px solid var(--color-text-primary)`,
                     color: 'var(--color-text-primary)',
@@ -178,9 +182,15 @@ export function HeroSection() {
                     e.currentTarget.style.backgroundColor = 'transparent';
                     e.currentTarget.style.color = 'var(--color-text-primary)';
                   }}
+                  onClick={() => {
+                    window.scrollTo({
+                      top: document.getElementById('contact')?.offsetTop || 0,
+                      behavior: 'smooth'
+                    });
+                  }}
                 >
                   CONTACT()
-                </a>
+                </button>
               </div>
             </div>
           </div>
