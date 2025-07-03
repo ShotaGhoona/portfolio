@@ -23,7 +23,7 @@
         "type": "education",
         "branch": "life",
         "message": "Enroll in Kyoto University, Faculty of Engineering",
-        "description": "Enrolled to study architecture, thinking I'd design buildings. Plot twist: ended up architecting software instead. Sometimes the best paths are the unexpected ones.",
+        "description": "Enrolled to study architecture, thinking  I'd design buildings. Plot twist: ended up architecting software instead. Sometimes the best paths are the unexpected ones.",
         "tags": ["Education", "KyotoUniversity", "Can't use CAD"],
         "status": "current"
       },
@@ -536,7 +536,7 @@
         "type": "internship",
         "branch": "feature/experience",
         "message": "SNSマーケ会社でマーケティングAIエージェント開発インターン",
-        "description": "AIエージェントという響きに魅力を感じて飛び込んだら、現実はデータパイプラインという名の配管工事。でも動いた時の感動は格別。「AIって魔法じゃないんだ」と理解した夏。",
+        "description": "社内に園児にはいない会社にエンジニアとしてインターン参加。ヒアリングして最適な課題解決を提案するコンサルティングをこなし、経営の軸となるマーケティングAIエージェントの開発を担当。",
         "tags": ["インターン", "AI"],
         "status": "completed",
         "sections": [
@@ -553,6 +553,11 @@
             "title": "使用技術",
             "type": "badges",
             "items": ["Python", "LangChain", "OpenAI Agent SDK", "FastAPI", "PostgreSQL", "Docker", "Next.js"]
+          },
+          {
+            "title": "インターンの様子",
+            "type": "picture",
+            "count": 3
           }
         ]
       },
@@ -573,26 +578,6 @@
               "大手通信会社の倉庫システムの開発",
               "製造業むけSaaSのCRMバックログの要件定義"
             ]
-          },
-          {
-            "title": "習得プロダクトスキル",
-            "type": "list",
-            "items": [
-              "ユーザーストーリーマッピング",
-              "アジャイル/スクラム手法",
-              "A/Bテスト設計",
-              "SQL分析",
-              "ステークホルダー管理"
-            ]
-          },
-          {
-            "title": "面白エピソード",
-            "type": "list",
-            "items": [
-              "存在すら知らなかった製造用語を習得",
-              "大阪の工場2箇所見学（ヘルメット着用）",
-              "パーティーで誰にでもサプライチェーンを説明できるように"
-            ]
           }
         ]
       },
@@ -602,7 +587,7 @@
         "type": "launch",
         "branch": "feature/experience",
         "message": "Ghoona Inc.を創業 — AIと人間の創造性が出会う場所",
-        "description": "誰も予想しなかった展開：会社を始めた。人間の創造性を置き換えるのではなく、増幅するAIツールを構築中。現在の状況：カフェイン摂取済み、楽観的、そして少し恐怖。",
+        "description": "うっすら思ってはいたが、会社を始めた。人間の創造性を置き換えるのではなく、増幅するAIツールを構築中。現在の状況：カフェイン摂取済み、楽観的、そして少し恐怖。",
         "tags": ["スタートアップ", "AI"],
         "status": "current",
         "sections": [
@@ -619,11 +604,6 @@
               "Ghoona Goods: 機構部品メーカーが送るオリジナルデザインの缶バッチECサイト",
               "Ghoona Camp: 早起きを通じた自己実現と成長を支援する朝活コミュニティプラットフォーム"
             ]
-          },
-          {
-            "title": "技術スタック",
-            "type": "badges",
-            "items": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "LangChain", "AWS", "Supabase", "Stripe", "Figma", "Illustrator", "Photoshop", "After Effects"]
           },
           {
             "title": "スタートアップ生活の現実",

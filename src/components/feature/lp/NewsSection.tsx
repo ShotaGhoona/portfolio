@@ -4,6 +4,7 @@ import newsTranslations from '@/data/translations/news.json';
 import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
+import Link from 'next/link';
 
 export function NewsSection() {
   const { language } = useLanguage();
@@ -106,12 +107,14 @@ export function NewsSection() {
                       <div className="flex items-start gap-2">
                         <span style={{ color: 'var(--color-accent-green)' }}>$</span>
                         <div className="flex-1">
+                          <Link href={`/news/${item.slug}`} key={item.id}>
                           <div 
-                            className="font-bold mb-1"
+                            className="font-bold mb-1 hover:underline"
                             style={{ color: 'var(--color-text-primary)' }}
                           >
                             {item.type} &gt; {item.title}
                           </div>
+                          </Link>
                           <div 
                             className="text-xs leading-relaxed"
                             style={{ color: 'var(--color-text-secondary)' }}
