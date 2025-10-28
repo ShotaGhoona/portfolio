@@ -81,7 +81,7 @@ export function PhilosophySection() {
                 </div>
                 
                 {/* Three animation code blocks */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                   {philosophyData.algorithm.metrics.map((metric, index) => (
                     <div 
                       key={index}
@@ -91,7 +91,6 @@ export function PhilosophySection() {
                         backgroundColor: 'var(--color-bg-secondary)'
                       }}
                     >
-                      {/* Code editor header */}
                       <div 
                         className="px-3 py-2 border-b font-mono text-xs flex items-center gap-2 transition-colors duration-200"
                         style={{ 
@@ -109,7 +108,6 @@ export function PhilosophySection() {
                         </span>
                       </div>
                       
-                      {/* Animation code */}
                       <div className="p-3 font-mono text-xs leading-relaxed">
                         <div style={{ color: 'var(--color-text-secondary)' }}>
                           <div style={{ color: '#666' }}>{`// ${metric.actor}`}</div>
@@ -154,7 +152,7 @@ export function PhilosophySection() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </div> */}
                 
                 {/* Live animation preview */}
                 <div 

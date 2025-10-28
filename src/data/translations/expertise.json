@@ -15,7 +15,8 @@
           { "name": "TypeScript", "level": 80 },
           { "name": "shadcn/ui", "level": 95 },
           { "name": "Framer Motion", "level": 50 },
-          { "name": "three.js", "level": 50 }
+          { "name": "three.js", "level": 80 },
+          { "name": "gsap", "level": 80 }
         ]
       },
       {
@@ -23,6 +24,7 @@
         "title": "backend.skills",
         "skills": [
           { "name": "FastAPI", "level": 70 },
+          { "name": "Golang", "level": 20 },
           { "name": "Next.js API Routes", "level": 70 },
           { "name": "Node.js", "level": 50 },
           { "name": "PyTorch", "level": 40 }
@@ -35,8 +37,6 @@
           { "name": "Git / GitHub", "level": 64 },
           { "name": "Docker", "level": 50 },
           { "name": "Supabase", "level": 70 },
-          { "name": "Vercel", "level": 78 },
-          { "name": "Railway / Render", "level": 63 },
           { "name": "AI live coding", "level": 100 }
         ]
       },
@@ -83,8 +83,6 @@
           { "name": "Git / GitHub", "level": 90 },
           { "name": "Docker", "level": 60 },
           { "name": "Supabase", "level": 80 },
-          { "name": "Vercel", "level": 80 },
-          { "name": "Railway / Render", "level": 80 },
           { "name": "AI live coding", "level": 100 }
         ]
       },
@@ -97,7 +95,8 @@
           { "name": "TypeScript", "level": 80 },
           { "name": "shadcn/ui", "level": 95 },
           { "name": "Framer Motion", "level": 50 },
-          { "name": "three.js", "level": 50 }
+          { "name": "three.js", "level": 50 },
+          { "name": "gsap", "level": 50 }
         ]
       },
       {
@@ -116,6 +115,7 @@
         "title": "backend.skills",
         "skills": [
           { "name": "FastAPI", "level": 70 },
+          { "name": "Golang", "level": 20 },
           { "name": "Next.js API Routes", "level": 70 },
           { "name": "Node.js", "level": 50 },
           { "name": "PyTorch", "level": 50 }
