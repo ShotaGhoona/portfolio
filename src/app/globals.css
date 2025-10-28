@@ -20,9 +20,9 @@
 
 /* Dark Mode */
 :root[data-theme="dark"] {
-  --color-bg-primary: #0f172a;
-  --color-bg-secondary: #1e293b;
-  --color-bg-tertiary: #334155;
+  --color-bg-primary: #0a0e1a;
+  --color-bg-secondary: #111827;
+  --color-bg-tertiary: #1f2937;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #cbd5e1;
   --color-text-tertiary: #94a3b8;
@@ -46,7 +46,7 @@
 /* Fallback for browsers that don't support data-theme */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --background: #0f172a;
+    --background: #0a0e1a;
     --foreground: #f1f5f9;
   }
 }
