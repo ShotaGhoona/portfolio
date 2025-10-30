@@ -74,8 +74,8 @@ export function ProjectsSection() {
                           className="aspect-[16/10] overflow-hidden border transition-all duration-200 hover:opacity-90"
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
-                          <img 
-                            src={`/projects/${project.slug}/1.png`}
+                          <img
+                            src={`/images/projects/${project.slug}/1.png`}
                             alt={`${project.name} interface screenshot`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -85,8 +85,8 @@ export function ProjectsSection() {
                           className="aspect-[16/10] overflow-hidden border transition-all duration-200 hover:opacity-90"
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
-                          <img 
-                            src={`/projects/${project.slug}/2.png`}
+                          <img
+                            src={`/images/projects/${project.slug}/2.png`}
                             alt={`${project.name} dashboard view`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}

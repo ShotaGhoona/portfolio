@@ -226,9 +226,9 @@ export function DetailTimelineSection() {
                   backgroundColor: 'var(--color-bg-secondary)'
                 }}
               >
-                <img 
-                  src={`/timeline/${commitHash}/${index + 1}.jpg`} 
-                  alt={`${index + 1}`} 
+                <img
+                  src={`/images/timeline/${commitHash}/${index + 1}.jpg`}
+                  alt={`${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </div>  

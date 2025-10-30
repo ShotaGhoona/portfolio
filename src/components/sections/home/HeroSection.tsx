@@ -6,7 +6,7 @@ export function HeroSection() {
   const { t, loadTranslations } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const images = ['/profile/1.jpg', '/profile/2.jpg'];
+  const images = ['/images/profile/1.jpg', '/images/profile/2.jpg'];
 
   useEffect(() => {
     loadTranslations('hero');
