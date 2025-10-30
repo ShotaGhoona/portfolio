@@ -1,6 +1,7 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import newsTranslations from '@/data/translations/news.json';
+import newsArticles from '@/data/translations/news.json';
 import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
@@ -8,11 +9,7 @@ import Link from 'next/link';
 
 export function NewsSection() {
   const { language } = useLanguage();
-  const [newsData, setNewsData] = useState(newsTranslations[language] || newsTranslations.en);
-
-  useEffect(() => {
-    setNewsData(newsTranslations[language] || newsTranslations.en);
-  }, [language]);
+  const newsData = newsArticles[language] || newsArticles.en;
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
@@ -49,15 +46,15 @@ export function NewsSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="05."
-            sectionTitle={newsData.sectionTitle}
-            line1={newsData.subtitle.line1}
-            line2={newsData.subtitle.line2}
+            sectionTitle={{ en: 'LATEST_LOGS', ja: '最新ログ' }}
+            line1={{ en: 'System updates and', ja: 'システム更新と' }}
+            line2={{ en: 'development status', ja: '開発ステータス' }}
           />
           
           {/* News content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
             <div className="space-y-6">
-              {newsData.news.map((item) => (
+              {newsData.map((item) => (
                 <div 
                   key={item.id} 
                   className="border transition-all duration-200 hover:shadow-lg"
@@ -158,9 +155,9 @@ export function NewsSection() {
                   </div>
                 </div>
               ))}
-              <ReadMoreButton 
-                href="/news" 
-                comment={`// View complete news (${newsData.news.length - 3} more news)`} 
+              <ReadMoreButton
+                href="/news"
+                comment={`// View complete news (${newsData.length} more news)`}
               />
             </div>
           </div>

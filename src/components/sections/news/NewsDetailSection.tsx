@@ -1,6 +1,7 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import newsTranslations from '@/data/translations/news.json';
+import newsArticles from '@/data/translations/news.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
@@ -10,13 +11,9 @@ interface NewsDetailSectionProps {
 
 export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
   const { language } = useLanguage();
-  const [newsData, setNewsData] = useState(newsTranslations[language] || newsTranslations.en);
+  const newsData = newsArticles[language] || newsArticles.en;
 
-  useEffect(() => {
-    setNewsData(newsTranslations[language] || newsTranslations.en);
-  }, [language]);
-
-  const article = newsData.news?.find(item => item.slug === slug);
+  const article = newsData?.find(item => item.slug === slug);
 
   if (!article) {
     return (
@@ -52,7 +49,7 @@ export function NewsDetailSection({ slug }: NewsDetailSectionProps) {
     });
   };
 
-  const relatedArticles = newsData.news
+  const relatedArticles = newsData
     ?.filter(item => item.slug !== slug && item.tags?.some(tag => article?.tags?.includes(tag)))
     ?.slice(0, 3) || [];
 

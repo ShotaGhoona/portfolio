@@ -1,18 +1,16 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import newsTranslations from '@/data/translations/news.json';
+import { useState } from 'react';
+import newsArticles from '@/data/translations/news.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function NewsListSection() {
   const { language } = useLanguage();
-  const [newsData, setNewsData] = useState(newsTranslations[language] || newsTranslations.en);
+  const newsData = newsArticles[language] || newsArticles.en;
   const [filterType, setFilterType] = useState('ALL');
   const [filterSeverity, setFilterSeverity] = useState('ALL');
-
-  useEffect(() => {
-    setNewsData(newsTranslations[language] || newsTranslations.en);
-  }, [language]);
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
@@ -38,14 +36,14 @@ export function NewsListSection() {
     }).replace(/\//g, '-');
   };
 
-  const filteredNews = newsData.news?.filter(item => {
+  const filteredNews = newsData?.filter(item => {
     const typeMatch = filterType === 'ALL' || item.type === filterType;
     const severityMatch = filterSeverity === 'ALL' || item.severity === filterSeverity;
     return typeMatch && severityMatch;
   }) || [];
 
-  const uniqueTypes = [...new Set(newsData.news?.map(item => item.type) || [])];
-  const uniqueSeverities = [...new Set(newsData.news?.map(item => item.severity) || [])];
+  const uniqueTypes = [...new Set(newsData?.map(item => item.type) || [])];
+  const uniqueSeverities = [...new Set(newsData?.map(item => item.severity) || [])];
 
   return (
     <section 

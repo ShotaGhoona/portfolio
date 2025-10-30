@@ -1,15 +1,10 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import timelineTranslations from '@/data/translations/timeline.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function TimelineHeroSection() {
   const { language } = useLanguage();
-  const [timelineData, setTimelineData] = useState(timelineTranslations[language] || timelineTranslations.en);
-
-  useEffect(() => {
-    setTimelineData(timelineTranslations[language] || timelineTranslations.en);
-  }, [language]);
 
   return (
     <section 
@@ -32,19 +27,21 @@ export function TimelineHeroSection() {
             </div>
             
             <h1 className="space-y-2 mb-8">
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 <span style={{ color: 'var(--color-accent-green)' }}>const</span> timeline = {'{'}
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                title: "<span style={{ color: 'var(--color-accent-green)' }}>{timelineData.detailPage.title}</span>",
+                title: "<span style={{ color: 'var(--color-accent-green)' }}>
+                  {language === 'ja' ? '人生のコミット履歴' : 'Life Commits'}
+                </span>",
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
@@ -54,19 +51,25 @@ export function TimelineHeroSection() {
           </div>
 
           <div className="space-y-4">
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {timelineData.detailPage.subtitle}
+              {language === 'ja'
+                ? '人生の重要な転機とマイルストーン'
+                : 'Life milestones and pivotal moments'
+              }
             </p>
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed opacity-80"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {timelineData.detailPage.description}
+              {language === 'ja'
+                ? 'これまでの人生の軌跡を、コミット履歴のように時系列で振り返る'
+                : 'A chronological journey through life experiences, visualized as git commits'
+              }
             </p>
           </div>
         </div>

@@ -1,27 +1,25 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import projectsTranslations from '@/data/translations/projects.json';
+import { useState } from 'react';
+import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function ProjectsListSection() {
   const { language } = useLanguage();
-  const [projectsData, setProjectsData] = useState(projectsTranslations[language] || projectsTranslations.en);
+  const projects = projectsData[language] || projectsData.en;
   const [filterType, setFilterType] = useState('ALL');
   const [filterStatus, setFilterStatus] = useState('ALL');
 
-  useEffect(() => {
-    setProjectsData(projectsTranslations[language] || projectsTranslations.en);
-  }, [language]);
-
-  const filteredProjects = projectsData.projects?.filter(project => {
+  const filteredProjects = projects?.filter(project => {
     const typeMatch = filterType === 'ALL' || project.type === filterType;
     const statusMatch = filterStatus === 'ALL' || project.status === filterStatus;
     return typeMatch && statusMatch;
   }) || [];
 
-  const uniqueTypes = [...new Set(projectsData.projects?.map(project => project.type) || [])];
-  const uniqueStatuses = [...new Set(projectsData.projects?.map(project => project.status) || [])];
+  const uniqueTypes = [...new Set(projects?.map(project => project.type) || [])];
+  const uniqueStatuses = [...new Set(projects?.map(project => project.status) || [])];
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -120,11 +118,14 @@ export function ProjectsListSection() {
                 </select>
               </div>
 
-              <div 
+              <div
                 className="font-mono text-xs sm:ml-auto mt-2 sm:mt-0"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                {filteredProjects.length} projects found
+                {language === 'ja'
+                  ? `${filteredProjects.length}件のプロジェクトが見つかりました`
+                  : `${filteredProjects.length} projects found`
+                }
               </div>
             </div>
           </div>
@@ -277,11 +278,14 @@ export function ProjectsListSection() {
               >
                 <span style={{ color: 'var(--color-accent-green)' }}>$</span> git log --oneline --all
               </div>
-              <div 
+              <div
                 className="font-mono text-xs mt-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                // Complete project history and technical documentation available
+                {language === 'ja'
+                  ? '// 完全なプロジェクト履歴と技術ドキュメントが利用可能です'
+                  : '// Complete project history and technical documentation available'
+                }
               </div>
             </div>
           </div>

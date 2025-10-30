@@ -1,12 +1,13 @@
-import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import contactTranslations from '@/data/translations/contact.json';
+'use client';
+
+import { useState } from 'react';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
+import { P, Label, Span, Div } from '@/components/i18n';
+import { useLanguage } from '@/hooks/useLanguage';
 
 export function ContactSection() {
   const { language } = useLanguage();
-  const [contactData, setContactData] = useState(contactTranslations[language] || contactTranslations.en);
   
   // Form state
   const [formData, setFormData] = useState({
@@ -15,14 +16,10 @@ export function ContactSection() {
     messageType: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    setContactData(contactTranslations[language] || contactTranslations.en);
-  }, [language]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -89,9 +86,9 @@ export function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="06."
-            sectionTitle={contactData.sectionTitle}
-            line1={contactData.subtitle.line1}
-            line2={contactData.subtitle.line2}
+            sectionTitle={{ en: 'CONNECT()', ja: 'コンタクト()' }}
+            line1={{ en: 'Open to collaboration', ja: 'コラボレーションと' }}
+            line2={{ en: 'and new opportunities', ja: '新しい機会を求めて' }}
           />
           {/* Contact content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
@@ -109,12 +106,12 @@ export function ContactSection() {
                       style={{ color: 'var(--color-accent-green)' }}>something amazing together.
                     </span>
                   </div>
-                  <p 
+                  <P
+                    en="Heads-down on zero-to-one AI ventures. If you're chasing audacious ideas in LLMs or product-market fit, ping me—let's build fast."
+                    ja="0→1のAIスタートアップに全力コミット中。LLMやPMFに挑む大胆なアイデアがある方はぜひ連絡を。一緒に爆速で形にしましょう。"
                     className="font-mono text-sm leading-relaxed"
                     style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    {contactData.description}
-                  </p>
+                  />
                 </div>
                 
                 {/* Contact methods */}
@@ -205,22 +202,34 @@ export function ContactSection() {
                     <div className="p-4 space-y-2">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
                         <span style={{ color: 'var(--color-text-tertiary)' }}>Current Status:</span>
-                        <span 
+                        <span
                           className="font-bold"
                           style={{ color: 'var(--color-accent-green)' }}
                         >AVAILABLE</span>
                       </div>
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
                         <span style={{ color: 'var(--color-text-tertiary)' }}>Start Date:</span>
-                        <span style={{ color: 'var(--color-text-primary)' }}>{contactData.availability.startDate}</span>
+                        <Span
+                          en="2-4 weeks notice"
+                          ja="2-4週間前通知"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        />
                       </div>
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
                         <span style={{ color: 'var(--color-text-tertiary)' }}>Location:</span>
-                        <span style={{ color: 'var(--color-text-primary)' }}>{contactData.availability.location}</span>
+                        <Span
+                          en="Japan / Kyoto / Remote"
+                          ja="日本 / 京都 / リモート"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        />
                       </div>
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
                         <span style={{ color: 'var(--color-text-tertiary)' }}>Role Type:</span>
-                        <span style={{ color: 'var(--color-text-primary)' }}>{contactData.availability.roleType}</span>
+                        <Span
+                          en="Full-time / Part-time"
+                          ja="フルタイム / パートタイム"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -249,70 +258,70 @@ export function ContactSection() {
                   </div>
                   <form onSubmit={handleSubmit} className="p-4 space-y-4">
                     <div>
-                      <label 
+                      <Label
+                        en="your.name"
+                        ja="お名前"
                         className="font-mono text-xs block mb-1"
                         style={{ color: 'var(--color-text-tertiary)' }}
-                      >
-                        {contactData.form.nameLabel}
-                      </label>
-                      <input 
+                      />
+                      <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{ 
+                        style={{
                           border: `1px solid var(--color-border-primary)`,
                           backgroundColor: 'var(--color-bg-primary)',
                           color: 'var(--color-text-primary)'
                         }}
-                        placeholder={contactData.form.namePlaceholder}
+                        placeholder={language === 'ja' ? 'お名前を入力してください' : 'Enter your name'}
                         required
                       />
                     </div>
                     
                     <div>
-                      <label 
+                      <Label
+                        en="your.email"
+                        ja="メールアドレス"
                         className="font-mono text-xs block mb-1"
                         style={{ color: 'var(--color-text-tertiary)' }}
-                      >
-                        {contactData.form.emailLabel}
-                      </label>
-                      <input 
+                      />
+                      <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{ 
+                        style={{
                           border: `1px solid var(--color-border-primary)`,
                           backgroundColor: 'var(--color-bg-primary)',
                           color: 'var(--color-text-primary)'
                         }}
-                        placeholder={contactData.form.emailPlaceholder}
+                        placeholder="your.email@company.com"
                         required
                       />
                     </div>
                     
                     <div>
-                      <label 
+                      <Label
+                        en="message.type"
+                        ja="メッセージタイプ"
                         className="font-mono text-xs block mb-1"
                         style={{ color: 'var(--color-text-tertiary)' }}
-                      >
-                        {contactData.form.messageTypeLabel}
-                      </label>
-                      <select 
+                      />
+                      <select
                         name="messageType"
                         value={formData.messageType}
                         onChange={handleInputChange}
                         className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{ 
+                        style={{
                           border: `1px solid var(--color-border-primary)`,
                           backgroundColor: 'var(--color-bg-primary)',
                           color: 'var(--color-text-primary)'
                         }}
                       >
-                        <option value="">{contactData.form.messageTypePlaceholder}</option>
+                        <option value="">{language === 'ja' ? 'メッセージタイプを選択' : 'Select message type'}</option>
                         <option value="job">Job Opportunity</option>
                         <option value="consulting">Consulting Project</option>
                         <option value="collaboration">Collaboration</option>
@@ -321,40 +330,40 @@ export function ContactSection() {
                     </div>
                     
                     <div>
-                      <label 
+                      <Label
+                        en="message.body"
+                        ja="メッセージ本文"
                         className="font-mono text-xs block mb-1"
                         style={{ color: 'var(--color-text-tertiary)' }}
-                      >
-                        {contactData.form.messageBodyLabel}
-                      </label>
-                      <textarea 
+                      />
+                      <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={4}
                         className="w-full font-mono text-sm px-3 py-2 focus:outline-none resize-none transition-colors duration-200"
-                        style={{ 
+                        style={{
                           border: `1px solid var(--color-border-primary)`,
                           backgroundColor: 'var(--color-bg-primary)',
                           color: 'var(--color-text-primary)'
                         }}
-                        placeholder={contactData.form.messageBodyPlaceholder}
+                        placeholder={language === 'ja' ? '// プロジェクトや機会について説明してください' : '// Describe your project or opportunity'}
                         required
                       ></textarea>
                     </div>
                     
-                    <button 
+                    <button
                       type="submit"
                       disabled={isSubmitting}
                       className={`w-full font-mono font-bold text-sm py-3 transition-all duration-200 ${
                         isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
                       }`}
-                      style={{ 
+                      style={{
                         backgroundColor: 'var(--color-text-primary)',
                         color: 'var(--color-bg-primary)'
                       }}
                     >
-                      {isSubmitting ? 'SENDING...' : (submitStatus === 'success' ? 'SENT!' : contactData.form.submitButton)}
+                      {isSubmitting ? 'SENDING...' : (submitStatus === 'success' ? 'SENT!' : (language === 'ja' ? 'メッセージを送信()' : 'SEND_MESSAGE()'))}
                     </button>
                     
                     {/* Status messages */}
@@ -382,12 +391,12 @@ export function ContactSection() {
                       </div>
                     )}
                     
-                    <div 
+                    <Div
+                      en="// Response time: usually within 24 hours"
+                      ja="// 返信時間：通常24時間以内"
                       className="font-mono text-xs text-center"
                       style={{ color: 'var(--color-text-tertiary)' }}
-                    >
-                      {contactData.form.responseTime}
-                    </div>
+                    />
                   </form>
                 </div>
               </div>
