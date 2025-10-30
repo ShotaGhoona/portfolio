@@ -1,6 +1,6 @@
 'use client'
 import { Header } from "@/components/common/Header";
-import { NewsDetailSection } from "@/components/feature/news/NewsDetailSection";
+import { NewsDetailSection } from "@/components/sections/news/NewsDetailSection";
 import { Footer } from "@/components/common/Footer";
 import { useParams } from 'next/navigation';
 
