@@ -402,7 +402,7 @@ export function PhilosophySection() {
                   </div>
 
                   {/* Principle 003 */}
-                  <div
+                  {/* <div
                     className="border transition-all duration-200 hover:shadow-lg"
                     style={{
                       borderColor: 'var(--color-border-primary)',
@@ -452,10 +452,10 @@ export function PhilosophySection() {
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Principle 004 */}
-                  <div
+                  {/* <div
                     className="border transition-all duration-200 hover:shadow-lg"
                     style={{
                       borderColor: 'var(--color-border-primary)',
@@ -505,7 +505,7 @@ export function PhilosophySection() {
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               

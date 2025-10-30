@@ -49,16 +49,8 @@ export function HeroSection() {
                   ja="// 起業家・フルスタックAIエンジニア"
                 />
                 <Div
-                  en="// Specializing in Time Series Data Cleaning and Analysis"
-                  ja="// 専門：時系列データのデータクリーニングと分析"
-                />
-                <Div
                   en="// Japan / Kyoto / Remote"
                   ja="// 日本 / 京都 / リモート"
-                />
-                <Div
-                  en="// JST / Work async"
-                  ja="// JST / 非同期対応"
                 />
               </div>
               
@@ -148,7 +140,7 @@ export function HeroSection() {
                   style={{ color: 'var(--color-text-secondary)' }}
                 />
 
-                <div
+                {/* <div
                   className="font-mono text-sm"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
@@ -168,7 +160,7 @@ export function HeroSection() {
                     en="// - Full-stack Prototyping with Next.js & Python"
                     ja="// - Next.js & Pythonによるフルスタックプロトタイピング"
                   />
-                </div>
+                </div> */}
               </div>
               
               {/* CTA */}
