@@ -1,17 +1,14 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import timelineTranslations from '@/data/translations/timeline.json';
+import timelineData from '@/data/translations/timeline.json';
 import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export function TimelineSection() {
   const { language } = useLanguage();
-  const [timelineData, setTimelineData] = useState(timelineTranslations[language] || timelineTranslations.en);
-
-  useEffect(() => {
-    setTimelineData(timelineTranslations[language] || timelineTranslations.en);
-  }, [language]);
+  const timeline = timelineData[language] || timelineData.en;
 
   const getCommitTypeColor = (type: string) => {
     switch (type) {
@@ -71,22 +68,22 @@ export function TimelineSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="04."
-            sectionTitle={timelineData.sectionTitle}
-            line1={timelineData.subtitle.line1}
-            line2={timelineData.subtitle.line2}
+            sectionTitle={{ en: 'LIFE_COMMITS', ja: '人生のコミット履歴' }}
+            line1={{ en: 'Key milestones and transitions', ja: '重要なマイルストーンと' }}
+            line2={{ en: 'that shaped the journey', ja: '人生の転機を記録' }}
           />
-          
+
           {/* Timeline content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
             <div className="relative">
               {/* Git branch line */}
-              <div 
+              <div
                 className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 transition-colors duration-200"
                 style={{ backgroundColor: 'var(--color-border-primary)' }}
               ></div>
-              
+
               <div className="space-y-8">
-                {timelineData.timeline.slice(0, 3).map((commit) => (
+                {timeline.slice(0, 3).map((commit) => (
                   <div key={commit.hash} className="relative">
                     {/* Branch indicator */}
                     <div 
@@ -188,10 +185,13 @@ export function TimelineSection() {
                   </div>
                 ))}
               </div>
-              <ReadMoreButton 
-                href="/timeline" 
-                comment={`// View complete timeline (${timelineData.timeline.length - 3} more commits)`} 
-                buttonText="git log --show-more" 
+              <ReadMoreButton
+                href="/timeline"
+                comment={language === 'ja'
+                  ? `// 完全なタイムラインを見る (残り${timeline.length - 3}コミット)`
+                  : `// View complete timeline (${timeline.length - 3} more commits)`
+                }
+                buttonText="git log --show-more"
                 className="mt-12 ml-8 md:ml-16"
               />
             </div>

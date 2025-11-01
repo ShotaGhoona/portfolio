@@ -1,12 +1,12 @@
 'use client'
 import { Header } from "@/components/common/Header";
-import { HeroSection } from "@/components/feature/lp/HeroSection";
-import { PhilosophySection } from "@/components/feature/lp/PhilosophySection";
-import { ProjectsSection } from "@/components/feature/lp/ProjectsSection";
-import { ExpertiseSection } from "@/components/feature/lp/ExpertiseSection";
-import { TimelineSection } from "@/components/feature/lp/TimelineSection";
-import { NewsSection } from "@/components/feature/lp/NewsSection";
-import { ContactSection } from "@/components/feature/lp/ContactSection";
+import { HeroSection } from "@/components/sections/home/HeroSection";
+import { PhilosophySection } from "@/components/sections/home/PhilosophySection";
+import { ProjectsSection } from "@/components/sections/home/ProjectsSection";
+import { ExpertiseSection } from "@/components/sections/home/ExpertiseSection";
+import { TimelineSection } from "@/components/sections/home/TimelineSection";
+import { NewsSection } from "@/components/sections/home/NewsSection";
+import { ContactSection } from "@/components/sections/home/ContactSection";
 import { Footer } from "@/components/common/Footer";
 
 export default function MinimalismPage02() {

@@ -1,7 +1,7 @@
 'use client'
 import { Header } from "@/components/common/Header";
-import { NewsHeroSection } from "@/components/feature/news/NewsHeroSection";
-import { NewsListSection } from "@/components/feature/news/NewsListSection";
+import { NewsHeroSection } from "@/components/sections/news/NewsHeroSection";
+import { NewsListSection } from "@/components/sections/news/NewsListSection";
 import { Footer } from "@/components/common/Footer";
 
 export default function NewsPage() {

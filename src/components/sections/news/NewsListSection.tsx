@@ -1,38 +1,49 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import projectsTranslations from '@/data/translations/projects.json';
+import { useState } from 'react';
+import newsArticles from '@/data/translations/news.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
-export function ProjectsListSection() {
+export function NewsListSection() {
   const { language } = useLanguage();
-  const [projectsData, setProjectsData] = useState(projectsTranslations[language] || projectsTranslations.en);
+  const newsData = newsArticles[language] || newsArticles.en;
   const [filterType, setFilterType] = useState('ALL');
-  const [filterStatus, setFilterStatus] = useState('ALL');
+  const [filterSeverity, setFilterSeverity] = useState('ALL');
 
-  useEffect(() => {
-    setProjectsData(projectsTranslations[language] || projectsTranslations.en);
-  }, [language]);
-
-  const filteredProjects = projectsData.projects?.filter(project => {
-    const typeMatch = filterType === 'ALL' || project.type === filterType;
-    const statusMatch = filterStatus === 'ALL' || project.status === filterStatus;
-    return typeMatch && statusMatch;
-  }) || [];
-
-  const uniqueTypes = [...new Set(projectsData.projects?.map(project => project.type) || [])];
-  const uniqueStatuses = [...new Set(projectsData.projects?.map(project => project.status) || [])];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Production':
+  const getSeverityColor = (severity: string) => {
+    switch (severity) {
+      case 'SUCCESS':
         return 'var(--color-accent-green)';
-      case 'Internal':
+      case 'WARN':
         return '#f59e0b';
+      case 'ERROR':
+        return '#ef4444';
       default:
         return 'var(--color-text-secondary)';
     }
   };
+
+  const formatTimestamp = (timestamp: string) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: '2-digit', 
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).replace(/\//g, '-');
+  };
+
+  const filteredNews = newsData?.filter(item => {
+    const typeMatch = filterType === 'ALL' || item.type === filterType;
+    const severityMatch = filterSeverity === 'ALL' || item.severity === filterSeverity;
+    return typeMatch && severityMatch;
+  }) || [];
+
+  const uniqueTypes = [...new Set(newsData?.map(item => item.type) || [])];
+  const uniqueSeverities = [...new Set(newsData?.map(item => item.severity) || [])];
 
   return (
     <section 
@@ -53,7 +64,7 @@ export function ProjectsListSection() {
             }}
           >
             <div 
-              className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center gap-2 sm:gap-3 transition-colors duration-200"
+              className="px-4 py-2 border-b font-mono text-xs flex items-center gap-3 transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-secondary)',
                 borderColor: 'var(--color-border-primary)'
@@ -65,13 +76,13 @@ export function ProjectsListSection() {
                 <div className="w-2 h-2 rounded-full bg-green-500"></div>
               </div>
               <span style={{ color: 'var(--color-text-secondary)' }}>
-                find ./projects -type [FILTER] -status [STATUS]
+                grep -i [FILTER] system.log
               </span>
             </div>
             
-            <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <div className="p-3 md:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               {/* Type filter */}
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-2 md:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
@@ -81,7 +92,7 @@ export function ProjectsListSection() {
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200"
+                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200 min-w-0"
                   style={{ 
                     backgroundColor: 'var(--color-bg-secondary)',
                     color: 'var(--color-text-primary)',
@@ -95,18 +106,18 @@ export function ProjectsListSection() {
                 </select>
               </div>
 
-              {/* Status filter */}
-              <div className="flex items-center gap-2 sm:gap-3">
+              {/* Severity filter */}
+              <div className="flex items-center gap-2 md:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  --status=
+                  --severity=
                 </span>
                 <select
-                  value={filterStatus}
-                  onChange={(e) => setFilterStatus(e.target.value)}
-                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200"
+                  value={filterSeverity}
+                  onChange={(e) => setFilterSeverity(e.target.value)}
+                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200 min-w-0"
                   style={{ 
                     backgroundColor: 'var(--color-bg-secondary)',
                     color: 'var(--color-text-primary)',
@@ -114,8 +125,8 @@ export function ProjectsListSection() {
                   }}
                 >
                   <option value="ALL">ALL</option>
-                  {uniqueStatuses.map(status => (
-                    <option key={status} value={status}>{status}</option>
+                  {uniqueSeverities.map(severity => (
+                    <option key={severity} value={severity}>{severity}</option>
                   ))}
                 </select>
               </div>
@@ -124,18 +135,18 @@ export function ProjectsListSection() {
                 className="font-mono text-xs sm:ml-auto mt-2 sm:mt-0"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                {filteredProjects.length} projects found
+                {filteredNews.length} entries found
               </div>
             </div>
           </div>
         </div>
 
-        {/* Projects grid */}
+        {/* News list */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {filteredProjects.map((project, index) => (
+          {filteredNews.map((item, index) => (
             <Link 
-              key={project.id}
-              href={`/projects/${project.slug}`}
+              key={item.id}
+              href={`/news/${item.slug}`}
               className="block transition-all duration-200 hover:scale-[1.01]"
             >
               <div 
@@ -145,7 +156,7 @@ export function ProjectsListSection() {
                   backgroundColor: 'var(--color-bg-primary)'
                 }}
               >
-                {/* Project header */}
+                {/* Log entry header */}
                 <div 
                   className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 transition-colors duration-200"
                   style={{ 
@@ -160,52 +171,26 @@ export function ProjectsListSection() {
                       <div className="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
                     <span style={{ color: 'var(--color-text-secondary)' }}>
-                      project_{project.id}.repo
+                      log_entry_{item.id}.txt
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 sm:gap-4">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                     <span 
                       className="px-2 py-1"
                       style={{ 
-                        color: getStatusColor(project.status),
+                        color: getSeverityColor(item.severity),
                         backgroundColor: 'var(--color-bg-primary)'
                       }}
                     >
-                      [{project.status.toUpperCase()}]
+                      [{item.severity}]
                     </span>
                     <span style={{ color: 'var(--color-text-tertiary)' }}>
-                      {project.year}
+                      {formatTimestamp(item.timestamp)}
                     </span>
                   </div>
                 </div>
                 
-                {/* Project images */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-3 sm:p-4 pb-0">
-                  <div 
-                    className="aspect-[16/10] overflow-hidden border transition-all duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
-                  >
-                    <img 
-                      src={`/projects/${project.slug}/1.png`}
-                      alt={`${project.name} interface`}
-                      className="w-full h-full object-cover"
-                      style={{ filter: 'grayscale(20%) contrast(1.1)' }}
-                    />
-                  </div>
-                  <div 
-                    className="aspect-[16/10] overflow-hidden border transition-all duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
-                  >
-                    <img 
-                      src={`/projects/${project.slug}/2.png`}
-                      alt={`${project.name} dashboard`}
-                      className="w-full h-full object-cover"
-                      style={{ filter: 'grayscale(20%) contrast(1.1)' }}
-                    />
-                  </div>
-                </div>
-
-                {/* Project content */}
+                {/* Log entry content */}
                 <div className="p-4 sm:p-5 md:p-6">
                   <div className="flex-1">
                     <div className="flex items-start gap-2 mb-3">
@@ -215,23 +200,23 @@ export function ProjectsListSection() {
                           className="font-mono font-bold text-base sm:text-lg mb-2"
                           style={{ color: 'var(--color-text-primary)' }}
                         >
-                          {project.type} &gt; {project.name}
+                          {item.type} &gt; {item.title}
                         </div>
                         <p 
                           className="font-mono text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >
-                          {project.description}
+                          {item.summary}
                         </p>
                       </div>
                     </div>
                     
-                    {/* Tech stack and metrics */}
-                    <div className="space-y-2 sm:space-y-3">
+                    {/* Tags and metadata */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                       <div className="flex flex-wrap gap-1 sm:gap-2">
-                        {project.tech.map((tech, techIndex) => (
+                        {item.tags.map((tag, tagIndex) => (
                           <span 
-                            key={techIndex}
+                            key={tagIndex}
                             className="px-2 py-1 text-xs font-mono transition-colors duration-200"
                             style={{ 
                               backgroundColor: 'var(--color-bg-secondary)',
@@ -239,19 +224,23 @@ export function ProjectsListSection() {
                               border: `1px solid var(--color-border-secondary)`
                             }}
                           >
-                            {tech}
+                            #{tag}
                           </span>
                         ))}
                       </div>
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
-                        <div className="flex flex-wrap gap-1 sm:gap-2 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
-                          {project.metrics.map((metric, metricIndex) => (
-                            <span key={metricIndex}>
-                              {metric}
-                              {metricIndex < project.metrics.length - 1 && ' • '}
-                            </span>
-                          ))}
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
+                        <div className="flex items-center gap-1">
+                          <span>STATUS:</span>
+                          <span 
+                            className="font-bold"
+                            style={{ 
+                              color: item.status === 'DEPLOYED' ? 'var(--color-accent-green)' : 'var(--color-text-primary)' 
+                            }}
+                          >
+                            {item.status}
+                          </span>
                         </div>
+                        <div>{item.readTime}</div>
                       </div>
                     </div>
                   </div>
@@ -261,7 +250,7 @@ export function ProjectsListSection() {
           ))}
         </div>
 
-        {/* Archive footer */}
+        {/* Load more simulation */}
         <div className="mt-8 md:mt-12">
           <div 
             className="border transition-colors duration-200"
@@ -275,19 +264,19 @@ export function ProjectsListSection() {
                 className="font-mono text-sm"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <span style={{ color: 'var(--color-accent-green)' }}>$</span> git log --oneline --all
+                <span style={{ color: 'var(--color-accent-green)' }}>$</span> more system.log
               </div>
               <div 
                 className="font-mono text-xs mt-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                // Complete project history and technical documentation available
+                // End of current log entries. Monitor for real-time updates.
               </div>
             </div>
           </div>
         </div>
       </div>
-      <GridOverlay/>    
+      <GridOverlay/>
     </section>
   );
 }

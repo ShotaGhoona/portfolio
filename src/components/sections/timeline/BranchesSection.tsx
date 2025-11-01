@@ -1,15 +1,38 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import timelineTranslations from '@/data/translations/timeline.json';
+import timelineData from '@/data/translations/timeline.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function BranchesSection() {
   const { language } = useLanguage();
-  const [timelineData, setTimelineData] = useState(timelineTranslations[language] || timelineTranslations.en);
+  const timeline = timelineData[language] || timelineData.en;
 
-  useEffect(() => {
-    setTimelineData(timelineTranslations[language] || timelineTranslations.en);
-  }, [language]);
+  // Calculate branches dynamically from timeline data
+  const branchesMap = new Map();
+  const branchColors: { [key: string]: string } = {
+    'main': 'var(--color-accent-green)',
+    'education': '#3b82f6',
+    'career': '#f59e0b',
+    'entrepreneurship': '#ef4444',
+    'travel': '#06b6d4',
+  };
+
+  timeline?.forEach((commit: any) => {
+    const branchName = commit.branch || 'main';
+    if (!branchesMap.has(branchName)) {
+      branchesMap.set(branchName, {
+        name: branchName,
+        color: branchColors[branchName] || 'var(--color-text-secondary)',
+        commits: 0,
+        description: `${branchName} branch commits`
+      });
+    }
+    const branch = branchesMap.get(branchName);
+    branch.commits++;
+  });
+
+  const branches = Array.from(branchesMap.values());
 
   return (
     <section 
@@ -21,17 +44,20 @@ export function BranchesSection() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="mb-12">
-          <h2 
+          <h2
             className="font-mono font-black text-xl sm:text-2xl md:text-3xl mb-4"
             style={{ color: 'var(--color-text-primary)' }}
           >
-            Git Branches Overview
+            {language === 'ja' ? 'Gitブランチ概要' : 'Git Branches Overview'}
           </h2>
-          <p 
+          <p
             className="font-mono text-sm"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            // Different development paths and specialization areas
+            {language === 'ja'
+              ? '// 異なる開発パスと専門分野'
+              : '// Different development paths and specialization areas'
+            }
           </p>
         </div>
 
@@ -56,15 +82,15 @@ export function BranchesSection() {
               <div className="w-2 h-2 rounded-full bg-green-500"></div>
             </div>
             <span style={{ color: 'var(--color-text-secondary)' }}>
-              Git Branch Network
+              {language === 'ja' ? 'Gitブランチネットワーク' : 'Git Branch Network'}
             </span>
           </div>
-          
+
           <div className="p-6 font-mono text-sm space-y-3">
             <div style={{ color: 'var(--color-text-primary)' }}>
               <span style={{ color: 'var(--color-accent-green)' }}>$ git branch --all</span>
             </div>
-            {timelineData.branches.map((branch, index) => (
+            {branches.map((branch, index) => (
               <div key={index} className="flex items-center gap-4">
                 <div 
                   className="w-3 h-3 rounded-full"
@@ -86,7 +112,7 @@ export function BranchesSection() {
 
         {/* Branch details */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {timelineData.branches.map((branch, index) => (
+          {branches.map((branch, index) => (
             <div 
               key={index}
               className="border transition-all duration-200 hover:shadow-lg"
@@ -134,17 +160,17 @@ export function BranchesSection() {
               
               {/* Branch commits */}
               <div className="p-4">
-                <div 
+                <div
                   className="font-mono text-xs mb-3"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  Recent commits:
+                  {language === 'ja' ? '最近のコミット:' : 'Recent commits:'}
                 </div>
                 <div className="space-y-2">
-                  {timelineData.timeline
-                    .filter(commit => commit.branch === branch.name)
+                  {timeline
+                    ?.filter((commit: any) => commit.branch === branch.name)
                     .slice(0, 3)
-                    .map((commit, commitIndex) => (
+                    .map((commit: any, commitIndex: number) => (
                       <div key={commitIndex} className="flex items-start gap-3">
                         <div 
                           className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"

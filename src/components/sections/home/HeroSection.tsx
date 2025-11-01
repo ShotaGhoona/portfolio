@@ -1,16 +1,13 @@
-import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
 import { TypewriterText } from '@/components/ui/TypewriterText';
+import { P, Div, Span } from '@/components/i18n';
 
 export function HeroSection() {
-  const { t, loadTranslations } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const images = ['/profile/1.jpg', '/profile/2.jpg'];
-
-  useEffect(() => {
-    loadTranslations('hero');
-  }, [loadTranslations]);
+  const images = ['/images/profile/1.jpg', '/images/profile/2.jpg'];
 
   // Profile image cycling effect
   useEffect(() => {
@@ -43,14 +40,18 @@ export function HeroSection() {
           <div className="col-span-8 px-8 h-full">
             <div className="flex flex-col justify-between h-full">
               {/* Meta info */}
-              <div 
+              <div
                 className="font-mono text-sm"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>{`// ${t('hero', 'meta.role')}`}</div>
-                <div>{`// ${t('hero', 'meta.specialization')}`}</div>
-                <div>{`// ${t('hero', 'meta.location')}`}</div>
-                <div>{`// ${t('hero', 'meta.timezone')}`}</div>
+                <Div
+                  en="// Entrepreneur & Full-Stack AI Engineer"
+                  ja="// 起業家・フルスタックAIエンジニア"
+                />
+                <Div
+                  en="// Japan / Kyoto / Remote"
+                  ja="// 日本 / 京都 / リモート"
+                />
               </div>
               
               {/* Main heading */}
@@ -132,22 +133,34 @@ export function HeroSection() {
               
               {/* Description */}
               <div className="space-y-4 max-w-2xl">
-                <p 
+                <P
+                  en="From Kyoto to India to the world of AI, my journey has been shaped by curiosity and conviction. I founded Ghoona Inc. to push the limits of what AI and entrepreneurship can achieve together. Full-stack, full-speed — I believe execution is the best form of expression."
+                  ja="京都、インド、そしてAIの世界へ。私の旅はいつも、好奇心と信念に突き動かされてきました。AIと起業がともに切り拓ける可能性の限界に挑むため、Ghoona Inc.を立ち上げました。フルスタックで、フルスピードで。私にとって、行動こそが最高の表現手段です。"
                   className="font-mono text-lg leading-relaxed"
                   style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {t('hero', 'biography')}
-                </p>
-                
-                <div 
+                />
+
+                {/* <div
                   className="font-mono text-sm"
                   style={{ color: 'var(--color-text-tertiary)' }}
                 >
-                  <div>{`// ${t('hero', 'focusAreas.title')}`}</div>
-                  <div>{`// - ${t('hero', 'focusAreas.items.startupCreation')}`}</div>
-                  <div>{`// - ${t('hero', 'focusAreas.items.agentArchitectures')}`}</div>
-                  <div>{`// - ${t('hero', 'focusAreas.items.fullstackPrototyping')}`}</div>
-                </div>
+                  <Div
+                    en="// Current focus areas:"
+                    ja="// 現在の重点領域:"
+                  />
+                  <Div
+                    en="// - AI-driven Startup Creation"
+                    ja="// - AI駆動のスタートアップ創造"
+                  />
+                  <Div
+                    en="// - Agent-based Architectures"
+                    ja="// - エージェントベースアーキテクチャ"
+                  />
+                  <Div
+                    en="// - Full-stack Prototyping with Next.js & Python"
+                    ja="// - Next.js & Pythonによるフルスタックプロトタイピング"
+                  />
+                </div> */}
               </div>
               
               {/* CTA */}
@@ -272,20 +285,50 @@ export function HeroSection() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
-                  {[
-                    { label: t('hero', 'metrics.projectsLaunched'), value: '11+' },
-                    { label: t('hero', 'metrics.yearsExperience'), value: '2+' },
-                    { label: t('hero', 'metrics.notionPages'), value: 'countless' },
-                    { label: t('hero', 'metrics.redBull'), value: '2.2' }
-                  ].map((metric, index) => (
-                    <div key={index} className="flex justify-between font-mono text-xs">
-                      <span style={{ color: 'var(--color-text-tertiary)' }}>{metric.label}</span>
-                      <span 
-                        className="font-bold"
-                        style={{ color: 'var(--color-text-primary)' }}
-                      >{metric.value}</span>
-                    </div>
-                  ))}
+                  <div className="flex justify-between font-mono text-xs">
+                    <Span
+                      en="Projects launched"
+                      ja="ローンチしたプロジェクト"
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                    />
+                    <span
+                      className="font-bold"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >11+</span>
+                  </div>
+                  <div className="flex justify-between font-mono text-xs">
+                    <Span
+                      en="Years Experience"
+                      ja="経験年数"
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                    />
+                    <span
+                      className="font-bold"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >2+</span>
+                  </div>
+                  <div className="flex justify-between font-mono text-xs">
+                    <Span
+                      en="Notion Pages Created"
+                      ja="作成したNotionページ"
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                    />
+                    <span
+                      className="font-bold"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >countless</span>
+                  </div>
+                  <div className="flex justify-between font-mono text-xs">
+                    <Span
+                      en="Red Bull per day"
+                      ja="1日あたりのRed Bull"
+                      style={{ color: 'var(--color-text-tertiary)' }}
+                    />
+                    <span
+                      className="font-bold"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >2.2</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -457,12 +500,12 @@ export function HeroSection() {
               </div>
             </div>
             <div className="space-y-4 text-left">
-              <p 
+              <P
+                en="From Kyoto to India to the world of AI, my journey has been shaped by curiosity and conviction. I founded Ghoona Inc. to push the limits of what AI and entrepreneurship can achieve together. Full-stack, full-speed — I believe execution is the best form of expression."
+                ja="京都、インド、そしてAIの世界へ。私の旅はいつも、好奇心と信念に突き動かされてきました。AIと起業がともに切り拓ける可能性の限界に挑むため、Ghoona Inc.を立ち上げました。フルスタックで、フルスピードで。私にとって、行動こそが最高の表現手段です。"
                 className="font-mono text-sm leading-relaxed"
                 style={{ color: 'var(--color-text-primary)' }}
-              >
-                {t('hero', 'biography')}
-              </p>
+              />
               <div className="space-y-4">
                 <a 
                   href="#projects"

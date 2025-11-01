@@ -1,15 +1,10 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import newsTranslations from '@/data/translations/news.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 export function NewsHeroSection() {
   const { language } = useLanguage();
-  const [newsData, setNewsData] = useState(newsTranslations[language] || newsTranslations.en);
-
-  useEffect(() => {
-    setNewsData(newsTranslations[language] || newsTranslations.en);
-  }, [language]);
 
   return (
     <section 
@@ -42,7 +37,7 @@ export function NewsHeroSection() {
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                title: "<span style={{ color: 'var(--color-accent-green)' }}>{newsData.detailPage?.title || 'System Logs'}</span>",
+                title: "<span style={{ color: 'var(--color-accent-green)' }}>{language === 'ja' ? 'システムログ' : 'System Logs'}</span>",
               </div>
               <div 
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
@@ -54,19 +49,19 @@ export function NewsHeroSection() {
           </div>
 
           <div className="space-y-4">
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {newsData.detailPage?.subtitle || 'Development updates and technical insights'}
+              {language === 'ja' ? '詳細な開発更新と技術的インサイト' : 'Detailed development updates and technical insights'}
             </p>
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed opacity-80"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {newsData.detailPage?.description || 'Comprehensive view of our latest developments, system updates, and technical achievements.'}
+              {language === 'ja' ? '最新の開発、システム更新、技術的成果の包括的なビュー。各ログエントリは、進行中のプロジェクトと学習の旅に関する詳細なインサイトを提供します。' : 'Comprehensive view of our latest developments, system updates, and technical achievements. Each log entry provides detailed insights into our ongoing projects and learning journey.'}
             </p>
           </div>
         </div>

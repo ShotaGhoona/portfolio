@@ -1,51 +1,36 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import newsTranslations from '@/data/translations/news.json';
+import { useState } from 'react';
+import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
-export function NewsListSection() {
+export function ProjectsListSection() {
   const { language } = useLanguage();
-  const [newsData, setNewsData] = useState(newsTranslations[language] || newsTranslations.en);
+  const projects = projectsData[language] || projectsData.en;
   const [filterType, setFilterType] = useState('ALL');
-  const [filterSeverity, setFilterSeverity] = useState('ALL');
+  const [filterStatus, setFilterStatus] = useState('ALL');
 
-  useEffect(() => {
-    setNewsData(newsTranslations[language] || newsTranslations.en);
-  }, [language]);
+  const filteredProjects = projects?.filter(project => {
+    const typeMatch = filterType === 'ALL' || project.type === filterType;
+    const statusMatch = filterStatus === 'ALL' || project.status === filterStatus;
+    return typeMatch && statusMatch;
+  }) || [];
 
-  const getSeverityColor = (severity: string) => {
-    switch (severity) {
-      case 'SUCCESS':
+  const uniqueTypes = [...new Set(projects?.map(project => project.type) || [])];
+  const uniqueStatuses = [...new Set(projects?.map(project => project.status) || [])];
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'Production':
         return 'var(--color-accent-green)';
-      case 'WARN':
+      case 'Internal':
         return '#f59e0b';
-      case 'ERROR':
-        return '#ef4444';
       default:
         return 'var(--color-text-secondary)';
     }
   };
-
-  const formatTimestamp = (timestamp: string) => {
-    const date = new Date(timestamp);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: '2-digit', 
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit'
-    }).replace(/\//g, '-');
-  };
-
-  const filteredNews = newsData.news?.filter(item => {
-    const typeMatch = filterType === 'ALL' || item.type === filterType;
-    const severityMatch = filterSeverity === 'ALL' || item.severity === filterSeverity;
-    return typeMatch && severityMatch;
-  }) || [];
-
-  const uniqueTypes = [...new Set(newsData.news?.map(item => item.type) || [])];
-  const uniqueSeverities = [...new Set(newsData.news?.map(item => item.severity) || [])];
 
   return (
     <section 
@@ -66,7 +51,7 @@ export function NewsListSection() {
             }}
           >
             <div 
-              className="px-4 py-2 border-b font-mono text-xs flex items-center gap-3 transition-colors duration-200"
+              className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center gap-2 sm:gap-3 transition-colors duration-200"
               style={{ 
                 backgroundColor: 'var(--color-bg-secondary)',
                 borderColor: 'var(--color-border-primary)'
@@ -78,13 +63,13 @@ export function NewsListSection() {
                 <div className="w-2 h-2 rounded-full bg-green-500"></div>
               </div>
               <span style={{ color: 'var(--color-text-secondary)' }}>
-                grep -i [FILTER] system.log
+                find ./projects -type [FILTER] -status [STATUS]
               </span>
             </div>
             
-            <div className="p-3 md:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <div className="p-3 sm:p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               {/* Type filter */}
-              <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
@@ -94,7 +79,7 @@ export function NewsListSection() {
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200 min-w-0"
+                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200"
                   style={{ 
                     backgroundColor: 'var(--color-bg-secondary)',
                     color: 'var(--color-text-primary)',
@@ -108,18 +93,18 @@ export function NewsListSection() {
                 </select>
               </div>
 
-              {/* Severity filter */}
-              <div className="flex items-center gap-2 md:gap-3">
+              {/* Status filter */}
+              <div className="flex items-center gap-2 sm:gap-3">
                 <span 
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  --severity=
+                  --status=
                 </span>
                 <select
-                  value={filterSeverity}
-                  onChange={(e) => setFilterSeverity(e.target.value)}
-                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200 min-w-0"
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                  className="font-mono text-xs px-2 py-1 focus:outline-none transition-colors duration-200"
                   style={{ 
                     backgroundColor: 'var(--color-bg-secondary)',
                     color: 'var(--color-text-primary)',
@@ -127,28 +112,31 @@ export function NewsListSection() {
                   }}
                 >
                   <option value="ALL">ALL</option>
-                  {uniqueSeverities.map(severity => (
-                    <option key={severity} value={severity}>{severity}</option>
+                  {uniqueStatuses.map(status => (
+                    <option key={status} value={status}>{status}</option>
                   ))}
                 </select>
               </div>
 
-              <div 
+              <div
                 className="font-mono text-xs sm:ml-auto mt-2 sm:mt-0"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                {filteredNews.length} entries found
+                {language === 'ja'
+                  ? `${filteredProjects.length}件のプロジェクトが見つかりました`
+                  : `${filteredProjects.length} projects found`
+                }
               </div>
             </div>
           </div>
         </div>
 
-        {/* News list */}
+        {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {filteredNews.map((item, index) => (
+          {filteredProjects.map((project, index) => (
             <Link 
-              key={item.id}
-              href={`/news/${item.slug}`}
+              key={project.id}
+              href={`/projects/${project.slug}`}
               className="block transition-all duration-200 hover:scale-[1.01]"
             >
               <div 
@@ -158,7 +146,7 @@ export function NewsListSection() {
                   backgroundColor: 'var(--color-bg-primary)'
                 }}
               >
-                {/* Log entry header */}
+                {/* Project header */}
                 <div 
                   className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 transition-colors duration-200"
                   style={{ 
@@ -173,26 +161,52 @@ export function NewsListSection() {
                       <div className="w-2 h-2 rounded-full bg-green-500"></div>
                     </div>
                     <span style={{ color: 'var(--color-text-secondary)' }}>
-                      log_entry_{item.id}.txt
+                      project_{project.id}.repo
                     </span>
                   </div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4">
                     <span 
                       className="px-2 py-1"
                       style={{ 
-                        color: getSeverityColor(item.severity),
+                        color: getStatusColor(project.status),
                         backgroundColor: 'var(--color-bg-primary)'
                       }}
                     >
-                      [{item.severity}]
+                      [{project.status.toUpperCase()}]
                     </span>
                     <span style={{ color: 'var(--color-text-tertiary)' }}>
-                      {formatTimestamp(item.timestamp)}
+                      {project.year}
                     </span>
                   </div>
                 </div>
                 
-                {/* Log entry content */}
+                {/* Project images */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-3 sm:p-4 pb-0">
+                  <div 
+                    className="aspect-[16/10] overflow-hidden border transition-all duration-200"
+                    style={{ borderColor: 'var(--color-border-primary)' }}
+                  >
+                    <img
+                      src={`/images/projects/${project.slug}/1.png`}
+                      alt={`${project.name} interface`}
+                      className="w-full h-full object-cover"
+                      style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                    />
+                  </div>
+                  <div 
+                    className="aspect-[16/10] overflow-hidden border transition-all duration-200"
+                    style={{ borderColor: 'var(--color-border-primary)' }}
+                  >
+                    <img
+                      src={`/images/projects/${project.slug}/2.png`}
+                      alt={`${project.name} dashboard`}
+                      className="w-full h-full object-cover"
+                      style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                    />
+                  </div>
+                </div>
+
+                {/* Project content */}
                 <div className="p-4 sm:p-5 md:p-6">
                   <div className="flex-1">
                     <div className="flex items-start gap-2 mb-3">
@@ -202,23 +216,23 @@ export function NewsListSection() {
                           className="font-mono font-bold text-base sm:text-lg mb-2"
                           style={{ color: 'var(--color-text-primary)' }}
                         >
-                          {item.type} &gt; {item.title}
+                          {project.type} &gt; {project.name}
                         </div>
                         <p 
                           className="font-mono text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >
-                          {item.summary}
+                          {project.description}
                         </p>
                       </div>
                     </div>
                     
-                    {/* Tags and metadata */}
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                    {/* Tech stack and metrics */}
+                    <div className="space-y-2 sm:space-y-3">
                       <div className="flex flex-wrap gap-1 sm:gap-2">
-                        {item.tags.map((tag, tagIndex) => (
+                        {project.tech.map((tech, techIndex) => (
                           <span 
-                            key={tagIndex}
+                            key={techIndex}
                             className="px-2 py-1 text-xs font-mono transition-colors duration-200"
                             style={{ 
                               backgroundColor: 'var(--color-bg-secondary)',
@@ -226,23 +240,19 @@ export function NewsListSection() {
                               border: `1px solid var(--color-border-secondary)`
                             }}
                           >
-                            #{tag}
+                            {tech}
                           </span>
                         ))}
                       </div>
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
-                        <div className="flex items-center gap-1">
-                          <span>STATUS:</span>
-                          <span 
-                            className="font-bold"
-                            style={{ 
-                              color: item.status === 'DEPLOYED' ? 'var(--color-accent-green)' : 'var(--color-text-primary)' 
-                            }}
-                          >
-                            {item.status}
-                          </span>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
+                        <div className="flex flex-wrap gap-1 sm:gap-2 text-xs font-mono" style={{ color: 'var(--color-text-tertiary)' }}>
+                          {project.metrics.map((metric, metricIndex) => (
+                            <span key={metricIndex}>
+                              {metric}
+                              {metricIndex < project.metrics.length - 1 && ' • '}
+                            </span>
+                          ))}
                         </div>
-                        <div>{item.readTime}</div>
                       </div>
                     </div>
                   </div>
@@ -252,7 +262,7 @@ export function NewsListSection() {
           ))}
         </div>
 
-        {/* Load more simulation */}
+        {/* Archive footer */}
         <div className="mt-8 md:mt-12">
           <div 
             className="border transition-colors duration-200"
@@ -266,19 +276,22 @@ export function NewsListSection() {
                 className="font-mono text-sm"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <span style={{ color: 'var(--color-accent-green)' }}>$</span> more system.log
+                <span style={{ color: 'var(--color-accent-green)' }}>$</span> git log --oneline --all
               </div>
-              <div 
+              <div
                 className="font-mono text-xs mt-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                // End of current log entries. Monitor for real-time updates.
+                {language === 'ja'
+                  ? '// 完全なプロジェクト履歴と技術ドキュメントが利用可能です'
+                  : '// Complete project history and technical documentation available'
+                }
               </div>
             </div>
           </div>
         </div>
       </div>
-      <GridOverlay/>
+      <GridOverlay/>    
     </section>
   );
 }

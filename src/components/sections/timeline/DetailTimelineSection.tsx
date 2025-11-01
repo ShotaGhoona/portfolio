@@ -1,6 +1,7 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import timelineTranslations from '@/data/translations/timeline.json';
+import timelineData from '@/data/translations/timeline.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
 interface TimelineSection {
@@ -28,11 +29,7 @@ interface TimelineEntry {
 
 export function DetailTimelineSection() {
   const { language } = useLanguage();
-  const [timelineData, setTimelineData] = useState<any>(timelineTranslations[language] || timelineTranslations.en);
-
-  useEffect(() => {
-    setTimelineData(timelineTranslations[language] || timelineTranslations.en);
-  }, [language]);
+  const timeline = timelineData[language] || timelineData.en;
 
   const getCommitTypeColor = (type: string) => {
     const colorMap: { [key: string]: string } = {
@@ -180,11 +177,11 @@ export function DetailTimelineSection() {
                 backgroundColor: 'var(--color-bg-secondary)'
               }}
             >
-              <div 
+              <div
                 className="font-mono text-xs mb-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                Before:
+                {language === 'ja' ? '前:' : 'Before:'}
               </div>
               <div 
                 className="font-mono text-sm"
@@ -200,11 +197,11 @@ export function DetailTimelineSection() {
                 backgroundColor: 'var(--color-bg-secondary)'
               }}
             >
-              <div 
+              <div
                 className="font-mono text-xs mb-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                After:
+                {language === 'ja' ? '後:' : 'After:'}
               </div>
               <div 
                 className="font-mono text-sm"
@@ -226,9 +223,9 @@ export function DetailTimelineSection() {
                   backgroundColor: 'var(--color-bg-secondary)'
                 }}
               >
-                <img 
-                  src={`/timeline/${commitHash}/${index + 1}.jpg`} 
-                  alt={`${index + 1}`} 
+                <img
+                  src={`/images/timeline/${commitHash}/${index + 1}.jpg`}
+                  alt={`${index + 1}`}
                   className="w-full h-full object-cover"
                 />
               </div>  
@@ -256,7 +253,7 @@ export function DetailTimelineSection() {
           />
           
           <div className="space-y-8 md:space-y-16">
-            {timelineData?.timeline?.map((commit: TimelineEntry, index: number) => (
+            {timeline?.map((commit: TimelineEntry, index: number) => (
               <div key={commit.hash} className="relative">
                 {/* Branch indicator */}
                 <div 

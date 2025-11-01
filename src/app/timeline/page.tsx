@@ -1,8 +1,8 @@
 'use client'
 import { Header } from "@/components/common/Header";
-import { TimelineHeroSection } from "@/components/feature/timeline/HeroSection";
-import { DetailTimelineSection } from "@/components/feature/timeline/DetailTimelineSection";
-import { BranchesSection } from "@/components/feature/timeline/BranchesSection";
+import { TimelineHeroSection } from "@/components/sections/timeline/HeroSection";
+import { DetailTimelineSection } from "@/components/sections/timeline/DetailTimelineSection";
+import { BranchesSection } from "@/components/sections/timeline/BranchesSection";
 import { Footer } from "@/components/common/Footer";
 
 export default function TimelinePage() {

@@ -1,7 +1,7 @@
 'use client'
 import { Header } from "@/components/common/Header";
-import { ProjectsHeroSection } from "@/components/feature/projects/ProjectsHeroSection";
-import { ProjectsListSection } from "@/components/feature/projects/ProjectsListSection";
+import { ProjectsHeroSection } from "@/components/sections/projects/ProjectsHeroSection";
+import { ProjectsListSection } from "@/components/sections/projects/ProjectsListSection";
 import { Footer } from "@/components/common/Footer";
 
 export default function ProjectsPage() {

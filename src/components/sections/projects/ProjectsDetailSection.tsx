@@ -1,6 +1,7 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import projectsTranslations from '@/data/translations/projects.json';
+import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
@@ -10,19 +11,15 @@ interface ProjectsDetailSectionProps {
 
 export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
   const { language } = useLanguage();
-  const [projectsData, setProjectsData] = useState(projectsTranslations[language] || projectsTranslations.en);
+  const projects = projectsData[language] || projectsData.en;
 
-  useEffect(() => {
-    setProjectsData(projectsTranslations[language] || projectsTranslations.en);
-  }, [language]);
-
-  const project = projectsData.projects?.find(item => item.slug === slug);
+  const project = projects?.find(item => item.slug === slug);
 
   if (!project) {
     return (
       <div className="w-full py-16 md:py-24 text-center">
         <div className="font-mono text-base sm:text-lg" style={{ color: 'var(--color-text-primary)' }}>
-          Repository not found
+          {language === 'ja' ? 'リポジトリが見つかりません' : 'Repository not found'}
         </div>
       </div>
     );
@@ -39,7 +36,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
     }
   };
 
-  const relatedProjects = projectsData.projects
+  const relatedProjects = projects
     ?.filter(item => item.slug !== slug && item.tech?.some(tech => project?.tech?.includes(tech)))
     ?.slice(0, 3) || [];
 
@@ -166,7 +163,10 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
             }}
           >
             <span style={{ color: 'var(--color-text-secondary)' }}>
-              // Project screenshots and architecture diagrams
+              {language === 'ja'
+                ? '// プロジェクトのスクリーンショットとアーキテクチャ図'
+                : '// Project screenshots and architecture diagrams'
+              }
             </span>
           </div>
           
@@ -176,8 +176,8 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 className="border transition-colors duration-200"
                 style={{ borderColor: 'var(--color-border-primary)' }}
               >
-                <img 
-                  src={`/projects/${project.slug}/1.png`}
+                <img
+                  src={`/images/projects/${project.slug}/1.png`}
                   alt={`${project?.name} - Main Interface`}
                   className="w-full h-auto"
                   style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -187,8 +187,8 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
                 className="border transition-colors duration-200"
                 style={{ borderColor: 'var(--color-border-primary)' }}
               >
-                <img 
-                  src={`/projects/${project.slug}/2.png`}
+                <img
+                  src={`/images/projects/${project.slug}/2.png`}
                   alt={`${project?.name} - Architecture Diagram`}
                   className="w-full h-auto"
                   style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -215,7 +215,10 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
               }}
             >
               <span style={{ color: 'var(--color-text-secondary)' }}>
-                // Project overview and detailed analysis
+                {language === 'ja'
+                  ? '// プロジェクトの概要と詳細分析'
+                  : '// Project overview and detailed analysis'
+                }
               </span>
             </div>
             
@@ -251,7 +254,10 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
               }}
             >
               <span style={{ color: 'var(--color-text-secondary)' }}>
-                // Technical specifications and implementation details
+                {language === 'ja'
+                  ? '// 技術仕様と実装の詳細'
+                  : '// Technical specifications and implementation details'
+                }
               </span>
             </div>
             

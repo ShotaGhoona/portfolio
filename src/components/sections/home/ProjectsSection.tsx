@@ -1,6 +1,7 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import projectsTranslations from '@/data/translations/projects.json';
+import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
 import { GridOverlay } from '@/components/ui/GridOverlay';
@@ -8,11 +9,7 @@ import { SectionTitle } from '@/components/ui/SectionTitle';
 
 export function ProjectsSection() {
   const { language } = useLanguage();
-  const [projects, setProjects] = useState(projectsTranslations[language]?.projects || projectsTranslations.en.projects);
-
-  useEffect(() => {
-    setProjects(projectsTranslations[language]?.projects || projectsTranslations.en.projects);
-  }, [language]);
+  const projects = projectsData[language] || projectsData.en;
   return (
     <section 
       id="projects"
@@ -26,9 +23,9 @@ export function ProjectsSection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="02."
-            sectionTitle={projectsTranslations[language]?.sectionTitle || projectsTranslations.en.sectionTitle}
-            line1={projectsTranslations[language]?.subtitle.line1 || projectsTranslations.en.subtitle.line1}
-            line2={projectsTranslations[language]?.subtitle.line2 || projectsTranslations.en.subtitle.line2}
+            sectionTitle={{ en: 'SELECTED_PROJECTS', ja: 'プロジェクト' }}
+            line1={{ en: 'Showcasing technical depth', ja: '技術的深度と' }}
+            line2={{ en: 'and problem-solving approach', ja: '問題解決アプローチを紹介' }}
           />
           
           {/* Projects list */}
@@ -74,8 +71,8 @@ export function ProjectsSection() {
                           className="aspect-[16/10] overflow-hidden border transition-all duration-200 hover:opacity-90"
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
-                          <img 
-                            src={`/projects/${project.slug}/1.png`}
+                          <img
+                            src={`/images/projects/${project.slug}/1.png`}
                             alt={`${project.name} interface screenshot`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -85,8 +82,8 @@ export function ProjectsSection() {
                           className="aspect-[16/10] overflow-hidden border transition-all duration-200 hover:opacity-90"
                           style={{ borderColor: 'var(--color-border-primary)' }}
                         >
-                          <img 
-                            src={`/projects/${project.slug}/2.png`}
+                          <img
+                            src={`/images/projects/${project.slug}/2.png`}
                             alt={`${project.name} dashboard view`}
                             className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
@@ -155,22 +152,25 @@ export function ProjectsSection() {
                       
                       {/* Actions */}
                       <div className="flex items-center space-x-4 pt-2">
-                        <Link 
+                        <Link
                           href={`/projects/${project.slug}`}
                           className="font-mono text-xs transition-colors duration-200 hover:opacity-80"
                           style={{ color: 'var(--color-text-secondary)' }}
                         >
-                          {projectsTranslations[language]?.buttons.technicalDetails || projectsTranslations.en.buttons.technicalDetails} →
+                          {language === 'ja' ? '技術詳細' : 'Technical Details'} →
                         </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-              <ReadMoreButton 
-                href="/projects" 
-                comment={`// View complete projects (${projects.length - 3} more projects)`} 
-                buttonText="git log --show-more" 
+              <ReadMoreButton
+                href="/projects"
+                comment={language === 'ja'
+                  ? `// 全てのプロジェクトを見る (残り${projects.length - 3}件)`
+                  : `// View complete projects (${projects.length - 3} more projects)`
+                }
+                buttonText="git log --show-more"
               />
             </div>
           </div>

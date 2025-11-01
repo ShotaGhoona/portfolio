@@ -1,19 +1,14 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import timelineTranslations from '@/data/translations/timeline.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
-export function TimelineHeroSection() {
+export function ProjectsHeroSection() {
   const { language } = useLanguage();
-  const [timelineData, setTimelineData] = useState(timelineTranslations[language] || timelineTranslations.en);
-
-  useEffect(() => {
-    setTimelineData(timelineTranslations[language] || timelineTranslations.en);
-  }, [language]);
 
   return (
     <section 
-      className="w-full py-16 md:py-32 relative transition-colors duration-200"
+      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
@@ -27,24 +22,26 @@ export function TimelineHeroSection() {
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>➜</span>
-              ~/portfolio/timeline $
+              ~/portfolio/projects $
               <span className="animate-blink">|</span>
             </div>
             
             <h1 className="space-y-2 mb-8">
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                <span style={{ color: 'var(--color-accent-green)' }}>const</span> timeline = {'{'}
+                <span style={{ color: 'var(--color-accent-green)' }}>const</span> projects = {'{'}
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                title: "<span style={{ color: 'var(--color-accent-green)' }}>{timelineData.detailPage.title}</span>",
+                title: "<span style={{ color: 'var(--color-accent-green)' }}>
+                  {language === 'ja' ? 'プロジェクトアーカイブ' : 'Project Archive'}
+                </span>",
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
@@ -54,19 +51,25 @@ export function TimelineHeroSection() {
           </div>
 
           <div className="space-y-4">
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {timelineData.detailPage.subtitle}
+              {language === 'ja'
+                ? '技術的な取り組みとコードリポジトリ'
+                : 'Technical showcase and code repositories'
+              }
             </p>
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed opacity-80"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {timelineData.detailPage.description}
+              {language === 'ja'
+                ? '技術プロジェクト、システムアーキテクチャ、開発成果の包括的なビュー'
+                : 'Comprehensive view of technical projects, system architectures, and development achievements.'
+              }
             </p>
           </div>
         </div>

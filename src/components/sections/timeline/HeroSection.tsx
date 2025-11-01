@@ -1,19 +1,14 @@
+'use client';
+
 import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import projectsTranslations from '@/data/translations/projects.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
-export function ProjectsHeroSection() {
+export function TimelineHeroSection() {
   const { language } = useLanguage();
-  const [projectsData, setProjectsData] = useState(projectsTranslations[language] || projectsTranslations.en);
-
-  useEffect(() => {
-    setProjectsData(projectsTranslations[language] || projectsTranslations.en);
-  }, [language]);
 
   return (
     <section 
-      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
+      className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ 
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
@@ -27,24 +22,26 @@ export function ProjectsHeroSection() {
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>➜</span>
-              ~/portfolio/projects $
+              ~/portfolio/timeline $
               <span className="animate-blink">|</span>
             </div>
             
             <h1 className="space-y-2 mb-8">
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                <span style={{ color: 'var(--color-accent-green)' }}>const</span> projects = {'{'}
+                <span style={{ color: 'var(--color-accent-green)' }}>const</span> timeline = {'{'}
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
                 style={{ color: 'var(--color-text-primary)' }}
               >
-                title: "<span style={{ color: 'var(--color-accent-green)' }}>{projectsData.detailPage?.title || 'Project Archive'}</span>",
+                title: "<span style={{ color: 'var(--color-accent-green)' }}>
+                  {language === 'ja' ? '人生のコミット履歴' : 'Life Commits'}
+                </span>",
               </div>
-              <div 
+              <div
                 className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: 'var(--color-text-primary)' }}
               >
@@ -54,19 +51,25 @@ export function ProjectsHeroSection() {
           </div>
 
           <div className="space-y-4">
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {projectsData.detailPage?.subtitle || 'Technical showcase and code repositories'}
+              {language === 'ja'
+                ? '人生の重要な転機とマイルストーン'
+                : 'Life milestones and pivotal moments'
+              }
             </p>
-            <p 
+            <p
               className="font-mono text-sm md:text-base leading-relaxed opacity-80"
               style={{ color: 'var(--color-text-secondary)' }}
             >
               <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {projectsData.detailPage?.description || 'Comprehensive view of technical projects, system architectures, and development achievements.'}
+              {language === 'ja'
+                ? 'これまでの人生の軌跡を、コミット履歴のように時系列で振り返る'
+                : 'A chronological journey through life experiences, visualized as git commits'
+              }
             </p>
           </div>
         </div>

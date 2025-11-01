@@ -36,19 +36,19 @@ export function Footer() {
                 className="font-mono text-xs space-y-1"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>Portfolio Version: v2.1.0</div>
+                <div>Portfolio Version: v3.1.0</div>
                 <div>Build Date: 2025.06.29</div>
                 <div>Last Updated: {new Date().toISOString().split('T')[0]}</div>
                 <div>Environment: Production</div>
               </div>
               
-              <div 
+              {/* <div 
                 className="font-mono text-xs"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
                 <div>// Built with Next.js, TypeScript</div>
                 <div>// Deployed on Vercel</div>
-              </div>
+              </div> */}
             </div>
           </div>
           
@@ -111,13 +111,9 @@ export function Footer() {
                   <span style={{ color: 'var(--color-text-secondary)' }}>Timezone:</span>
                   <span style={{ color: 'var(--color-text-primary)' }}>JST (UTC+9)</span>
                 </div>
-                <div className="flex items-center justify-between font-mono text-xs">
-                  <span style={{ color: 'var(--color-text-secondary)' }}>Response:</span>
-                  <span style={{ color: 'var(--color-text-primary)' }}>&lt; 24h</span>
-                </div>
               </div>
               
-              <div 
+              {/* <div 
                 className="pt-4 transition-colors duration-200"
                 style={{ borderTop: `1px solid var(--color-border-secondary)` }}
               >
@@ -129,7 +125,7 @@ export function Footer() {
                   <div>// Open to new opportunities</div>
                   <div>// Specialized in backend systems</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -199,19 +195,19 @@ export function Footer() {
               className="font-mono text-xs space-y-1 mb-4"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              <div>Portfolio Version: v2.1.0</div>
+              <div>Portfolio Version: v3.1.0</div>
               <div>Build Date: 2024.06.29</div>
               <div>Last Updated: {new Date().toISOString().split('T')[0]}</div>
               <div>Environment: Production</div>
             </div>
             
-            <div 
+            {/* <div 
               className="font-mono text-xs"
               style={{ color: 'var(--color-text-tertiary)' }}
             >
               <div>// Built with Next.js, TypeScript</div>
               <div>// Deployed on Vercel</div>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -274,14 +270,14 @@ export function Footer() {
               </div>
             </div>
             
-            <div 
+            {/* <div 
               className="font-mono text-xs"
               style={{ color: 'var(--color-text-tertiary)' }}
             >
               <div>// Professional software engineer</div>
               <div>// Open to new opportunities</div>
               <div>// Specialized in backend systems</div>
-            </div>
+            </div> */}
           </div>
 
           {/* Copyright */}

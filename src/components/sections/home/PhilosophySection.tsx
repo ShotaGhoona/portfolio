@@ -1,16 +1,10 @@
-import { useLanguage } from '@/hooks/useLanguage';
-import { useEffect, useState } from 'react';
-import philosophyTranslations from '@/data/translations/philosophy.json';
+'use client';
+
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
+import { Div, P, Span } from '@/components/i18n';
 
 export function PhilosophySection() {
-  const { language } = useLanguage();
-  const [philosophyData, setPhilosophyData] = useState(philosophyTranslations[language] || philosophyTranslations.en);
-
-  useEffect(() => {
-    setPhilosophyData(philosophyTranslations[language] || philosophyTranslations.en);
-  }, [language]);
 
   return (
     <section 
@@ -25,9 +19,9 @@ export function PhilosophySection() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="01."
-            sectionTitle={philosophyData.sectionTitle}
-            line1={philosophyData.subtitle.line1}
-            line2={philosophyData.subtitle.line2}
+            sectionTitle={{ en: "Philosophy", ja: "哲学" }}
+            line1={{ en: "Development philosophy and", ja: "開発の哲学と" }}
+            line2={{ en: "algorithmic mindset", ja: "アルゴリズム的思考" }}
           />
           
           {/* Philosophy content */}
@@ -41,44 +35,44 @@ export function PhilosophySection() {
                   backgroundColor: 'var(--color-bg-secondary)'
                 }}
               >
-                <div 
+                <div
                   className="px-4 py-3 border-b transition-colors duration-200"
-                  style={{ 
+                  style={{
                     borderColor: 'var(--color-border-primary)',
                     backgroundColor: 'var(--color-bg-primary)'
                   }}
                 >
-                  <div 
+                  <Div
+                    en="The Sleepless Rabbit Algorithm"
+                    ja="眠らぬうさぎアルゴリズム"
                     className="font-mono text-lg font-bold"
                     style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    {philosophyData.concept.title}
-                  </div>
-                  <div 
+                  />
+                  <Div
+                    en="Redefining the classic tale through computational thinking"
+                    ja="計算的思考を通じて古典的物語を再定義"
                     className="font-mono text-xs mt-1"
                     style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    {philosophyData.concept.subtitle}
-                  </div>
+                  />
                 </div>
                 <div className="p-6">
-                  <p 
+                  <P
+                    en="Do you know the story of the tortoise and the hare? The lesson is often said to be about the tortoise's relentless effort. But shouldn't we truly admire the rabbit's legs? Yes, no one can beat a sleepless rabbit. Every day, creation beyond imagination."
+                    ja="うさぎとかめの物語を知っていますか？このお話の教訓はカメの弛まぬ努力だそうです。しかし本当に賞賛されるべきはウサギの脚ではないでしょうか？そう、眠らぬうさぎには誰も勝てません。毎日、想像を超える創造を。"
                     className="font-mono text-sm leading-relaxed"
                     style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    {philosophyData.concept.description}
-                  </p>
+                  />
                 </div>
               </div>
 
               {/* Animation Analysis */}
               <div>
-                <div 
+                <Div
+                  en="Performance Analysis"
+                  ja="パフォーマンス解析"
                   className="font-mono text-lg font-bold mb-6"
                   style={{ color: 'var(--color-text-primary)' }}
-                >
-                  {philosophyData.algorithm.title}
-                </div>
+                />
                 
                 {/* Three animation code blocks */}
                 {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -293,73 +287,225 @@ export function PhilosophySection() {
 
               {/* Principles */}
               <div>
-                <div 
+                <div
                   className="font-mono text-lg font-bold mb-4"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   Core Principles
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {philosophyData.principles.map((principle) => (
-                    <div 
-                      key={principle.id}
-                      className="border transition-all duration-200 hover:shadow-lg"
-                      style={{ 
-                        borderColor: 'var(--color-border-primary)',
-                        backgroundColor: 'var(--color-bg-secondary)'
+                  {/* Principle 001 */}
+                  <div
+                    className="border transition-all duration-200 hover:shadow-lg"
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      backgroundColor: 'var(--color-bg-secondary)'
+                    }}
+                  >
+                    <div
+                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        borderColor: 'var(--color-border-primary)'
                       }}
                     >
-                      {/* Code editor header */}
-                      <div 
-                        className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
-                        style={{ 
-                          backgroundColor: 'var(--color-bg-primary)',
-                          borderColor: 'var(--color-border-primary)'
-                        }}
-                      >
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                            <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                            <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                          </div>
-                          <span style={{ color: 'var(--color-text-secondary)' }}>
-                            principle_{principle.id}.js
-                          </span>
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
                         </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="p-4 space-y-3">
-                        <div 
-                          className="font-mono text-sm font-bold"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        >
-                          {principle.title}
-                        </div>
-                        <p 
-                          className="font-mono text-xs leading-relaxed"
-                          style={{ color: 'var(--color-text-secondary)' }}
-                        >
-                          {principle.description}
-                        </p>
-                        
-                        {/* Code block */}
-                        <div 
-                          className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
-                          style={{ 
-                            backgroundColor: 'var(--color-bg-primary)',
-                            borderColor: 'var(--color-accent-green)'
-                          }}
-                        >
-                          <span style={{ color: 'var(--color-accent-green)' }}>
-                            {principle.code}
-                          </span>
-                        </div>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>
+                          principle_001.js
+                        </span>
                       </div>
                     </div>
-                  ))}
+                    <div className="p-4 space-y-3">
+                      <Div
+                        en="Pioneering at Speed"
+                        ja="常に最速"
+                        className="font-mono text-sm font-bold"
+                        style={{ color: 'var(--color-text-primary)' }}
+                      />
+                      <P
+                        en="Dive into uncharted AI possibilities faster than anyone. Speed increases risk, but hesitation costs more."
+                        ja="未知の可能性に誰よりも早く飛び込む。スピードはリスクを増すが、ためらいの代償はもっと大きい。"
+                        className="font-mono text-xs leading-relaxed"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      />
+                      <div
+                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
+                        style={{
+                          backgroundColor: 'var(--color-bg-primary)',
+                          borderColor: 'var(--color-accent-green)'
+                        }}
+                      >
+                        <span style={{ color: 'var(--color-accent-green)' }}>
+                          const velocity = Math.max(...competitors) + Infinity;
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Principle 002 */}
+                  <div
+                    className="border transition-all duration-200 hover:shadow-lg"
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      backgroundColor: 'var(--color-bg-secondary)'
+                    }}
+                  >
+                    <div
+                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        borderColor: 'var(--color-border-primary)'
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>
+                          principle_002.js
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-4 space-y-3">
+                      <Div
+                        en="Curiosity Driven"
+                        ja="好奇心がガソリン"
+                        className="font-mono text-sm font-bold"
+                        style={{ color: 'var(--color-text-primary)' }}
+                      />
+                      <P
+                        en="Pure curiosity sparks innovation. Unleash childlike wonder, ask 'Why?' and experiment fearlessly."
+                        ja="「なぜ？」という純粋な問いが価値を生む。子どもの目線で好奇心を解き放ち、世界を再定義する。"
+                        className="font-mono text-xs leading-relaxed"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      />
+                      <div
+                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
+                        style={{
+                          backgroundColor: 'var(--color-bg-primary)',
+                          borderColor: 'var(--color-accent-green)'
+                        }}
+                      >
+                        <span style={{ color: 'var(--color-accent-green)' }}>
+                          for(const wonder of childMind) {'{ wonder.unleash().ignite(); }'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Principle 003 */}
+                  {/* <div
+                    className="border transition-all duration-200 hover:shadow-lg"
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      backgroundColor: 'var(--color-bg-secondary)'
+                    }}
+                  >
+                    <div
+                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        borderColor: 'var(--color-border-primary)'
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>
+                          principle_003.js
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-4 space-y-3">
+                      <Div
+                        en="Be a Pro"
+                        ja="正しく在る。"
+                        className="font-mono text-sm font-bold"
+                        style={{ color: 'var(--color-text-primary)' }}
+                      />
+                      <P
+                        en="Show facts transparently, compete with integrity. Success builds on sincerity, not excuses."
+                        ja="事実を堂々と示し、誠実に勝負する。言い逃れではなく、誠実さが勝利の土台。"
+                        className="font-mono text-xs leading-relaxed"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      />
+                      <div
+                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
+                        style={{
+                          backgroundColor: 'var(--color-bg-primary)',
+                          borderColor: 'var(--color-accent-green)'
+                        }}
+                      >
+                        <span style={{ color: 'var(--color-accent-green)' }}>
+                          excuses.delete(); facts.show(); integrity.compete();
+                        </span>
+                      </div>
+                    </div>
+                  </div> */}
+
+                  {/* Principle 004 */}
+                  {/* <div
+                    className="border transition-all duration-200 hover:shadow-lg"
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      backgroundColor: 'var(--color-bg-secondary)'
+                    }}
+                  >
+                    <div
+                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        borderColor: 'var(--color-border-primary)'
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                        <span style={{ color: 'var(--color-text-secondary)' }}>
+                          principle_004.js
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-4 space-y-3">
+                      <Div
+                        en="Elevate Self, Elevate All"
+                        ja="Elevate Self, Elevate All"
+                        className="font-mono text-sm font-bold"
+                        style={{ color: 'var(--color-text-primary)' }}
+                      />
+                      <P
+                        en="Sharpen expertise first, then multiply through collaboration. Innovation emerges from individual excellence."
+                        ja="まず自分の専門性を磨く。協力により、個性の化学反応からイノベーションが生まれる。"
+                        className="font-mono text-xs leading-relaxed"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      />
+                      <div
+                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
+                        style={{
+                          backgroundColor: 'var(--color-bg-primary)',
+                          borderColor: 'var(--color-accent-green)'
+                        }}
+                      >
+                        <span style={{ color: 'var(--color-accent-green)' }}>
+                          expertise.level++; return expertise ** team.chemistry;
+                        </span>
+                      </div>
+                    </div>
+                  </div> */}
                 </div>
               </div>
               
