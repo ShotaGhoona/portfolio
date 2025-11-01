@@ -42,7 +42,7 @@ export function NewsSection() {
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="05."

@@ -28,7 +28,7 @@ export function Header() {
       }}
     >
       {/* Desktop Header */}
-      <div className="max-w-6xl mx-auto hidden md:block">
+      <div className="max-w-[1500px] mx-auto hidden md:block">
         <div className="grid grid-cols-12 gap-0">
           {/* Left section - Logo/Brand */}
           <Link 
@@ -97,7 +97,7 @@ export function Header() {
         
         {/* Grid overlay lines */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="max-w-6xl mx-auto h-full grid grid-cols-12 gap-0">
+          <div className="max-w-[1500px] mx-auto h-full grid grid-cols-12 gap-0">
             {Array.from({ length: 12 }).map((_, index) => (
               <div 
                 key={index} 

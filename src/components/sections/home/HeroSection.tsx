@@ -34,7 +34,7 @@ export function HeroSection() {
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
       {/* Desktop Layout */}
-      <div className="max-w-6xl mx-auto hidden md:block h-screen py-32">
+      <div className="max-w-[1500px] mx-auto hidden md:block h-screen py-32">
         <div className="grid grid-cols-12 gap-0 h-full">
           {/* Left content area */}
           <div className="col-span-8 px-8 h-full">
@@ -337,7 +337,7 @@ export function HeroSection() {
         
         {/* Grid overlay */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="max-w-6xl mx-auto h-full grid grid-cols-12 gap-0">
+          <div className="max-w-[1500px] mx-auto h-full grid grid-cols-12 gap-0">
             {Array.from({ length: 12 }).map((_, index) => (
               <div 
                 key={index} 

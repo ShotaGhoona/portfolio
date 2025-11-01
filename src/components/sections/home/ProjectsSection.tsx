@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ReadMoreButton } from '@/components/ui/ReadMoreButton';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
+import { TechIcon } from '@/components/ui/TechIcon';
 
 export function ProjectsSection() {
   const { language } = useLanguage();
@@ -19,7 +20,7 @@ export function ProjectsSection() {
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           <SectionTitle
             sectionNumber="02."
@@ -108,44 +109,19 @@ export function ProjectsSection() {
                       
                       {/* Tech stack */}
                       <div>
-                        <div 
-                          className="font-mono text-xs mb-2"
+                        <div
+                          className="font-mono text-xs mb-3"
                           style={{ color: 'var(--color-text-tertiary)' }}
                         >
                           {`// Tech Stack`}
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech, techIndex) => (
-                            <span 
-                              key={techIndex} 
-                              className="font-mono text-xs px-3 py-1 transition-colors duration-200"
-                              style={{ 
-                                backgroundColor: 'var(--color-bg-secondary)',
-                                color: 'var(--color-text-primary)'
-                              }}
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      {/* Metrics */}
-                      <div className="hidden md:block">
-                        <div 
-                          className="font-mono text-xs mb-2"
-                          style={{ color: 'var(--color-text-tertiary)' }}
-                        >
-                          {`// Key Metrics`}
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {project.metrics.map((metric, metricIndex) => (
-                            <div key={metricIndex} className="font-mono text-xs">
-                              <span 
-                                className="font-bold"
-                                style={{ color: 'var(--color-text-primary)' }}
-                              >{metric}</span>
-                            </div>
+                            <TechIcon
+                              key={techIndex}
+                              icon={tech.icon}
+                              label={tech.label}
+                            />
                           ))}
                         </div>
                       </div>
