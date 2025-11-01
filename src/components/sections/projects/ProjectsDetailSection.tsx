@@ -4,6 +4,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
+import { TechIcon } from '@/components/ui/TechIcon';
 
 interface ProjectsDetailSectionProps {
   slug: string;
@@ -37,252 +38,234 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
   };
 
   const relatedProjects = projects
-    ?.filter(item => item.slug !== slug && item.tech?.some(tech => project?.tech?.includes(tech)))
+    ?.filter(item => item.slug !== slug && item.tech?.some(tech => project?.tech?.some(pTech => pTech.icon === tech.icon)))
     ?.slice(0, 3) || [];
 
   return (
-    <div 
+    <div
       className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Back navigation */}
-        <div className="mb-6 md:mb-8">
-          <Link 
-            href="/projects"
-            className="font-mono text-xs sm:text-sm flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            <span style={{ color: 'var(--color-accent-green)' }}>←</span>
-            cd ../projects
-          </Link>
-        </div>
-
-        {/* Project header */}
-        <div 
-          className="border mb-6 md:mb-8 transition-colors duration-200"
-          style={{ 
-            borderColor: 'var(--color-border-primary)',
-            backgroundColor: 'var(--color-bg-secondary)'
-          }}
-        >
-          <div 
-            className="px-3 sm:px-4 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
-            style={{ 
-              backgroundColor: 'var(--color-bg-primary)',
-              borderColor: 'var(--color-border-primary)'
-            }}
-          >
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              </div>
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                git clone project_{project?.id}.git
-              </span>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-4">
-              <span 
-                className="px-2 py-1"
-                style={{ 
-                  color: getStatusColor(project?.status || 'Development'),
-                  backgroundColor: 'var(--color-bg-secondary)'
-                }}
-              >
-                [{project?.status?.toUpperCase()}]
-              </span>
-              <span style={{ color: 'var(--color-text-tertiary)' }}>
-                {project?.year}
-              </span>
-            </div>
-          </div>
-          
-          <div className="p-4 sm:p-5 md:p-6">
-            <div className="mb-4">
-              <div 
-                className="font-mono text-sm mb-2"
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Metadata Section */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-0 mb-16 md:mb-24">
+          {/* Left - Navigation & Meta */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="md:pr-8 space-y-4">
+              <Link
+                href="/projects"
+                className="font-mono text-xs flex items-center gap-2 transition-colors duration-200 hover:opacity-80"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                {project?.type}
+                <span style={{ color: 'var(--color-accent-green)' }}>←</span>
+                cd ../projects
+              </Link>
+
+              <div className="space-y-2">
+                <div
+                  className="font-mono text-xs px-2 py-1 inline-block"
+                  style={{
+                    color: getStatusColor(project?.status || 'Development'),
+                    backgroundColor: 'var(--color-bg-secondary)'
+                  }}
+                >
+                  {project?.status?.toUpperCase()}
+                </div>
+                <div
+                  className="font-mono text-xs"
+                  style={{ color: 'var(--color-text-tertiary)' }}
+                >
+                  {project?.year}
+                </div>
               </div>
-              <h1 
-                className="font-mono font-bold text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4"
+            </div>
+          </div>
+
+          {/* Center - Main Info */}
+          <div className="col-span-1 md:col-span-8">
+            <div className="md:px-8">
+              <div
+                className="font-mono text-xs mb-2"
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
+                {project?.slug}
+              </div>
+              <h1
+                className="font-mono font-bold text-3xl md:text-4xl lg:text-5xl mb-3"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {project?.name}
               </h1>
-              <p 
-                className="font-mono text-sm sm:text-base md:text-lg"
+              <div
+                className="font-mono text-sm mb-4"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {project?.type}
+              </div>
+              <p
+                className="font-mono text-base md:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {project?.description}
               </p>
             </div>
+          </div>
 
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-              {project?.tech?.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-2 py-1 text-xs font-mono transition-colors duration-200"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg-primary)',
-                    color: 'var(--color-text-primary)',
-                    border: `1px solid var(--color-border-secondary)`
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Key metrics */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 font-mono text-xs" style={{ color: 'var(--color-text-tertiary)' }}>
-              {project?.metrics?.map((metric, index) => (
-                <span key={index}>{metric}</span>
-              ))}
+          {/* Right - Metrics */}
+          <div
+            className="col-span-1 md:col-span-2 md:border-l transition-colors duration-200"
+            style={{ borderColor: 'var(--color-border-primary)' }}
+          >
+            <div className="md:pl-8 md:sticky md:top-32">
+              {project?.metrics && project.metrics.length > 0 && (
+                <div>
+                  <div
+                    className="font-mono text-xs mb-3"
+                    style={{ color: 'var(--color-text-tertiary)' }}
+                  >
+                    Metrics
+                  </div>
+                  <div className="space-y-2">
+                    {project.metrics.map((metric, index) => (
+                      <div
+                        key={index}
+                        className="font-mono text-xs"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
+                        • {metric}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Project Images */}
-        <div 
-          className="border mb-6 md:mb-8 transition-colors duration-200"
-          style={{ 
-            borderColor: 'var(--color-border-primary)',
-            backgroundColor: 'var(--color-bg-secondary)'
-          }}
-        >
-          <div 
-            className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-            style={{ 
-              backgroundColor: 'var(--color-bg-primary)',
-              borderColor: 'var(--color-border-primary)'
-            }}
-          >
-            <span style={{ color: 'var(--color-text-secondary)' }}>
-              {language === 'ja'
-                ? '// プロジェクトのスクリーンショットとアーキテクチャ図'
-                : '// Project screenshots and architecture diagrams'
-              }
-            </span>
-          </div>
-          
-          <div className="p-4 sm:p-5 md:p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div 
-                className="border transition-colors duration-200"
-                style={{ borderColor: 'var(--color-border-primary)' }}
-              >
+        {/* Pictures Section */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-0 mb-16 md:mb-24">
+          <div className="col-span-1 md:col-span-12">
+            <div className="grid grid-cols-1 gap-8">
+              <div className="overflow-hidden transition-all duration-200 hover:opacity-90">
                 <img
                   src={`/images/projects/${project.slug}/1.png`}
                   alt={`${project?.name} - Main Interface`}
-                  className="w-full h-auto"
-                  style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                  className="w-full h-auto transition-transform duration-200 hover:scale-105"
+                  style={{ filter: 'grayscale(10%) contrast(1.05)' }}
                 />
               </div>
-              <div 
-                className="border transition-colors duration-200"
-                style={{ borderColor: 'var(--color-border-primary)' }}
-              >
+              <div className="overflow-hidden transition-all duration-200 hover:opacity-90">
                 <img
                   src={`/images/projects/${project.slug}/2.png`}
                   alt={`${project?.name} - Architecture Diagram`}
-                  className="w-full h-auto"
-                  style={{ filter: 'grayscale(20%) contrast(1.1)' }}
+                  className="w-full h-auto transition-transform duration-200 hover:scale-105"
+                  style={{ filter: 'grayscale(10%) contrast(1.05)' }}
                 />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Detailed Description */}
-        {project?.detailedDescription && (
-          <div 
-            className="border mb-6 md:mb-8 transition-colors duration-200"
-            style={{ 
-              borderColor: 'var(--color-border-primary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
-          >
-            <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-              style={{ 
-                backgroundColor: 'var(--color-bg-primary)',
-                borderColor: 'var(--color-border-primary)'
-              }}
-            >
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                {language === 'ja'
-                  ? '// プロジェクトの概要と詳細分析'
-                  : '// Project overview and detailed analysis'
-                }
-              </span>
-            </div>
-            
-            <div className="p-4 sm:p-5 md:p-6">
-              <div 
-                className="font-mono text-sm leading-relaxed"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
-                {project.detailedDescription.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="mb-4 last:mb-0">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+        {/* Content Section */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
+          {/* Left - Empty */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="md:pr-8"></div>
+          </div>
+
+          {/* Center - Detailed Description & Technical Details */}
+          <div className="col-span-1 md:col-span-8">
+            <div className="md:px-8">
+              {project?.detailedDescription && (
+                <div className="mb-16">
+                  <div
+                    className="font-mono text-xs mb-6"
+                    style={{ color: 'var(--color-text-tertiary)' }}
+                  >
+                    {language === 'ja'
+                      ? '// プロジェクト詳細'
+                      : '// Project Details'
+                    }
+                  </div>
+                  <div
+                    className="font-mono text-sm md:text-base leading-relaxed space-y-6"
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {project.detailedDescription.split('\n\n').map((paragraph, index) => (
+                      <p key={index}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Technical Details */}
+              {project?.technicalDetails && (
+                <div>
+                  <div
+                    className="font-mono text-xs mb-6"
+                    style={{ color: 'var(--color-text-tertiary)' }}
+                  >
+                    {language === 'ja'
+                      ? '// 技術仕様'
+                      : '// Technical Specifications'
+                    }
+                  </div>
+                  <div className="space-y-6">
+                    {Object.entries(project.technicalDetails).map(([key, value]) => (
+                      <div key={key}>
+                        <div
+                          className="font-mono text-sm font-bold mb-2"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        >
+                          {key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        </div>
+                        <div
+                          className="font-mono text-sm leading-relaxed"
+                          style={{ color: 'var(--color-text-secondary)' }}
+                        >
+                          {String(value)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        )}
 
-        {/* Technical Details */}
-        {project?.technicalDetails && (
-          <div 
-            className="border mb-6 md:mb-8 transition-colors duration-200"
-            style={{ 
-              borderColor: 'var(--color-border-primary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
+          {/* Right - Tech Stack */}
+          <div
+            className="col-span-1 md:col-span-2 md:border-l transition-colors duration-200"
+            style={{ borderColor: 'var(--color-border-primary)' }}
           >
-            <div 
-              className="px-4 py-2 border-b font-mono text-xs transition-colors duration-200"
-              style={{ 
-                backgroundColor: 'var(--color-bg-primary)',
-                borderColor: 'var(--color-border-primary)'
-              }}
-            >
-              <span style={{ color: 'var(--color-text-secondary)' }}>
-                {language === 'ja'
-                  ? '// 技術仕様と実装の詳細'
-                  : '// Technical specifications and implementation details'
-                }
-              </span>
-            </div>
-            
-            <div className="p-4 sm:p-5 md:p-6">
-              <div className="space-y-4">
-                {Object.entries(project?.technicalDetails || {}).map(([key, value]) => (
-                  <div key={key} className="flex items-start gap-4">
-                    <div 
-                      className="font-mono text-sm font-bold min-w-[140px]"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >
-                      {key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:
-                    </div>
-                    <div 
-                      className="font-mono text-sm"
+            <div className="md:pl-8 md:sticky md:top-32">
+              <div
+                className="font-mono text-xs mb-3"
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
+                Tech Stack
+              </div>
+              <div className="space-y-3">
+                {project?.tech?.map((tech, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <TechIcon
+                      icon={tech.icon}
+                      label={tech.label}
+                    />
+                    <span
+                      className="font-mono text-xs"
                       style={{ color: 'var(--color-text-secondary)' }}
                     >
-                      {String(value)}
-                    </div>
+                      {tech.label}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
       <GridOverlay/>
     </div>

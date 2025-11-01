@@ -5,6 +5,7 @@ import { useState } from 'react';
 import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
+import { TechIcon } from '@/components/ui/TechIcon';
 
 export function ProjectsListSection() {
   const { language } = useLanguage();
@@ -229,19 +230,13 @@ export function ProjectsListSection() {
                     
                     {/* Tech stack and metrics */}
                     <div className="space-y-2 sm:space-y-3">
-                      <div className="flex flex-wrap gap-1 sm:gap-2">
+                      <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech, techIndex) => (
-                          <span 
+                          <TechIcon
                             key={techIndex}
-                            className="px-2 py-1 text-xs font-mono transition-colors duration-200"
-                            style={{ 
-                              backgroundColor: 'var(--color-bg-secondary)',
-                              color: 'var(--color-text-primary)',
-                              border: `1px solid var(--color-border-secondary)`
-                            }}
-                          >
-                            {tech}
-                          </span>
+                            icon={tech.icon}
+                            label={tech.label}
+                          />
                         ))}
                       </div>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">

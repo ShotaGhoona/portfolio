@@ -13,6 +13,7 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    company: '',
     messageType: '',
     message: ''
   });
@@ -52,6 +53,7 @@ export function ContactSection() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          company: formData.company,
           messageType: formData.messageType,
           message: formData.message,
           to: 'shota.yamashita@ghoona.com'
@@ -60,7 +62,7 @@ export function ContactSection() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', messageType: '', message: '' });
+        setFormData({ name: '', email: '', company: '', messageType: '', message: '' });
       } else {
         const errorData = await response.json();
         setErrorMessage(errorData.error || 'Failed to send message');
@@ -92,248 +94,126 @@ export function ContactSection() {
           />
           {/* Contact content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {/* Contact info */}
-              <div className="space-y-8">
-                <div>
-                  <div 
-                    className="font-mono text-lg font-bold mb-6"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    npx create-next-app@latest<br/>
-                    <span 
-                      className="font-bold text-xl"
-                      style={{ color: 'var(--color-accent-green)' }}>something amazing together.
-                    </span>
-                  </div>
-                  <P
-                    en="Heads-down on zero-to-one AI ventures. If you're chasing audacious ideas in LLMs or product-market fit, ping me—let's build fast."
-                    ja="0→1のAIスタートアップに全力コミット中。LLMやPMFに挑む大胆なアイデアがある方はぜひ連絡を。一緒に爆速で形にしましょう。"
-                    className="font-mono text-sm leading-relaxed"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  />
-                </div>
-                
-                {/* Contact methods */}
-                <div className="space-y-6">
-                  <div 
-                    className="border transition-colors duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
-                  >
-                    <div 
-                      className="px-4 py-2 border-b transition-colors duration-200"
-                      style={{ 
-                        backgroundColor: 'var(--color-bg-secondary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
-                    >
-                      <div 
-                        className="font-mono text-xs"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                      >
-                        contact.methods
-                      </div>
-                    </div>
-                    <div className="p-4 space-y-3">
-                      {[
-                        { 
-                          method: 'email', 
-                          value: 'shota.yamashita@ghoona.com',
-                          preferred: true,
-                          response: '< 24h'
-                        },
-                        { 
-                          method: 'Instagram', 
-                          value: '@____syota_01',
-                          preferred: false,
-                          response: '< 48h'
-                        },
-                        { 
-                          method: 'github', 
-                          value: '/syotaYYY',
-                          preferred: false,
-                          response: 'async'
-                        }
-                      ].map((contact, index) => (
-                        <div key={index} className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0">
-                          <div className="font-mono text-xs">
-                            <span style={{ color: 'var(--color-text-tertiary)' }}>{contact.method}:</span>
-                            <span 
-                              className="ml-2"
-                              style={{ color: 'var(--color-text-primary)' }}
-                            >{contact.value}</span>
-                            {contact.preferred && (
-                              <span 
-                                className="ml-2"
-                                style={{ color: 'var(--color-accent-green)' }}
-                              >[PREFERRED]</span>
-                            )}
-                          </div>
-                          <div 
-                            className="font-mono text-xs"
-                            style={{ color: 'var(--color-text-tertiary)' }}
-                          >
-                            {contact.response}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Availability */}
-                  <div 
-                    className="border transition-colors duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
-                  >
-                    <div 
-                      className="px-4 py-2 border-b transition-colors duration-200"
-                      style={{ 
-                        backgroundColor: 'var(--color-bg-secondary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
-                    >
-                      <div 
-                        className="font-mono text-xs"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                      >
-                        availability.status
-                      </div>
-                    </div>
-                    <div className="p-4 space-y-2">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
-                        <span style={{ color: 'var(--color-text-tertiary)' }}>Current Status:</span>
-                        <span
-                          className="font-bold"
-                          style={{ color: 'var(--color-accent-green)' }}
-                        >AVAILABLE</span>
-                      </div>
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
-                        <span style={{ color: 'var(--color-text-tertiary)' }}>Start Date:</span>
-                        <Span
-                          en="2-4 weeks notice"
-                          ja="2-4週間前通知"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        />
-                      </div>
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
-                        <span style={{ color: 'var(--color-text-tertiary)' }}>Location:</span>
-                        <Span
-                          en="Japan / Kyoto / Remote"
-                          ja="日本 / 京都 / リモート"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        />
-                      </div>
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 md:gap-0 font-mono text-xs">
-                        <span style={{ color: 'var(--color-text-tertiary)' }}>Role Type:</span>
-                        <Span
-                          en="Full-time / Part-time"
-                          ja="フルタイム / パートタイム"
-                          style={{ color: 'var(--color-text-primary)' }}
-                        />
-                      </div>
-                    </div>
-                  </div>
+            <div>
+              {/* Intro text */}
+              <div className="mb-12">
+                <div
+                  className="font-mono text-lg font-bold mb-6"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  npx create-next-app@latest<br/>
+                  <span
+                    className="font-bold text-2xl"
+                    style={{ color: 'var(--color-accent-green)' }}>something amazing together.
+                  </span>
                 </div>
               </div>
-              
+
               {/* Quick contact form */}
               <div className="space-y-6">
-                <div 
-                  className="border transition-colors duration-200"
-                  style={{ borderColor: 'var(--color-border-primary)' }}
-                >
-                  <div 
-                    className="px-4 py-2 border-b transition-colors duration-200"
-                    style={{ 
-                      backgroundColor: 'var(--color-bg-secondary)',
-                      borderColor: 'var(--color-border-primary)'
-                    }}
-                  >
-                    <div 
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      quick.contact()
+                <form onSubmit={handleSubmit} className="space-y-8">
+                    {/* Row 1: Name and Message Type */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <Label
+                          en="Name"
+                          ja="氏名"
+                          className="font-mono text-sm block mb-3"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        />
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="w-full font-mono text-base py-3 focus:outline-none transition-colors duration-200 bg-transparent"
+                          style={{
+                            borderBottom: `1px solid var(--color-border-primary)`,
+                            color: 'var(--color-text-primary)'
+                          }}
+                          placeholder={language === 'ja' ? '山田太郎' : 'John Doe'}
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <Label
+                          en="Subject"
+                          ja="件名"
+                          className="font-mono text-sm block mb-3"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        />
+                        <select
+                          name="messageType"
+                          value={formData.messageType}
+                          onChange={handleInputChange}
+                          className="w-full font-mono text-base py-3 focus:outline-none transition-colors duration-200 bg-transparent"
+                          style={{
+                            borderBottom: `1px solid var(--color-border-primary)`,
+                            color: 'var(--color-text-primary)'
+                          }}
+                        >
+                          <option value="">{language === 'ja' ? '件名を選択してください' : 'Select subject'}</option>
+                          <option value="job">Job Opportunity</option>
+                          <option value="consulting">Consulting Project</option>
+                          <option value="collaboration">Collaboration</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
-                  <form onSubmit={handleSubmit} className="p-4 space-y-4">
-                    <div>
-                      <Label
-                        en="your.name"
-                        ja="お名前"
-                        className="font-mono text-xs block mb-1"
-                        style={{ color: 'var(--color-text-tertiary)' }}
-                      />
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{
-                          border: `1px solid var(--color-border-primary)`,
-                          backgroundColor: 'var(--color-bg-primary)',
-                          color: 'var(--color-text-primary)'
-                        }}
-                        placeholder={language === 'ja' ? 'お名前を入力してください' : 'Enter your name'}
-                        required
-                      />
+
+                    {/* Row 2: Company and Email */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div>
+                        <Label
+                          en="Company"
+                          ja="会社名"
+                          className="font-mono text-sm block mb-3"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        />
+                        <input
+                          type="text"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleInputChange}
+                          className="w-full font-mono text-base py-3 focus:outline-none transition-colors duration-200 bg-transparent"
+                          style={{
+                            borderBottom: `1px solid var(--color-border-primary)`,
+                            color: 'var(--color-text-primary)'
+                          }}
+                          placeholder={language === 'ja' ? '株式会社XXXX' : 'Company Inc.'}
+                        />
+                      </div>
+
+                      <div>
+                        <Label
+                          en="Email"
+                          ja="メールアドレス"
+                          className="font-mono text-sm block mb-3"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        />
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full font-mono text-base py-3 focus:outline-none transition-colors duration-200 bg-transparent"
+                          style={{
+                            borderBottom: `1px solid var(--color-border-primary)`,
+                            color: 'var(--color-text-primary)'
+                          }}
+                          placeholder="example@email.com"
+                          required
+                        />
+                      </div>
                     </div>
                     
+                    {/* Row 3: Message */}
                     <div>
                       <Label
-                        en="your.email"
-                        ja="メールアドレス"
-                        className="font-mono text-xs block mb-1"
-                        style={{ color: 'var(--color-text-tertiary)' }}
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{
-                          border: `1px solid var(--color-border-primary)`,
-                          backgroundColor: 'var(--color-bg-primary)',
-                          color: 'var(--color-text-primary)'
-                        }}
-                        placeholder="your.email@company.com"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label
-                        en="message.type"
-                        ja="メッセージタイプ"
-                        className="font-mono text-xs block mb-1"
-                        style={{ color: 'var(--color-text-tertiary)' }}
-                      />
-                      <select
-                        name="messageType"
-                        value={formData.messageType}
-                        onChange={handleInputChange}
-                        className="w-full font-mono text-sm px-3 py-2 focus:outline-none transition-colors duration-200"
-                        style={{
-                          border: `1px solid var(--color-border-primary)`,
-                          backgroundColor: 'var(--color-bg-primary)',
-                          color: 'var(--color-text-primary)'
-                        }}
-                      >
-                        <option value="">{language === 'ja' ? 'メッセージタイプを選択' : 'Select message type'}</option>
-                        <option value="job">Job Opportunity</option>
-                        <option value="consulting">Consulting Project</option>
-                        <option value="collaboration">Collaboration</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <Label
-                        en="message.body"
-                        ja="メッセージ本文"
-                        className="font-mono text-xs block mb-1"
+                        en="Message"
+                        ja="メッセージ"
+                        className="font-mono text-sm block mb-3"
                         style={{ color: 'var(--color-text-tertiary)' }}
                       />
                       <textarea
@@ -341,13 +221,12 @@ export function ContactSection() {
                         value={formData.message}
                         onChange={handleInputChange}
                         rows={4}
-                        className="w-full font-mono text-sm px-3 py-2 focus:outline-none resize-none transition-colors duration-200"
+                        className="w-full font-mono text-base py-3 focus:outline-none resize-none transition-colors duration-200 bg-transparent"
                         style={{
-                          border: `1px solid var(--color-border-primary)`,
-                          backgroundColor: 'var(--color-bg-primary)',
+                          borderBottom: `1px solid var(--color-border-primary)`,
                           color: 'var(--color-text-primary)'
                         }}
-                        placeholder={language === 'ja' ? '// プロジェクトや機会について説明してください' : '// Describe your project or opportunity'}
+                        placeholder={language === 'ja' ? 'お問い合わせ内容をご記入ください...' : 'Enter your message...'}
                         required
                       ></textarea>
                     </div>
@@ -368,37 +247,27 @@ export function ContactSection() {
                     
                     {/* Status messages */}
                     {submitStatus === 'success' && (
-                      <div 
-                        className="font-mono text-xs text-center p-2 rounded"
-                        style={{ 
+                      <div
+                        className="font-mono text-sm"
+                        style={{
                           color: 'var(--color-accent-green)',
-                          backgroundColor: 'var(--color-bg-secondary)'
                         }}
                       >
-                        ✅ Message sent successfully! We'll get back to you soon.
+                        ✓ Message sent successfully!
                       </div>
                     )}
-                    
+
                     {submitStatus === 'error' && (
-                      <div 
-                        className="font-mono text-xs text-center p-2 rounded"
-                        style={{ 
+                      <div
+                        className="font-mono text-sm"
+                        style={{
                           color: '#ef4444',
-                          backgroundColor: 'var(--color-bg-secondary)'
                         }}
                       >
-                        ❌ {errorMessage}
+                        ✗ {errorMessage}
                       </div>
                     )}
-                    
-                    <Div
-                      en="// Response time: usually within 24 hours"
-                      ja="// 返信時間：通常24時間以内"
-                      className="font-mono text-xs text-center"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    />
                   </form>
-                </div>
               </div>
             </div>
           </div>
