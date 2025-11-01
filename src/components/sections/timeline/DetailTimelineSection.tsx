@@ -244,7 +244,7 @@ export function DetailTimelineSection() {
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="relative">
           {/* Git branch line */}
           <div 

@@ -46,7 +46,7 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
       className="w-full py-16 md:py-32 relative transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
         {/* Metadata Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0 mb-16 md:mb-24">
           {/* Left - Navigation & Meta */}
