@@ -29,7 +29,7 @@ interface TimelineEntry {
 
 export function DetailTimelineSection() {
   const { language } = useLanguage();
-  const timeline = timelineData[language] || timelineData.en;
+  const timeline = (timelineData[language] || timelineData.en) as unknown as TimelineEntry[];
 
   const getCommitTypeColor = (type: string) => {
     const colorMap: { [key: string]: string } = {
@@ -48,58 +48,36 @@ export function DetailTimelineSection() {
     return colorMap[type] || 'var(--color-text-secondary)';
   };
 
-  const getStatusStyle = (status: string) => {
-    switch (status) {
-      case 'current':
-        return {
-          backgroundColor: 'var(--color-accent-green)',
-          color: 'var(--color-bg-primary)'
-        };
-      case 'future':
-        return {
-          backgroundColor: 'var(--color-bg-secondary)',
-          color: 'var(--color-text-secondary)',
-          border: `1px dashed var(--color-border-primary)`
-        };
-      default:
-        return {
-          backgroundColor: 'var(--color-bg-secondary)',
-          color: 'var(--color-text-primary)'
-        };
-    }
-  };
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
     });
   };
 
   const renderSection = (section: TimelineSection, index: number, commitHash: string) => {
-    const baseClasses = "space-y-3";
-    
     return (
-      <div key={index} className={baseClasses}>
-        <div 
-          className="font-mono text-sm font-bold"
-          style={{ color: 'var(--color-text-primary)' }}
+      <div key={index} className="space-y-3">
+        {/* Section label — a small code-like key */}
+        <div
+          className="font-mono text-xs tracking-wide"
+          style={{ color: 'var(--color-text-tertiary)' }}
         >
           {section.title}
         </div>
-        
+
         {section.type === 'list' && section.items && (
           <div className="space-y-2">
             {section.items.map((item, itemIndex) => (
               <div key={itemIndex} className="flex items-start gap-3">
-                <div 
+                <div
                   className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
                   style={{ backgroundColor: 'var(--color-accent-green)' }}
                 />
-                <span 
-                  className="font-mono text-xs sm:text-sm leading-relaxed"
+                <span
+                  className="text-sm sm:text-base leading-relaxed"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   {item}
@@ -108,16 +86,16 @@ export function DetailTimelineSection() {
             ))}
           </div>
         )}
-        
+
         {section.type === 'badges' && section.items && (
           <div className="flex flex-wrap gap-2">
             {section.items.map((item, itemIndex) => (
-              <span 
+              <span
                 key={itemIndex}
-                className="px-2 sm:px-3 py-1 font-mono text-xs transition-colors duration-200"
-                style={{ 
+                className="px-2.5 py-1 font-mono text-xs transition-colors duration-200"
+                style={{
                   backgroundColor: 'var(--color-bg-secondary)',
-                  color: 'var(--color-text-primary)',
+                  color: 'var(--color-text-secondary)',
                   border: `1px solid var(--color-border-secondary)`
                 }}
               >
@@ -126,26 +104,26 @@ export function DetailTimelineSection() {
             ))}
           </div>
         )}
-        
+
         {section.type === 'metrics' && section.data && (
           <div className="grid grid-cols-2 sm:flex gap-3">
             {Object.entries(section.data).map(([key, value]) => (
-              <div 
+              <div
                 key={key}
-                className="p-3 border transition-colors duration-200 w-full"
-                style={{ 
+                className="p-4 border transition-colors duration-200 w-full"
+                style={{
                   borderColor: 'var(--color-border-secondary)',
                   backgroundColor: 'var(--color-bg-secondary)'
                 }}
               >
-                <div 
-                  className="font-mono text-base sm:text-lg font-bold"
-                  style={{ color: 'var(--color-text-primary)' }}
+                <div
+                  className="font-mono text-xl sm:text-2xl font-bold"
+                  style={{ color: 'var(--color-accent-green)' }}
                 >
                   {value}
                 </div>
-                <div 
-                  className="font-mono text-xs capitalize"
+                <div
+                  className="text-xs capitalize mt-1"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   {key.replace(/_/g, ' ')}
@@ -154,25 +132,21 @@ export function DetailTimelineSection() {
             ))}
           </div>
         )}
-        
+
         {section.type === 'text' && section.content && (
-          <div 
-            className="font-mono text-sm p-3 border transition-colors duration-200"
-            style={{ 
-              color: 'var(--color-text-secondary)',
-              borderColor: 'var(--color-border-secondary)',
-              backgroundColor: 'var(--color-bg-secondary)'
-            }}
+          <p
+            className="text-sm sm:text-base leading-relaxed"
+            style={{ color: 'var(--color-text-secondary)' }}
           >
             {section.content}
-          </div>
+          </p>
         )}
-        
+
         {section.type === 'comparison' && section.before && section.after && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div 
-              className="p-3 border transition-colors duration-200"
-              style={{ 
+            <div
+              className="p-4 border transition-colors duration-200"
+              style={{
                 borderColor: 'var(--color-border-secondary)',
                 backgroundColor: 'var(--color-bg-secondary)'
               }}
@@ -181,18 +155,18 @@ export function DetailTimelineSection() {
                 className="font-mono text-xs mb-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                {language === 'ja' ? '前:' : 'Before:'}
+                {language === 'ja' ? '前' : 'Before'}
               </div>
-              <div 
-                className="font-mono text-sm"
+              <div
+                className="text-sm sm:text-base leading-relaxed"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {section.before}
               </div>
             </div>
-            <div 
-              className="p-3 border transition-colors duration-200"
-              style={{ 
+            <div
+              className="p-4 border transition-colors duration-200"
+              style={{
                 borderColor: 'var(--color-border-secondary)',
                 backgroundColor: 'var(--color-bg-secondary)'
               }}
@@ -201,10 +175,10 @@ export function DetailTimelineSection() {
                 className="font-mono text-xs mb-2"
                 style={{ color: 'var(--color-text-tertiary)' }}
               >
-                {language === 'ja' ? '後:' : 'After:'}
+                {language === 'ja' ? '後' : 'After'}
               </div>
-              <div 
-                className="font-mono text-sm"
+              <div
+                className="text-sm sm:text-base leading-relaxed"
                 style={{ color: 'var(--color-accent-green)' }}
               >
                 {section.after}
@@ -212,23 +186,21 @@ export function DetailTimelineSection() {
             </div>
           </div>
         )}
+
         {section.type === 'picture' && section.count && (
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${section.count} gap-4`}>
-            {Array.from({ length: section.count }).map((_, index) => (
-              <div 
-                key={index} 
-                className="p-3 aspect-video transition-colors duration-200"
-                style={{ 
-                  borderColor: 'var(--color-border-secondary)',
-                  backgroundColor: 'var(--color-bg-secondary)'
-                }}
+            {Array.from({ length: section.count }).map((_, imgIndex) => (
+              <div
+                key={imgIndex}
+                className="aspect-video overflow-hidden transition-colors duration-200"
+                style={{ backgroundColor: 'var(--color-bg-secondary)' }}
               >
                 <img
-                  src={`/images/timeline/${commitHash}/${index + 1}.jpg`}
-                  alt={`${index + 1}`}
+                  src={`/images/timeline/${commitHash}/${imgIndex + 1}.jpg`}
+                  alt={`${imgIndex + 1}`}
                   className="w-full h-full object-cover"
                 />
-              </div>  
+              </div>
             ))}
           </div>
         )}
@@ -237,137 +209,182 @@ export function DetailTimelineSection() {
   };
 
   return (
-    <section 
+    <section
       className="w-full py-16 md:py-32 relative transition-colors duration-200"
-      style={{ 
+      style={{
         backgroundColor: 'var(--color-bg-secondary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="relative">
-          {/* Git branch line */}
-          <div 
-            className="absolute left-4 sm:left-6 md:left-8 top-0 bottom-0 w-0.5 transition-colors duration-200"
+      <div className="max-w-[1500px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
+          {/* Table of contents */}
+          <nav className="col-span-1 md:col-span-2 px-4 md:px-6 pb-8 md:pb-0">
+            <div className="md:sticky md:top-28 md:pt-2">
+              <div
+                className="font-mono text-xs tracking-wide mb-4"
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
+                {`// index`}
+              </div>
+              <ul className="space-y-3">
+                {timeline?.map((commit: TimelineEntry) => (
+                  <li key={commit.hash}>
+                    <a
+                      href={`#${commit.hash}`}
+                      className="group flex items-start gap-2"
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0 transition-transform duration-200 group-hover:scale-125"
+                        style={{ backgroundColor: getCommitTypeColor(commit.type) }}
+                      />
+                      <span className="min-w-0">
+                        <span
+                          className="block font-mono text-[10px]"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        >
+                          {new Date(commit.date).getFullYear()}
+                        </span>
+                        <span
+                          className="block text-xs leading-snug line-clamp-2 transition-colors duration-200 group-hover:opacity-100"
+                          style={{ color: 'var(--color-text-secondary)' }}
+                        >
+                          {commit.message}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+
+          {/* Timeline */}
+          <div className="col-span-1 md:col-span-10 pr-4 sm:pr-6 md:pr-8 relative">
+          {/* Git branch line — aligned to the commit dots */}
+          <div
+            className="absolute left-8 top-0 bottom-0 w-0.5 -translate-x-1/2 transition-colors duration-200"
             style={{ backgroundColor: 'var(--color-border-primary)' }}
           />
-          
+
           <div className="space-y-8 md:space-y-16">
-            {timeline?.map((commit: TimelineEntry, index: number) => (
-              <div key={commit.hash} className="relative">
+            {timeline?.map((commit: TimelineEntry) => (
+              <div key={commit.hash} id={commit.hash} className="relative scroll-mt-24">
                 {/* Branch indicator */}
-                <div 
-                  className="absolute left-2 sm:left-4 md:left-6 w-3 h-3 sm:w-4 sm:h-4 rounded-full border-2 transition-colors duration-200"
-                  style={{ 
+                <div
+                  className="absolute left-8 top-6 w-4 h-4 rounded-full border-2 -translate-x-1/2 transition-colors duration-200"
+                  style={{
                     backgroundColor: getCommitTypeColor(commit.type),
                     borderColor: 'var(--color-bg-secondary)'
                   }}
                 />
-                
-                {/* Branch label */}
-                {commit.branch !== 'main' && (
-                  <div 
-                    className="absolute left-8 sm:left-10 md:left-12 -top-1 font-mono text-xs px-1 sm:px-2 py-0.5 transition-colors duration-200"
-                    style={{ 
-                      backgroundColor: 'var(--color-bg-primary)',
-                      color: 'var(--color-text-secondary)',
-                      border: `1px solid var(--color-border-secondary)`
-                    }}
-                  >
-                    {commit.branch}
-                  </div>
-                )}
-                
+
                 {/* Commit content */}
-                <div className="ml-8 sm:ml-12 md:ml-16 lg:ml-20">
-                  <div 
-                    className="border transition-all duration-200 hover:shadow-lg"
-                    style={{ 
+                <div className="ml-12 sm:ml-14 md:ml-20">
+                  <div
+                    className="border transition-colors duration-200"
+                    style={{
                       borderColor: 'var(--color-border-primary)',
                       backgroundColor: 'var(--color-bg-primary)'
                     }}
                   >
-                    {/* Commit header */}
-                    <div 
-                      className="px-3 sm:px-4 md:px-6 py-3 md:py-4 border-b font-mono transition-colors duration-200"
-                      style={{ 
-                        borderColor: 'var(--color-border-primary)'
-                      }}
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2 sm:gap-0">
-                        <div className="flex items-center gap-2 sm:gap-4 flex-wrap">
-                          <span 
-                            className="px-3 py-1 text-xs font-bold rounded"
-                            style={getStatusStyle(commit.status)}
-                          >
-                            {commit.type}
-                          </span>
-                          <span 
-                            className="text-xs sm:text-sm"
+                    {/* Header — meta + message + description */}
+                    <div className="p-4 sm:p-6 md:p-8">
+                      {/* Meta row */}
+                      <div className="flex items-center flex-wrap gap-x-3 gap-y-1 mb-3">
+                        <span
+                          className="font-mono text-xs font-medium"
+                          style={{ color: getCommitTypeColor(commit.type) }}
+                        >
+                          {commit.type}
+                        </span>
+                        <span
+                          className="font-mono text-xs"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        >
+                          {commit.hash}
+                        </span>
+                        <span
+                          className="font-mono text-xs"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        >
+                          {formatDate(commit.date)}
+                        </span>
+                        {commit.branch !== 'main' && (
+                          <span
+                            className="font-mono text-xs"
                             style={{ color: 'var(--color-text-tertiary)' }}
                           >
-                            {commit.hash}
+                            {commit.branch}
                           </span>
-                          <span 
-                            className="text-xs sm:text-sm"
-                            style={{ color: 'var(--color-text-secondary)' }}
+                        )}
+                        {commit.status === 'current' && (
+                          <span
+                            className="inline-flex items-center gap-1 font-mono text-xs"
+                            style={{ color: 'var(--color-accent-green)' }}
                           >
-                            {formatDate(commit.date)}
+                            <span
+                              className="w-1.5 h-1.5 rounded-full animate-pulse"
+                              style={{ backgroundColor: 'var(--color-accent-green)' }}
+                            />
+                            now
                           </span>
-                        </div>
+                        )}
                       </div>
-                      <h3 
-                        className="text-lg sm:text-xl font-bold mb-2"
+
+                      {/* Message */}
+                      <h3
+                        className="text-xl sm:text-2xl font-bold mb-2"
                         style={{ color: 'var(--color-text-primary)' }}
                       >
                         {commit.message}
                       </h3>
-                      <p 
-                        className="text-xs sm:text-sm leading-relaxed"
+
+                      {/* Description */}
+                      <p
+                        className="text-sm sm:text-base leading-relaxed max-w-3xl"
                         style={{ color: 'var(--color-text-secondary)' }}
                       >
                         {commit.description}
                       </p>
                     </div>
-                    
-                    {/* Commit details - simplified! */}
+
+                    {/* Detail sections — divided by a line */}
                     {commit.sections && commit.sections.length > 0 && (
-                      <div className="p-4 sm:p-6">
-                        <div className="space-y-6">
-                          {commit.sections.map((section, sectionIndex) => 
-                            renderSection(section, sectionIndex, commit.hash)
-                          )}
-                        </div>
+                      <div
+                        className="px-4 sm:px-6 md:px-8 py-6 border-t space-y-6 sm:space-y-8"
+                        style={{ borderColor: 'var(--color-border-secondary)' }}
+                      >
+                        {commit.sections.map((section, sectionIndex) =>
+                          renderSection(section, sectionIndex, commit.hash)
+                        )}
                       </div>
                     )}
-                    
-                    {/* Tags */}
-                    <div 
-                      className="px-4 sm:px-6 py-4 border-t transition-colors duration-200"
+
+                    {/* Tags — divided by a line */}
+                    <div
+                      className="px-4 sm:px-6 md:px-8 py-3 border-t flex flex-wrap gap-x-4 gap-y-1"
                       style={{ borderColor: 'var(--color-border-secondary)' }}
                     >
-                      <div className="flex flex-wrap gap-2">
-                        {commit.tags.map((tag, tagIndex) => (
-                          <span 
-                            key={tagIndex}
-                            className="font-mono text-xs transition-colors duration-200"
-                            style={{ 
-                              color: 'var(--color-text-primary)',
-                            }}
-                          >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
+                      {commit.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="font-mono text-xs"
+                          style={{ color: 'var(--color-text-tertiary)' }}
+                        >
+                          #{tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
-            )) || []}
+            ))}
+          </div>
           </div>
         </div>
+        <GridOverlay />
       </div>
-      <GridOverlay/>
     </section>
   );
 }

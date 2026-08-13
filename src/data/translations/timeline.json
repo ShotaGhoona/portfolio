@@ -4,7 +4,7 @@
       "hash": "g7b4c2d",
       "date": "2001-09-08",
       "type": "initial",
-      "branch": "life",
+      "branch": "main",
       "message": "Born in Sakai, Osaka Prefecture",
       "description": "The first commit to existence. Named Shota, which literally means 'soaring big'—destiny clearly had a sense of humor about future ambitions.",
       "tags": [
@@ -18,7 +18,7 @@
       "hash": "h2a5e1b",
       "date": "2020-04-01",
       "type": "education",
-      "branch": "life",
+      "branch": "main",
       "message": "Enroll in Kyoto University, Faculty of Engineering",
       "description": "Enrolled to study architecture, thinking  I'd design buildings. Plot twist: ended up architecting software instead. Sometimes the best paths are the unexpected ones.",
       "tags": [
@@ -32,7 +32,7 @@
       "hash": "d3f7a21",
       "date": "2020-04-15",
       "type": "skill",
-      "branch": "feature/skills",
+      "branch": "design",
       "message": "Master UI/UX tools (Figma & Adobe Suite)",
       "description": "Fell down the Figma rabbit hole and never looked back. Designed everything from mobile apps to festival posters—because why limit creativity to one medium?",
       "tags": [
@@ -76,7 +76,7 @@
       "hash": "e1b4c8f",
       "date": "2023-06-05",
       "type": "pivot",
-      "branch": "life",
+      "branch": "main",
       "message": "The Great Pivot: ChatGPT changes everything",
       "description": "Tried ChatGPT for the first time and had an existential crisis (in a good way). Realized the future wasn't just digital—it was intelligent. Time to learn how to build it.",
       "tags": [
@@ -107,7 +107,7 @@
       "hash": "f9c2d67",
       "date": "2023-07-01",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "TECH company design intern",
       "description": "First startup experience. Started playing with Figma and suddenly I was building webpages. The summer I realized 'design is actually fun.' Felt the importance of company culture firsthand.",
       "tags": [
@@ -142,7 +142,7 @@
       "hash": "a6e8b4d",
       "date": "2024-02-25",
       "type": "event",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "Wakamono Festival 2023 in Kansai",
       "description": "Wrangled 40 cat-like university students to host a 1,200-person festival. 2 hours of sleep, 7 cups of coffee daily, and miraculously succeeded. A full year of seriously pondering what leadership really means.",
       "tags": [
@@ -198,7 +198,7 @@
       "hash": "b2d1a9e",
       "date": "2024-04-04",
       "type": "travel",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "Begin exchange program in India (Pune)",
       "description": "Packed a laptop and curiosity, landed in Pune planning to study CS. Ended up backpacking 9,000km across the subcontinent. Best classroom ever: chai stalls, overnight trains, and conversations with strangers.",
       "tags": [
@@ -234,7 +234,7 @@
       "hash": "c5f8e30",
       "date": "2024-09-01",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "SNS marketing company AI agent development intern",
       "description": "Drawn by the allure of 'AI agents,' I dove in to find reality was data pipeline plumbing. But the joy when it finally worked was extraordinary. The summer I learned 'AI isn't magic.'",
       "tags": [
@@ -271,7 +271,7 @@
       "hash": "d4b1f6a",
       "date": "2024-11-10",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "START UP SaaS development PdM",
       "description": "Infiltrated the deep world of manufacturing. Battled the seemingly mundane but super important problem of 'predicting when screws are needed.' User interviews taught me factory realities and the essence of DX this autumn.",
       "tags": [
@@ -309,62 +309,6 @@
           ]
         }
       ]
-    },
-    {
-      "hash": "e7c3a42",
-      "date": "2025-01-15",
-      "type": "launch",
-      "branch": "feature/experience",
-      "message": "Launch Ghoona Inc. — Where AI meets human creativity",
-      "description": "The plot twist nobody saw coming: started a company. Building AI tools that amplify human creativity instead of replacing it. Current status: caffeinated, optimistic, and slightly terrified.",
-      "tags": [
-        "Startup",
-        "AI"
-      ],
-      "status": "current",
-      "sections": [
-        {
-          "title": "Vision",
-          "type": "text",
-          "content": "Update Our World. Democratize AI to evolve life by one level."
-        },
-        {
-          "title": "Services",
-          "type": "list",
-          "items": [
-            "Ghoona Tech: Corporate DX support, AI implementation, LP/HP creation - comprehensive support",
-            "Ghoona Goods: Original design badge EC site from mechanical parts manufacturer",
-            "Ghoona Camp: Morning activity community platform supporting self-realization and growth through early rising"
-          ]
-        },
-        {
-          "title": "Tech Stack",
-          "type": "badges",
-          "items": [
-            "Next.js",
-            "TypeScript",
-            "FastAPI",
-            "PostgreSQL",
-            "LangChain",
-            "AWS",
-            "Supabase",
-            "Stripe",
-            "Figma",
-            "Illustrator",
-            "Photoshop",
-            "After Effects"
-          ]
-        },
-        {
-          "title": "Startup Life Reality",
-          "type": "list",
-          "items": [
-            "Sleep schedule: what's that?",
-            "Monster Energy consumption: classified information",
-            "Imposter syndrome level: healthy amount"
-          ]
-        }
-      ]
     }
   ],
   "ja": [
@@ -372,7 +316,7 @@
       "hash": "g7b4c2d",
       "date": "2001-09-08",
       "type": "initial",
-      "branch": "life",
+      "branch": "main",
       "message": "大阪府堺市に生まれる",
       "description": "人生への最初のコミット。「翔大」という名前は「大きく翔ばたく」という意味",
       "tags": [
@@ -386,7 +330,7 @@
       "hash": "h2a5e1b",
       "date": "2020-04-01",
       "type": "education",
-      "branch": "life",
+      "branch": "main",
       "message": "京都大学工学部に入学",
       "description": "建築を学ぶつもりで入学したのに、気づけばソフトウェアを設計していた。時には予想外の道が最良の選択だったりする。",
       "tags": [
@@ -400,7 +344,7 @@
       "hash": "d3f7a21",
       "date": "2020-04-15",
       "type": "skill",
-      "branch": "feature/skills",
+      "branch": "design",
       "message": "Figma・AdobeでUI/UXデザインを習得",
       "description": "Figmaの世界に落ちて、二度と浮上しなかった。モバイルアプリからイベントポスターまで何でもデザイン—創造性に境界なんてない。",
       "tags": [
@@ -444,7 +388,7 @@
       "hash": "e1b4c8f",
       "date": "2023-06-05",
       "type": "pivot",
-      "branch": "life",
+      "branch": "main",
       "message": "大転換：ChatGPTがすべてを変えた",
       "description": "初めてChatGPTを使って実存的危機に陥った。未来はデジタルじゃない、インテリジェントなんだ。それを作る方法を学ぶ時が来た。",
       "tags": [
@@ -474,7 +418,7 @@
       "hash": "f9c2d67",
       "date": "2023-07-01",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "TECH企業でデザイナーインターン",
       "description": "初スタートアップ体験。Figmaで遊んでたらいつの間にかWebページ作ってた。「デザインって楽しいじゃん」と気づいた夏。カルチャーの大切さを肌で感じる。",
       "tags": [
@@ -509,7 +453,7 @@
       "hash": "a6e8b4d",
       "date": "2024-02-25",
       "type": "event",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "わかものフェスティバル2023 in 関西",
       "description": "大学生40人を束ねて1,200人のフェスを開催。睡眠時間4時間、エナドリ漬け、そして大成功。リーダーシップって何だろうと真剣に考えた1年間。",
       "tags": [
@@ -570,7 +514,7 @@
       "hash": "b2d1a9e",
       "date": "2024-04-04",
       "type": "travel",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "インド留学を開始（Pune）",
       "description": "ノートPCと好奇心を詰め込んでプネに着陸、CSを学ぶ予定だった。結果的に9,000km亜大陸をバックパック。最高の教室：チャイ屋台、夜行列車、見知らぬ人との会話。",
       "tags": [
@@ -611,7 +555,7 @@
       "hash": "c5f8e30",
       "date": "2024-09-01",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "SNSマーケ会社でマーケティングAIエージェント開発インターン",
       "description": "社内に園児にはいない会社にエンジニアとしてインターン参加。ヒアリングして最適な課題解決を提案するコンサルティングをこなし、経営の軸となるマーケティングAIエージェントの開発を担当。",
       "tags": [
@@ -653,7 +597,7 @@
       "hash": "d4b1f6a",
       "date": "2024-11-10",
       "type": "internship",
-      "branch": "feature/experience",
+      "branch": "experience",
       "message": "START UPでSaaS開発のPdM",
       "description": "製造業の奥深き世界に潜入。「ネジがいつ必要になるか予測する」という地味だけど超重要な問題と格闘。ユーザーインタビューで工場の現実を知り、DXの本質を学んだ秋。",
       "tags": [
@@ -674,44 +618,6 @@
           "title": "最高の仲間",
           "type": "picture",
           "count": 3
-        }
-      ]
-    },
-    {
-      "hash": "e7c3a42",
-      "date": "2025-01-15",
-      "type": "launch",
-      "branch": "feature/experience",
-      "message": "Ghoona Inc.を創業 — AIと人間の創造性が出会う場所",
-      "description": "うっすら思ってはいたが、会社を始めた。人間の創造性を置き換えるのではなく、増幅するAIツールを構築中。現在の状況：カフェイン摂取済み、楽観的、そして少し恐怖。",
-      "tags": [
-        "スタートアップ",
-        "AI"
-      ],
-      "status": "current",
-      "sections": [
-        {
-          "title": "ビジョン",
-          "type": "text",
-          "content": "Update Our World。AIの民主化で世界を生活を1段階進化させる。"
-        },
-        {
-          "title": "事業",
-          "type": "list",
-          "items": [
-            "Ghoona Tech: 企業のDX支援やAI導入支援、LP制作HP制作など幅広くサポート",
-            "Ghoona Goods: 機構部品メーカーが送るオリジナルデザインの缶バッチECサイト",
-            "Ghoona Camp: 早起きを通じた自己実現と成長を支援する朝活コミュニティプラットフォーム"
-          ]
-        },
-        {
-          "title": "スタートアップ生活の現実",
-          "type": "list",
-          "items": [
-            "睡眠スケジュール：何それ？",
-            "モンスターエナジー消費量：機密情報",
-            "インポスター症候群レベル：健全な量"
-          ]
         }
       ]
     }

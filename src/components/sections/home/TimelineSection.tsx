@@ -25,27 +25,6 @@ export function TimelineSection() {
     }
   };
 
-  const getStatusStyle = (status: string) => {
-    switch (status) {
-      case 'current':
-        return {
-          backgroundColor: 'var(--color-accent-green)',
-          color: 'var(--color-bg-primary)'
-        };
-      case 'future':
-        return {
-          backgroundColor: 'var(--color-bg-secondary)',
-          color: 'var(--color-text-secondary)',
-          border: `1px dashed var(--color-border-primary)`
-        };
-      default:
-        return {
-          backgroundColor: 'var(--color-bg-secondary)',
-          color: 'var(--color-text-primary)'
-        };
-    }
-  };
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
@@ -94,91 +73,83 @@ export function TimelineSection() {
                       }}
                     ></div>
                     
-                    {/* Branch label */}
-                    {commit.branch !== 'main' && (
-                      <div 
-                        className="absolute left-8 md:left-12 -top-1 font-mono text-xs px-2 py-0.5 transition-colors duration-200"
-                        style={{ 
-                          backgroundColor: 'var(--color-bg-secondary)',
-                          color: 'var(--color-text-secondary)',
-                          border: `1px solid var(--color-border-secondary)`
-                        }}
-                      >
-                        {commit.branch}
-                      </div>
-                    )}
-                    
                     {/* Commit content */}
                     <div className="ml-8 md:ml-16">
-                      <div 
-                        className="border transition-all duration-200 hover:shadow-lg"
-                        style={{ 
+                      <div
+                        className="border transition-colors duration-200"
+                        style={{
                           borderColor: 'var(--color-border-primary)',
                           backgroundColor: 'var(--color-bg-secondary)'
                         }}
                       >
-                        {/* Commit header */}
-                        <div 
-                          className="px-4 py-3 border-b font-mono text-sm transition-colors duration-200"
-                          style={{ 
-                            borderColor: 'var(--color-border-primary)'
-                          }}
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-3">
-                              <span 
-                                className="px-2 py-1 text-xs font-bold"
-                                style={getStatusStyle(commit.status)}
-                              >
-                                {commit.type}
-                              </span>
-                              <span 
-                                className="text-xs"
+                        <div className="p-5 md:p-6">
+                          {/* Meta row */}
+                          <div className="flex items-center flex-wrap gap-x-3 gap-y-1 mb-3">
+                            <span
+                              className="font-mono text-xs font-medium"
+                              style={{ color: getCommitTypeColor(commit.type) }}
+                            >
+                              {commit.type}
+                            </span>
+                            <span
+                              className="font-mono text-xs"
+                              style={{ color: 'var(--color-text-tertiary)' }}
+                            >
+                              {formatDate(commit.date)}
+                            </span>
+                            {commit.branch !== 'main' && (
+                              <span
+                                className="font-mono text-xs"
                                 style={{ color: 'var(--color-text-tertiary)' }}
                               >
-                                {commit.hash}
+                                {commit.branch}
                               </span>
-                              <span 
-                                className="text-xs"
-                                style={{ color: 'var(--color-text-secondary)' }}
+                            )}
+                            {commit.status === 'current' && (
+                              <span
+                                className="inline-flex items-center gap-1 font-mono text-xs"
+                                style={{ color: 'var(--color-accent-green)' }}
                               >
-                                {formatDate(commit.date)}
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full animate-pulse"
+                                  style={{ backgroundColor: 'var(--color-accent-green)' }}
+                                ></span>
+                                now
                               </span>
-                            </div>
+                            )}
                           </div>
-                          <div 
-                            className="font-bold"
+
+                          {/* Message */}
+                          <h3
+                            className="text-lg md:text-xl font-bold mb-2"
                             style={{ color: 'var(--color-text-primary)' }}
                           >
                             {commit.message}
-                          </div>
-                        </div>
-                        
-                        {/* Commit details */}
-                        <div className="p-4">
-                          <p 
-                            className="font-mono text-sm leading-relaxed mb-4"
+                          </h3>
+
+                          {/* Description */}
+                          <p
+                            className="text-sm md:text-base leading-relaxed"
                             style={{ color: 'var(--color-text-secondary)' }}
                           >
                             {commit.description}
                           </p>
-                          
-                          {/* Tags */}
-                          <div className="flex flex-wrap gap-2">
-                            {commit.tags.map((tag, tagIndex) => (
-                              <span 
-                                key={tagIndex}
-                                className="px-2 py-1 font-mono text-xs transition-colors duration-200"
-                                style={{ 
-                                  backgroundColor: 'var(--color-bg-primary)',
-                                  color: 'var(--color-text-primary)',
-                                  border: `1px solid var(--color-border-secondary)`
-                                }}
-                              >
-                                #{tag}
-                              </span>
-                            ))}
-                          </div>
+                        </div>
+
+                        {/* Tags — divided by a line */}
+                        <div
+                          className="px-5 md:px-6 py-3 border-t flex flex-wrap gap-x-4 gap-y-1"
+                          style={{ borderColor: 'var(--color-border-secondary)' }}
+                        >
+                          {commit.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="font-mono text-xs"
+                              style={{ color: 'var(--color-text-tertiary)' }}
+                            >
+                              #{tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
