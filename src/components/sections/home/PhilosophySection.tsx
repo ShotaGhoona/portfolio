@@ -2,7 +2,7 @@
 
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
-import { Div, P, Span } from '@/components/i18n';
+import { Div, P } from '@/components/i18n';
 
 export function PhilosophySection() {
 
@@ -26,41 +26,33 @@ export function PhilosophySection() {
           
           {/* Philosophy content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
-            <div className="space-y-12">
-              {/* Core concept */}
-              <div 
-                className="border transition-colors duration-200"
-                style={{ 
-                  borderColor: 'var(--color-border-primary)',
-                  backgroundColor: 'var(--color-bg-secondary)'
-                }}
-              >
-                <div
-                  className="px-4 py-3 border-b transition-colors duration-200"
-                  style={{
-                    borderColor: 'var(--color-border-primary)',
-                    backgroundColor: 'var(--color-bg-primary)'
-                  }}
-                >
-                  <Div
-                    en="The Sleepless Rabbit Algorithm"
-                    ja="眠らぬうさぎアルゴリズム"
-                    className="font-mono text-lg font-bold"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  />
-                  <Div
-                    en="Redefining the classic tale through computational thinking"
-                    ja="計算的思考を通じて古典的物語を再定義"
-                    className="font-mono text-xs mt-1"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  />
-                </div>
-                <div className="p-6">
+            <div className="space-y-16">
+              {/* Hero statement — Sleepless Rabbit */}
+              <div>
+                <Div
+                  en="THE SLEEPLESS RABBIT"
+                  ja="眠らぬうさぎ"
+                  className="font-mono text-xs tracking-[0.2em] mb-4"
+                  style={{ color: 'var(--color-accent-green)' }}
+                />
+                <Div
+                  en="Nobody beats a rabbit that never sleeps."
+                  ja="眠らぬうさぎには、誰も勝てない。"
+                  className="font-mono font-black leading-[1.15] text-3xl md:text-5xl"
+                  style={{ color: 'var(--color-text-primary)' }}
+                />
+                <div className="mt-8 max-w-2xl space-y-4">
                   <P
-                    en="Do you know the story of the tortoise and the hare? The lesson is often said to be about the tortoise's relentless effort. But shouldn't we truly admire the rabbit's legs? Yes, no one can beat a sleepless rabbit. Every day, creation beyond imagination."
-                    ja="うさぎとかめの物語を知っていますか？このお話の教訓はカメの弛まぬ努力だそうです。しかし本当に賞賛されるべきはウサギの脚ではないでしょうか？そう、眠らぬうさぎには誰も勝てません。毎日、想像を超える創造を。"
-                    className="font-mono text-sm leading-relaxed"
+                    en="You know the story of the tortoise and the hare. The lesson, they say, is the tortoise's relentless effort. But shouldn't we admire the rabbit's legs, too? The hare only lost because it fell asleep."
+                    ja="うさぎとかめの物語を知っていますか。教訓はカメの弛まぬ努力だと言われます。でも、本当に賞賛されるべきはウサギの脚ではないでしょうか。ウサギが負けたのは、眠ってしまったからです。"
+                    className="text-base md:text-lg leading-relaxed"
                     style={{ color: 'var(--color-text-secondary)' }}
+                  />
+                  <P
+                    en="So I decided to be the rabbit that never sleeps. Every single day, creation beyond imagination."
+                    ja="だから僕は、眠らないウサギであろうと決めました。毎日、想像を超える創造を。"
+                    className="text-base md:text-lg leading-relaxed font-medium"
+                    style={{ color: 'var(--color-text-primary)' }}
                   />
                 </div>
               </div>
@@ -287,118 +279,62 @@ export function PhilosophySection() {
 
               {/* Principles */}
               <div>
-                <div
-                  className="font-mono text-lg font-bold mb-4"
+                <Div
+                  en="Core Principles"
+                  ja="大切にしていること"
+                  className="font-mono text-lg font-bold mb-6"
                   style={{ color: 'var(--color-text-primary)' }}
-                >
-                  Core Principles
-                </div>
+                />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                   {/* Principle 001 */}
                   <div
-                    className="border transition-all duration-200 hover:shadow-lg"
-                    style={{
-                      borderColor: 'var(--color-border-primary)',
-                      backgroundColor: 'var(--color-bg-secondary)'
-                    }}
+                    className="pl-5 border-l-2"
+                    style={{ borderColor: 'var(--color-accent-green)' }}
                   >
                     <div
-                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
-                      style={{
-                        backgroundColor: 'var(--color-bg-primary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
+                      className="font-mono text-xs mb-2"
+                      style={{ color: 'var(--color-text-secondary)' }}
                     >
-                      <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1">
-                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                        </div>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>
-                          principle_001.js
-                        </span>
-                      </div>
+                      01
                     </div>
-                    <div className="p-4 space-y-3">
-                      <Div
-                        en="Pioneering at Speed"
-                        ja="常に最速"
-                        className="font-mono text-sm font-bold"
-                        style={{ color: 'var(--color-text-primary)' }}
-                      />
-                      <P
-                        en="Dive into uncharted AI possibilities faster than anyone. Speed increases risk, but hesitation costs more."
-                        ja="未知の可能性に誰よりも早く飛び込む。スピードはリスクを増すが、ためらいの代償はもっと大きい。"
-                        className="font-mono text-xs leading-relaxed"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                      />
-                      <div
-                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
-                        style={{
-                          backgroundColor: 'var(--color-bg-primary)',
-                          borderColor: 'var(--color-accent-green)'
-                        }}
-                      >
-                        <span style={{ color: 'var(--color-accent-green)' }}>
-                          const velocity = Math.max(...competitors) + Infinity;
-                        </span>
-                      </div>
-                    </div>
+                    <Div
+                      en="Pioneering at Speed"
+                      ja="常に最速で"
+                      className="text-lg font-bold mb-2"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    />
+                    <P
+                      en="Dive into uncharted possibilities faster than anyone. Speed increases risk, but hesitation costs more."
+                      ja="未知の可能性に、誰よりも早く飛び込む。スピードはリスクを増やすけれど、ためらいの代償はもっと大きいから。"
+                      className="text-sm leading-relaxed"
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    />
                   </div>
 
                   {/* Principle 002 */}
                   <div
-                    className="border transition-all duration-200 hover:shadow-lg"
-                    style={{
-                      borderColor: 'var(--color-border-primary)',
-                      backgroundColor: 'var(--color-bg-secondary)'
-                    }}
+                    className="pl-5 border-l-2"
+                    style={{ borderColor: 'var(--color-accent-green)' }}
                   >
                     <div
-                      className="px-3 py-2 border-b font-mono text-xs flex items-center justify-between transition-colors duration-200"
-                      style={{
-                        backgroundColor: 'var(--color-bg-primary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
+                      className="font-mono text-xs mb-2"
+                      style={{ color: 'var(--color-text-secondary)' }}
                     >
-                      <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1">
-                          <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                          <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                          <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                        </div>
-                        <span style={{ color: 'var(--color-text-secondary)' }}>
-                          principle_002.js
-                        </span>
-                      </div>
+                      02
                     </div>
-                    <div className="p-4 space-y-3">
-                      <Div
-                        en="Curiosity Driven"
-                        ja="好奇心がガソリン"
-                        className="font-mono text-sm font-bold"
-                        style={{ color: 'var(--color-text-primary)' }}
-                      />
-                      <P
-                        en="Pure curiosity sparks innovation. Unleash childlike wonder, ask 'Why?' and experiment fearlessly."
-                        ja="「なぜ？」という純粋な問いが価値を生む。子どもの目線で好奇心を解き放ち、世界を再定義する。"
-                        className="font-mono text-xs leading-relaxed"
-                        style={{ color: 'var(--color-text-secondary)' }}
-                      />
-                      <div
-                        className="p-3 font-mono text-xs border-l-2 transition-colors duration-200"
-                        style={{
-                          backgroundColor: 'var(--color-bg-primary)',
-                          borderColor: 'var(--color-accent-green)'
-                        }}
-                      >
-                        <span style={{ color: 'var(--color-accent-green)' }}>
-                          for(const wonder of childMind) {'{ wonder.unleash().ignite(); }'}
-                        </span>
-                      </div>
-                    </div>
+                    <Div
+                      en="Curiosity Driven"
+                      ja="好奇心がガソリン"
+                      className="text-lg font-bold mb-2"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    />
+                    <P
+                      en="Pure curiosity sparks value. Keep a childlike gaze, ask 'Why?', and experiment without fear."
+                      ja="「なぜ？」という純粋な問いが、価値を生む。子どもの目線で好奇心を解き放って、こわがらずに試してみる。"
+                      className="text-sm leading-relaxed"
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    />
                   </div>
 
                   {/* Principle 003 */}
