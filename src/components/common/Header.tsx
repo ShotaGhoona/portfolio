@@ -48,7 +48,7 @@ export function Header() {
               className="font-mono text-xs mt-1"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              v3.1.0
+              v4.1.0
             </div>
           </Link>
           
@@ -127,7 +127,7 @@ export function Header() {
               className="font-mono text-xs ml-2"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              v3.1.0
+              v4.1.0
             </div>
           </Link>
 
