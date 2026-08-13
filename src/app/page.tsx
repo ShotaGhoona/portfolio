@@ -5,7 +5,7 @@ import { PhilosophySection } from "@/components/sections/home/PhilosophySection"
 import { ProjectsSection } from "@/components/sections/home/ProjectsSection";
 import { ExpertiseSection } from "@/components/sections/home/ExpertiseSection";
 import { TimelineSection } from "@/components/sections/home/TimelineSection";
-import { NewsSection } from "@/components/sections/home/NewsSection";
+import { ShowcaseSection } from "@/components/sections/home/ShowcaseSection";
 import { ContactSection } from "@/components/sections/home/ContactSection";
 import { Footer } from "@/components/common/Footer";
 
@@ -22,7 +22,7 @@ export default function MinimalismPage02() {
         <ProjectsSection />
         <ExpertiseSection />
         <TimelineSection />
-        <NewsSection />
+        <ShowcaseSection />
         <ContactSection />
       </main>
       <Footer />

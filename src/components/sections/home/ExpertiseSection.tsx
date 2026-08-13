@@ -12,9 +12,9 @@ import {
   HiCpuChip
 } from 'react-icons/hi2';
 import { SiGoland } from 'react-icons/si';
+import { useState } from 'react';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { SectionTitle } from '@/components/ui/SectionTitle';
-import { Div, Span } from '@/components/i18n';
 import { useLanguage } from '@/hooks/useLanguage';
 
 // Icon mapping function
@@ -56,6 +56,56 @@ const getSkillIcon = (skillName: string) => {
 
   return iconMap[skillName] || <FaCode className="w-4 h-4" />;
 };
+
+// Circular progress ring with a centered skill icon
+function SkillRing({ skillName, level }: { skillName: string; level: number }) {
+  const radius = 26;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (circumference * level) / 100;
+
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div className="relative w-16 h-16">
+        <svg width="64" height="64" className="-rotate-90">
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            fill="none"
+            strokeWidth="3"
+            style={{ stroke: 'var(--color-border-secondary)' }}
+          />
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            fill="none"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+            style={{
+              stroke: 'var(--color-accent-green)',
+              transition: 'stroke-dashoffset 1s ease'
+            }}
+          />
+        </svg>
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ color: 'var(--color-text-primary)' }}
+        >
+          {getSkillIcon(skillName)}
+        </div>
+      </div>
+      <div
+        className="font-mono text-[10px] text-center leading-tight"
+        style={{ color: 'var(--color-text-primary)' }}
+      >
+        {skillName}
+      </div>
+    </div>
+  );
+}
 
 // Skill data structure with i18n
 const skillCategories = [
@@ -108,6 +158,12 @@ const skillCategories = [
 
 export function ExpertiseSection() {
   const { language } = useLanguage();
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  const filters = ['all', ...skillCategories.map((c) => c.id)];
+  const visibleSkills = skillCategories
+    .filter((c) => activeFilter === 'all' || c.id === activeFilter)
+    .flatMap((c) => c.skills);
 
   return (
     <section
@@ -129,210 +185,35 @@ export function ExpertiseSection() {
 
           {/* Expertise content */}
           <div className="col-span-1 md:col-span-9 px-4 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-              {skillCategories.slice(0, 2).map((category) => (
-                <div key={category.id} className="space-y-8">
-                  <div
-                    className="border transition-colors duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
+            {/* Filter tabs */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {filters.map((filter) => {
+                const isActive = activeFilter === filter;
+                return (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className="font-mono text-xs px-3 py-1.5 border transition-colors duration-200"
+                    style={{
+                      color: isActive ? 'var(--color-bg-primary)' : 'var(--color-text-secondary)',
+                      backgroundColor: isActive ? 'var(--color-accent-green)' : 'transparent',
+                      borderColor: isActive ? 'var(--color-accent-green)' : 'var(--color-border-primary)'
+                    }}
                   >
-                    <div
-                      className="px-4 py-3 border-b transition-colors duration-200"
-                      style={{
-                        backgroundColor: 'var(--color-bg-primary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
-                    >
-                      <div
-                        className="font-mono text-sm font-bold"
-                        style={{ color: 'var(--color-text-primary)' }}
-                      >
-                        {language === 'ja' ? category.title.ja : category.title.en}
-                      </div>
-                    </div>
-                    <div
-                      className="p-4 space-y-3 transition-colors duration-200"
-                      style={{ backgroundColor: 'var(--color-bg-primary)' }}
-                    >
-                      {category.skills.map((skill, index) => {
-                        const skillName = language === 'ja' ? skill.name.ja : skill.name.en;
-                        return (
-                          <div key={index} className="space-y-1">
-                            <div className="flex items-center gap-3">
-                              <div
-                                className="flex-shrink-0 transition-colors duration-200"
-                                style={{ color: 'var(--color-accent-green)' }}
-                              >
-                                {getSkillIcon(skillName)}
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex justify-between font-mono text-xs">
-                                  <span style={{ color: 'var(--color-text-primary)' }}>{skillName}</span>
-                                  <span style={{ color: 'var(--color-text-secondary)' }}>{skill.level}%</span>
-                                </div>
-                                <div
-                                  className="w-full h-1 mt-1"
-                                  style={{ backgroundColor: 'var(--color-border-secondary)' }}
-                                >
-                                  <div
-                                    className="h-1 transition-all duration-1000"
-                                    style={{
-                                      width: `${skill.level}%`,
-                                      backgroundColor: 'var(--color-accent-green)'
-                                    }}
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {skillCategories.slice(2, 4).map((category) => (
-                <div key={category.id} className="space-y-8">
-                  <div
-                    className="border transition-colors duration-200"
-                    style={{ borderColor: 'var(--color-border-primary)' }}
-                  >
-                    <div
-                      className="px-4 py-3 border-b transition-colors duration-200"
-                      style={{
-                        backgroundColor: 'var(--color-bg-primary)',
-                        borderColor: 'var(--color-border-primary)'
-                      }}
-                    >
-                      <div
-                        className="font-mono text-sm font-bold"
-                        style={{ color: 'var(--color-text-primary)' }}
-                      >
-                        {language === 'ja' ? category.title.ja : category.title.en}
-                      </div>
-                    </div>
-                    <div
-                      className="p-4 space-y-3 transition-colors duration-200"
-                      style={{ backgroundColor: 'var(--color-bg-primary)' }}
-                    >
-                      {category.skills.map((skill, index) => {
-                        const skillName = language === 'ja' ? skill.name.ja : skill.name.en;
-                        return (
-                          <div key={index} className="space-y-1">
-                            <div className="flex items-center gap-3">
-                              <div
-                                className="flex-shrink-0 transition-colors duration-200"
-                                style={{ color: 'var(--color-accent-green)' }}
-                              >
-                                {getSkillIcon(skillName)}
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex justify-between font-mono text-xs">
-                                  <span style={{ color: 'var(--color-text-primary)' }}>{skillName}</span>
-                                  <span style={{ color: 'var(--color-text-secondary)' }}>{skill.level}%</span>
-                                </div>
-                                <div
-                                  className="w-full h-1 mt-1"
-                                  style={{ backgroundColor: 'var(--color-border-secondary)' }}
-                                >
-                                  <div
-                                    className="h-1 transition-all duration-1000"
-                                    style={{
-                                      width: `${skill.level}%`,
-                                      backgroundColor: 'var(--color-accent-green)'
-                                    }}
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                    {filter}
+                  </button>
+                );
+              })}
             </div>
-            
-            {/* Certifications & Education */}
-            <div
-              className="mt-12 pt-8 transition-colors duration-200"
-              style={{ borderTop: `1px solid var(--color-border-secondary)` }}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-                <div>
-                  <div
-                    className="font-mono text-sm font-bold mb-4"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    notable.experiences[]
-                  </div>
-                  <div className="space-y-2">
-                    <div
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      <span style={{ color: 'var(--color-accent-green)' }}>✓</span>{' '}
-                      <Span
-                        en="Lived in India for 1 year"
-                        ja="1年間インド留学を経験"
-                      />
-                    </div>
-                    <div
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      <span style={{ color: 'var(--color-accent-green)' }}>✓</span>{' '}
-                      <Span
-                        en="Founded Ghoona Inc. during university"
-                        ja="大学在学中にGhoona Inc.を設立"
-                      />
-                    </div>
-                    <div
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      <span style={{ color: 'var(--color-accent-green)' }}>✓</span>{' '}
-                      <Span
-                        en="Building full-stack AI products"
-                        ja="AIプロダクトをフルスタックで開発中"
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <div>
-                  <div
-                    className="font-mono text-sm font-bold mb-4"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    education.background[]
-                  </div>
-                  <div className="space-y-2">
-                    <div
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      <span style={{ color: 'var(--color-accent-green)' }}>✓</span>{' '}
-                      <Span
-                        en="B.A. in Architecture • Kyoto University • 2020–2026"
-                        ja="京都大学建築学部 • 2020–2026"
-                      />
-                    </div>
-                    <div
-                      className="font-mono text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      <span style={{ color: 'var(--color-accent-green)' }}>✓</span>{' '}
-                      <Span
-                        en="Exchange Program (ICT & Development) • India • 2023-2024"
-                        ja="インド留学（ICT & Development） • 2023-2024"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Skill rings */}
+            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-x-2 gap-y-6">
+              {visibleSkills.map((skill, index) => {
+                const skillName = language === 'ja' ? skill.name.ja : skill.name.en;
+                return (
+                  <SkillRing key={`${skillName}-${index}`} skillName={skillName} level={skill.level} />
+                );
+              })}
             </div>
           </div>
         </div>

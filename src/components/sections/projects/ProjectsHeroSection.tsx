@@ -7,71 +7,64 @@ export function ProjectsHeroSection() {
   const { language } = useLanguage();
 
   return (
-    <section 
-      className="w-full py-16 md:py-24 lg:py-32 relative transition-colors duration-200"
-      style={{ 
+    <section
+      className="w-full min-h-[50vh] flex py-20 md:py-28 relative transition-colors duration-200"
+      style={{
         backgroundColor: 'var(--color-bg-primary)',
         borderBottom: `1px solid var(--color-border-secondary)`
       }}
     >
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="space-y-8">
+      <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-between gap-12">
+        {/* Top: descriptive comments — pinned to top, matching the home hero */}
+        <div
+          className="font-mono text-sm"
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
           <div>
-            <div 
-              className="font-mono text-sm mb-4 flex items-center gap-2"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              <span style={{ color: 'var(--color-accent-green)' }}>➜</span>
-              ~/portfolio/projects $
-              <span className="animate-blink">|</span>
-            </div>
-            
-            <h1 className="space-y-2 mb-8">
-              <div
-                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                <span style={{ color: 'var(--color-accent-green)' }}>const</span> projects = {'{'}
-              </div>
-              <div
-                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                title: "<span style={{ color: 'var(--color-accent-green)' }}>
-                  {language === 'ja' ? 'プロジェクトアーカイブ' : 'Project Archive'}
-                </span>",
-              </div>
-              <div
-                className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                {'}'};
-              </div>
-            </h1>
+            {language === 'ja'
+              ? '// 技術的な取り組みとコードリポジトリ'
+              : '// Technical showcase and code repositories'}
+          </div>
+          <div>
+            {language === 'ja'
+              ? '// 技術プロジェクト、システムアーキテクチャ、開発成果の包括的なビュー'
+              : '// Comprehensive view of technical projects, system architectures, and development achievements.'}
+          </div>
+        </div>
+
+        {/* Bottom: prompt + heading */}
+        <div>
+          <div
+            className="font-mono text-sm mb-4 flex items-center gap-2"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            <span style={{ color: 'var(--color-accent-green)' }}>➜</span>
+            ~/portfolio/projects $
+            <span className="animate-blink">|</span>
           </div>
 
-          <div className="space-y-4">
-            <p
-              className="font-mono text-sm md:text-base leading-relaxed"
-              style={{ color: 'var(--color-text-secondary)' }}
+          <h1 className="space-y-2">
+            <div
+              className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+              style={{ color: 'var(--color-text-primary)' }}
             >
-              <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {language === 'ja'
-                ? '技術的な取り組みとコードリポジトリ'
-                : 'Technical showcase and code repositories'
-              }
-            </p>
-            <p
-              className="font-mono text-sm md:text-base leading-relaxed opacity-80"
-              style={{ color: 'var(--color-text-secondary)' }}
+              <span style={{ color: 'var(--color-accent-green)' }}>const</span> projects = {'{'}
+            </div>
+            <div
+              className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl ml-4 md:ml-8"
+              style={{ color: 'var(--color-text-primary)' }}
             >
-              <span style={{ color: 'var(--color-accent-green)' }}>// </span>
-              {language === 'ja'
-                ? '技術プロジェクト、システムアーキテクチャ、開発成果の包括的なビュー'
-                : 'Comprehensive view of technical projects, system architectures, and development achievements.'
-              }
-            </p>
-          </div>
+              title: "<span style={{ color: 'var(--color-accent-green)' }}>
+                {language === 'ja' ? 'プロジェクトアーカイブ' : 'Project Archive'}
+              </span>",
+            </div>
+            <div
+              className="font-mono font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              {'}'};
+            </div>
+          </h1>
         </div>
       </div>
       <GridOverlay/>

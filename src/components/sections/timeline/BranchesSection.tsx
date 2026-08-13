@@ -4,202 +4,173 @@ import { useLanguage } from '@/hooks/useLanguage';
 import timelineData from '@/data/translations/timeline.json';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 
+interface Commit {
+  hash: string;
+  date: string;
+  type: string;
+  branch: string;
+  message: string;
+  status: string;
+}
+
+// Upstream information design: each branch is a deliberate thread of life,
+// with a human one-line meaning — not an auto-generated label.
+const BRANCH_META: Record<
+  string,
+  { color: string; label: { en: string; ja: string } }
+> = {
+  main: {
+    color: 'var(--color-accent-green)',
+    label: {
+      en: 'The trunk — from birth through university to the turning point that reoriented everything.',
+      ja: '生まれてから大学、そして人生を塗り替えた転機まで。すべての土台になっている幹。'
+    }
+  },
+  design: {
+    color: '#3b82f6',
+    label: {
+      en: 'Where I fell into Figma and Adobe and learned the craft of making things.',
+      ja: 'FigmaとAdobeに落ちて、「つくる」ことの原体験を得たブランチ。'
+    }
+  },
+  experience: {
+    color: '#f59e0b',
+    label: {
+      en: 'Internships, product work, and time abroad — everything learned by doing.',
+      ja: 'インターン、PdM、海外まで。現場で手を動かしながら学んだブランチ。'
+    }
+  }
+};
+
+const BRANCH_ORDER = ['main', 'design', 'experience'];
+
 export function BranchesSection() {
   const { language } = useLanguage();
-  const timeline = timelineData[language] || timelineData.en;
+  const timeline = (timelineData[language] || timelineData.en) as unknown as Commit[];
 
-  // Calculate branches dynamically from timeline data
-  const branchesMap = new Map();
-  const branchColors: { [key: string]: string } = {
-    'main': 'var(--color-accent-green)',
-    'education': '#3b82f6',
-    'career': '#f59e0b',
-    'entrepreneurship': '#ef4444',
-    'travel': '#06b6d4',
-  };
+  // Overall latest date → marks the currently active branch
+  const latestDate = timeline.reduce(
+    (max, c) => (c.date > max ? c.date : max),
+    ''
+  );
 
-  timeline?.forEach((commit: any) => {
-    const branchName = commit.branch || 'main';
-    if (!branchesMap.has(branchName)) {
-      branchesMap.set(branchName, {
-        name: branchName,
-        color: branchColors[branchName] || 'var(--color-text-secondary)',
-        commits: 0,
-        description: `${branchName} branch commits`
-      });
-    }
-    const branch = branchesMap.get(branchName);
-    branch.commits++;
+  const branches = BRANCH_ORDER.filter((name) =>
+    timeline.some((c) => c.branch === name)
+  ).map((name) => {
+    const commits = timeline
+      .filter((c) => c.branch === name)
+      .sort((a, b) => a.date.localeCompare(b.date));
+    const startYear = commits[0]?.date.slice(0, 4);
+    const endYear = commits[commits.length - 1]?.date.slice(0, 4);
+    const isActive = commits.some(
+      (c) => c.status === 'current' || c.date === latestDate
+    );
+    return {
+      name,
+      color: BRANCH_META[name]?.color || 'var(--color-text-secondary)',
+      label: BRANCH_META[name]?.label,
+      count: commits.length,
+      span: startYear === endYear ? startYear : `${startYear}–${endYear}`,
+      isActive
+    };
   });
 
-  const branches = Array.from(branchesMap.values());
-
   return (
-    <section 
+    <section
       className="w-full py-16 md:py-24 relative transition-colors duration-200"
-      style={{ 
+      style={{
         backgroundColor: 'var(--color-bg-primary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
     >
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="mb-12">
+        {/* Header */}
+        <div className="mb-10 md:mb-14 max-w-2xl">
+          <div
+            className="font-mono text-xs tracking-wide mb-3"
+            style={{ color: 'var(--color-text-tertiary)' }}
+          >
+            {`// branches`}
+          </div>
           <h2
-            className="font-mono font-black text-xl sm:text-2xl md:text-3xl mb-4"
+            className="text-2xl md:text-3xl font-bold mb-3"
             style={{ color: 'var(--color-text-primary)' }}
           >
-            {language === 'ja' ? 'Gitブランチ概要' : 'Git Branches Overview'}
+            {language === 'ja' ? '人生のブランチ' : 'Life branches'}
           </h2>
           <p
-            className="font-mono text-sm"
+            className="text-sm md:text-base leading-relaxed"
             style={{ color: 'var(--color-text-secondary)' }}
           >
             {language === 'ja'
-              ? '// 異なる開発パスと専門分野'
-              : '// Different development paths and specialization areas'
-            }
+              ? '人生は一本道じゃない。土台・つくる・現場——並行して伸びてきたいくつかの筋がある。'
+              : "Life didn't grow in a straight line. It branched — foundation, craft, and hands-on work — several threads developing in parallel."}
           </p>
         </div>
 
-        {/* Branch visualization */}
-        <div 
-          className="border mb-8 transition-colors duration-200"
-          style={{ 
-            borderColor: 'var(--color-border-primary)',
-            backgroundColor: 'var(--color-bg-secondary)'
-          }}
-        >
-          <div 
-            className="px-4 py-2 border-b font-mono text-xs flex items-center gap-3 transition-colors duration-200"
-            style={{ 
-              backgroundColor: 'var(--color-bg-primary)',
-              borderColor: 'var(--color-border-primary)'
-            }}
-          >
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-red-500"></div>
-              <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
-            </div>
-            <span style={{ color: 'var(--color-text-secondary)' }}>
-              {language === 'ja' ? 'Gitブランチネットワーク' : 'Git Branch Network'}
-            </span>
-          </div>
-
-          <div className="p-6 font-mono text-sm space-y-3">
-            <div style={{ color: 'var(--color-text-primary)' }}>
-              <span style={{ color: 'var(--color-accent-green)' }}>$ git branch --all</span>
-            </div>
-            {branches.map((branch, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <div 
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: branch.color }}
-                ></div>
-                <span style={{ color: 'var(--color-text-primary)' }}>
-                  {branch.name}
-                </span>
-                <span 
-                  className="text-xs"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  ({branch.commits} commits)
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Branch details */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {branches.map((branch, index) => (
-            <div 
-              key={index}
-              className="border transition-all duration-200 hover:shadow-lg"
-              style={{ 
+        {/* Branches */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {branches.map((branch) => (
+            <div
+              key={branch.name}
+              className="border p-5 md:p-6 flex flex-col transition-colors duration-200"
+              style={{
                 borderColor: 'var(--color-border-primary)',
                 backgroundColor: 'var(--color-bg-secondary)'
               }}
             >
-              {/* Branch header */}
-              <div 
-                className="px-4 py-3 border-b transition-colors duration-200"
-                style={{ 
-                  backgroundColor: 'var(--color-bg-primary)',
-                  borderColor: 'var(--color-border-primary)'
+              {/* Branch head */}
+              <div className="flex items-center gap-2 mb-3">
+                <span
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: branch.color }}
+                />
+                <span
+                  className="font-mono text-sm font-medium"
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  {branch.name}
+                </span>
+                {branch.isActive && (
+                  <span
+                    className="inline-flex items-center gap-1 ml-auto font-mono text-xs"
+                    style={{ color: 'var(--color-accent-green)' }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{ backgroundColor: 'var(--color-accent-green)' }}
+                    />
+                    active
+                  </span>
+                )}
+              </div>
+
+              {/* Human meaning */}
+              <p
+                className="text-sm leading-relaxed flex-1"
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
+                {language === 'ja' ? branch.label?.ja : branch.label?.en}
+              </p>
+
+              {/* Stats — divided by a line */}
+              <div
+                className="mt-4 pt-3 border-t flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs"
+                style={{
+                  borderColor: 'var(--color-border-secondary)',
+                  color: 'var(--color-text-tertiary)'
                 }}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div 
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: branch.color }}
-                  ></div>
-                  <div 
-                    className="font-mono text-sm font-bold"
-                    style={{ color: 'var(--color-text-primary)' }}
-                  >
-                    {branch.name}
-                  </div>
-                  <div 
-                    className="px-2 py-1 text-xs font-mono"
-                    style={{ 
-                      backgroundColor: 'var(--color-bg-secondary)',
-                      color: 'var(--color-text-secondary)'
-                    }}
-                  >
-                    {branch.commits} commits
-                  </div>
-                </div>
-                <p 
-                  className="font-mono text-xs"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {branch.description}
-                </p>
-              </div>
-              
-              {/* Branch commits */}
-              <div className="p-4">
-                <div
-                  className="font-mono text-xs mb-3"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {language === 'ja' ? '最近のコミット:' : 'Recent commits:'}
-                </div>
-                <div className="space-y-2">
-                  {timeline
-                    ?.filter((commit: any) => commit.branch === branch.name)
-                    .slice(0, 3)
-                    .map((commit: any, commitIndex: number) => (
-                      <div key={commitIndex} className="flex items-start gap-3">
-                        <div 
-                          className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                          style={{ backgroundColor: branch.color }}
-                        ></div>
-                        <div>
-                          <div 
-                            className="font-mono text-xs"
-                            style={{ color: 'var(--color-text-primary)' }}
-                          >
-                            {commit.hash} {commit.message.substring(0, 50)}...
-                          </div>
-                          <div 
-                            className="font-mono text-xs"
-                            style={{ color: 'var(--color-text-tertiary)' }}
-                          >
-                            {new Date(commit.date).toLocaleDateString()}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                </div>
+                <span>
+                  {branch.count} {language === 'ja' ? 'コミット' : 'commits'}
+                </span>
+                <span>{branch.span}</span>
               </div>
             </div>
           ))}
         </div>
-
       </div>
-      <GridOverlay/>
+      <GridOverlay />
     </section>
   );
 }

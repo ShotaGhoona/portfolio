@@ -4,7 +4,7 @@ export function Footer() {
     { name: 'projects()', href: 'projects' },
     { name: 'expertise()', href: 'expertise' },
     { name: 'timeline()', href: 'timeline' },
-    { name: 'news()', href: 'news' },
+    { name: 'showcase()', href: 'showcase' },
     { name: 'contact()', href: 'contact' }
   ];
 
@@ -36,7 +36,7 @@ export function Footer() {
                 className="font-mono text-xs space-y-1"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
-                <div>Portfolio Version: v3.1.0</div>
+                <div>Portfolio Version: v4.1.0</div>
                 <div>Build Date: 2025.06.29</div>
                 <div>Last Updated: {new Date().toISOString().split('T')[0]}</div>
                 <div>Environment: Production</div>
@@ -195,7 +195,7 @@ export function Footer() {
               className="font-mono text-xs space-y-1 mb-4"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              <div>Portfolio Version: v3.1.0</div>
+              <div>Portfolio Version: v4.1.0</div>
               <div>Build Date: 2024.06.29</div>
               <div>Last Updated: {new Date().toISOString().split('T')[0]}</div>
               <div>Environment: Production</div>

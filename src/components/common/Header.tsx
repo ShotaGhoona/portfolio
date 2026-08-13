@@ -15,7 +15,7 @@ export function Header() {
     { label: '[02]', name: 'projects', active: true },
     { label: '[03]', name: 'expertise', active: false },
     { label: '[04]', name: 'timeline', active: false },
-    { label: '[05]', name: 'news', active: false },
+    { label: '[05]', name: 'showcase', active: false },
     { label: '[06]', name: 'contact', active: false }
   ];
 
@@ -48,7 +48,7 @@ export function Header() {
               className="font-mono text-xs mt-1"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              v3.1.0
+              v4.1.0
             </div>
           </Link>
           
@@ -127,7 +127,7 @@ export function Header() {
               className="font-mono text-xs ml-2"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              v3.1.0
+              v4.1.0
             </div>
           </Link>
 
