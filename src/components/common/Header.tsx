@@ -15,8 +15,7 @@ export function Header() {
     { label: '[02]', name: 'projects', active: true },
     { label: '[03]', name: 'expertise', active: false },
     { label: '[04]', name: 'timeline', active: false },
-    { label: '[05]', name: 'news', active: false },
-    { label: '[06]', name: 'contact', active: false }
+    { label: '[05]', name: 'contact', active: false }
   ];
 
   return (

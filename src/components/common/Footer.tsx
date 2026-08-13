@@ -4,7 +4,6 @@ export function Footer() {
     { name: 'projects()', href: 'projects' },
     { name: 'expertise()', href: 'expertise' },
     { name: 'timeline()', href: 'timeline' },
-    { name: 'news()', href: 'news' },
     { name: 'contact()', href: 'contact' }
   ];
 
