@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { TypewriterText } from '@/components/ui/TypewriterText';
-import { P, Div, Span } from '@/components/i18n';
+import { P, Div } from '@/components/i18n';
 
 export function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -37,7 +37,7 @@ export function HeroSection() {
       <div className="max-w-[1500px] mx-auto hidden md:block h-screen py-32">
         <div className="grid grid-cols-12 gap-0 h-full">
           {/* Left content area */}
-          <div className="col-span-8 px-8 h-full">
+          <div className="col-span-7 px-8 h-full">
             <div className="flex flex-col justify-between h-full">
               {/* Meta info */}
               <div
@@ -45,24 +45,26 @@ export function HeroSection() {
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 <Div
-                  en="// Entrepreneur & Full-Stack AI Engineer"
-                  ja="// 起業家・フルスタックAIエンジニア"
+                  en="// Product Manager & Full-Stack Builder"
+                  ja="// プロダクトマネージャー・フルスタック"
                 />
                 <Div
                   en="// Japan / Kyoto / Remote"
                   ja="// 日本 / 京都 / リモート"
                 />
               </div>
-              
+
+              {/* Heading + description + CTA grouped, bottom-aligned */}
+              <div className="space-y-8">
               {/* Main heading */}
               <div className="space-y-4">
-                <h1 
+                <h1
                   className="font-mono font-black text-4xl md:text-5xl leading-none"
                   style={{ color: 'var(--color-text-primary)' }}
                 >
                   <div>
-                    <TypewriterText 
-                      text="const engineer = {" 
+                    <TypewriterText
+                      text="const pdm = {"
                       speed={80}
                       delay={500}
                     />
@@ -91,8 +93,8 @@ export function HeroSection() {
                       speed={80}
                       delay={4600}
                     />
-                    <TypewriterText 
-                      text="'AI Engineer'"
+                    <TypewriterText
+                      text="'Product Manager'"
                       speed={80}
                       delay={5200}
                       style={{ color: 'var(--color-text-secondary)' }}
@@ -134,8 +136,8 @@ export function HeroSection() {
               {/* Description */}
               <div className="space-y-4 max-w-2xl">
                 <P
-                  en="From Kyoto to India to the world of AI, my journey has been shaped by curiosity and conviction. I founded Ghoona Inc. to push the limits of what AI and entrepreneurship can achieve together. Full-stack, full-speed — I believe execution is the best form of expression."
-                  ja="京都、インド、そしてAIの世界へ。私の旅はいつも、好奇心と信念に突き動かされてきました。AIと起業がともに切り拓ける可能性の限界に挑むため、Ghoona Inc.を立ち上げました。フルスタックで、フルスピードで。私にとって、行動こそが最高の表現手段です。"
+                  en="Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move. Full-stack, full-speed — believing the world shifts a little with everything I build."
+                  ja="大阪で育ち、京都で学び、インドに飛び込んで、気づけばAIの世界にいました。共通点はひとつ、「面白そう」に正直だったこと。アイデアが動き出す瞬間を求めて。フルスタックで、フルスピードで。自分が手を動かした分だけ世界が少し変わると信じて。"
                   className="font-mono text-lg leading-relaxed"
                   style={{ color: 'var(--color-text-secondary)' }}
                 />
@@ -205,130 +207,88 @@ export function HeroSection() {
                   CONTACT()
                 </button>
               </div>
+              </div>
             </div>
           </div>
-          
-          {/* Right info panel */}
-          <div className="col-span-4 px-8">
-            <div className="space-y-8">
-              {/* Picture */}
-              <div 
-                className="border transition-colors duration-200"
-                style={{ borderColor: 'var(--color-border-primary)' }}
+
+          {/* Right info panel — full-bleed dynamic portrait */}
+          <div className="col-span-5 pl-8 h-full relative">
+            <div
+              className="relative -my-32 h-screen w-full border-l overflow-hidden group transition-colors duration-200"
+              style={{ borderColor: 'var(--color-border-primary)' }}
+            >
+              {/* Portrait fills the whole column */}
+              <img
+                src={images[currentImageIndex]}
+                alt="Shota Yamashita"
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                  isTransitioning
+                    ? 'scale-110 blur-sm saturate-200 contrast-150 brightness-110'
+                    : 'scale-105 group-hover:scale-100 blur-0 saturate-100 contrast-100 brightness-100'
+                }`}
+                style={{
+                  filter: isTransitioning
+                    ? 'brightness(1.3) hue-rotate(15deg) sepia(20%)'
+                    : 'brightness(1) hue-rotate(0deg) sepia(0%)',
+                  transform: isTransitioning
+                    ? 'translateX(4px) skew(1deg)'
+                    : 'translateX(0px) skew(0deg)'
+                }}
+              />
+
+              {/* Readability gradient */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 25%, transparent 65%, rgba(0,0,0,0.55) 100%)'
+                }}
+              ></div>
+
+              {/* Glitch transition overlays */}
+              {isTransitioning && (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20 animate-pulse"></div>
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-green-400 to-transparent opacity-15 animate-ping"></div>
+                  <div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      background:
+                        'linear-gradient(45deg, transparent 40%, rgba(0, 255, 255, 0.1) 50%, transparent 60%)',
+                      animation: 'glitch-sweep 0.3s ease-out'
+                    }}
+                  ></div>
+                </>
+              )}
+
+              {/* Terminal-style header overlay */}
+              <div
+                className="absolute top-0 left-0 right-0 z-20 px-4 py-2 border-b flex items-center gap-2"
+                style={{
+                  backgroundColor: 'rgba(var(--color-bg-secondary-rgb), 0.55)',
+                  borderColor: 'var(--color-border-primary)',
+                  backdropFilter: 'blur(8px)'
+                }}
               >
-                <div 
-                  className="px-4 py-2 border-b transition-colors duration-200"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg-secondary)',
-                    borderColor: 'var(--color-border-primary)'
-                  }}
-                >
-                  <div 
-                    className="font-mono text-xs"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    picture.current
-                  </div>
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
                 </div>
-                <div className="p-4 space-y-2 relative overflow-hidden">
-                  <div className="relative">
-                    <img 
-                      src={images[currentImageIndex]} 
-                      alt="Shota Yamashita" 
-                      className={`w-full h-auto transition-all duration-300 ${
-                        isTransitioning 
-                          ? 'scale-110 blur-sm opacity-70 saturate-200 contrast-150 brightness-110' 
-                          : 'scale-100 blur-0 opacity-100 saturate-100 contrast-100 brightness-100'
-                      }`}
-                      style={{
-                        filter: isTransitioning 
-                          ? 'brightness(1.3) hue-rotate(15deg) sepia(20%)' 
-                          : 'brightness(1) hue-rotate(0deg) sepia(0%)',
-                        transform: isTransitioning 
-                          ? 'translateX(2px) skew(1deg)' 
-                          : 'translateX(0px) skew(0deg)'
-                      }}
-                    />
-                    {isTransitioning && (
-                      <>
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20 animate-pulse rounded-lg"></div>
-                        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-green-400 to-transparent opacity-15 animate-ping rounded-lg"></div>
-                        <div 
-                          className="absolute inset-0 opacity-30 rounded-lg"
-                          style={{
-                            background: 'linear-gradient(45deg, transparent 40%, rgba(0, 255, 255, 0.1) 50%, transparent 60%)',
-                            animation: 'glitch-sweep 0.3s ease-out'
-                          }}
-                        ></div>
-                      </>
-                    )}
-                  </div>
-                </div>
+                <div className="font-mono text-xs text-white/90">picture.current</div>
               </div>
-              {/* Quick stats */}
-              <div 
-                className="border transition-colors duration-200"
-                style={{ borderColor: 'var(--color-border-primary)' }}
+
+              {/* Bottom label overlay */}
+              <div
+                className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 flex items-end justify-between"
+                style={{ backdropFilter: 'blur(2px)' }}
               >
-                <div 
-                  className="px-4 py-2 border-b transition-colors duration-200"
-                  style={{ 
-                    backgroundColor: 'var(--color-bg-secondary)',
-                    borderColor: 'var(--color-border-primary)'
-                  }}
-                >
-                  <div 
-                    className="font-mono text-xs"
-                    style={{ color: 'var(--color-text-secondary)' }}
-                  >
-                    metrics.current
-                  </div>
+                <div className="font-mono text-white">
+                  <div className="text-xs opacity-70">// picture.current</div>
+                  <div className="text-sm font-bold tracking-tight">Shota Yamashita</div>
                 </div>
-                <div className="p-4 space-y-2">
-                  <div className="flex justify-between font-mono text-xs">
-                    <Span
-                      en="Projects launched"
-                      ja="ローンチしたプロジェクト"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    />
-                    <span
-                      className="font-bold"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >11+</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <Span
-                      en="Years Experience"
-                      ja="経験年数"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    />
-                    <span
-                      className="font-bold"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >2+</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <Span
-                      en="Notion Pages Created"
-                      ja="作成したNotionページ"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    />
-                    <span
-                      className="font-bold"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >countless</span>
-                  </div>
-                  <div className="flex justify-between font-mono text-xs">
-                    <Span
-                      en="Red Bull per day"
-                      ja="1日あたりのRed Bull"
-                      style={{ color: 'var(--color-text-tertiary)' }}
-                    />
-                    <span
-                      className="font-bold"
-                      style={{ color: 'var(--color-text-primary)' }}
-                    >2.2</span>
-                  </div>
+                <div className="font-mono text-xs text-white/80">
+                  {String(currentImageIndex + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
                 </div>
               </div>
             </div>
@@ -421,7 +381,7 @@ export function HeroSection() {
                   className="font-mono text-xs"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  ~/engineer/profile.js
+                  ~/pdm/profile.js
                 </div>
               </div>
               
@@ -433,8 +393,8 @@ export function HeroSection() {
                     style={{ color: 'var(--color-text-primary)' }}
                   >
                     <div>
-                      <TypewriterText 
-                        text="const engineer = {" 
+                      <TypewriterText
+                        text="const pdm = {"
                         speed={60}
                         delay={300}
                       />
@@ -463,8 +423,8 @@ export function HeroSection() {
                         speed={60}
                         delay={2900}
                       />
-                      <TypewriterText 
-                        text="'AI Engeneer'"
+                      <TypewriterText
+                        text="'Product Manager'"
                         speed={60}
                         delay={3200}
                         style={{ color: 'var(--color-text-secondary)' }}
@@ -501,8 +461,8 @@ export function HeroSection() {
             </div>
             <div className="space-y-4 text-left">
               <P
-                en="From Kyoto to India to the world of AI, my journey has been shaped by curiosity and conviction. I founded Ghoona Inc. to push the limits of what AI and entrepreneurship can achieve together. Full-stack, full-speed — I believe execution is the best form of expression."
-                ja="京都、インド、そしてAIの世界へ。私の旅はいつも、好奇心と信念に突き動かされてきました。AIと起業がともに切り拓ける可能性の限界に挑むため、Ghoona Inc.を立ち上げました。フルスタックで、フルスピードで。私にとって、行動こそが最高の表現手段です。"
+                en="Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move. Full-stack, full-speed — believing the world shifts a little with everything I build."
+                ja="大阪で育ち、京都で学び、インドに飛び込んで、気づけばAIの世界にいました。共通点はひとつ、「面白そう」に正直だったこと。アイデアが動き出す瞬間を求めて。フルスタックで、フルスピードで。自分が手を動かした分だけ世界が少し変わると信じて。"
                 className="font-mono text-sm leading-relaxed"
                 style={{ color: 'var(--color-text-primary)' }}
               />
