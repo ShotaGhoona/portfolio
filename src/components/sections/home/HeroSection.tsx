@@ -64,7 +64,7 @@ export function HeroSection() {
                 >
                   <div>
                     <TypewriterText
-                      text="const pdm = {"
+                      text="const PdM = {"
                       speed={80}
                       delay={500}
                     />

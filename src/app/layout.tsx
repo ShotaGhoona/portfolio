@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shota Yamashita - Full-Stack AI Engineer",
-  description: "Portfolio site of Shota Yamashita, Full-Stack AI Engineer and founder of Ghoona Inc.",
+  title: "Shota Yamashita - Product Manager",
+  description: "Portfolio site of Shota Yamashita — Product Manager and full-stack builder.",
 };
 
 const themeScript = `

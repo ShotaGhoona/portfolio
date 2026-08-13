@@ -79,7 +79,7 @@ export function ContactSection() {
     <section 
       id="contact"
       className="w-full py-24 relative transition-colors duration-200"
-      style={{ 
+      style={{
         backgroundColor: 'var(--color-bg-primary)',
         borderTop: `1px solid var(--color-border-secondary)`
       }}
