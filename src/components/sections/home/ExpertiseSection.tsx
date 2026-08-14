@@ -107,6 +107,85 @@ function SkillRing({ skillName, level }: { skillName: string; level: number }) {
   );
 }
 
+// Expand/collapse control shaped like a skill ring: "+N" in the middle, a
+// terminal-style command as the label, and an interactive ring that fills on
+// hover with a blinking cursor.
+function ExpandRing({
+  expanded,
+  count,
+  onToggle,
+}: {
+  expanded: boolean;
+  count: number;
+  onToggle: () => void;
+}) {
+  const [hover, setHover] = useState(false);
+  const radius = 26;
+  const circumference = 2 * Math.PI * radius;
+  const level = hover ? 100 : 14;
+  const offset = circumference - (circumference * level) / 100;
+
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      aria-label={expanded ? 'show less' : 'show more'}
+      className="flex flex-col items-center gap-2 cursor-pointer"
+    >
+      <div className="relative w-16 h-16">
+        <svg width="64" height="64" className="-rotate-90">
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            fill="none"
+            strokeWidth="3"
+            strokeDasharray="3 4"
+            style={{ stroke: 'var(--color-border-secondary)' }}
+          />
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            fill="none"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+            style={{
+              stroke: 'var(--color-accent-alt)',
+              transition: 'stroke-dashoffset 0.5s ease',
+            }}
+          />
+        </svg>
+        <div
+          className="absolute inset-0 flex items-center justify-center font-mono font-bold text-sm transition-transform duration-300"
+          style={{
+            color: 'var(--color-accent-alt)',
+            transform: hover ? 'scale(1.1)' : 'scale(1)',
+          }}
+        >
+          {expanded ? '−' : `+${count}`}
+        </div>
+      </div>
+      <div
+        className="font-mono text-[10px] text-center leading-tight whitespace-nowrap"
+        style={{ color: 'var(--color-text-secondary)' }}
+      >
+        {expanded ? '$ less' : '$ ls --all'}
+        <span
+          className={`inline-block ml-0.5 ${hover ? 'animate-pulse' : ''}`}
+          style={{ opacity: hover ? 1 : 0 }}
+        >
+          ▍
+        </span>
+      </div>
+    </button>
+  );
+}
+
 // Skill data structure with i18n
 const skillCategories = [
   {
@@ -159,11 +238,20 @@ const skillCategories = [
 export function ExpertiseSection() {
   const { language } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [expanded, setExpanded] = useState(false);
 
   const filters = ['all', ...skillCategories.map((c) => c.id)];
   const visibleSkills = skillCategories
     .filter((c) => activeFilter === 'all' || c.id === activeFilter)
     .flatMap((c) => c.skills);
+
+  // Collapsed: 7 skills + the expand ring fill exactly 1 row (desktop, 8 cols)
+  // / 2 rows (mobile, 4 cols).
+  const COLLAPSED_VISIBLE = 7;
+  const hiddenCount = visibleSkills.length - COLLAPSED_VISIBLE;
+  const canExpand = hiddenCount > 0;
+  const shownSkills =
+    expanded || !canExpand ? visibleSkills : visibleSkills.slice(0, COLLAPSED_VISIBLE);
 
   return (
     <section
@@ -192,7 +280,10 @@ export function ExpertiseSection() {
                 return (
                   <button
                     key={filter}
-                    onClick={() => setActiveFilter(filter)}
+                    onClick={() => {
+                      setActiveFilter(filter);
+                      setExpanded(false);
+                    }}
                     className="font-mono text-xs px-3 py-1.5 border transition-colors duration-200"
                     style={{
                       color: isActive ? 'var(--color-bg-primary)' : 'var(--color-text-secondary)',
@@ -206,14 +297,22 @@ export function ExpertiseSection() {
               })}
             </div>
 
-            {/* Skill rings */}
+            {/* Skill rings — 7 skills + an interactive "+N" ring fill 1 row
+                (desktop) / 2 rows (mobile); the ring expands the rest inline. */}
             <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-x-2 gap-y-6">
-              {visibleSkills.map((skill, index) => {
+              {shownSkills.map((skill, index) => {
                 const skillName = language === 'ja' ? skill.name.ja : skill.name.en;
                 return (
                   <SkillRing key={`${skillName}-${index}`} skillName={skillName} level={skill.level} />
                 );
               })}
+              {canExpand && (
+                <ExpandRing
+                  expanded={expanded}
+                  count={hiddenCount}
+                  onToggle={() => setExpanded((v) => !v)}
+                />
+              )}
             </div>
           </div>
         </div>
