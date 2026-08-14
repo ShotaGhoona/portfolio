@@ -66,7 +66,7 @@ export function ShowcaseSection() {
                       <img
                         src={item.thumbnail}
                         alt={item.title[language] ?? item.title.en}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
                       <span

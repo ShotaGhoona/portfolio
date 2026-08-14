@@ -14,7 +14,8 @@
   --font-geist-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   --color-accent-green: #9e8c18;
   --color-accent-green-hover: #9e8c18;
-  
+  --color-accent-alt: #c2683c;
+
   /* Legacy variables for compatibility */
   --background: var(--color-bg-primary);
   --foreground: var(--color-text-primary);
@@ -32,6 +33,7 @@
   --color-border-secondary: #474747;
   --color-accent-green: #22d3ee;
   --color-accent-green-hover: #06b6d4;
+  --color-accent-alt: #e8955a;
   
   /* Legacy variables for compatibility */
   --background: var(--color-bg-primary);
