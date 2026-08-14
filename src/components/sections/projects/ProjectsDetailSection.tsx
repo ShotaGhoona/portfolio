@@ -5,6 +5,7 @@ import projectsData from '@/data/translations/projects.json';
 import Link from 'next/link';
 import { GridOverlay } from '@/components/ui/GridOverlay';
 import { TechIcon } from '@/components/ui/TechIcon';
+import { ProjectImageCarousel } from '@/components/ui/ProjectImageCarousel';
 
 interface ProjectsDetailSectionProps {
   slug: string;
@@ -142,27 +143,15 @@ export function ProjectsDetailSection({ slug }: ProjectsDetailSectionProps) {
           </div>
         </div>
 
-        {/* Pictures Section */}
+        {/* Pictures Section — compact hover carousel */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0 mb-16 md:mb-24">
           <div className="col-span-1 md:col-span-12">
-            <div className="grid grid-cols-1 gap-8">
-              <div className="overflow-hidden transition-all duration-200 hover:opacity-90">
-                <img
-                  src={`/images/projects/${project.slug}/1.png`}
-                  alt={`${project?.name} - Main Interface`}
-                  className="w-full h-auto transition-transform duration-200 hover:scale-105"
-                  style={{ filter: 'grayscale(10%) contrast(1.05)' }}
-                />
-              </div>
-              <div className="overflow-hidden transition-all duration-200 hover:opacity-90">
-                <img
-                  src={`/images/projects/${project.slug}/2.png`}
-                  alt={`${project?.name} - Architecture Diagram`}
-                  className="w-full h-auto transition-transform duration-200 hover:scale-105"
-                  style={{ filter: 'grayscale(10%) contrast(1.05)' }}
-                />
-              </div>
-            </div>
+            <ProjectImageCarousel
+              images={[
+                { src: `/images/projects/${project.slug}/1.png`, alt: `${project?.name} - Main Interface` },
+                { src: `/images/projects/${project.slug}/2.png`, alt: `${project?.name} - Architecture Diagram` },
+              ]}
+            />
           </div>
         </div>
 

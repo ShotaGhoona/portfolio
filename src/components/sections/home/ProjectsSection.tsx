@@ -75,7 +75,7 @@ export function ProjectsSection() {
                           <img
                             src={`/images/projects/${project.slug}/1.png`}
                             alt={`${project.name} interface screenshot`}
-                            className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
+                            className="w-full h-full object-cover"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
                           />
                         </div>
@@ -86,7 +86,7 @@ export function ProjectsSection() {
                           <img
                             src={`/images/projects/${project.slug}/2.png`}
                             alt={`${project.name} dashboard view`}
-                            className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
+                            className="w-full h-full object-cover"
                             style={{ filter: 'grayscale(20%) contrast(1.1)' }}
                           />
                         </div>
