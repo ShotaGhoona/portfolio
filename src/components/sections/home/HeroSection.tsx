@@ -4,7 +4,7 @@ import { TypewriterText } from '@/components/ui/TypewriterText';
 import { P, Div } from '@/components/i18n';
 
 const DESCRIPTION = {
-  en: "Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move. Full-stack, full-speed — believing the world shifts a little with everything I build.",
+  en: "Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move, full-stack and full-speed — and I believe the world shifts a little with everything I build.",
   ja: '大阪で育ち、京都で学び、インドに飛び込んで、気づけばAIの世界にいました。共通点はひとつ、「面白そう」に正直だったこと。アイデアが動き出す瞬間を求め、フルスタックで、フルスピードで。自分が手を動かした分だけ世界が少し変わると信じています。'
 };
 
