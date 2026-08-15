@@ -21,6 +21,12 @@ const iconMap: Record<string, string> = {
   threejs: 'https://cdn.simpleicons.org/threedotjs/000000/ffffff',
   gsap: 'https://cdn.simpleicons.org/greensock/88CE02',
   notion: 'https://cdn.simpleicons.org/notion/000000/ffffff',
+  aws: 'https://cdn.simpleicons.org/amazonwebservices/FF9900',
+  anthropic: 'https://cdn.simpleicons.org/anthropic/191919/ffffff',
+  qdrant: 'https://cdn.simpleicons.org/qdrant/DC244C',
+  redis: 'https://cdn.simpleicons.org/redis/FF4438',
+  docker: 'https://cdn.simpleicons.org/docker/2496ED',
+  reactquery: 'https://cdn.simpleicons.org/reactquery/FF4154',
 };
 
 export function TechIcon({ icon, label }: TechIconProps) {

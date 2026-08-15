@@ -40,12 +40,12 @@ export default function ShowcasePage() {
   );
 
   return (
-    <div className="bg-[var(--color-bg-primary)] h-screen w-full flex flex-col font-mono">
+    <div className="bg-[var(--color-bg-primary)] min-h-svh md:h-svh w-full flex flex-col font-mono">
       <Header />
       {/* Spacer matching the fixed global header height */}
       <div className="h-[56px] md:h-[97px] shrink-0" />
-      <div className="sc-root flex-1 min-h-0 w-full max-w-[1500px] mx-auto">
-        <div className="bg-[var(--color-bg-primary)] text-[color:var(--color-text-primary)] grid h-full w-full grid-cols-1 md:grid-cols-[36%_64%] lg:grid-cols-[35%_35%_30%]">
+      <div className="sc-root w-full max-w-[1500px] mx-auto md:flex-1 md:min-h-0">
+        <div className="bg-[var(--color-bg-primary)] text-[color:var(--color-text-primary)] grid w-full grid-cols-1 md:h-full md:grid-cols-[36%_64%] lg:grid-cols-[35%_35%_30%]">
         {/* ── LEFT REGION — top "Show case", bottom split (menu | meta) */}
         <div className="hidden md:flex flex-col min-h-0 border-r border-[color:var(--color-border-secondary)]">
           {/* Top — Show case with space above */}
@@ -94,10 +94,11 @@ export default function ShowcasePage() {
           </div>
         </div>
 
-        {/* ── CENTER — main cards, snap scroll */}
-        <section className="min-h-0 overflow-y-auto snap-y snap-mandatory md:border-r border-[color:var(--color-border-secondary)] [&::-webkit-scrollbar]:hidden">
+        {/* ── CENTER — cards. Normal document flow on mobile, immersive snap
+             scroll from md up so "See More" stays reachable on phones. */}
+        <section className="pb-10 md:pb-0 md:min-h-0 md:overflow-y-auto md:snap-y md:snap-mandatory md:border-r border-[color:var(--color-border-secondary)] [&::-webkit-scrollbar]:hidden">
           {items.map((item) => (
-            <article key={item.slug} className="snap-start min-h-full flex flex-col px-5 py-6">
+            <article key={item.slug} className="md:snap-start md:min-h-full flex flex-col px-5 py-6">
               {/* kicker */}
               <div className="flex items-baseline justify-between">
                 <span className="text-[13px] tracking-[0.25em] uppercase text-[color:var(--color-text-tertiary)]">

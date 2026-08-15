@@ -4,8 +4,8 @@ import { TypewriterText } from '@/components/ui/TypewriterText';
 import { P, Div } from '@/components/i18n';
 
 const DESCRIPTION = {
-  en: "Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move. Full-stack, full-speed — believing the world shifts a little with everything I build.",
-  ja: '大阪で育ち、京都で学び、インドに飛び込んで、気づけばAIの世界にいました。共通点はひとつ、「面白そう」に正直だったこと。アイデアが動き出す瞬間を求めて。フルスタックで、フルスピードで。自分が手を動かした分だけ世界が少し変わると信じて。'
+  en: "Raised in Osaka, educated in Kyoto, then off to India — and somehow I ended up in the world of AI. The one thread running through it all: being honest about what looks interesting. Chasing the moment an idea starts to move, full-stack and full-speed — and I believe the world shifts a little with everything I build.",
+  ja: '大阪で育ち、京都で学び、インドに飛び込んで、気づけばAIの世界にいました。共通点はひとつ、「面白そう」に正直だったこと。アイデアが動き出す瞬間を求め、フルスタックで、フルスピードで。自分が手を動かした分だけ世界が少し変わると信じています。'
 };
 
 function MetaLines({ className = '' }: { className?: string }) {
@@ -81,7 +81,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="w-full min-h-screen relative transition-colors duration-200"
+      className="w-full min-h-svh relative transition-colors duration-200"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
       {/* Bold profile illustration — floats in the right space, feet off the bottom */}
@@ -90,12 +90,12 @@ export function HeroSection() {
           <img
             src="/SVG/home-profile.svg"
             alt="Shota Yamashita"
-            className="absolute -right-60 sm:-right-40 lg:right-16 bottom-[-8vh] sm:bottom-[-11vh] h-screen w-auto max-w-none select-none drop-shadow-2xl"
+            className="absolute -right-60 sm:-right-40 lg:right-16 bottom-[-8svh] sm:bottom-[-11svh] h-svh w-auto max-w-none select-none drop-shadow-2xl"
           />
         </div>
       </div>
 
-      <div className="max-w-[1500px] mx-auto h-screen py-16 sm:py-24 md:py-32 relative z-10">
+      <div className="max-w-[1500px] mx-auto h-svh py-16 sm:py-24 md:py-32 relative z-10">
         {/* Readability scrim — weaker on small screens so more of the character shows through */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.78] sm:opacity-90 md:opacity-100"
