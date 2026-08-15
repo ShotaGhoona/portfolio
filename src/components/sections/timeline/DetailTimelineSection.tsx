@@ -188,7 +188,13 @@ export function DetailTimelineSection() {
         )}
 
         {section.type === 'picture' && section.count && (
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${section.count} gap-4`}>
+          <div
+            className={`grid grid-cols-1 gap-4 ${
+              { 1: 'md:grid-cols-1', 2: 'md:grid-cols-2', 3: 'md:grid-cols-3', 4: 'md:grid-cols-4' }[
+                section.count
+              ] ?? 'md:grid-cols-3'
+            }`}
+          >
             {Array.from({ length: section.count }).map((_, imgIndex) => (
               <div
                 key={imgIndex}
@@ -219,7 +225,7 @@ export function DetailTimelineSection() {
       <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
           {/* Table of contents */}
-          <nav className="col-span-1 md:col-span-2 px-4 md:px-6 pb-8 md:pb-0">
+          <nav className="col-span-1 md:col-span-3 px-4 md:px-6 pb-8 md:pb-0">
             <div className="md:sticky md:top-28 md:pt-2">
               <div
                 className="font-mono text-xs tracking-wide mb-4"
@@ -227,43 +233,64 @@ export function DetailTimelineSection() {
               >
                 {`// index`}
               </div>
-              <ul className="space-y-3">
-                {timeline?.map((commit: TimelineEntry) => (
-                  <li key={commit.hash}>
-                    <a
-                      href={`#${commit.hash}`}
-                      className="group flex items-start gap-2"
-                    >
-                      <span
-                        className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0 transition-transform duration-200 group-hover:scale-125"
-                        style={{ backgroundColor: getCommitTypeColor(commit.type) }}
-                      />
-                      <span className="min-w-0">
-                        <span
-                          className="block font-mono text-[10px]"
+              {(() => {
+                const groups: { year: number; items: TimelineEntry[] }[] = [];
+                timeline?.forEach((commit) => {
+                  const year = new Date(commit.date).getFullYear();
+                  const last = groups[groups.length - 1];
+                  if (!last || last.year !== year) groups.push({ year, items: [commit] });
+                  else last.items.push(commit);
+                });
+                return (
+                  <div className="space-y-5">
+                    {groups.map((group) => (
+                      <div key={group.year}>
+                        <div
+                          className="font-mono text-xs mb-2"
                           style={{ color: 'var(--color-text-tertiary)' }}
                         >
-                          {new Date(commit.date).getFullYear()}
-                        </span>
-                        <span
-                          className="block text-xs leading-snug line-clamp-2 transition-colors duration-200 group-hover:opacity-100"
-                          style={{ color: 'var(--color-text-secondary)' }}
-                        >
-                          {commit.message}
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                          {group.year}
+                        </div>
+                        <ul className="space-y-2">
+                          {group.items.map((commit) => (
+                            <li key={commit.hash}>
+                              <a
+                                href={`#${commit.hash}`}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  document
+                                    .getElementById(commit.hash)
+                                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }}
+                                className="group flex items-center gap-2"
+                              >
+                                <span
+                                  className="w-2 h-2 rounded-full flex-shrink-0 transition-transform duration-200 group-hover:scale-125"
+                                  style={{ backgroundColor: getCommitTypeColor(commit.type) }}
+                                />
+                                <span
+                                  className="min-w-0 flex-1 truncate text-xs transition-colors duration-200 group-hover:opacity-100"
+                                  style={{ color: 'var(--color-text-secondary)' }}
+                                >
+                                  {commit.message}
+                                </span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
             </div>
           </nav>
 
           {/* Timeline */}
-          <div className="col-span-1 md:col-span-10 pr-4 sm:pr-6 md:pr-8 relative">
+          <div className="col-span-1 md:col-span-9 pr-4 sm:pr-6 md:pr-8 relative">
           {/* Git branch line — aligned to the commit dots */}
           <div
-            className="absolute left-8 top-0 bottom-0 w-0.5 -translate-x-1/2 transition-colors duration-200"
+            className="absolute left-8 md:left-0 top-0 bottom-0 w-0.5 -translate-x-1/2 transition-colors duration-200"
             style={{ backgroundColor: 'var(--color-border-primary)' }}
           />
 
@@ -272,7 +299,7 @@ export function DetailTimelineSection() {
               <div key={commit.hash} id={commit.hash} className="relative scroll-mt-24">
                 {/* Branch indicator */}
                 <div
-                  className="absolute left-8 top-6 w-4 h-4 rounded-full border-2 -translate-x-1/2 transition-colors duration-200"
+                  className="absolute left-8 md:left-0 top-6 w-4 h-4 rounded-full border-2 -translate-x-1/2 transition-colors duration-200"
                   style={{
                     backgroundColor: getCommitTypeColor(commit.type),
                     borderColor: 'var(--color-bg-secondary)'

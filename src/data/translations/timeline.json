@@ -235,7 +235,7 @@
       "date": "2024-09-01",
       "type": "internship",
       "branch": "experience",
-      "message": "SNS marketing company AI agent development intern",
+      "message": "Marketing AI agent dev intern",
       "description": "Drawn by the allure of 'AI agents,' I dove in to find reality was data pipeline plumbing. But the joy when it finally worked was extraordinary. The summer I learned 'AI isn't magic.'",
       "tags": [
         "Internship",
@@ -272,41 +272,46 @@
       "date": "2024-11-10",
       "type": "internship",
       "branch": "experience",
-      "message": "START UP SaaS development PdM",
-      "description": "Infiltrated the deep world of manufacturing. Battled the seemingly mundane but super important problem of 'predicting when screws are needed.' User interviews taught me factory realities and the essence of DX this autumn.",
+      "message": "PdM for ARCHAIVE at STAR UP",
+      "description": "Product manager for ARCHAIVE, an AI-native integrated DX platform (PDM/PLM) for manufacturing. It centralizes drawings, BOM, quotes and 3D CAD around the product as a hub with AI classification and similarity search — and I lead everything from user interviews to requirements, UX design and spec decisions.",
       "tags": [
-        "Internship",
-        "SaaS"
+        "PdM",
+        "ARCHAIVE",
+        "Manufacturing SaaS"
       ],
       "status": "completed",
       "sections": [
         {
-          "title": "Key Projects",
+          "title": "What I own",
           "type": "list",
           "items": [
-            "Major telecom company warehouse system development",
-            "Manufacturing SaaS CRM backlog requirements definition"
+            "Planning & requirements for new features like 'upload anything' and AI aggregate analysis",
+            "UX design and specs for the drawing / BOM / quote / project modules",
+            "User interviews on the factory floor and business-domain modeling"
           ]
         },
         {
-          "title": "Product Skills Acquired",
-          "type": "list",
+          "title": "Tech Stack",
+          "type": "badges",
           "items": [
-            "User story mapping",
-            "Agile/Scrum methodology",
-            "A/B testing design",
-            "SQL analysis",
-            "Stakeholder management"
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "three.js",
+            "FastAPI",
+            "PostgreSQL / pgvector",
+            "Qdrant",
+            "Redis",
+            "Anthropic Claude",
+            "OpenAI",
+            "AWS"
           ]
         },
         {
-          "title": "Fun Episodes",
-          "type": "list",
-          "items": [
-            "Learned manufacturing terms I never knew existed",
-            "Visited 2 Osaka factories (helmet required)",
-            "Can now explain supply chain to anyone at parties"
-          ]
+          "title": "The best team",
+          "type": "picture",
+          "count": 3
         }
       ]
     }
@@ -556,7 +561,7 @@
       "date": "2024-09-01",
       "type": "internship",
       "branch": "experience",
-      "message": "SNSマーケ会社でマーケティングAIエージェント開発インターン",
+      "message": "マーケAIエージェント開発インターン",
       "description": "社内に園児にはいない会社にエンジニアとしてインターン参加。ヒアリングして最適な課題解決を提案するコンサルティングをこなし、経営の軸となるマーケティングAIエージェントの開発を担当。",
       "tags": [
         "インターン",
@@ -598,20 +603,40 @@
       "date": "2024-11-10",
       "type": "internship",
       "branch": "experience",
-      "message": "START UPでSaaS開発のPdM",
-      "description": "製造業の奥深き世界に潜入。「ネジがいつ必要になるか予測する」という地味だけど超重要な問題と格闘。ユーザーインタビューで工場の現実を知り、DXの本質を学んだ秋。",
+      "message": "STAR UPでARCHAIVEのPdM",
+      "description": "製造業向けの統合DXプラットフォーム（PDM/PLM）「ARCHAIVE」のプロダクトマネージャー。図面・BOM・見積・3D CADを製品をハブに一元管理し、AIで自動分類・類似検索するAIネイティブSaaSを、ユーザーインタビューから要件定義・UX設計・仕様策定までリード。",
       "tags": [
-        "インターン",
-        "SaaS"
+        "PdM",
+        "ARCHAIVE",
+        "製造業SaaS"
       ],
       "status": "completed",
       "sections": [
         {
-          "title": "主要プロジェクト",
+          "title": "担当領域",
           "type": "list",
           "items": [
-            "大手通信会社の倉庫システムの開発",
-            "製造業むけSaaSのCRMバックログの要件定義"
+            "「なんでもアップロード」やAI集約解析など新機能の企画・要件定義",
+            "図面 / BOM / 見積 / 案件モジュールのUX設計と仕様策定",
+            "製造現場のユーザーインタビューと業務ドメインの整理"
+          ]
+        },
+        {
+          "title": "使用技術",
+          "type": "badges",
+          "items": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "three.js",
+            "FastAPI",
+            "PostgreSQL / pgvector",
+            "Qdrant",
+            "Redis",
+            "Anthropic Claude",
+            "OpenAI",
+            "AWS"
           ]
         },
         {
